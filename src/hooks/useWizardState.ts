@@ -14,6 +14,7 @@ type WizardAction =
   | { type: "SET_TRIBE"; tribeId: string; startingBonus: { name: string; description: string } | null }
   | { type: "SET_STARTING_BONUS"; startingBonus: { name: string; description: string } }
   | { type: "SET_CLASS"; classId: string }
+  | { type: "SET_CLASS_ABILITY"; ability: string }
   | { type: "SET_MAGIC_SCHOOL"; school: MagicSchool }
   | { type: "SET_FIGHTER_TRAINING"; training: string }
   | { type: "SET_ATTR_PLUS"; attr: AttributeKey | null }
@@ -47,9 +48,13 @@ function wizardReducer(state: WizardState, action: WizardAction): WizardState {
       return {
         ...state,
         classId: action.classId,
+        selectedClassAbility: "",
         magicSchool: null,
         fighterFavoredTraining: "",
       };
+
+    case "SET_CLASS_ABILITY":
+      return { ...state, selectedClassAbility: action.ability };
 
     case "SET_MAGIC_SCHOOL":
       return { ...state, magicSchool: action.school };

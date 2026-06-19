@@ -132,6 +132,9 @@ export default function NewCharacterPage() {
             onSelectClass={(classId) =>
               dispatch({ type: "SET_CLASS", classId })
             }
+            onSelectClassAbility={(ability) =>
+              dispatch({ type: "SET_CLASS_ABILITY", ability })
+            }
             onSelectMagicSchool={(school) =>
               dispatch({ type: "SET_MAGIC_SCHOOL", school })
             }

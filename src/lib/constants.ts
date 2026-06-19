@@ -99,4 +99,4 @@ export const DAMAGE_MODIFIER_LEVELS: {
   { value: "absorb", label: "(Ab)", hint: "DMG dealt is converted into HP recovery" },
 ];
 
-export const CHARACTER_VERSION = 1;
+export const CHARACTER_VERSION = 2;

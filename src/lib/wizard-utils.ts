@@ -7,12 +7,17 @@ import {
   generateId,
   findTribe,
 } from "./utils";
+import {
+  findProgressionEntryByAbility,
+  applyProgressionAbility,
+} from "./class-progression";
 
 export interface WizardState {
   currentStep: number;
   tribeId: string;
   startingBonus: { name: string; description: string } | null;
   classId: string;
+  selectedClassAbility: string;
   magicSchool: MagicSchool | null;
   fighterFavoredTraining: string;
   attrPlus: AttributeKey | null;
@@ -26,6 +31,7 @@ export const INITIAL_WIZARD_STATE: WizardState = {
   tribeId: "",
   startingBonus: null,
   classId: "",
+  selectedClassAbility: "",
   magicSchool: null,
   fighterFavoredTraining: "",
   attrPlus: null,
@@ -51,6 +57,7 @@ export function isStepValid(state: WizardState, step: number): boolean {
       if (state.classId === "mage" && !state.magicSchool) return false;
       if (state.classId === "fighter" && !state.fighterFavoredTraining)
         return false;
+      if (!state.selectedClassAbility) return false;
       return true;
     case 2:
       return (
@@ -250,6 +257,16 @@ export function computePreviewCharacter(state: WizardState): Character {
   if (state.classId) {
     c = applyClassTrainings(c, state.classId);
     c = applyClassBonuses(c, state);
+    if (state.selectedClassAbility) {
+      const entry = findProgressionEntryByAbility(
+        state.classId,
+        state.selectedClassAbility
+      );
+      if (entry) {
+        c = applyProgressionAbility(c, entry);
+        c = { ...c, resolvedLevels: [1] };
+      }
+    }
   }
 
   c = applyAttributeAllocations(c, state);

@@ -83,21 +83,24 @@ export function normalizeCharacter(character: Character): Character {
   const weaknesses = normalizeDamageModifiers(character.combatStats.weaknesses);
   const resistances = normalizeDamageModifiers(character.combatStats.resistances);
 
-  if (
-    weaknesses === character.combatStats.weaknesses &&
-    resistances === character.combatStats.resistances
-  ) {
-    return character;
-  }
-
-  return {
+  const normalized: Character = {
     ...character,
+    classPath: character.classPath ?? "",
+    resolvedLevels: character.resolvedLevels ?? [],
+    trainingPointsUnspent: character.trainingPointsUnspent ?? 0,
+    advancementBonusesTaken: character.advancementBonusesTaken ?? [],
+    skills: (character.skills ?? []).map((s) => ({
+      ...s,
+      source: s.source ?? "other",
+    })),
     combatStats: {
       ...character.combatStats,
       weaknesses,
       resistances,
     },
   };
+
+  return normalized;
 }
 
 export function applyDerivedStats(character: Character): Character {
@@ -227,9 +230,13 @@ export function createDefaultCharacter(): Character {
     name: "New Character",
     tribe: "",
     class: "",
+    classPath: "",
     specialization: "",
     level: 1,
     merit: 0,
+    resolvedLevels: [],
+    trainingPointsUnspent: 0,
+    advancementBonusesTaken: [],
     zodiac: "",
     attributes: defaultAttributes(),
     combatStats: {

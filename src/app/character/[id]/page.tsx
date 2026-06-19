@@ -1,12 +1,15 @@
 "use client";
 
-import { use, useEffect } from "react";
+import { use, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useCharacter } from "@/hooks/useCharacter";
 import { CharacterHeader } from "@/components/character-sheet/CharacterHeader";
 import { CharacterSheetTabs } from "@/components/character-sheet/CharacterSheetTabs";
+import { LevelUpModal } from "@/components/character-sheet/LevelUpModal";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { exportCharacter } from "@/lib/storage";
+import { computeUnresolvedLevels } from "@/lib/class-progression";
+import type { Character } from "@/lib/types/character";
 
 export default function CharacterPage({
   params,
@@ -15,6 +18,25 @@ export default function CharacterPage({
 }) {
   const { id } = use(params);
   const { character, isLoaded, updateCharacter, undo, redo, canUndo, canRedo } = useCharacter(id);
+  const [activeLevelUp, setActiveLevelUp] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!character || activeLevelUp !== null) return;
+
+    const unresolved = computeUnresolvedLevels(character);
+    if (unresolved.length === 0) return;
+
+    const next = unresolved[0];
+    setActiveLevelUp(next);
+  }, [character, activeLevelUp, updateCharacter]);
+
+  const handleLevelUpComplete = useCallback(
+    (updated: Character) => {
+      updateCharacter(() => updated);
+      setActiveLevelUp(null);
+    },
+    [updateCharacter]
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -101,6 +123,14 @@ export default function CharacterPage({
       </div>
 
       <CharacterSheetTabs character={character} onUpdate={updateCharacter} />
+
+      {activeLevelUp !== null && (
+        <LevelUpModal
+          character={character}
+          level={activeLevelUp}
+          onComplete={handleLevelUpComplete}
+        />
+      )}
     </div>
   );
 }

@@ -6,6 +6,8 @@ import { EditableField } from "@/components/ui/EditableField";
 import { Badge } from "@/components/ui/Badge";
 import { generateId } from "@/lib/utils";
 
+const PROTECTED_SOURCES = new Set<SkillEntry["source"]>(["class", "advancement"]);
+
 interface SkillsPanelProps {
   character: Character;
   onUpdate: (updater: (prev: Character) => Character) => void;
@@ -36,10 +38,14 @@ export function SkillsPanel({ character, onUpdate }: SkillsPanelProps) {
 
   const removeSkill = useCallback(
     (id: string) => {
-      onUpdate((prev) => ({
-        ...prev,
-        skills: prev.skills.filter((s) => s.id !== id),
-      }));
+      onUpdate((prev) => {
+        const skill = prev.skills.find((s) => s.id === id);
+        if (skill && PROTECTED_SOURCES.has(skill.source)) return prev;
+        return {
+          ...prev,
+          skills: prev.skills.filter((s) => s.id !== id),
+        };
+      });
     },
     [onUpdate]
   );
@@ -55,15 +61,35 @@ export function SkillsPanel({ character, onUpdate }: SkillsPanelProps) {
             className="bg-surface border border-border-light rounded-lg p-2 space-y-1"
           >
             <div className="flex items-start justify-between gap-2">
-              <EditableField
-                value={skill.name}
-                onChange={(v) => updateSkill(skill.id, "name", String(v))}
-                className="flex-1 font-medium text-sm"
-                displayClassName="font-medium text-sm"
-              />
+              <div className="flex-1 min-w-0">
+                <EditableField
+                  value={skill.name}
+                  onChange={(v) => updateSkill(skill.id, "name", String(v))}
+                  className="font-medium text-sm"
+                  displayClassName="font-medium text-sm"
+                />
+                {(skill.classLevel || skill.abilityType) && (
+                  <div className="flex gap-1 mt-0.5">
+                    {skill.classLevel && (
+                      <span className="text-[9px] uppercase text-text-muted font-mono">
+                        Lv{skill.classLevel}
+                      </span>
+                    )}
+                    {skill.abilityType && (
+                      <span className="text-[9px] uppercase text-accent">
+                        {skill.abilityType}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
               <Badge
                 variant="default"
-                onRemove={() => removeSkill(skill.id)}
+                onRemove={
+                  PROTECTED_SOURCES.has(skill.source)
+                    ? undefined
+                    : () => removeSkill(skill.id)
+                }
               >
                 {skill.source}
               </Badge>

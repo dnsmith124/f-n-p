@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGameData } from "@/hooks/useGameData";
 import {
   TrainingPills,
   ProgressionTable,
 } from "@/components/character-sheet/ClassSelectorModal";
 import { MagicSchoolSelector } from "./MagicSchoolSelector";
+import { ClassAbilitySelector } from "./ClassAbilitySelector";
+import { getAbilitiesAtLevel } from "@/lib/class-progression";
 import type { ClassData } from "@/lib/types/game-data";
 import type { MagicSchool } from "@/lib/types/character";
 import type { WizardState } from "@/lib/wizard-utils";
@@ -14,6 +16,7 @@ import type { WizardState } from "@/lib/wizard-utils";
 interface ClassStepProps {
   state: WizardState;
   onSelectClass: (classId: string) => void;
+  onSelectClassAbility: (ability: string) => void;
   onSelectMagicSchool: (school: MagicSchool) => void;
   onSelectFighterTraining: (training: string) => void;
 }
@@ -52,7 +55,7 @@ function FighterTrainingSelector({
               name="fighter-training"
               checked={selected === training}
               onChange={() => onSelect(training)}
-              className="accent-[var(--color-accent)]"
+              className="accent-accent"
             />
             {training}
           </label>
@@ -68,6 +71,7 @@ function ClassDetailView({
   state,
   onSelect,
   onBack,
+  onSelectClassAbility,
   onSelectMagicSchool,
   onSelectFighterTraining,
 }: {
@@ -76,9 +80,15 @@ function ClassDetailView({
   state: WizardState;
   onSelect: () => void;
   onBack: () => void;
+  onSelectClassAbility: (ability: string) => void;
   onSelectMagicSchool: (school: MagicSchool) => void;
   onSelectFighterTraining: (training: string) => void;
 }) {
+  const abilityOptions = getAbilitiesAtLevel(cls.id, 1);
+  const canSelect =
+    (cls.id !== "mage" || !!state.magicSchool) &&
+    (cls.id !== "fighter" || !!state.fighterFavoredTraining) &&
+    !!state.selectedClassAbility;
   return (
     <div className="space-y-3">
       <button
@@ -186,13 +196,24 @@ function ClassDetailView({
         />
       )}
 
+      <ClassAbilitySelector
+        options={abilityOptions}
+        selected={state.selectedClassAbility}
+        onSelect={onSelectClassAbility}
+        title="Choose Your Level 1 Ability"
+        highlightLevel={1}
+      />
+
       <button
         type="button"
         onClick={onSelect}
+        disabled={!canSelect && !isSelected}
         className={`w-full text-center text-sm font-bold py-2 rounded-lg transition-colors ${
           isSelected
             ? "bg-surface-raised text-text-muted"
-            : "bg-accent text-bg hover:opacity-90"
+            : canSelect
+              ? "bg-accent text-bg hover:opacity-90"
+              : "bg-surface-raised text-text-muted opacity-50 cursor-not-allowed"
         }`}
       >
         {isSelected ? "Selected" : `Select ${cls.name}`}
@@ -204,6 +225,7 @@ function ClassDetailView({
 export function ClassStep({
   state,
   onSelectClass,
+  onSelectClassAbility,
   onSelectMagicSchool,
   onSelectFighterTraining,
 }: ClassStepProps) {
@@ -217,6 +239,17 @@ export function ClassStep({
   const [localMagicSchool, setLocalMagicSchool] = useState<MagicSchool | null>(
     state.magicSchool
   );
+  const [localClassAbility, setLocalClassAbility] = useState(
+    state.selectedClassAbility
+  );
+
+  useEffect(() => {
+    if (viewingClassId === state.classId && state.classId) {
+      setLocalClassAbility(state.selectedClassAbility);
+    } else if (viewingClassId !== state.classId) {
+      setLocalClassAbility("");
+    }
+  }, [viewingClassId, state.classId]);
 
   const baseClasses = classes.filter((c) => c.type === "base");
   const viewingClass = viewingClassId
@@ -228,7 +261,12 @@ export function ClassStep({
       <ClassDetailView
         cls={viewingClass}
         isSelected={viewingClass.id === state.classId}
-        state={{ ...state, fighterFavoredTraining: localFighterTraining, magicSchool: localMagicSchool }}
+        state={{
+          ...state,
+          fighterFavoredTraining: localFighterTraining,
+          magicSchool: localMagicSchool,
+          selectedClassAbility: localClassAbility,
+        }}
         onSelect={() => {
           onSelectClass(viewingClass.id);
           if (viewingClass.id === "fighter" && localFighterTraining) {
@@ -237,8 +275,17 @@ export function ClassStep({
           if (viewingClass.id === "mage" && localMagicSchool) {
             onSelectMagicSchool(localMagicSchool);
           }
+          if (localClassAbility) {
+            onSelectClassAbility(localClassAbility);
+          }
         }}
         onBack={() => setViewingClassId(null)}
+        onSelectClassAbility={(ability) => {
+          setLocalClassAbility(ability);
+          if (viewingClass.id === state.classId) {
+            onSelectClassAbility(ability);
+          }
+        }}
         onSelectMagicSchool={(school) => {
           setLocalMagicSchool(school);
           onSelectMagicSchool(school);

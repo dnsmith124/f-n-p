@@ -9,6 +9,7 @@ import {
   ATTRIBUTE_DESCRIPTIONS,
   ATTRIBUTE_MAX,
 } from "@/lib/constants";
+import { HintTooltip } from "@/components/ui/HintTooltip";
 
 interface AttributeStepProps {
   state: WizardState;
@@ -82,28 +83,39 @@ export function AttributeStep({
                     : "border-border-light bg-surface"
               }`}
             >
-              <div className="flex items-center gap-2 min-w-[60px]">
-                <span className="text-xs font-bold font-mono w-8">
-                  {ATTRIBUTE_ABBR[attr]}
-                </span>
-                <span
-                  className={`text-sm font-bold font-mono w-8 text-center ${
-                    finalVal > 0
-                      ? "text-highlight"
-                      : finalVal < 0
-                        ? "text-danger"
+              <HintTooltip
+                content={ATTRIBUTE_DESCRIPTIONS[attr]}
+                className="flex-1 min-w-0"
+                tooltipClassName="max-w-56 whitespace-normal"
+                ariaLabel={`${ATTRIBUTE_ABBR[attr]}: ${ATTRIBUTE_DESCRIPTIONS[attr]}`}
+              >
+                <div>
+                  <div className="flex items-center gap-2 min-w-[60px]">
+                    <span className="text-xs font-bold font-mono w-8">
+                      {ATTRIBUTE_ABBR[attr]}
+                    </span>
+                    <span
+                      className={`text-sm font-bold font-mono w-8 text-center ${
+                        finalVal > 0 ?
+                          "text-highlight"
+                        : finalVal < 0 ? "text-danger"
                         : "text-text"
-                  }`}
-                >
-                  {finalVal > 0 ? `+${finalVal}` : finalVal}
-                </span>
-              </div>
+                      }`}
+                    >
+                      {finalVal > 0 ? `+${finalVal}` : finalVal}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-text-muted leading-snug truncate mt-0.5">
+                    {ATTRIBUTE_DESCRIPTIONS[attr]}
+                  </p>
+                </div>
+              </HintTooltip>
 
-              <div className="flex-1 min-w-0">
-                <p className="text-[10px] text-text-muted leading-snug truncate">
-                  {ATTRIBUTE_DESCRIPTIONS[attr]}
-                </p>
-              </div>
+              {baseVal !== 0 && (
+                <span className="text-[10px] text-text-muted font-mono shrink-0 w-10 text-left">
+                  base {baseVal > 0 ? `+${baseVal}` : baseVal}
+                </span>
+              )}
 
               <div className="flex items-center gap-1 shrink-0">
                 <button
@@ -135,12 +147,6 @@ export function AttributeStep({
                   +1
                 </button>
               </div>
-
-              {baseVal !== 0 && (
-                <span className="text-[10px] text-text-muted font-mono shrink-0 w-10 text-right">
-                  base {baseVal > 0 ? `+${baseVal}` : baseVal}
-                </span>
-              )}
             </div>
           );
         })}

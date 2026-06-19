@@ -88,8 +88,10 @@ export interface MagicStats {
 export interface SkillEntry {
   id: string;
   name: string;
-  source: "tribe" | "class" | "specialization" | "other";
+  source: "tribe" | "class" | "specialization" | "advancement" | "other";
   description: string;
+  abilityType?: string;
+  classLevel?: number;
 }
 
 export interface TalentEntry {
@@ -152,9 +154,13 @@ export interface Character {
   name: string;
   tribe: string;
   class: string;
+  classPath: string;
   specialization: string;
   level: number;
   merit: number;
+  resolvedLevels: number[];
+  trainingPointsUnspent: number;
+  advancementBonusesTaken: string[];
   zodiac: string;
 
   attributes: CharacterAttributes;
