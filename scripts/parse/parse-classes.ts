@@ -44,6 +44,8 @@ const TYPE_COLS = [1, 4, 7];
 
 function parseTrainings(raw: string): string[] {
   if (!raw) return [];
+  const trimmed = raw.trim().toLowerCase();
+  if (trimmed === "(n/a)" || trimmed === "n/a" || trimmed === "none") return [];
   return raw
     .split(/[\/,]/)
     .map((s) => s.trim())

@@ -18,7 +18,7 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeId>("earth-fungi");
+  const [theme, setThemeState] = useState<ThemeId>("warm-frontier");
 
   useEffect(() => {
     const stored = localStorage.getItem("fnp-theme") as ThemeId | null;

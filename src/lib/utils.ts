@@ -2,11 +2,14 @@ import type {
   Character,
   EquipmentSlot,
   CharacterAttributes,
+  AttributeKey,
 } from "./types/character";
 import { CHARACTER_VERSION, MAX_LUCK_TOKENS_DEFAULT } from "./constants";
 import meritThresholds from "../../data/merit-thresholds.json";
 import tribesData from "../../data/tribes.json";
-import type { TribeData } from "./types/game-data";
+import classesData from "../../data/classes.json";
+import trainingsData from "../../data/trainings.json";
+import type { TribeData, ClassData, TrainingData } from "./types/game-data";
 
 export function generateId(): string {
   return crypto.randomUUID();
@@ -47,6 +50,10 @@ export function findTribe(tribeId: string): TribeData | undefined {
   return (tribesData as TribeData[]).find((t) => t.id === tribeId);
 }
 
+export function spellMemoryUsed(character: Character): number {
+  return character.magic.learnedSpells.reduce((sum, s) => sum + s.spellMemoryCost, 0);
+}
+
 export function applyDerivedStats(character: Character): Character {
   const level = levelFromMerit(character.merit);
   const critRate = derivedCritRate(character.attributes.fns);
@@ -58,12 +65,14 @@ export function applyDerivedStats(character: Character): Character {
   const movement = tribe
     ? tribe.movementBase + character.attributes.spd
     : character.combatStats.movement;
+  const spellMemoryCurrent = spellMemoryUsed(character);
 
   if (
     level === character.level &&
     critRate === character.combatStats.critRate &&
     evasion === character.combatStats.evasion &&
-    movement === character.combatStats.movement
+    movement === character.combatStats.movement &&
+    spellMemoryCurrent === character.magic.spellMemoryCurrent
   ) {
     return character;
   }
@@ -72,22 +81,46 @@ export function applyDerivedStats(character: Character): Character {
     ...character,
     level,
     combatStats: { ...character.combatStats, critRate, evasion, movement },
+    magic: { ...character.magic, spellMemoryCurrent },
   };
 }
 
-export function applyTribeStats(character: Character, tribeId: string): Character {
+export function applyTribeStats(
+  character: Character,
+  tribeId: string,
+  startingBonus?: { name: string; description: string },
+): Character {
   const tribe = findTribe(tribeId);
   if (!tribe) return { ...character, tribe: tribeId };
 
-  const attrs = character.attributes;
+  const attrs = { ...defaultAttributes() };
+  for (const [key, val] of Object.entries(tribe.attributeBonuses)) {
+    if (key in attrs) attrs[key as AttributeKey] = val as number;
+  }
+
   const hpMax = tribe.startingHP + attrs.vit;
   const staminaMax = tribe.startingStamina + attrs.vit;
   const encumbranceMax = tribe.encumbranceBase + attrs.str;
   const spellMemoryMax = tribe.spellMemoryBase + attrs.mem;
 
+  const skillsWithoutTribeBonus = character.skills.filter((s) => s.source !== "tribe");
+  const skills = startingBonus
+    ? [
+        ...skillsWithoutTribeBonus,
+        {
+          id: generateId(),
+          name: startingBonus.name,
+          source: "tribe" as const,
+          description: startingBonus.description,
+        },
+      ]
+    : skillsWithoutTribeBonus;
+
   return {
     ...character,
     tribe: tribeId,
+    attributes: attrs,
+    skills,
     combatStats: {
       ...character.combatStats,
       hpMax,
@@ -104,6 +137,36 @@ export function applyTribeStats(character: Character, tribeId: string): Characte
       ...character.inventory,
       encumbranceMax,
     },
+  };
+}
+
+function findClass(classId: string): ClassData | undefined {
+  return (classesData as ClassData[]).find((c) => c.id === classId);
+}
+
+export function applyClassTrainings(character: Character, classId: string): Character {
+  const cls = findClass(classId);
+  if (!cls) return { ...character, class: classId };
+
+  const allTrainings = trainingsData as TrainingData[];
+  const trainingsByName = new Map(allTrainings.map((t) => [t.name.toLowerCase(), t]));
+
+  const withoutOldClass = character.trainings.filter((t) => t.source !== "class");
+  const existingNames = new Set(withoutOldClass.map((t) => t.name.toLowerCase()));
+
+  const newEntries = cls.startingTrainings
+    .map((name) => {
+      const match = trainingsByName.get(name.toLowerCase());
+      if (!match) return null;
+      if (existingNames.has(match.name.toLowerCase())) return null;
+      return { id: match.id, name: match.name, isAdvanced: match.isAdvanced, source: "class" as const };
+    })
+    .filter((e): e is NonNullable<typeof e> => e !== null);
+
+  return {
+    ...character,
+    class: classId,
+    trainings: [...withoutOldClass, ...newEntries],
   };
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import { use, useEffect } from "react";
 import Link from "next/link";
 import { useCharacter } from "@/hooks/useCharacter";
 import { CharacterHeader } from "@/components/character-sheet/CharacterHeader";
@@ -14,7 +14,24 @@ export default function CharacterPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
-  const { character, isLoaded, updateCharacter } = useCharacter(id);
+  const { character, isLoaded, updateCharacter, undo, redo, canUndo, canRedo } = useCharacter(id);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "z") {
+        const target = e.target as HTMLElement;
+        if (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable) return;
+        e.preventDefault();
+        if (e.shiftKey) {
+          redo();
+        } else {
+          undo();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [undo, redo]);
 
   if (!isLoaded) {
     return (
@@ -52,6 +69,28 @@ export default function CharacterPage({
       <AppHeader
         backHref="/"
         backLabel="Home"
+        actions={
+          <div className="flex items-center gap-0.5">
+            {([
+              { action: undo, enabled: canUndo, label: "Undo", title: "Undo (Ctrl+Z)", path: "M3 10h10a5 5 0 015 5v2M3 10l4-4M3 10l4 4" },
+              { action: redo, enabled: canRedo, label: "Redo", title: "Redo (Ctrl+Shift+Z)", path: "M21 10H11a5 5 0 00-5 5v2M21 10l-4-4M21 10l-4 4" },
+            ] as const).map((btn) => (
+              <button
+                key={btn.label}
+                type="button"
+                onClick={btn.action}
+                disabled={!btn.enabled}
+                className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors disabled:opacity-25 text-text-muted hover:text-text hover:bg-surface-raised disabled:hover:bg-transparent disabled:hover:text-text-muted disabled:cursor-default"
+                aria-label={btn.label}
+                title={btn.title}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d={btn.path} />
+                </svg>
+              </button>
+            ))}
+          </div>
+        }
         menuItems={[
           { label: "Export Character", onClick: handleExport },
         ]}

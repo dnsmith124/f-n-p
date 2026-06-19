@@ -294,6 +294,7 @@ function parseZodiacSheet(
       for (let dr = r + 2; dr < Math.min(r + 8, grid.length); dr++) {
         const dv = cellToString(grid[dr]?.[col]);
         if (!dv) break;
+        if (descParts.length > 0 && descParts[descParts.length - 1] === dv) continue;
         descParts.push(dv);
       }
 

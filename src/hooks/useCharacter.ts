@@ -5,14 +5,27 @@ import type { Character } from "@/lib/types/character";
 import { loadCharacter, saveCharacter } from "@/lib/storage";
 import { applyDerivedStats } from "@/lib/utils";
 
+const MAX_UNDO = 50;
+
 export function useCharacter(id: string) {
   const [character, setCharacterState] = useState<Character | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [canUndo, setCanUndo] = useState(false);
+  const [canRedo, setCanRedo] = useState(false);
   const saveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const undoStack = useRef<Character[]>([]);
+  const redoStack = useRef<Character[]>([]);
+  const characterRef = useRef<Character | null>(null);
 
   useEffect(() => {
     const loaded = loadCharacter(id);
-    setCharacterState(loaded ? applyDerivedStats(loaded) : null);
+    const initial = loaded ? applyDerivedStats(loaded) : null;
+    setCharacterState(initial);
+    characterRef.current = initial;
+    undoStack.current = [];
+    redoStack.current = [];
+    setCanUndo(false);
+    setCanRedo(false);
     setIsLoaded(true);
   }, [id]);
 
@@ -31,15 +44,44 @@ export function useCharacter(id: string) {
 
   const updateCharacter = useCallback(
     (updater: (prev: Character) => Character) => {
-      setCharacterState((prev) => {
-        if (!prev) return prev;
-        const updated = applyDerivedStats(updater(prev));
-        persistCharacter(updated);
-        return updated;
-      });
+      const prev = characterRef.current;
+      if (!prev) return;
+      undoStack.current.push(prev);
+      if (undoStack.current.length > MAX_UNDO) {
+        undoStack.current.shift();
+      }
+      redoStack.current = [];
+      setCanUndo(true);
+      setCanRedo(false);
+      const updated = applyDerivedStats(updater(prev));
+      characterRef.current = updated;
+      setCharacterState(updated);
+      persistCharacter(updated);
     },
     [persistCharacter]
   );
+
+  const undo = useCallback(() => {
+    const prev = undoStack.current.pop();
+    if (!prev || !characterRef.current) return;
+    redoStack.current.push(characterRef.current);
+    characterRef.current = prev;
+    setCharacterState(prev);
+    persistCharacter(prev);
+    setCanUndo(undoStack.current.length > 0);
+    setCanRedo(true);
+  }, [persistCharacter]);
+
+  const redo = useCallback(() => {
+    const next = redoStack.current.pop();
+    if (!next || !characterRef.current) return;
+    undoStack.current.push(characterRef.current);
+    characterRef.current = next;
+    setCharacterState(next);
+    persistCharacter(next);
+    setCanUndo(true);
+    setCanRedo(redoStack.current.length > 0);
+  }, [persistCharacter]);
 
   const updateField = useCallback(
     <K extends keyof Character>(field: K, value: Character[K]) => {
@@ -48,5 +90,5 @@ export function useCharacter(id: string) {
     [updateCharacter]
   );
 
-  return { character, isLoaded, updateCharacter, updateField };
+  return { character, isLoaded, updateCharacter, updateField, undo, redo, canUndo, canRedo };
 }

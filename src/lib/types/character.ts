@@ -79,6 +79,7 @@ export interface TrainingEntry {
   id: string;
   name: string;
   isAdvanced: boolean;
+  source?: "class" | "manual";
 }
 
 export interface EquipmentSlot {

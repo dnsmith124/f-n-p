@@ -8,7 +8,7 @@ import type { TribeData } from "@/lib/types/game-data";
 interface TribeSelectorModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSelect: (tribeId: string) => void;
+  onSelect: (tribeId: string, startingBonus?: { name: string; description: string }) => void;
   currentTribeId: string;
 }
 
@@ -19,7 +19,7 @@ const ATTR_LABELS: Record<string, string> = {
 
 function AttrBonuses({ tribe }: { tribe: TribeData }) {
   const entries = Object.entries(tribe.attributeBonuses).filter(([, v]) => v !== 0);
-  if (entries.length === 0) return <span className="text-text-muted italic">Player&apos;s choice</span>;
+  if (entries.length === 0) return <span className="text-xs font-mono text-text-muted">(+2) &amp; (-2) chosen by player</span>;
   return (
     <span className="flex flex-wrap gap-1.5">
       {entries.map(([key, val]) => (
@@ -31,6 +31,57 @@ function AttrBonuses({ tribe }: { tribe: TribeData }) {
         </span>
       ))}
     </span>
+  );
+}
+
+function BonusSelector({
+  tribe,
+  chosen,
+  onChoose,
+}: {
+  tribe: TribeData;
+  chosen: string | undefined;
+  onChoose: (name: string) => void;
+}) {
+  const isSelectableBonus = (b: { name: string }) =>
+    !b.name.match(/^\d+['']\s*\d+/) && b.name !== "ADVANCEMENT BONUSES";
+
+  const selectable = tribe.startingBonuses.filter(isSelectableBonus);
+  if (selectable.length === 0) return null;
+
+  const selected = chosen ?? selectable[0]?.name;
+  return (
+    <div>
+      <h4 className="text-[10px] uppercase tracking-wider text-text-muted font-bold mb-1">
+        Starting Bonus (Select One)
+      </h4>
+      <div className="space-y-1">
+        {selectable.map((bonus) => (
+          <label
+            key={bonus.name}
+            className={`flex items-start gap-2 p-2 rounded-lg border cursor-pointer transition-colors ${
+              selected === bonus.name
+                ? "border-accent bg-accent/5"
+                : "border-border-light hover:border-border"
+            }`}
+          >
+            <input
+              type="radio"
+              name={`bonus-${tribe.id}`}
+              checked={selected === bonus.name}
+              onChange={() => onChoose(bonus.name)}
+              className="mt-0.5 accent-[var(--color-accent)]"
+            />
+            <div className="flex-1 min-w-0">
+              <span className="text-xs font-bold text-text">{bonus.name}</span>
+              <p className="text-[11px] text-text-secondary leading-snug mt-0.5">
+                {bonus.description}
+              </p>
+            </div>
+          </label>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -65,9 +116,16 @@ export function TribeSelectorModal({
 }: TribeSelectorModalProps) {
   const { tribes } = useGameData();
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [selectedBonus, setSelectedBonus] = useState<Record<string, string>>({});
 
   const handleSelect = (tribeId: string) => {
-    onSelect(tribeId);
+    const tribe = tribes.find((t) => t.id === tribeId);
+    const isSelectable = (b: { name: string }) =>
+      !b.name.match(/^\d+['']\s*\d+/) && b.name !== "ADVANCEMENT BONUSES";
+    const selectable = tribe?.startingBonuses.filter(isSelectable) ?? [];
+    const chosenName = selectedBonus[tribeId];
+    const bonus = selectable.find((b) => b.name === chosenName) ?? selectable[0];
+    onSelect(tribeId, bonus);
     setExpandedId(null);
     onClose();
   };
@@ -149,6 +207,14 @@ export function TribeSelectorModal({
                       </ul>
                     </div>
                   )}
+
+                  <BonusSelector
+                    tribe={tribe}
+                    chosen={selectedBonus[tribe.id]}
+                    onChoose={(name) =>
+                      setSelectedBonus((prev) => ({ ...prev, [tribe.id]: name }))
+                    }
+                  />
 
                   <button
                     type="button"

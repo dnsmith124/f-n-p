@@ -1141,10 +1141,7 @@
     "parentClasses": [
       "MAGE"
     ],
-    "startingTrainings": [
-      "(n",
-      "a)"
-    ],
+    "startingTrainings": [],
     "startingSkills": [],
     "favoredAttributes": [],
     "statBonuses": "",
