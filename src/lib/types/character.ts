@@ -21,6 +21,29 @@ export type MagicSchool =
 
 export type SpellTier = "novice" | "advanced" | "master";
 
+export type DamageType =
+  | "slashing"
+  | "crushing"
+  | "piercing"
+  | "fire"
+  | "ice"
+  | "electric"
+  | "water"
+  | "wind"
+  | "dark"
+  | "light"
+  | "toxic"
+  | "mind"
+  | "sound";
+
+export type DamageModifierLevel = "1" | "2" | "3" | "immunity" | "absorb";
+
+export interface DamageModifierEntry {
+  id: string;
+  damageType: DamageType;
+  level: DamageModifierLevel;
+}
+
 export interface LearnedSpell {
   id: string;
   name: string;
@@ -50,8 +73,8 @@ export interface CombatStats {
   meleeDmgBonus: number;
   rangedDmgBonus: number;
   spellDmgBonus: number;
-  weaknesses: string;
-  resistances: string;
+  weaknesses: DamageModifierEntry[];
+  resistances: DamageModifierEntry[];
 }
 
 export interface MagicStats {

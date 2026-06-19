@@ -19,7 +19,7 @@ const TYPE_LABELS: Record<ClassData["type"], string> = {
   hybrid: "Hybrid Classes",
 };
 
-function TrainingPills({ trainings }: { trainings: string[] }) {
+export function TrainingPills({ trainings }: { trainings: string[] }) {
   if (trainings.length === 0) return null;
   return (
     <div className="flex flex-wrap gap-1">
@@ -32,7 +32,7 @@ function TrainingPills({ trainings }: { trainings: string[] }) {
   );
 }
 
-function ProgressionTable({ progression }: { progression: ClassProgression[] }) {
+export function ProgressionTable({ progression }: { progression: ClassProgression[] }) {
   const paths = [...new Set(progression.map((p) => p.path).filter(Boolean))];
 
   if (paths.length === 0) {

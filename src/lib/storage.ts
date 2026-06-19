@@ -3,7 +3,7 @@ import type {
   CharacterListIndex,
   CharacterSummary,
 } from "./types/character";
-import { createDefaultCharacter } from "./utils";
+import { createDefaultCharacter, normalizeCharacter } from "./utils";
 import { CHARACTER_VERSION } from "./constants";
 
 const INDEX_KEY = "fnp-characters";
@@ -55,7 +55,7 @@ export function saveCharacter(character: Character) {
 export function loadCharacter(id: string): Character | null {
   try {
     const raw = localStorage.getItem(CHARACTER_PREFIX + id);
-    if (raw) return JSON.parse(raw);
+    if (raw) return normalizeCharacter(JSON.parse(raw));
   } catch {}
   return null;
 }
@@ -115,8 +115,9 @@ export function importCharacter(json: string): Character | null {
 
     data.version = CHARACTER_VERSION;
     data.updatedAt = new Date().toISOString();
-    saveCharacter(data as Character);
-    return data as Character;
+    const character = normalizeCharacter(data as Character);
+    saveCharacter(character);
+    return character;
   } catch {
     return null;
   }
@@ -134,7 +135,7 @@ export function importAllCharacters(json: string): number {
         c.id = crypto.randomUUID();
         c.version = CHARACTER_VERSION;
         c.updatedAt = new Date().toISOString();
-        saveCharacter(c);
+        saveCharacter(normalizeCharacter(c));
         count++;
       }
     }

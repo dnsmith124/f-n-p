@@ -3,12 +3,17 @@ import type {
   EquipmentSlot,
   CharacterAttributes,
   AttributeKey,
+  DamageModifierEntry,
 } from "./types/character";
 import { CHARACTER_VERSION, MAX_LUCK_TOKENS_DEFAULT } from "./constants";
 import meritThresholds from "../../data/merit-thresholds.json";
 import tribesData from "../../data/tribes.json";
 import classesData from "../../data/classes.json";
 import trainingsData from "../../data/trainings.json";
+import {
+  DAMAGE_MODIFIER_LEVELS,
+  DAMAGE_TYPES,
+} from "./constants";
 import type { TribeData, ClassData, TrainingData } from "./types/game-data";
 
 export function generateId(): string {
@@ -43,7 +48,7 @@ export function levelFromMerit(merit: number): number {
 }
 
 export function derivedCritRate(fns: number): number {
-  return 20 - fns;
+  return Math.min(20, 20 - fns);
 }
 
 export function findTribe(tribeId: string): TribeData | undefined {
@@ -54,34 +59,76 @@ export function spellMemoryUsed(character: Character): number {
   return character.magic.learnedSpells.reduce((sum, s) => sum + s.spellMemoryCost, 0);
 }
 
-export function applyDerivedStats(character: Character): Character {
-  const level = levelFromMerit(character.merit);
-  const critRate = derivedCritRate(character.attributes.fns);
-  const tribe = findTribe(character.tribe);
+export function normalizeDamageModifiers(value: unknown): DamageModifierEntry[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter(
+    (entry): entry is DamageModifierEntry =>
+      entry &&
+      typeof entry === "object" &&
+      typeof entry.id === "string" &&
+      typeof entry.damageType === "string" &&
+      typeof entry.level === "string"
+  );
+}
 
-  const evasion = tribe
-    ? tribe.evasionBase + character.attributes.fns
-    : character.combatStats.evasion;
-  const movement = tribe
-    ? tribe.movementBase + character.attributes.spd
-    : character.combatStats.movement;
-  const spellMemoryCurrent = spellMemoryUsed(character);
+export function formatDamageModifierEntry(entry: DamageModifierEntry): string {
+  const typeLabel =
+    DAMAGE_TYPES.find((t) => t.value === entry.damageType)?.label ?? entry.damageType;
+  const levelLabel =
+    DAMAGE_MODIFIER_LEVELS.find((l) => l.value === entry.level)?.label ?? entry.level;
+  return `${typeLabel} ${levelLabel}`;
+}
+
+export function normalizeCharacter(character: Character): Character {
+  const weaknesses = normalizeDamageModifiers(character.combatStats.weaknesses);
+  const resistances = normalizeDamageModifiers(character.combatStats.resistances);
 
   if (
-    level === character.level &&
-    critRate === character.combatStats.critRate &&
-    evasion === character.combatStats.evasion &&
-    movement === character.combatStats.movement &&
-    spellMemoryCurrent === character.magic.spellMemoryCurrent
+    weaknesses === character.combatStats.weaknesses &&
+    resistances === character.combatStats.resistances
   ) {
     return character;
   }
 
   return {
     ...character,
+    combatStats: {
+      ...character.combatStats,
+      weaknesses,
+      resistances,
+    },
+  };
+}
+
+export function applyDerivedStats(character: Character): Character {
+  const normalized = normalizeCharacter(character);
+  const level = levelFromMerit(normalized.merit);
+  const critRate = derivedCritRate(normalized.attributes.fns);
+  const tribe = findTribe(normalized.tribe);
+
+  const evasion = tribe
+    ? tribe.evasionBase + normalized.attributes.fns
+    : normalized.combatStats.evasion;
+  const movement = tribe
+    ? tribe.movementBase + normalized.attributes.spd
+    : normalized.combatStats.movement;
+  const spellMemoryCurrent = spellMemoryUsed(normalized);
+
+  if (
+    level === normalized.level &&
+    critRate === normalized.combatStats.critRate &&
+    evasion === normalized.combatStats.evasion &&
+    movement === normalized.combatStats.movement &&
+    spellMemoryCurrent === normalized.magic.spellMemoryCurrent
+  ) {
+    return normalized;
+  }
+
+  return {
+    ...normalized,
     level,
-    combatStats: { ...character.combatStats, critRate, evasion, movement },
-    magic: { ...character.magic, spellMemoryCurrent },
+    combatStats: { ...normalized.combatStats, critRate, evasion, movement },
+    magic: { ...normalized.magic, spellMemoryCurrent },
   };
 }
 
@@ -198,8 +245,8 @@ export function createDefaultCharacter(): Character {
       meleeDmgBonus: 0,
       rangedDmgBonus: 0,
       spellDmgBonus: 0,
-      weaknesses: "",
-      resistances: "",
+      weaknesses: [],
+      resistances: [],
     },
     magic: {
       spellDie: "",

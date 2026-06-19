@@ -5,6 +5,7 @@ import { EditableField } from "@/components/ui/EditableField";
 import { DerivedField } from "@/components/ui/DerivedField";
 import { ResourceTracker } from "@/components/ui/ResourceTracker";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
+import { WeakResistEditor } from "@/components/character-sheet/WeakResistEditor";
 
 interface CombatStatsPanelProps {
   character: Character;
@@ -81,7 +82,7 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
         <DerivedField
           value={`${cs.critRate}+`}
           label="Crit"
-          hint="= 20−FNS"
+          hint="20−FNS"
         />
         <EditableField
           value={cs.meleeDmgBonus}
@@ -107,20 +108,12 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
       </div>
 
       <CollapsibleSection title="Weak / Resist" defaultOpen={false}>
-        <div className="grid grid-cols-2 gap-2">
-          <EditableField
-            value={cs.weaknesses}
-            onChange={(v) => updateStat("weaknesses", String(v))}
-            label="Weaknesses"
-            placeholder="None"
-          />
-          <EditableField
-            value={cs.resistances}
-            onChange={(v) => updateStat("resistances", String(v))}
-            label="Resistances"
-            placeholder="None"
-          />
-        </div>
+        <WeakResistEditor
+          weaknesses={cs.weaknesses}
+          resistances={cs.resistances}
+          onWeaknessesChange={(entries) => updateStat("weaknesses", entries)}
+          onResistancesChange={(entries) => updateStat("resistances", entries)}
+        />
       </CollapsibleSection>
     </div>
   );

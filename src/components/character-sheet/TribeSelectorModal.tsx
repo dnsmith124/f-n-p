@@ -17,7 +17,7 @@ const ATTR_LABELS: Record<string, string> = {
   int: "INT", mem: "MEM", vit: "VIT", cha: "CHA", srv: "SRV",
 };
 
-function AttrBonuses({ tribe }: { tribe: TribeData }) {
+export function AttrBonuses({ tribe }: { tribe: TribeData }) {
   const entries = Object.entries(tribe.attributeBonuses).filter(([, v]) => v !== 0);
   if (entries.length === 0) return <span className="text-xs font-mono text-text-muted">(+2) &amp; (-2) chosen by player</span>;
   return (
@@ -34,7 +34,7 @@ function AttrBonuses({ tribe }: { tribe: TribeData }) {
   );
 }
 
-function BonusSelector({
+export function BonusSelector({
   tribe,
   chosen,
   onChoose,
@@ -70,7 +70,7 @@ function BonusSelector({
               name={`bonus-${tribe.id}`}
               checked={selected === bonus.name}
               onChange={() => onChoose(bonus.name)}
-              className="mt-0.5 accent-[var(--color-accent)]"
+              className="mt-0.5 accent-accent"
             />
             <div className="flex-1 min-w-0">
               <span className="text-xs font-bold text-text">{bonus.name}</span>
@@ -85,7 +85,7 @@ function BonusSelector({
   );
 }
 
-function StatPills({ tribe }: { tribe: TribeData }) {
+export function StatPills({ tribe }: { tribe: TribeData }) {
   const stats = [
     { label: "HP", value: tribe.startingHP },
     { label: "STA", value: tribe.startingStamina },

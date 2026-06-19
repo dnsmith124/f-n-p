@@ -1,4 +1,9 @@
-import type { AttributeKey, MagicSchool } from "./types/character";
+import type {
+  AttributeKey,
+  DamageModifierLevel,
+  DamageType,
+  MagicSchool,
+} from "./types/character";
 
 export const ATTRIBUTE_KEYS: AttributeKey[] = [
   "str", "acc", "fns",
@@ -65,5 +70,33 @@ export const MAGIC_SCHOOL_CSS: Record<MagicSchool, string> = {
 
 export const MAX_LEVEL = 15;
 export const MAX_LUCK_TOKENS_DEFAULT = 2;
+
+export const DAMAGE_TYPES: { value: DamageType; label: string }[] = [
+  { value: "slashing", label: "Slashing" },
+  { value: "crushing", label: "Crushing" },
+  { value: "piercing", label: "Piercing" },
+  { value: "fire", label: "Fire" },
+  { value: "ice", label: "Ice" },
+  { value: "electric", label: "Electric" },
+  { value: "water", label: "Water" },
+  { value: "wind", label: "Wind" },
+  { value: "dark", label: "Dark" },
+  { value: "light", label: "Light" },
+  { value: "toxic", label: "Toxic" },
+  { value: "mind", label: "Mind" },
+  { value: "sound", label: "Sound" },
+];
+
+export const DAMAGE_MODIFIER_LEVELS: {
+  value: DamageModifierLevel;
+  label: string;
+  hint: string;
+}[] = [
+  { value: "1", label: "(1)", hint: "1D4 added to or mitigated from DMG roll(s)" },
+  { value: "2", label: "(2)", hint: "1D6 added to or mitigated from DMG roll(s)" },
+  { value: "3", label: "(3)", hint: "1D8 added to or mitigated from DMG roll(s)" },
+  { value: "immunity", label: "(X)", hint: "Immune to specified DMG type" },
+  { value: "absorb", label: "(Ab)", hint: "DMG dealt is converted into HP recovery" },
+];
 
 export const CHARACTER_VERSION = 1;

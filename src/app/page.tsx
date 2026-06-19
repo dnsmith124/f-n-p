@@ -20,8 +20,7 @@ export default function Home() {
   }, []);
 
   const handleNew = () => {
-    const character = addCharacter();
-    router.push(`/character/${character.id}`);
+    router.push("/character/new");
   };
 
   const handleExportAll = useCallback(() => {
