@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===== Theme: Earth & Fungi (default, light) ===== */
+:root,
+[data-theme="earth-fungi"] {
+  --color-primary: #2D4A3E;
+  --color-secondary: #8B6F47;
+  --color-accent: #D4A843;
+  --color-highlight: #4ECDC4;
+  --color-background: #F5F0E8;
+  --color-surface: #EDE7DB;
+  --color-surface-raised: #E5DED0;
+  --color-danger: #C44536;
+  --color-arcane: #7B68EE;
+  --color-text: #2D2B28;
+  --color-text-secondary: #5C5549;
+  --color-text-muted: #8B8478;
+  --color-border: #C4B99A;
+  --color-border-light: #D9D0BC;
+
+  --school-pyromancy: #E87D3E;
+  --school-oceans-call: #4682B4;
+  --school-great-storm: #DAA520;
+  --school-arcadian: #4E9A4E;
+  --school-twin-moon: #9898B0;
+  --school-phantasm: #9668C4;
 }
 
+/* ===== Theme: Bioluminescent Dark ===== */
+[data-theme="bioluminescent-dark"] {
+  --color-primary: #00D4AA;
+  --color-secondary: #1B2838;
+  --color-accent: #FFB347;
+  --color-highlight: #00D4AA;
+  --color-background: #0A0F14;
+  --color-surface: #111920;
+  --color-surface-raised: #182230;
+  --color-danger: #FF6B6B;
+  --color-arcane: #BB86FC;
+  --color-text: #E0E0E0;
+  --color-text-secondary: #A0A8B4;
+  --color-text-muted: #687080;
+  --color-border: #2A3545;
+  --color-border-light: #1E2A38;
+
+  --school-pyromancy: #FF8C42;
+  --school-oceans-call: #4DA8DA;
+  --school-great-storm: #FFD700;
+  --school-arcadian: #66BB6A;
+  --school-twin-moon: #B0B0CC;
+  --school-phantasm: #BB86FC;
+}
+
+/* ===== Theme: Warm Frontier ===== */
+[data-theme="warm-frontier"] {
+  --color-primary: #5C4033;
+  --color-secondary: #8B7355;
+  --color-accent: #B87333;
+  --color-highlight: #6B8E6B;
+  --color-background: #F2E8D5;
+  --color-surface: #EAE0CC;
+  --color-surface-raised: #E0D4BE;
+  --color-danger: #A0522D;
+  --color-arcane: #5B9BD5;
+  --color-text: #3B3028;
+  --color-text-secondary: #6B5D50;
+  --color-text-muted: #9A8C7E;
+  --color-border: #C8B898;
+  --color-border-light: #D8CBAE;
+
+  --school-pyromancy: #CD6839;
+  --school-oceans-call: #4682B4;
+  --school-great-storm: #CD950C;
+  --school-arcadian: #5B8A5B;
+  --school-twin-moon: #8E8EA0;
+  --school-phantasm: #8B6BAE;
+}
+
+/* ===== Tailwind Theme Tokens ===== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-highlight: var(--color-highlight);
+  --color-bg: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-danger: var(--color-danger);
+  --color-arcane: var(--color-arcane);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+
+  --font-sans: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== Base Styles ===== */
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== CSS-Only Background Textures ===== */
+[data-theme="earth-fungi"] body,
+:root body {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgba(139, 111, 71, 0.03) 50px,
+      rgba(139, 111, 71, 0.03) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(139, 111, 71, 0.03) 50px,
+      rgba(139, 111, 71, 0.03) 51px
+    );
+}
+
+[data-theme="bioluminescent-dark"] body {
+  background-image:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(0, 212, 170, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(187, 134, 252, 0.02) 0%,
+      transparent 50%
+    );
+}
+
+[data-theme="warm-frontier"] body {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 100px,
+      rgba(92, 64, 51, 0.02) 100px,
+      rgba(92, 64, 51, 0.02) 101px
+    );
+}
+
+/* ===== Magic School Tints ===== */
+.school-pyromancy {
+  background-color: color-mix(in srgb, var(--school-pyromancy) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-pyromancy) 50%, transparent);
+}
+.school-oceans-call {
+  background-color: color-mix(in srgb, var(--school-oceans-call) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-oceans-call) 50%, transparent);
+}
+.school-great-storm {
+  background-color: color-mix(in srgb, var(--school-great-storm) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-great-storm) 50%, transparent);
+}
+.school-arcadian {
+  background-color: color-mix(in srgb, var(--school-arcadian) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-arcadian) 50%, transparent);
+}
+.school-twin-moon {
+  background-color: color-mix(in srgb, var(--school-twin-moon) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-twin-moon) 50%, transparent);
+}
+.school-phantasm {
+  background-color: color-mix(in srgb, var(--school-phantasm) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--school-phantasm) 50%, transparent);
 }

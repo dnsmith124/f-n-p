@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "parse": "tsx scripts/parse/parse-all.ts",
+    "parse:classes": "tsx scripts/parse/parse-classes.ts",
+    "parse:items": "tsx scripts/parse/parse-items.ts",
+    "parse:tribes": "tsx scripts/parse/parse-tribes.ts",
+    "parse:spells": "tsx scripts/parse/parse-spells.ts"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -21,6 +26,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.22.4",
+    "typescript": "^5",
+    "xlsx": "^0.18.5"
   }
 }

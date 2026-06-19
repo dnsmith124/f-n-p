@@ -1,0 +1,116 @@
+[
+  {
+    "id": "armorer",
+    "name": "Armorer",
+    "requirements": { "str": 2, "acc": 2 },
+    "description": "Can craft, repair and modify weapons and armor in safe areas or at camp with a Forge Hammer and required materials. Can temporarily sharpen weapons at camp with proper tools."
+  },
+  {
+    "id": "tailor",
+    "name": "Tailor",
+    "requirements": { "acc": 1, "fns": 2 },
+    "description": "Can craft, repair and modify clothing items with Arthosium Thread Weaving in safe areas or at camp with a Tailor's Kit and required materials."
+  },
+  {
+    "id": "lockpick",
+    "name": "Lockpick",
+    "requirements": { "fns": 2 },
+    "description": "Can use a lock picking tool to attempt to crack locked doors, containers, etc."
+  },
+  {
+    "id": "trapper",
+    "name": "Trapper",
+    "requirements": { "fns": 3 },
+    "description": "Can set up traps and use a Trap Probe to disarm pre-set traps for your own use."
+  },
+  {
+    "id": "counterfeiter",
+    "name": "Counterfeiter",
+    "requirements": { "acc": 4, "mem": 2 },
+    "description": "Can replicate small items like documents, keys, coins, etc. An observant NPC may recognize your item as a fake."
+  },
+  {
+    "id": "diviner",
+    "name": "Diviner",
+    "requirements": { "int": 3, "cha": 2 },
+    "description": "Can magically infer the usage/purpose of magic items without an Arcana check. Grants permanent advantage on other Arcana checks."
+  },
+  {
+    "id": "chef",
+    "name": "Chef",
+    "requirements": { "srv": 2 },
+    "description": "Can use ingredient items to make meals at camp."
+  },
+  {
+    "id": "analyst",
+    "name": "Analyst",
+    "requirements": { "srv": 2, "mem": 2 },
+    "description": "Can learn an enemy unit's weak point (1D20+INT / 13+ grants this knowledge). Can only be done once per unit type per battle."
+  },
+  {
+    "id": "alchemist",
+    "name": "Alchemist",
+    "requirements": { "mem": 3 },
+    "description": "Can combine chemistry ingredients at camp using an Alchemist Kit to craft potions, oils, etc. Also allows transmutation of some materials during rest. Roll: 1D20+MEM / 1-5 fail / 6-15 success / 16-19 +1 / 20 +2."
+  },
+  {
+    "id": "medic",
+    "name": "Medic",
+    "requirements": { "vit": 2, "srv": 2 },
+    "description": "Can determine nature of injuries, cause of death, identify diseases, and parse approximate HP of enemies. Can use 1 Stamina to heal 1D6 HP to self/ally within melee range."
+  },
+  {
+    "id": "pilferer",
+    "name": "Pilferer",
+    "requirements": { "fns": 3, "acc": 2 },
+    "description": "Can steal small objects from NPCs (FNS vs Target's SRV contest). Being hidden/invisible grants advantage. Some enemy rare items can only be obtained by pilfering."
+  },
+  {
+    "id": "performer",
+    "name": "Performer",
+    "requirements": { "cha": 4, "acc": 2 },
+    "description": "Can play musical instruments, sing, or act to impress, entertain or distract others (requires CHA check)."
+  },
+  {
+    "id": "acrobat",
+    "name": "Acrobat",
+    "requirements": { "fns": 3, "str": 2 },
+    "description": "Can perform feats of agility without a required roll. Base Jump distance increased to 4+STR / Elevation +2."
+  },
+  {
+    "id": "enchanter",
+    "name": "Enchanter",
+    "requirements": { "int": 4 },
+    "description": "Can permanently add enchantments to weapons. Advanced enchantments can only be done by the Enchanter class."
+  },
+  {
+    "id": "botanist",
+    "name": "Botanist",
+    "requirements": { "srv": 2, "mem": 2 },
+    "description": "Gain advantage on Nature checks towards plantlife/fungus. Increase Ingredient Level of all chemistry items by 1 star in your inventory."
+  },
+  {
+    "id": "tunneler",
+    "name": "Tunneler",
+    "requirements": { "str": 2, "vit": 3 },
+    "description": "Can identify mine spots without a check. Can find places to tunnel to unlock secret paths or treasures."
+  },
+  {
+    "id": "guerilla",
+    "name": "Guerilla",
+    "requirements": { "spd": 5 },
+    "description": "Can not be targeted by attacks of opportunity. DMG dealt during ambush attacks deal the weapon's maximum possible value."
+  },
+  {
+    "id": "brawler",
+    "name": "Brawler",
+    "requirements": { "str": 2, "spd": 2 },
+    "description": "Gain advantage on Martial Maneuvers when unarmed. Fist weapons and unarmed DMG increased by 1 DT."
+  },
+  {
+    "id": "engineer",
+    "name": "Engineer",
+    "requirements": { "int": 4, "acc": 4 },
+    "description": "Can craft, repair and modify Autobows, Mortars and Energy Weapons in safe areas or at camp with a Forge Hammer and required materials. Required for installing weapons/furnishings on a ship."
+  }
+]

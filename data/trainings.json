@@ -1,0 +1,22 @@
+[
+  { "id": "light-blade", "name": "Light Blade", "isAdvanced": false, "description": "Versatile, one-handed swords" },
+  { "id": "heavy-blade", "name": "Heavy Blade", "isAdvanced": false, "description": "Large, two-handed swords" },
+  { "id": "dueling-blade", "name": "Dueling Blade", "isAdvanced": false, "description": "Thrusting swords used in single combat" },
+  { "id": "knife", "name": "Knife", "isAdvanced": false, "description": "Small blades for both utility and combat" },
+  { "id": "light-maul", "name": "Light Maul", "isAdvanced": false, "description": "Small, one-handed blunt weapons" },
+  { "id": "heavy-maul", "name": "Heavy Maul", "isAdvanced": false, "description": "Large, two-handed blunt weapons" },
+  { "id": "axe", "name": "Axe", "isAdvanced": false, "description": "Chopping weapons of all sizes" },
+  { "id": "polearm", "name": "Polearm", "isAdvanced": false, "description": "Spear weapons of all sizes" },
+  { "id": "fist", "name": "Fist", "isAdvanced": false, "description": "Gauntlets made for hand-to-hand battle" },
+  { "id": "bow", "name": "Bow", "isAdvanced": false, "description": "Simple ranged weapons" },
+  { "id": "throwing", "name": "Throwing", "isAdvanced": false, "description": "Small ranged weapons thrown by hand" },
+  { "id": "light-armor", "name": "Light Armor", "isAdvanced": false, "description": "Low-weight armor that allows for high mobility" },
+  { "id": "medium-armor", "name": "Medium Armor", "isAdvanced": false, "description": "Balanced armor that grants decent defense and mobility" },
+  { "id": "shield", "name": "Shield", "isAdvanced": false, "description": "Defensive items used to block incoming attacks" },
+  { "id": "heavy-armor", "name": "Heavy Armor", "isAdvanced": true, "description": "High-weight armor that sacrifices mobility for extreme protection" },
+  { "id": "autobow", "name": "Autobow", "isAdvanced": true, "description": "Gas-combustion powered, bolt firing handheld ballistic weapons" },
+  { "id": "mortar", "name": "Mortar", "isAdvanced": true, "description": "Bulky ranged weapons that fire explosive ammunition" },
+  { "id": "energy", "name": "Energy", "isAdvanced": true, "description": "Advanced weapons that harness magically-enhanced technologies" },
+  { "id": "auto-armor", "name": "Auto-Armor", "isAdvanced": true, "description": "Advanced machine-assisted armor; very rare and extremely durable" },
+  { "id": "channeling", "name": "Channeling", "isAdvanced": true, "description": "Magical weapons that help channel arcane abilities" }
+]

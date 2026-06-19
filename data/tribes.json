@@ -1,0 +1,600 @@
+[
+  {
+    "id": "lamiiran",
+    "name": "Lamiiran",
+    "description": "A storied descendant tribe of Humanity, the Lamiirans were once enslaved by a race of now-extinct elves. It is said that the ancient Lamiirans discovered a power called the Heart of Winter which granted them incredible magic allowing them to destroy their oppressors. After this rebellion, those who discovered the Heart of Winter became the royal class of a new kingdom followed zealously by millions of newly freed people looking to fill the void of power left behind by their former slave masters. From the ivory fortresses of their dead oppressors the Lamiiran royalty perpetuated over one-thousand conflicts, big and small until the final one, the Ruination, ended their conquest forever.",
+    "physicalDescription": "The Lamiiran Tribe consists of peoples of an average, humanoid description with skin tones ranging from peachy pink to dark brown. Hair grows from the head, face and in patches all across the body that can appear black, brown, blonde, auburn any anywhere in between. Lamiirans are commonly seen wearing wide, colorful cloth sashes, each uniquely decorated. The color and ornamentation denoting social status or military rank.",
+    "attributeBonuses": {
+      "acc": 1,
+      "mem": -1,
+      "cha": -1,
+      "srv": 1
+    },
+    "startingHP": 10,
+    "evasionBase": 10,
+    "startingStamina": 4,
+    "movementBase": 4,
+    "spellDie": "1D6",
+    "spellMemoryBase": 3,
+    "encumbranceBase": 10,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "TRUSTED COMPANION",
+        "description": "Start with 1 additional equipment training of your choice and start with a +1 common weapon."
+      },
+      {
+        "name": "WHITE CROWN LINEAGE",
+        "description": "Start with resistance to Ice (2) & advantage on Frozen resist rolls; Suffer innate Fire weakness (1)."
+      },
+      {
+        "name": "RANGER'S SPIRIT",
+        "description": "All DMG rolls are boosted by 1D4 in Random Encounter battles and on ambush rounds."
+      },
+      {
+        "name": "5' 10\"",
+        "description": "Avg. Lifespan 120 yrs."
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "LAST GAMBIT",
+        "description": "At 0 Stamina remaining gain +3 MOVE and EVA."
+      },
+      {
+        "name": "EXPLORER",
+        "description": "Gain advantage on the roll made when searching the Overworld via the \"Survey Area\" traversal method."
+      },
+      {
+        "name": "ENDURANCE TRAINING",
+        "description": "Gain +4 Max HP and +1 Encumbrance."
+      },
+      {
+        "name": "LONE WOLF'S STAND",
+        "description": "While at less than 1/2 HP deal +1D4 on all DMG rolls (including ability / spell DMG rolls)."
+      },
+      {
+        "name": "IMMUNITY",
+        "description": "Gain an innate Toxic DMG resistance (1) as well as a bonus 1D6 on rolls made to defend against the poison status effect."
+      },
+      {
+        "name": "VERSATILITY",
+        "description": "Gain a new weapon training (except for Energy Weapons) and a 1 point increase to your STR or ACC Attribute."
+      },
+      {
+        "name": "BEAST TAMER",
+        "description": "(Ability) Attempt to cause a monster / standard animal creature to flee combat (CHA vs. CHA contest)."
+      },
+      {
+        "name": "ADVANCED SPELLCASTING",
+        "description": "Increase your Spellcasting die by 1 DT."
+      },
+      {
+        "name": "WINTER'S VOICE",
+        "description": "(Spell) [6] Blast a wave of frost outward (3 Tile Width / Melee range) dealing 1D8+SRV Ice DMG to all in range."
+      },
+      {
+        "name": "MILITANT BLOODLINE",
+        "description": ""
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "gothrin",
+    "name": "Gothrin",
+    "description": "Another divergent of the Human race, this culture is said to have spawned directly from the god-ascendant Ronash, the diety of change and transformation. The legend states that right at the dawn of the Age of Light roughly 3,000 years ago Ronash magically cloned himself for an unknown (and unknowable) task. These clones did not retain Ronash's deific status but they were clearly not simply human anymore either. Eventually this new evolution of humanity was placed upon Hidra Allath to live among the other mortal races where they developed an interest in magical study archiving their various discoveries and inventions in the black towers they became known for.",
+    "physicalDescription": "The Gothrin people are the taller and leaner of the two remaining branches of humanity. They are further differentiated from their human ancestry by their extreme pale skin that is sometimes tinged blue, green or purple. Gothrin also sport colored sclera with pale irises; a strange inversion of the typical human eye colorations. Traditionally they shave their entire bodies smooth but many can't maintain this tradition while traveling the wilds.",
+    "attributeBonuses": {
+      "acc": -1,
+      "int": 1,
+      "mem": 1,
+      "vit": -1
+    },
+    "startingHP": 9,
+    "evasionBase": 10,
+    "startingStamina": 3,
+    "movementBase": 4,
+    "spellDie": "1D6",
+    "spellMemoryBase": 5,
+    "encumbranceBase": 9,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "SHIELD OF MORDA",
+        "description": "(Spell) [4] Grant yourself 1 ARM and Pierce resist (1) for 1D4+INT rounds or until hit with fire DMG"
+      },
+      {
+        "name": "TOWER'S PROTECTION",
+        "description": "(Ability) Use your stamina to recover 1D6+INT in HP."
+      },
+      {
+        "name": "ARCANE RESURGENCE",
+        "description": "Re-roll a failed spellcasting attempt once per battle."
+      },
+      {
+        "name": "6' 2\"",
+        "description": "Avg. Lifespan 90 yrs."
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "ARCANE FOCUS",
+        "description": "Increase your base Spellcasting Die to an HDR."
+      },
+      {
+        "name": "WITCHCRAFT",
+        "description": "Any time one of your targets rolls to resist a status effect caused by you reduce their resistance roll by 1D4."
+      },
+      {
+        "name": "ADDITIONAL TRAINING",
+        "description": "Gain 2 Equipment Trainings of your choice."
+      },
+      {
+        "name": "STUDIOUS",
+        "description": "Increase your base Spell Memory by +2."
+      },
+      {
+        "name": "RIFT OF MHIRID",
+        "description": "(Spell) [7] Grant all currently dead allied units advantage on their next Spiritual Influence roll."
+      },
+      {
+        "name": "ENERGETIC CHARGE",
+        "description": "Gain +1 EVA and MOVE while Charging any spell."
+      },
+      {
+        "name": "DOUBLE-DOWN",
+        "description": "Return to any of your Class's Level-Up skills that ask you to select between multiple options and gain a bonus you didn't pick."
+      },
+      {
+        "name": "MAGIC WEAPON",
+        "description": "(Spell) [7] Temporarily infuse your equipped weapon with magic; Add your INT value to ATK rolls for 1+INT round(s)."
+      },
+      {
+        "name": "ADVANCED SPELLCASTING",
+        "description": "Increase your Spellcasting Die by 1 DT."
+      },
+      {
+        "name": "KALEIDOSCOPIC BOLT",
+        "description": "(spell) [6] Cast a projectile that deals 1D6+INT either fire, water, toxic electric, or wind DMG at a target 7 tiles away."
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "mazmeri",
+    "name": "Mazmeri",
+    "description": "An illusive faction of gnomish descendants whos ancestors built technological marvels centuries beyond the capabilities of the other tribes of the Mortal Races. When faced with the possibility of being invaded by their Lamiiran neighbors to the south they pooled together their advanced machinery to build five \"Flying Cities\" unified by Zyzimar, a sentient construct that could coordinate the hulking stations in battle if the need arose. The Mazmeri survived the horrors of the Ruination via these Flying Cities, fleeing to Inuva on their last vessel, B'taam. In this new age, Zyzimar is seen as a god by the Mazmeri and the ancestral technology is misunderstood as mystical and divine.",
+    "physicalDescription": "Short in stature and typically hairy. They retain many of the physiological features inherent to their gnomish ancestry, however Mazmeri are more stocky and thick in the chest, face, and arms. They are a long lived and storied people and therefore have a diverse array of modern styles of dress and outward presentations. It is common to see Mazmeri dressed in full-coverage drab robes and head wraps alongsize others with bright, gold-adorned suits.",
+    "attributeBonuses": {
+      "str": -1,
+      "fns": 1,
+      "int": 1,
+      "srv": -1
+    },
+    "startingHP": 8,
+    "evasionBase": 10,
+    "startingStamina": 4,
+    "movementBase": 5,
+    "spellDie": "1D6",
+    "spellMemoryBase": 3,
+    "encumbranceBase": 8,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "MERCHANT LINEAGE",
+        "description": "Start with +1 CHA instead of +1 INT as your starting ATTR."
+      },
+      {
+        "name": "ARROW OF MAAZ",
+        "description": "(Spell) [3] Fire a bolt from the hands that deals 1D6 elec. DMG at a target within 4+INT tiles."
+      },
+      {
+        "name": "NATURALLY NIMBLE",
+        "description": "Always roll Reaction and Athletics checks with advantage."
+      },
+      {
+        "name": "4' 5\"",
+        "description": "Avg. Lifespan 220 yrs."
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "TINKER",
+        "description": "Gain Energy Weapon Training this level and lower the requirement to gain the \"Engineer\" talent to 2 INT, 2 ACC."
+      },
+      {
+        "name": "SABOTEUR",
+        "description": "(ability) Strike a target within melee range (no DMG) disabling their equipped Autobow, Mortar or Energy weapon for 2 rounds."
+      },
+      {
+        "name": "GNOMISH LUCK",
+        "description": "Gain +1 Luck Token maximum."
+      },
+      {
+        "name": "READINESS",
+        "description": "Gain +2 EVA and +1D4 to status effect resistance rolls during the first round of every battle you participate in."
+      },
+      {
+        "name": "GUSTO",
+        "description": "Deal +1D6 Direct DMG to any target you have Advantage toward."
+      },
+      {
+        "name": "GIFT OF GOOD HEALTH",
+        "description": "Consuming status effect / stamina healing consumables also restores 1D6 HP to you."
+      },
+      {
+        "name": "ADVANCED SPELLCASTING",
+        "description": "Increase your Spellcasting die by 1 DT."
+      },
+      {
+        "name": "CONSOLATION PRIZE",
+        "description": "Still failing a 1D20 roll after using a Luck Token to re-roll restores 1 Stamina pt. to you."
+      },
+      {
+        "name": "ZYZIMAR'S DIALECTIC",
+        "description": "Gain advantage on Intuition, Arcana or History checks"
+      },
+      {
+        "name": "SPECIAL RESEARCH",
+        "description": "You may take a skill from your Specialization this level as well as your Class level up skill (you do not have to pick one or the other this level)."
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "solar-elf",
+    "name": "Solar elf",
+    "description": "After thousands of generations of adaptation, experimentation and environmental changes the ancient race known as the elves splintered off into multiple subspecies that grew into their own separate and powerful nations. Elves as a species are extremely magic-sensitive, their physical forms absorb and embody the raw elemental energies of the universe in ways that other Mortal Races do not seem to. Solar elves were born from elemental fire, viewing Pyromancy and flame as the energy of creation; Some clans going so far as to call it divine. They survived the Ruination though sheer force of will and have explored the farthest south into the volcanic mountains of Inuva which they now call home.",
+    "physicalDescription": "Extremely tall and slender with skin colors ranging from hot pink to blood red. Their hair and facial hair typically grow upwards and in tendril-like clumps, although these are combed out or tied together when one wishes to appear formal or refined. They sport the pointed ears and longer limbs that their elven ancestry entails but unlike them, the Solar Elves have thicker hair and brows and eyes that glow like fire that appear in every shade of yellow and red.",
+    "attributeBonuses": {
+      "fns": -1,
+      "mem": 1,
+      "vit": 1,
+      "cha": -1
+    },
+    "startingHP": 10,
+    "evasionBase": 10,
+    "startingStamina": 3,
+    "movementBase": 5,
+    "spellDie": "1D6",
+    "spellMemoryBase": 3,
+    "encumbranceBase": 10,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "BLAZING GAZE",
+        "description": "(Spell) [6] Burn a target within 10 tiles by channeling fire into your gaze; 1D8+ACC fire DMG."
+      },
+      {
+        "name": "SOLAR REGENERATION",
+        "description": "(Spell) [4] (Outdoor only / Sun must be out) Restore 1D6+SRV HP (self only)."
+      },
+      {
+        "name": "SPIRIT OF THE FURNACE",
+        "description": "Start with resistance to fire (2) & advantage on Burned resist rolls; Suffer innate water weakness (1)."
+      },
+      {
+        "name": "6' 8\"",
+        "description": "Avg. Lifespan 400 yrs."
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "SUN WEAPON",
+        "description": "(Spell) [6] Grant your currently equipped weapon a bonus 1D4 Fire or Light DMG buff for 1D4+MEM rounds (self only)."
+      },
+      {
+        "name": "ANCESTRAL FLAME",
+        "description": "Gain access to Novice-Level Pyromancy spells."
+      },
+      {
+        "name": "ADVANCED SPELLCASTING",
+        "description": "Increase your Spellcasting die by 1 DT."
+      },
+      {
+        "name": "SPELLBLADE",
+        "description": "Elemental charges or enchantments granted to your weapons always deal +1 DMG of said element's type."
+      },
+      {
+        "name": "PIVOT",
+        "description": "Gain the ability to perform standard weapon ATKs while charging a spell, allowing you to continue your cast next turn if desired."
+      },
+      {
+        "name": "MORPHIC BARRIER",
+        "description": "(Ability) Gain Lv.1 resistance to the last DMG that you were hit by. (Can only be used once per battle; Lasts 1D6+INT rounds)."
+      },
+      {
+        "name": "DEFENSIVE ARCANA",
+        "description": "Gain +1 on Spellcasting rolls made when casting spells that are buffs, debuffs or heals."
+      },
+      {
+        "name": "DOUBLECAST",
+        "description": "1 Stamina can be used when casting a Novice-Level spell to cast it again immediately (1 Cast roll is made; all other rolls made twice)."
+      },
+      {
+        "name": "BURNING MELEE",
+        "description": "Deal a bonus 1D4 fire DMG alongside any successful Martial Maneuvers or unarmed ATKs."
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "dyne",
+    "name": "Dyne",
+    "description": "In the dreaded days of the apocalyptic past they were called names such as, \"The Swarm\", \"The Hive\", or \"The Plague.\" Their true name is Dyne, meaning \"Loyal\" in their ancient tongue. Whichever battlefield they were sent to was always left a bloodstained, bone-strewn mess of broken metal and screams. When the annihilation that came to the old world destroyed their subterranean kingdom and buried their queen they slowly regained their individuality and freedom. It is said that Dyne looking for a new, peaceful beginning established a the first Dyne city somewhere in the new continent",
+    "physicalDescription": "The Dyne are a tribe of hulking insectoid creatures that resemble beetles that walk bipedally. Their chitinous shells can be any color in the spectrum but usually tend to be more earth-toned. All of them have a metallic or iridescent shine. The Dyne sport large horns of varying shape on their heads. They are known to decorate their horns with banners, ribbons, fine fabrics, plants, or even the remains of their enemies if they tend toward a life of battle.",
+    "attributeBonuses": {
+      "str": 1,
+      "fns": -1,
+      "spd": -1,
+      "vit": 1
+    },
+    "startingHP": 14,
+    "evasionBase": 9,
+    "startingStamina": 5,
+    "movementBase": 3,
+    "spellDie": "1D4",
+    "spellMemoryBase": 2,
+    "encumbranceBase": 11,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "CHITIN ARMOR",
+        "description": "(ability) Perform a Block action with your elytra (vs. melee only; Block at 20) (can not break)"
+      },
+      {
+        "name": "SONIC DRONE",
+        "description": "(ability) Release a deafening buzz with your wings dealing 2D4 Sound DMG in a 3x3 area."
+      },
+      {
+        "name": "DIVERGENT MORPH",
+        "description": "You have an additional set of small arms; Gain +1 Armament slot & advantg. on climb checks"
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "HORDE WARRIOR",
+        "description": "(Ability / Instant) Enter a battle-trance that increases wpn ATK & DMG by 1D4 when surrounded by 2+ enemies (for 2 rnds.)"
+      },
+      {
+        "name": "BURROW MINER",
+        "description": "Gain the \"Tunneler\" Talent regardless of ATTR requirements; You no longer need a pickaxe tool to mine / use Tunneler Talent."
+      },
+      {
+        "name": "THE RARE DYNE WIZARD",
+        "description": "Increase your Spellcasting Die by 1 DT."
+      },
+      {
+        "name": "REGENERATING EXOSKELETON (HARDY)",
+        "description": "Gain +1 pt. of ARM that is lost when you are brought to less than 1/2 HP; This ARM pt. is restored upon rest / full recovery phase."
+      },
+      {
+        "name": "REGENERATING EXOSKELETON (MIRRORED)",
+        "description": "Gain +1 pt. of BAR that is lost when you are brought to less than 1/2 HP; This BAR pt. is restored upon rest / full recovery phase."
+      },
+      {
+        "name": "STRONG ARM",
+        "description": "Always deal a bonus 2 DMG when dealing Crushing DMG."
+      },
+      {
+        "name": "BATTLE SENSES",
+        "description": "Gain the \"Analyst\" Talent this level regardless of the usually required Attribute threshold."
+      },
+      {
+        "name": "HORN FENCER",
+        "description": "Gain ability to perform an unarmed melee ATK with your horn: deals 1D6+STR slash / pierce DMG (type chosen is permenant)"
+      },
+      {
+        "name": "WINGED RISE",
+        "description": "(Ability/Instant) Immediately return to the tile you were moved from after being thrown, knocked-back, etc."
+      },
+      {
+        "name": "BUG OF BURDEN",
+        "description": "Gain +4 Encumbrance"
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "uranura",
+    "name": "Uranura",
+    "description": "A mysterious and almost alien race of amphibious frogmen that hail from an island just off of the coast of Solar Elven territory that is nothing but a massive swamp from shore to shore. Their home was destroyed and occupied by the first horde of the Dyne army in a war that lasted 22 years- the longest any single area ever held out under Dyne invasion. The Ruination destroyed the last of their civilization that the Dyne left intact forcing the Uranura to become nomadic, many leveraging their physical power and history of warfare to become well-paid mercenaries in the ashen wastes. Now, in Inuva they do much the same in exchange for shelter, food or resources.",
+    "physicalDescription": "Towering creatures with very short, rounded heads that seem to just be a continuation of their huge shoulders. Their heads are flanked on both sides by large cheek pouches that can be inflated changing their color and creating a haunting, vibrating sound. Their skin appears slick and colorful and can be dotted with any number of multicolored stripes, patterns or splotches. Their arms are disproportionately long, reaching past their knees.",
+    "attributeBonuses": {
+      "str": 1,
+      "spd": 1,
+      "int": -1,
+      "vit": -1
+    },
+    "startingHP": 12,
+    "evasionBase": 10,
+    "startingStamina": 5,
+    "movementBase": 5,
+    "spellDie": "1D4",
+    "spellMemoryBase": 2,
+    "encumbranceBase": 8,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "OPENING STRIKE",
+        "description": "Gain advantage on all ATK rolls made towards targets at their maximum HP."
+      },
+      {
+        "name": "ARCANA AGNOSTIC",
+        "description": "Gain an innate resistance to any magic DMG (1 resistance lv.) (can not play a magic class!)"
+      },
+      {
+        "name": "EVERMARSH SHAMAN",
+        "description": "Change Starting Attributes to: (STR = 0 / INT = 0) If 1 is rolled while casting add +2 to its value."
+      },
+      {
+        "name": "7' 5\"",
+        "description": "Avg. Lifespan 70 yrs."
+      },
+      {
+        "name": "ADVANCEMENT BONUSES",
+        "description": "Select one of these bonus abilities / passives at Levels 3, 6, 9, 12 and 15"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "INTIMIDATING EXHALE",
+        "description": "(ability) Inflate your air sacs and begin emitting an eerie. loud noise; Debuff units in 5x5 area -1 ATK & DMG for 2 rounds."
+      },
+      {
+        "name": "STICKY SKIN",
+        "description": "Failed melee ATKs made towards you debuff your attacker making them suffer -1 EVA for 1 round."
+      },
+      {
+        "name": "LEAPFROG",
+        "description": "Increase your base jump distance to 3+STR and base jump height to 2 units of elevation"
+      },
+      {
+        "name": "BRUTE STRENGTH",
+        "description": "(ability) Make an ATK roll dealing DMG equal to the maximum possible roll with your equipped weapon (including buffs / bonuses)"
+      },
+      {
+        "name": "AMPHIBIOUS",
+        "description": "Gain the ability to breathe underwater for several hours and suffer no movement penalties when swimming / in water."
+      },
+      {
+        "name": "FROG PUNCH",
+        "description": "Your unarmed ATKs are increased by 1 DT and unarmed / fist weapon ATKs cause 1 tile of knockback."
+      },
+      {
+        "name": "HYDRO FILM",
+        "description": "Gain an innate water and fire DMG resistance (level 1) and roll burning status effect resistance rolls with advantage"
+      },
+      {
+        "name": "OVERPOWER",
+        "description": "(ability) Perform any of the Martial Maneuvers: If successful also make a weapon ATK towards your target (ranged or melee)."
+      },
+      {
+        "name": "ASTRAL BOON",
+        "description": "Increase your Spellcasting Die by 1 DT (can not be picked if \"Arcana Agnostic\" Starting Bonus chosen)."
+      },
+      {
+        "name": "POISONOUS PORES",
+        "description": "Units that perform unarmed ATKs or attempt Martial Maneuvers on you must make a VIT save (15+) or become poisoned for 3 rounds."
+      }
+    ],
+    "gameplayNotes": []
+  },
+  {
+    "id": "tenant",
+    "name": "Tenant",
+    "description": "The spiritual remains of unknown origin whose soul has been bound to an armament of war, modified to contain its host's essence. This process was first attempted by the Jezoriad tribe of Humanity who wished to serve neither Iridess or Mhire in death, but instead continue their battles against monster-kind alongside their own goddess, Althea. This experiment failed, however and no soul-bound Tenants walked this plane during the time of the Jezoriad. This changed after the Ruination; Many of the arms that had been infused with the binding magic had fallen unwittingly into the hands of strangers during the last days of the old world and the Tenants were at long last born.",
+    "physicalDescription": "A Tenant, regardless of the item they are bound to, can project themself into the physical plane as a humanoid aura; These projections vary greatly in size, build, and general resemblance to the more corporeal tribes of the Mortal Races. Broadly speaking, Tenants appear in their physical forms as faintly glowing (the color also varies) featureless humanoids, their bound item always radiating the same light as their own personal glow.",
+    "attributeBonuses": {},
+    "startingHP": 9,
+    "evasionBase": 10,
+    "startingStamina": 4,
+    "movementBase": 5,
+    "spellDie": "1D6",
+    "spellMemoryBase": 3,
+    "encumbranceBase": 10,
+    "scalingAttribute": "MEM",
+    "startingTrainings": [],
+    "startingLanguages": [
+      "Common"
+    ],
+    "startingBonuses": [
+      {
+        "name": "WEAPON TENANT",
+        "description": "Your soul is tethered to a common weapon of any type. (usable regardless of training)"
+      },
+      {
+        "name": "ARMOR TENANT",
+        "description": "Your soul is tethered to a common armor item of any type. (usable regardless of training) Gameplay Changes: - Can stop projecting their physical"
+      }
+    ],
+    "advancementBonuses": [
+      {
+        "name": "BOND ENHANCEMENT",
+        "description": "Gain an innate +2 to ATK (weapon) or an innate +1 ARM or BAR (armor)."
+      },
+      {
+        "name": "PSYCHIC SHUDDER",
+        "description": "Deal 2D6+CHA Mind DMG to an enemy that has picked you up while in your inanimate form. This also causes said target to drop you."
+      },
+      {
+        "name": "ELEMENTAL BOND",
+        "description": "Select any non-physical DMG type; grant +1D4 DMG (weapon) / Lv.1 resistance (armor)"
+      },
+      {
+        "name": "PUPPETEER'S AMBUSH",
+        "description": "(Ability) While in inanimate form strike a target (5 tile range; advantage on ATK: weapon DMG or 1D6+STR crush) can end inanimate form."
+      },
+      {
+        "name": "BOND TRANSMUTATION",
+        "description": "Choose a second common item of the same category as your initial bond item that you can use a main action to transform in to."
+      },
+      {
+        "name": "GIFT OF RONASH",
+        "description": "Gain the \"White\", \"Silver\" or \"Golden\" Modifier (weapon) or the \"Mage\" \"Flexile\", or \"Mirrored\" Modifier (armor) on your bond item."
+      },
+      {
+        "name": "HIDDEN IN PLAIN SIGHT",
+        "description": "(Self) Gain a round of ambush on the enemy party before a random encounter begins by utilizing Inanimate Form."
+      },
+      {
+        "name": "SPIRITUAL RESILIENCE",
+        "description": "Gain a second \"point\" of durability with your bond item meaning it takes 2 breakage events to occur before it fully suffers \"broken\" status."
+      },
+      {
+        "name": "ADVANCED SPELLCASTING",
+        "description": "Increase your Spellcasting die by 1 DT."
+      },
+      {
+        "name": "SOUL STRENGTH",
+        "description": "Gain the ability to roll melee weapon DMG rolls scaling with your VIT attribute instead of STR (or that weapon's designated scaling)."
+      }
+    ],
+    "gameplayNotes": []
+  }
+]

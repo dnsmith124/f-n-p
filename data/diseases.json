@@ -1,0 +1,15 @@
+[
+  { "id": "sylvan-madness", "name": "Sylvan Madness", "recoveryThreshold": 15, "effects": "Disadvantage on INT rolls / Spellcast rolls become LDRs", "restrictions": [] },
+  { "id": "mine-rock-fever", "name": "Mine Rock Fever", "recoveryThreshold": 12, "effects": "STR & VIT -1 / HP recovery rolls -1", "restrictions": [] },
+  { "id": "ash-bone", "name": "Ash Bone", "recoveryThreshold": 12, "effects": "Max HP -3", "restrictions": [] },
+  { "id": "wasting-pox", "name": "Wasting Pox", "recoveryThreshold": 15, "effects": "Double Stamina cost for battles / abilities / etc.", "restrictions": ["lamiiran", "gothrin"] },
+  { "id": "south-sea-shakes", "name": "South Sea Shakes", "recoveryThreshold": 12, "effects": "Disadvantage on FNS & SPD checks", "restrictions": [] },
+  { "id": "wormsbite", "name": "Wormsbite", "recoveryThreshold": 13, "effects": "Status effect resistance rolls made with disadvantage", "restrictions": [] },
+  { "id": "grit-lung", "name": "Grit Lung", "recoveryThreshold": 15, "effects": "Double Stamina costs", "restrictions": [] },
+  { "id": "tick-blindness", "name": "Tick Blindness", "recoveryThreshold": 10, "effects": "ACC rolls, ATK rolls and Perception/Search checks made with disadvantage", "restrictions": [] },
+  { "id": "carapace-rot", "name": "Carapace Rot", "recoveryThreshold": 15, "effects": "EVA -1 / Reaction checks and Initiative rolls made with disadvantage", "restrictions": ["dyne"] },
+  { "id": "noksblight", "name": "Noksblight", "recoveryThreshold": 18, "effects": "STAM Max -3 / All Attributes -1", "restrictions": [] },
+  { "id": "blackblood-sickness", "name": "Blackblood Sickness", "recoveryThreshold": 15, "effects": "Gain poison status at start of every battle for 1D4 rounds / Take 1D4 DMG upon rest", "restrictions": ["!uranura"] },
+  { "id": "the-harrows", "name": "The Harrows", "recoveryThreshold": 17, "effects": "MOVE -1 / STR, FNS, & VIT -1", "restrictions": ["mazmeri"] },
+  { "id": "gut-poisoning", "name": "Gut Poisoning", "recoveryThreshold": 13, "effects": "VIT check (15+) when using consumable potion/medicine/food. If failed the item is lost with no benefit.", "restrictions": [] }
+]

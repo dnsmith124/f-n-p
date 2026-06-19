@@ -1,0 +1,2517 @@
+[
+  {
+    "id": "fighter",
+    "name": "Fighter",
+    "type": "base",
+    "description": "Whether it is a job or simply an apt description, done out of need or wanderlust, or with desired outcome being riches, glory or simple survival there are many who claim this title in these trying days.",
+    "parentClasses": [],
+    "startingTrainings": [
+      "Light Blade",
+      "Heavy Blade",
+      "Dueling Blade",
+      "Light Maul",
+      "Heavy Maul",
+      "Axe",
+      "Polearm",
+      "Fist",
+      "Knife",
+      "Bow",
+      "Shield",
+      "Light Armor",
+      "Medium Armor"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "STR",
+      "ACC",
+      "SPD"
+    ],
+    "statBonuses": "Gain +1 HP per Level (including Lv.1)",
+    "classBonus": "Choose one of your starting weapon trainings and gain a +1 to ATK with that type permenantly",
+    "progression": [
+      {
+        "level": 1,
+        "ability": "Powerful Blow",
+        "description": "Strike a target with your melee weapon dealing a HDR.",
+        "type": "ability",
+        "path": "Path of Close Combat"
+      },
+      {
+        "level": 1,
+        "ability": "Field Aid",
+        "description": "Restore 1D4 HP and cure the Staggered status effect to yourself or a target within melee range.",
+        "type": "ability",
+        "path": "Path of Leadership"
+      },
+      {
+        "level": 1,
+        "ability": "Opening Shot",
+        "description": "If your first strike in a battle is made with a ranged weapon gain advantage on the ATK roll.",
+        "type": "passive",
+        "path": "Path of Versitility"
+      },
+      {
+        "level": 2,
+        "ability": "Grappler",
+        "description": "Gain +2 to all Martial Maneuver rolls (both your attempts and your resistance rolls when being targeted by them).",
+        "type": "passive",
+        "path": "Path of Close Combat"
+      },
+      {
+        "level": 2,
+        "ability": "Courageous Strike",
+        "description": "Strike a target using a weapon ATK dealing standard DMG. If this ATK is not resisted (aside from ARM value) you and your allies gain +1 ATK for 2 rounds (effect can stack x3 each time resetting the duration).",
+        "type": "ability",
+        "path": "Path of Leadership"
+      },
+      {
+        "level": 2,
+        "ability": "Backup Weapon",
+        "description": "Select a second weapon type to gain a permenant +1 ATK with as if you are selecting your Class Bonus again.",
+        "type": "passive",
+        "path": "Path of Versitility"
+      },
+      {
+        "level": 3,
+        "ability": "Blitz",
+        "description": "Dash towards a target within your MOVE range (even if you have already taken a Movement Action this turn) running them down with your weapon poised. Deals your equipped melee weapon's DMG and knocks target back 1 tile.",
+        "type": "ability",
+        "path": "Path of Close Combat"
+      },
+      {
+        "level": 3,
+        "ability": "Reeling Strike",
+        "description": "Strike a target using a weapon ATK and lower your target's Stamina by 1 pt. and knocking them back 1 tile.",
+        "type": "ability",
+        "path": "Path of Leadership"
+      },
+      {
+        "level": 3,
+        "ability": "Pivoting Technique",
+        "description": "If you have successfully used both a melee and ranged weapon during a single battle gain +1 EVA and MOVE for the remainder of said encounter.",
+        "type": "passive",
+        "path": "Path of Versitility"
+      },
+      {
+        "level": 4,
+        "ability": "Strike True",
+        "description": "Gain 2 \"Striker Dice\" which are 1D6 dice that can be added to any melee strike's ATK or DMG roll. These dice reset after any rest action is taken.",
+        "type": "passive",
+        "path": "Path of Close Combat"
+      },
+      {
+        "level": 4,
+        "ability": "Rallying Cry",
+        "description": "Call out to your battlefield compatriots with rousing words and tactical advice. Restores 1D4 HP and grants advantage to their next ATK roll or a HDR to their next spellcast (effects all allied units and yourself).",
+        "type": "ability",
+        "path": "Path of Leadership"
+      },
+      {
+        "level": 4,
+        "ability": "Dual Wielding",
+        "description": "Gain the ability to dual-wield any pair of one-handed weapons without penalty (one ATK roll is made which takes only your Main Action dealing both weapon's DMG rolls if the strike hits).",
+        "type": "passive",
+        "path": "Path of Versitility"
+      },
+      {
+        "level": 5,
+        "ability": "Rend",
+        "description": "Strike a target with your melee weapon ignoring their ARM and resistances entierly.",
+        "type": "ability",
+        "path": "Path of Close Combat"
+      },
+      {
+        "level": 5,
+        "ability": "Assist",
+        "description": "At the beginning of your turn you can designate 1 ally to be buffed with +1 EVA. Your target ally can be swapped at the beginning of any of your subsequent turns as well to adapt to changes in the current battle (can not target self).",
+        "type": "passive",
+        "path": "Path of Leadership"
+      },
+      {
+        "level": 5,
+        "ability": "Armsbearer",
+        "description": "Gain an additional Armament Slot.",
+        "type": "passive",
+        "path": "Path of Versitility"
+      }
+    ]
+  },
+  {
+    "id": "mage",
+    "name": "Mage",
+    "type": "base",
+    "description": "Magic is an extreme and unforgiving force in this world, both toward those it is being unleashed upon and to its wielder. Through dedicated research and with the favor of the gods one can use a fraction of this power to manifest their will.",
+    "parentClasses": [],
+    "startingTrainings": [
+      "Light Blade",
+      "Knife",
+      "Channeling"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "INT",
+      "MEM",
+      "??? (Varies based on chosen Magic School)"
+    ],
+    "statBonuses": "Starting Spell Memory +1",
+    "classBonus": "Start with access to a school of magic of your choosing: Pyromancy, Ocean's Call Arcana, Great Storm Arts, Arcadian Arts, Twin Moon Arts, or Phantasm Arts",
+    "progression": [
+      {
+        "level": 1,
+        "ability": "Magic Surge",
+        "description": "Fire a bolt of magic energy toward a target within 3+INT tiles that deals 1D6+INT Force DMG.",
+        "type": "spell [5]",
+        "path": "Path of Fundamentals"
+      },
+      {
+        "level": 1,
+        "ability": "Memorization",
+        "description": "Gain an additional +1 to Spell Memory.",
+        "type": "passive",
+        "path": "Path of Virtuosity"
+      },
+      {
+        "level": 1,
+        "ability": "Elemental Ward",
+        "description": "Conjure a barrier around yourself that grants level 1 resistance to fire, water, ice, electric, or toxic DMG for 1+INT rounds.",
+        "type": "spell [4]",
+        "path": "Path of the Battlemage"
+      },
+      {
+        "level": 2,
+        "ability": "Focus",
+        "description": "Gain an additional +1 when Charge Boosting a spell (spending a STAM pt. to increase your spellcasting roll).",
+        "type": "passive",
+        "path": "Path of Fundamentals"
+      },
+      {
+        "level": 2,
+        "ability": "Kinetic Cast",
+        "description": "Add +1 DMG (of the spell's specified DMG type) to offensive spells that are fully cast on the turn they are attempted.",
+        "type": "passive",
+        "path": "Path of Virtuosity"
+      },
+      {
+        "level": 2,
+        "ability": "Fortitude Training",
+        "description": "Gain +4 Max HP.",
+        "type": "passive",
+        "path": "Path of the Battlemage"
+      },
+      {
+        "level": 3,
+        "ability": "Displace",
+        "description": "(must choose to activate only after being missed by an attack) Teleport yourself within 3 tiles of your original poisiton after evading or blocking at attack.",
+        "type": "ability",
+        "path": "Path of Fundamentals"
+      },
+      {
+        "level": 3,
+        "ability": "Chroma Bolt",
+        "description": "Cast a destructive bolt that deals 1D6 (fire, ice, electric, or toxic) DMG to a target within 5 tiles (element is chosen before the spellcasting roll is made).",
+        "type": "spell [6]",
+        "path": "Path of Virtuosity"
+      },
+      {
+        "level": 3,
+        "ability": "Front-Line Experience",
+        "description": "Gain access to a new standard-tier weapon or armor training of your choice (without having to spend your Training pts. to do so).",
+        "type": "passive",
+        "path": "Path of the Battlemage"
+      },
+      {
+        "level": 4,
+        "ability": "Magic Shield",
+        "description": "Cast a protective incantation that mitigates 3 DMG regardless of type/element the next time you are hit by an attack.",
+        "type": "spell [7]",
+        "path": "Path of Fundamentals"
+      },
+      {
+        "level": 4,
+        "ability": "Witchcraft",
+        "description": "Increase the threshold your targets must roll to succeed on saves made due to your spells by 2 pts.",
+        "type": "passive",
+        "path": "Path of Virtuosity"
+      },
+      {
+        "level": 4,
+        "ability": "Energy Ward",
+        "description": "Gain +1 temporary ARM & BAR when charging a spell.",
+        "type": "passive",
+        "path": "Path of the Battlemage"
+      },
+      {
+        "level": 5,
+        "ability": "Ascendant Mind",
+        "description": "Gain access to the next level of your first chosen school of magic of the Mage Class (from Novice to Advanced, or from Advanced to Master).",
+        "type": "passive",
+        "path": "Path of Fundamentals"
+      },
+      {
+        "level": 5,
+        "ability": "Broadened Mind",
+        "description": "Gain access to a new Novice-level school of magic of your choice.",
+        "type": "passive",
+        "path": "Path of Virtuosity"
+      },
+      {
+        "level": 5,
+        "ability": "Power Within",
+        "description": "You no longer need a channeling item to cast spells if desired.",
+        "type": "passive",
+        "path": "Path of the Battlemage"
+      }
+    ]
+  },
+  {
+    "id": "pilgrim",
+    "name": "Pilgrim",
+    "type": "base",
+    "description": "",
+    "parentClasses": [],
+    "startingTrainings": [
+      "Light Maul",
+      "Heavy Maul",
+      "Shield",
+      "Light Armor",
+      "Medium Armor"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "STR",
+      "VIT",
+      "INT"
+    ],
+    "statBonuses": "Starting Spell Memory +1",
+    "classBonus": "Begin knowing the Ghostwhisper and Celestial languages.",
+    "progression": [
+      {
+        "level": 1,
+        "ability": "The First Steps",
+        "description": "Gain access to Novice-level spells from the Twin Moon Arts school of magic.",
+        "type": "passive",
+        "path": "Path of the Moon-Scholar"
+      },
+      {
+        "level": 1,
+        "ability": "Accept Suffering",
+        "description": "Use your main action to clenase an allied unit of a status effect or debuff and inflict them upon yourself (including their duration, additional effects, etc.). Can be used from any range.",
+        "type": "ability",
+        "path": "Path of the Healer"
+      },
+      {
+        "level": 1,
+        "ability": "Rebuke",
+        "description": "Block actions rolled to defend against undead or monster enemy ATKs are made with a bonus 1D4 (both shield or weapon blocks apply).",
+        "type": "passive",
+        "path": "Path of Righteous Fury"
+      },
+      {
+        "level": 2,
+        "ability": "Healing Chant",
+        "description": "Gain the novice level Twin Moon spell \"Healing Mote\" as a core spell regardless of if you even have access to this school of magic.",
+        "type": "passive",
+        "path": "Path of the Moon-Scholar"
+      },
+      {
+        "level": 2,
+        "ability": "Medicinal Studies",
+        "description": "Gain the Medic Talent regardless of your current Attribute levels.",
+        "type": "passive",
+        "path": "Path of the Healer"
+      },
+      {
+        "level": 2,
+        "ability": "Revenant Ward",
+        "description": "All attacks, spells, and skills from undead enemies deal 1 less DMG to you regardless of DMG type, weakness, etc.",
+        "type": "passive",
+        "path": "Path of Righteous Fury"
+      },
+      {
+        "level": 3,
+        "ability": "Counter Hex",
+        "description": "Summon a magical counter-rune that makes all undead and monster type enemies roll their spellcasting rolls as a LDR for 1+VIT rounds.",
+        "type": "ability",
+        "path": "Path of the Moon-Scholar"
+      },
+      {
+        "level": 3,
+        "ability": "Greater Respite",
+        "description": "Boost the HP recovered (not STAM) when taking a rest by +3 for you and all party members.",
+        "type": "passive",
+        "path": "Path of the Healer"
+      },
+      {
+        "level": 3,
+        "ability": "Bonecrusher",
+        "description": "Perform a weapon ATK: this ATK gains advantage and deals a bonus 1D6 DMG (of your weapon's DMG type) when used against any non-apparition undead targets.",
+        "type": "ability",
+        "path": "Path of Righteous Fury"
+      },
+      {
+        "level": 4,
+        "ability": "Lunar Well",
+        "description": "Summon a font of lunar energy on a free space up to 8 tiles away. Your Twin Moon Arts can be cast from this 'Lunar Well' instead of from the caster's current position. Lunar Well lasts 2+VIT rounds.",
+        "type": "ability",
+        "path": "Path of the Moon-Scholar"
+      },
+      {
+        "level": 4,
+        "ability": "Spirit Amplification",
+        "description": "When restoring HP with a spell add your VIT value to the amount healed.",
+        "type": "passive",
+        "path": "Path of the Healer"
+      },
+      {
+        "level": 4,
+        "ability": "Battle Chant",
+        "description": "Call upon the divine power of the Twin Moons to grant you strength against the undead. All weapon ATKs made against Undead enemies land without fail for 1+VIT rounds even if the target is an Apparition-type undead.",
+        "type": "ability",
+        "path": "Path of Righteous Fury"
+      },
+      {
+        "level": 5,
+        "ability": "Polarity",
+        "description": "Gain the ability to swap the type of all light-element spells to dark and vice-versa. This can be in regards to DMG type, elemental resistance, etc.",
+        "type": "passive",
+        "path": "Path of the Moon-Scholar"
+      },
+      {
+        "level": 5,
+        "ability": "Red Lady's Favor",
+        "description": "Boost your and your ally's Fate rolls (made upon having HP reduced to 0) by +1D4 as long as you are in the party.",
+        "type": "passive",
+        "path": "Path of the Healer"
+      },
+      {
+        "level": 5,
+        "ability": "Divinity Within",
+        "description": "You no longer need a channeling item to cast spells if desired.",
+        "type": "passive",
+        "path": "Path of Righteous Fury"
+      }
+    ]
+  },
+  {
+    "id": "provisioner",
+    "name": "Provisioner",
+    "type": "base",
+    "description": "Having someone on your side that can identify the value of usable materials and that also knows what to do with them can be the difference between surviving the wilds and a swift death.",
+    "parentClasses": [],
+    "startingTrainings": [
+      "Axe",
+      "Knife",
+      "Light Armor",
+      "Bow",
+      "Throwing"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "SRV",
+      "INT",
+      "CHA"
+    ],
+    "statBonuses": "Starting Encumbrance +2",
+    "classBonus": "Gain the Chef Talent regardless of your current Attribute levels. Additionally, start your character with 100 SV regardless of your other starting items.",
+    "progression": [
+      {
+        "level": 1,
+        "ability": "Basic Chemistry",
+        "description": "Gain the Alchemist Talent regardless of your current Attribute levels.",
+        "type": "passive",
+        "path": "Path of the Forager"
+      },
+      {
+        "level": 1,
+        "ability": "Craftsman",
+        "description": "Gain the Armorer Talent regardless of your current Attribute levels.",
+        "type": "passive",
+        "path": "Path of Maintenance"
+      },
+      {
+        "level": 1,
+        "ability": "Haggle",
+        "description": "Add +1D4 on all Barter checks.",
+        "type": "passive",
+        "path": "Path of Mercantilism"
+      },
+      {
+        "level": 2,
+        "ability": "Scrounger",
+        "description": "Survey checks made while traversing the overworld gain +3 if you are the party leader.",
+        "type": "passive",
+        "path": "Path of the Forager"
+      },
+      {
+        "level": 2,
+        "ability": "Better than Before",
+        "description": "Grant tools and shields you repair a temporary +1 to durability (effect can not stack).",
+        "type": "passive",
+        "path": "Path of Maintenance"
+      },
+      {
+        "level": 2,
+        "ability": "Treasure Sense",
+        "description": "Make a Search (INT) check to survey a room. Regardless of your roll, unless it is a critical failure, gain knowledge of nearby valuables (valued at \"Rare\" or higher). Otherwise, this is a normal Search check.",
+        "type": "ability",
+        "path": "Path of Mercantilism"
+      },
+      {
+        "level": 3,
+        "ability": "Mulligan",
+        "description": "Spend a Stamina point to re-roll a failed / undesirable camp action once per camping phase.",
+        "type": "ability",
+        "path": "Path of the Forager"
+      },
+      {
+        "level": 3,
+        "ability": "Gathering Expert",
+        "description": "When gathering materials via surveying the overworld, mining, foraging, scavenging, or looting defeated enemies and a Critical 20 is rolled gain an additonal material/item from the relevant gathering pool.",
+        "type": "passive",
+        "path": "Path of Maintenance"
+      },
+      {
+        "level": 3,
+        "ability": "Appraiser",
+        "description": "You immediately can determine the value of any item you or your party members acquire.",
+        "type": "passive",
+        "path": "Path of Mercantilism"
+      },
+      {
+        "level": 4,
+        "ability": "Inventory Organization",
+        "description": "You have learned how to perfectly pack as much equipment as possible on your person. Gain +4 encumbrance.",
+        "type": "passive",
+        "path": "Path of the Forager"
+      },
+      {
+        "level": 4,
+        "ability": "Quick Swap",
+        "description": "You may swap a piece of equipment onto your perso or into your armament slots once per battle as a free action instead of a main action.",
+        "type": "passive",
+        "path": "Path of Maintenance"
+      },
+      {
+        "level": 4,
+        "ability": "Caravan Defender",
+        "description": "Gain access to a new standard-tier weapon or armor training of your choice (without having to spend your Training pts. to do so).",
+        "type": "passive",
+        "path": "Path of Mercantilism"
+      },
+      {
+        "level": 5,
+        "ability": "Rare Finds",
+        "description": "Roll all Luck checks made to find drops after defeating enemy units with advantage.",
+        "type": "passive",
+        "path": "Path of the Forager"
+      },
+      {
+        "level": 5,
+        "ability": "Tool Expert",
+        "description": "Successful uses of your pickaxes and shovels no longer use up a point of durability.",
+        "type": "passive",
+        "path": "Path of Maintenance"
+      },
+      {
+        "level": 5,
+        "ability": "Professional Training",
+        "description": "Spend 500 Silver at any town / settlement to hire adventurers to pass on their knowledge: Gain 1 Merit Point for you and your party members.",
+        "type": "passive",
+        "path": "Path of Mercantilism"
+      }
+    ]
+  },
+  {
+    "id": "scout",
+    "name": "Scout",
+    "type": "base",
+    "description": "Information gathering and reconaissance is the backbone to any well-planned operation-- this holds even truer in uncharted territory. Good scouts and spies provide such a backbone in times like these.",
+    "parentClasses": [],
+    "startingTrainings": [
+      "Knife",
+      "Dueling Blade",
+      "Polearm",
+      "Bow",
+      "Throwing",
+      "Light Armor"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "SRV",
+      "ACC",
+      "SPD"
+    ],
+    "statBonuses": "Starting EVA +1",
+    "classBonus": "Gain the Analyst Talent regardless of your current Attribute levels and begin knowing the Midnight Code language.",
+    "progression": [
+      {
+        "level": 1,
+        "ability": "Lock Breaker",
+        "description": "Gain the Lockpick Talent regardless of your current Attribute levels.",
+        "type": "passive",
+        "path": "Path of Infiltration"
+      },
+      {
+        "level": 1,
+        "ability": "Make the Rounds",
+        "description": "Gain advantage on \"Keep Watch\" and \"Reconnaissance\" actions made while at camp.",
+        "type": "passive",
+        "path": "Path of the Wilds Tamer"
+      },
+      {
+        "level": 1,
+        "ability": "Camoflauge",
+        "description": "Become hidden to all nearby units / units on the battlefield. Can only be used if out of enemy sight lines, on a tile that provides cover, or if other units are blinded/distracted in some way. Using a Main Action ends this effect; If an ATK is made to end this effect it gains advantage.",
+        "type": "ability",
+        "path": "Path of the Hunter"
+      },
+      {
+        "level": 2,
+        "ability": "Second-Story Work",
+        "description": "Gain advantage on climbing checks made when scaling man-made structures. Additionally, actions like opening/closing windows, man-made doors or gates are now totally silent and do not require a stealth / FNS check.",
+        "type": "ability",
+        "path": "Path of Infiltration"
+      },
+      {
+        "level": 2,
+        "ability": "Wayfarer",
+        "description": "When traversing the overworld (regardless of traversal style chosen) +1 is added to your movement range rolls.",
+        "type": "passive",
+        "path": "Path of the Wilds Tamer"
+      },
+      {
+        "level": 2,
+        "ability": "Readiness",
+        "description": "Add a permenant +2 to all of your Initiative rolls. If your teams Initiative is ever rolled with disadvantage you roll normally.",
+        "type": "passive",
+        "path": "Path of the Hunter"
+      },
+      {
+        "level": 3,
+        "ability": "Takedown",
+        "description": "Strike the target with an unarmed melee ATK that deals no DMG but inflicts the sleep status effect. This ability can not be used on undead, construct, or flora creatures.",
+        "type": "ability",
+        "path": "Path of Infiltration"
+      },
+      {
+        "level": 3,
+        "ability": "Disengage",
+        "description": "Take a second Movement Action adding 1D4 to your MOVE stat and ignoring the rules of being Locked-Up (including opportunity ATKs) when doing so.",
+        "type": "ability",
+        "path": "Path of the Wilds Tamer"
+      },
+      {
+        "level": 3,
+        "ability": "Trap Sweeper",
+        "description": "Gain advantage on all rolls made to detect / reveal traps in your immediate area.",
+        "type": "passive",
+        "path": "Path of the Hunter"
+      },
+      {
+        "level": 4,
+        "ability": "Treading Lightly",
+        "description": "Gain the Trapper Talent regardless of your current Attribute levels and advantage on Search checks made to spot them.",
+        "type": "passive",
+        "path": "Path of Infiltration"
+      },
+      {
+        "level": 4,
+        "ability": "Light-Footed",
+        "description": "You no longer suffer impeded MOVE or EVA from standing on / passive through water tiles, oil tiles, foliage tiles, or uneven terrain tiles.",
+        "type": "passive",
+        "path": "Path of the Wilds Tamer"
+      },
+      {
+        "level": 4,
+        "ability": "Ranged Support",
+        "description": "Before an allied unit is about to strike an enemy in melee perform a ranged weapon ATK (if they are in range). If this ATK connects the target's EVA is lowered by 1. Your DMG roll is also made with a LDR.",
+        "type": "ability",
+        "path": "Path of the Hunter"
+      },
+      {
+        "level": 5,
+        "ability": "High Ground Expert",
+        "description": "Suffer 1 less MOVE penalty when moving to a higher elevation (even if this reduces the penatly to 0) and gain a bonus +1 to ranged DMG rolls when striking from an elevated place.",
+        "type": "passive",
+        "path": "Path of Infiltration"
+      },
+      {
+        "level": 5,
+        "ability": "Wild Instinct",
+        "description": "Gain +2 EVA during battles where monster, insectoid, or flora-type enemies are present. Once this buff is activated it remains so for the rest of combat even if said enemy types are defeated.",
+        "type": "passive",
+        "path": "Path of the Wilds Tamer"
+      },
+      {
+        "level": 5,
+        "ability": "The Opportune Moment",
+        "description": "Grant yourself advantage on one weapon ATK once per battle.",
+        "type": "passive",
+        "path": "Path of the Hunter"
+      }
+    ]
+  },
+  {
+    "id": "merchant",
+    "name": "Merchant",
+    "type": "advanced",
+    "description": "",
+    "parentClasses": [
+      "PROVISIONER"
+    ],
+    "startingTrainings": [
+      "Dueling Sword",
+      "Light Blade",
+      "Shield"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Security"
+      },
+      {
+        "level": 6,
+        "ability": "Trader's Network",
+        "description": "There will be a package waiting on you the first time you enter a settlement (per adventure) that contains a Healing Powder, Salted Meat, Lockpick, and Rope per player in your party.",
+        "type": "passive",
+        "path": "Path of Procurement"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Sale"
+      },
+      {
+        "level": 7,
+        "ability": "Merchant's Smoke Signal",
+        "description": "While at camp (overworld only) gain the option to use your camp action to call a traveling merchant with a small stock of basic wares and supplies. This will allow the party to offload unwanted gear weighing them down and possibly replenish supplies.",
+        "type": "passive",
+        "path": "Path of Procurement"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Sale"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Security"
+      },
+      {
+        "level": 8,
+        "ability": "Economic Craftsmanship",
+        "description": "When crafting a weapon with a subtype (bone, meteorite, dragon, etc.) lower the cost of its main material by 1.",
+        "type": "passive",
+        "path": "Path of Procurement"
+      },
+      {
+        "level": 8,
+        "ability": "Valued Customer",
+        "description": "Sell items at around 75% of their true value instead of the usual 50% without the need for an initial CHA check.",
+        "type": "passive",
+        "path": "Path of the Sale"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Security"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Procurement"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Sale"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Security"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Procurement"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Sale"
+      }
+    ]
+  },
+  {
+    "id": "myrmidon",
+    "name": "Myrmidon",
+    "type": "advanced",
+    "description": "",
+    "parentClasses": [
+      "FIGHTER"
+    ],
+    "startingTrainings": [
+      "Heavy Armor",
+      "Mortar"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "STR",
+      "ACC",
+      "SPD"
+    ],
+    "statBonuses": "Gain +5 HP Max upon choosing this class",
+    "classBonus": "Gain the ability to deflect one melee strike causing it to deal no DMG or inflict any other effects to you. This can be done once per battle.",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "Glancing Blow",
+        "description": "Upon missing an ATK you may add your SPD value to your roll . If the ATK would land with this new total you may deal half DMG (rounded down) towards your target.",
+        "type": "passive",
+        "path": "Path of the Slayer"
+      },
+      {
+        "level": 6,
+        "ability": "Battlefield Control",
+        "description": "You can now gain up to 3 \"Control Points\" for evading (+1), fully blocking, or parrying (+2). These points to can spent to boost your/an ally's or lowering an enemy's current ATK roll (must be called before the roll) equal to as many Control Pts. as you wish to apply.",
+        "type": "passive",
+        "path": "Path of the Professional"
+      },
+      {
+        "level": 6,
+        "ability": "Defender's Vigilance",
+        "description": "",
+        "type": "ability",
+        "path": "Path of the Defender"
+      },
+      {
+        "level": 7,
+        "ability": "Berserk",
+        "description": "(can be activated as an instant action. Must be at less than max HP.) Enter a rage state in which you deal an additional 1D6 direct DMG when dealing any other DMG. If this skill is still active at the end of your turn lower your STAM by another point; This skill only deactivates when STAM would be lost if an ATK is not attempted during your turn.",
+        "type": "ability",
+        "path": "Path of the Slayer"
+      },
+      {
+        "level": 7,
+        "ability": "Battlefield Control II",
+        "description": "You can now spend Control Points to increase your/an ally's MOVE during a movement action or to increase a block roll made with a weapon or shield item.",
+        "type": "passive",
+        "path": "Path of the Professional"
+      },
+      {
+        "level": 7,
+        "ability": "Shield Hammer",
+        "description": "Perform a shield bash that DMG scales with your STR stat and does not lower your shield's durability.",
+        "type": "ability",
+        "path": "Path of the Defender"
+      },
+      {
+        "level": 8,
+        "ability": "Favored Quarry",
+        "description": "Select one of any enemy type: gain +2 to ATK and DMG rolls made toward that enemy type whenever you are pitted against them.",
+        "type": "passive",
+        "path": "Path of the Slayer"
+      },
+      {
+        "level": 8,
+        "ability": "Melee Master",
+        "description": "Gain every melee weapon training you do not already know.",
+        "type": "passive",
+        "path": "Path of the Professional"
+      },
+      {
+        "level": 8,
+        "ability": "Psyche Up",
+        "description": "Regain HP equal to the number of enemy units on the field at the beginning of a battle after initiative is rolled. Boss enemies grant 2 HP.",
+        "type": "passive",
+        "path": "Path of the Defender"
+      },
+      {
+        "level": 9,
+        "ability": "Blood Momentum",
+        "description": "Gain an additional movement or main action after successfully defeating an enemy unit with a weapon ATK or ability.",
+        "type": "passive",
+        "path": "Path of the Slayer"
+      },
+      {
+        "level": 9,
+        "ability": "Battlefield Control III",
+        "description": "You can now gain up to 5 Control Points.",
+        "type": "passive",
+        "path": "Path of the Professional"
+      },
+      {
+        "level": 9,
+        "ability": "Swift Retaliation",
+        "description": "Strike the target with your equipped melee weapon dealing a LDR. If you are damaged by an ATK made by your target on their next turn immediately make an ATK roll that, if it hits, deals a HDR.",
+        "type": "ability",
+        "path": "Path of the Defender"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Slayer"
+      },
+      {
+        "level": 10,
+        "ability": "Steelbreaker",
+        "description": "Strike your target with an equipped weapon (ranged or melee) dealing a LDR, then flip a coin: if heads, your target's currently equipped weapon breaks.",
+        "type": "type",
+        "path": "Path of the Professional"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defender"
+      }
+    ]
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "type": "advanced",
+    "description": "",
+    "parentClasses": [
+      "SCOUT"
+    ],
+    "startingTrainings": [
+      "Axe",
+      "Autobow",
+      "Medium Armor"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "Gain the Pilferer Talent regardless of your current Attribute values. In addition, you are always to be informed by the DM if a target has a pilferable item.",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Wanderer"
+      },
+      {
+        "level": 6,
+        "ability": "Whats Yours is Mine",
+        "description": "Gain the Pilferer Talent regardless of your current Attribute levels.",
+        "type": "passive",
+        "path": "Path of the Thief"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksman"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Thief"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksman"
+      },
+      {
+        "level": 8,
+        "ability": "Reflex",
+        "description": "You no longer can be targeted by opportunity strikes as long as you are not currently afflicted with a status effect or debuff.",
+        "type": "passive",
+        "path": "Path of the Wanderer"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Thief"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksman"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Wanderer"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Thief"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksman"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Wanderer"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Thief"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksman"
+      }
+    ]
+  },
+  {
+    "id": "war-priest",
+    "name": "War Priest",
+    "type": "advanced",
+    "description": "",
+    "parentClasses": [
+      "PILGRIM"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [
+      "STR",
+      "VIT",
+      "INT"
+    ],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "Continuing the Path",
+        "description": "Gain access to the next level of the Twin Moon Arts (from Novice to Advanced, or from Advanced to Master).",
+        "type": "passive",
+        "path": "Path of Lunar Fury"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Mystic"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Lunar Fury"
+      },
+      {
+        "level": 7,
+        "ability": "Cleansing Flames",
+        "description": "Gain access to novice level Pyromancy.",
+        "type": "passive",
+        "path": "Path of the Mystic"
+      },
+      {
+        "level": 7,
+        "ability": "Blessing of Wrath",
+        "description": "Upon dealing DMG to an undead or monster target gain a 'Wrathful Blessing' point. Upon reaching 7 of these points you may restore 7 HP or 1 STAM to yourself or an ally. This blessing can be applied at any point during your turn as a free action and can be stored as long as desired. Points reset upon applying blessing effect.",
+        "type": "passive",
+        "path": "Path of the Witchhunter"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Lunar Fury"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Mystic"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Witchhunter"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Lunar Fury"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Mystic"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Witchhunter"
+      },
+      {
+        "level": 10,
+        "ability": "The Final Steps",
+        "description": "Gain access to the next level of the Twin Moon Arts (from Novice to Advanced, or from Advanced to Master).",
+        "type": "passive",
+        "path": "Path of Lunar Fury"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Mystic"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Witchhunter"
+      }
+    ]
+  },
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "type": "advanced",
+    "description": "",
+    "parentClasses": [
+      "MAGE"
+    ],
+    "startingTrainings": [
+      "(n",
+      "a)"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "Learn the Trovan Rune language if you do not laready know it. If your base spellcasting die is less than 1D8, make it so.",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Destructive Arts"
+      },
+      {
+        "level": 6,
+        "ability": "Ally Barrier",
+        "description": "Your area-of-effect / linear range / all-targeting spells no longer harm or affect allied units (unless you choose for them to do so).",
+        "type": "passive",
+        "path": "Path of the Defensive Arts"
+      },
+      {
+        "level": 6,
+        "ability": "Arcanist",
+        "description": "Gain advantage on all Arcana checks.",
+        "type": "passive",
+        "path": "Path of the Researchmaster"
+      },
+      {
+        "level": 7,
+        "ability": "Arcane Pressure",
+        "description": "Conjure a massive, warping field of magic that deals 1D4 force DMG to all enemy units on the field. Field can be maintained every round dealing DMG again without a re-cast on your turn as long as you do not take DMG, move, or perform another action.",
+        "type": "spell [12]",
+        "path": "Path of the Destructive Arts"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Arts"
+      },
+      {
+        "level": 7,
+        "ability": "Enchantment Research",
+        "description": "Gain access to the Enchanter talent regarless of your current attribute levels. Additionally, gain access to advanced level enchantment options.",
+        "type": "passive",
+        "path": "Path of the Researchmaster"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Destructive Arts"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Arts"
+      },
+      {
+        "level": 8,
+        "ability": "Expanded Expertise",
+        "description": "Gain access to a new Novice-level school of magic of your choice.",
+        "type": "passive",
+        "path": "Path of the Researchmaster"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Destructive Arts"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Arts"
+      },
+      {
+        "level": 9,
+        "ability": "Perfected Casting",
+        "description": "Increase your base Spellcasting Die by 1 DT.",
+        "type": "passive",
+        "path": "Path of the Researchmaster"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Destructive Arts"
+      },
+      {
+        "level": 10,
+        "ability": "Teleportation",
+        "description": "Instantly transport you and your allies back to the overworld or to the last visited settlement that has an active Conveyance Circle for magical travel (DM will provide this information if possible). This spell costs 5 STAM to perform and can not be cast during combat.",
+        "type": "spell[n/a]",
+        "path": "Path of the Defensive Arts"
+      },
+      {
+        "level": 10,
+        "ability": "Runic Mastery",
+        "description": "Gain access to the next level of any of your chosen schools of magic of the Mage Class (from Novice to Advanced, or from Advanced to Master).",
+        "type": "passive",
+        "path": "Path of the Researchmaster"
+      }
+    ]
+  },
+  {
+    "id": "alchemist",
+    "name": "Alchemist",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "MAGE",
+      "PROVISIONER"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Creation"
+      },
+      {
+        "level": 6,
+        "ability": "Synthesis Naturalis",
+        "description": "Using an alchemical ingredient from your inventory cast a healing spell on yourself or an ally within melee range that restores 1D4 HP per Ingredient Level of the used item.",
+        "type": "spell [9]",
+        "path": "Path of the Physician"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Grenadier"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Creation"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Physician"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Grenadier"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Creation"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Physician"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Grenadier"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Creation"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Physician"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Grenadier"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Creation"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Physician"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Grenadier"
+      }
+    ]
+  },
+  {
+    "id": "antiquarian",
+    "name": "Antiquarian",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "PROVISIONER",
+      "PILGRIM"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      }
+    ]
+  },
+  {
+    "id": "missionary",
+    "name": "Missionary",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "SCOUT",
+      "PILGRIM"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Seige Breaker"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Trench Fighter"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Builder"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Seige Breaker"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Trench Fighter"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Builder"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Seige Breaker"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Trench Fighter"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Builder"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Seige Breaker"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Trench Fighter"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Builder"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Seige Breaker"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Trench Fighter"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Builder"
+      }
+    ]
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "FIGHTER",
+      "PILGRIM"
+    ],
+    "startingTrainings": [
+      "Light Blade",
+      "Heavy Blade",
+      "Dueling Blade",
+      "Light Maul",
+      "Heavy Maul",
+      "Axe",
+      "Polearm",
+      "Fist",
+      "Knife",
+      "Bow",
+      "Throwing",
+      "Autobow",
+      "Mortar",
+      "Energy"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 2"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      }
+    ]
+  },
+  {
+    "id": "polymath",
+    "name": "Polymath",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "MAGE",
+      "PILGRIM"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "Enchanting Lexicon",
+        "description": "Gain the ability to perform any enchantment regardless of the required school of magic (enchantment level still applies).",
+        "type": "passive",
+        "path": "Path of Magical Lore"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Rune Master"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Divine Teachings"
+      },
+      {
+        "level": 7,
+        "ability": "Master Enchanter",
+        "description": "Gain the ability to perform advanced-level enchantments.",
+        "type": "passive",
+        "path": "Path of Magical Lore"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Rune Master"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Divine Teachings"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Magical Lore"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Rune Master"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Divine Teachings"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Magical Lore"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Rune Master"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Divine Teachings"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Magical Lore"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Rune Master"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Divine Teachings"
+      }
+    ]
+  },
+  {
+    "id": "ranger",
+    "name": "Ranger",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "FIGHTER",
+      "SCOUT"
+    ],
+    "startingTrainings": [
+      "Heavy Blade",
+      "Autobow",
+      "Medium Armor"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "Gain an additional +1 EVA when utilizing cover tiles,",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Blade"
+      },
+      {
+        "level": 6,
+        "ability": "Danger Close",
+        "description": "You can now perform ranged ATKs while locked up with an enemy unit but only towards the unit(s) you are locked up with.",
+        "type": "passive",
+        "path": "Path of the Arrow"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Heroics"
+      },
+      {
+        "level": 7,
+        "ability": "Strike True",
+        "description": "Strike the target with your equipped melee weapon. This strike reveals your target's weak point; If this strike is made towards an already-known weak point deal an additional 5 direct DMG.",
+        "type": "ability",
+        "path": "Path of the Blade"
+      },
+      {
+        "level": 7,
+        "ability": "Modified Trapwork",
+        "description": "Any traps set by you deal 1D6 direct DMG in addition to its other effect(s). Units that have tripped one of your traps also take 1D4 more DMG for ranged weapons for 1 battle / rest.",
+        "type": "passive",
+        "path": "Path of the Arrow"
+      },
+      {
+        "level": 7,
+        "ability": "Opening Sprint",
+        "description": "(Used only before the first round of combat) Increase your and your allies' Initiative rolls by 3 at the outset of a battle.",
+        "type": "ability",
+        "path": "Path of Heroics"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Blade"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Arrow"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Heroics"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Blade"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Arrow"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Heroics"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Blade"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Arrow"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Heroics"
+      }
+    ]
+  },
+  {
+    "id": "spellblade",
+    "name": "Spellblade",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "FIGHTER",
+      "MAGE"
+    ],
+    "startingTrainings": [
+      "Light Blade",
+      "Heavy Blade",
+      "Dueling Blade",
+      "Light Armor",
+      "Channeling"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "Elemental Charge I",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "type": "spell [8]",
+        "path": "Path of the Offensive Charge"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Charge"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Sword and Spell"
+      },
+      {
+        "level": 7,
+        "ability": "Elemental Charge II",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "type": "spell [8]",
+        "path": "Path of the Offensive Charge"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Charge"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Sword and Spell"
+      },
+      {
+        "level": 8,
+        "ability": "Elemental Charge III",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "type": "spell [8]",
+        "path": "Path of the Offensive Charge"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Charge"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Sword and Spell"
+      },
+      {
+        "level": 9,
+        "ability": "Elemental Charge IV",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "type": "spell [8]",
+        "path": "Path of the Offensive Charge"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Charge"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Sword and Spell"
+      },
+      {
+        "level": 10,
+        "ability": "Elemental Charge V",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "type": "spell [8]",
+        "path": "Path of the Offensive Charge"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Defensive Charge"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Sword and Spell"
+      }
+    ]
+  },
+  {
+    "id": "survivalist",
+    "name": "Survivalist",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "SCOUT",
+      "PROVISIONER"
+    ],
+    "startingTrainings": [],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "Modified Holster",
+        "description": "Gain an additional slot on your Toolbelt for consumables / tools / etc.",
+        "type": "passive",
+        "path": "Path of the Resourceful"
+      },
+      {
+        "level": 6,
+        "ability": "Physician",
+        "description": "Gain the Medic Talent regardless of your current Attribute values. Medic HP recovery rolls are increased by 1 DT.",
+        "type": "passive",
+        "path": "Path of the Field Medic"
+      },
+      {
+        "level": 6,
+        "ability": "Huntsman",
+        "description": "Rolls made to procure food from hunting / fishing / trapping creatures is always considered successful for you and your party/allies.",
+        "type": "passive",
+        "path": "Path of the Pioneer"
+      },
+      {
+        "level": 7,
+        "ability": "Enemy Investigation",
+        "description": "At the precipice (or first room) of a dungeon investigate the area and learn the main type of enemy the resides within. If there are multiple enemy types the DM will inform you only of the predominant enemy type.",
+        "type": "ability",
+        "path": "Path of the Resourceful"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Field Medic"
+      },
+      {
+        "level": 7,
+        "ability": "Mountaineer",
+        "description": "Gain advantage on all climbing checks. You and your party no longer suffer a movement penalty for traversing mountainous terrain on the overworld. Additionally, your party gains +1 vision range while on mountain tiles.",
+        "type": "passive",
+        "path": "Path of the Pioneer"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Resourceful"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Field Medic"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Pioneer"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Resourceful"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Field Medic"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Pioneer"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Resourceful"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Field Medic"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Pioneer"
+      }
+    ]
+  },
+  {
+    "id": "treasure-hunter",
+    "name": "Treasure Hunter",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "FIGHTER",
+      "PROVISIONER"
+    ],
+    "startingTrainings": [
+      "Dueling Blade",
+      "Autobow",
+      "Fist",
+      "Throwing"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Corsair"
+      },
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Corsair"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Corsair"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Corsair"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 1"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Corsair"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "PROGRESSION PATH 3"
+      }
+    ]
+  },
+  {
+    "id": "waystalker",
+    "name": "Waystalker",
+    "type": "hybrid",
+    "description": "",
+    "parentClasses": [
+      "SCOUT",
+      "MAGE"
+    ],
+    "startingTrainings": [
+      "Polearm",
+      "Light Maul",
+      "Light Armor",
+      "Bow",
+      "Throwing",
+      "Channeling"
+    ],
+    "startingSkills": [],
+    "favoredAttributes": [],
+    "statBonuses": "",
+    "classBonus": "",
+    "progression": [
+      {
+        "level": 6,
+        "ability": "SKILL NAME",
+        "description": "Gain access to Novice-level Arcadian Arts spells; If you already have access to this level of the Arcadian Arts gain the Advanced-level instead. If you already have the Advanced-level you can not take this skill.",
+        "type": "passive",
+        "path": "Path of Nature's Magic"
+      },
+      {
+        "level": 6,
+        "ability": "Cosmic Quiver",
+        "description": "Gain 2 special arrows made of energy that replenish after battle. These arrows can not miss their target and deals 1D4+INT pierce DMG (this pierce DMG is considered magical and is rolled against the target's BAR instead of ARM).",
+        "type": "passive",
+        "path": "Path of the Marksmage"
+      },
+      {
+        "level": 6,
+        "ability": "Leaf Shroud",
+        "description": "Become invisible and therefore completely untargetable except by area DMG. You must be standing on a foliage tile to cast this spell. You can use your MOVE to warp to another foliage tile on the field if desired. This effect ends once a main action is taken.",
+        "type": "spell[7]",
+        "path": "Path of the Silent Forest"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Nature's Magic"
+      },
+      {
+        "level": 7,
+        "ability": "Elemental Arrows",
+        "description": "Gain +1 to your energy arrow quiver's maximum capacity. Permenantly change your energy arrow's DMG type from pierce to fire, water, electric, toxic, or wind.",
+        "type": "passive",
+        "path": "Path of the Marksmage"
+      },
+      {
+        "level": 7,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Silent Forest"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Nature's Magic"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksmage"
+      },
+      {
+        "level": 8,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Silent Forest"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Nature's Magic"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksmage"
+      },
+      {
+        "level": 9,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Silent Forest"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of Nature's Magic"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Marksmage"
+      },
+      {
+        "level": 10,
+        "ability": "SKILL NAME",
+        "description": "",
+        "type": "type",
+        "path": "Path of the Silent Forest"
+      }
+    ]
+  }
+]

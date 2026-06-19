@@ -1,0 +1,14 @@
+[
+  { "id": "common", "name": "Common", "description": "The common spoken language agreed upon by most Mortal Races for commerce and inter-regional communication. Primary language of Lamiiran and Gothrin tribes.", "defaultKnownBy": ["all"], "canBeLearned": true },
+  { "id": "trovan-rune", "name": "Trovan Rune", "description": "A method of runic writing gifted to mortals by Trovanhim, the god of magic. Required to use magic scrolls.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "archaic-northrealm", "name": "Archaic Northrealm", "description": "The language of non-elven pre-Age of Conquest civilizations such as the ancient Humans and the Dwarves.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "ancient-elven", "name": "Ancient Elven", "description": "The magical language of the Precursor Age Elven Clans. Speaking or writing words can evoke powerful arcana.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "elven", "name": "Elven", "description": "A modern elven language mutated from Ancient Elven. Its words maintain some diluted magic power.", "defaultKnownBy": ["solarElf"], "canBeLearned": true },
+  { "id": "celestial", "name": "Celestial", "description": "Said to be the language used by the gods after Exona. Can not be spoken, only written; its glyphs hold a strange power.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "bug", "name": "Bug", "description": "The vibration-based languages of insects, including the Dyne. Can be used to speak to Insectoid creatures.", "defaultKnownBy": ["dyne"], "canBeLearned": true },
+  { "id": "ghostwhisper", "name": "Ghostwhisper", "description": "The telepathic speech of transient spirits anchored to this plane.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "jezorian", "name": "Jezorian", "description": "The language of one of the lost tribes of humanity, the Jezoriad.", "defaultKnownBy": [], "canBeLearned": true },
+  { "id": "midnight-code", "name": "The Midnight Code", "description": "A language of symbols and markings used by criminal organizations on the Dead Continent.", "defaultKnownBy": ["thieves"], "canBeLearned": true },
+  { "id": "valmese", "name": "V'almese", "description": "The language of the Mazmeri used to communicate with their machine-god, Zyzimar and his lesser constructs.", "defaultKnownBy": ["mazmeri"], "canBeLearned": true },
+  { "id": "inuvaglyphic", "name": "Inuvaglyphic", "description": "The symbol-based language of the Inuvans. Learning this language is the sacred goal of all Inuvanites. Cannot be learned by level up or Custom Trait.", "defaultKnownBy": [], "canBeLearned": false }
+]

@@ -1,0 +1,16 @@
+[
+  { "level": 2, "meritRequired": 3 },
+  { "level": 3, "meritRequired": 8 },
+  { "level": 4, "meritRequired": 15 },
+  { "level": 5, "meritRequired": 24 },
+  { "level": 6, "meritRequired": 35 },
+  { "level": 7, "meritRequired": 48 },
+  { "level": 8, "meritRequired": 63 },
+  { "level": 9, "meritRequired": 80 },
+  { "level": 10, "meritRequired": 99 },
+  { "level": 11, "meritRequired": 120 },
+  { "level": 12, "meritRequired": 143 },
+  { "level": 13, "meritRequired": 168 },
+  { "level": 14, "meritRequired": 195 },
+  { "level": 15, "meritRequired": 225 }
+]
