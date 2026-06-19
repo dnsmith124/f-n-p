@@ -50,6 +50,44 @@ export const ATTRIBUTE_DESCRIPTIONS: Record<AttributeKey, string> = {
 export const ATTRIBUTE_MIN = -7;
 export const ATTRIBUTE_MAX = 7;
 
+export const MAGIC_SCHOOLS: MagicSchool[] = [
+  "pyromancy",
+  "oceansCall",
+  "greatStorm",
+  "arcadian",
+  "twinMoon",
+  "phantasm",
+];
+
+const SPELL_DATA_SCHOOL_TO_MAGIC: Record<string, MagicSchool> = {
+  pyromancy: "pyromancy",
+  "oceans-call": "oceansCall",
+  "great-storm": "greatStorm",
+  arcadian: "arcadian",
+  "twin-moon": "twinMoon",
+  phantasm: "phantasm",
+  oceansCall: "oceansCall",
+  greatStorm: "greatStorm",
+  twinMoon: "twinMoon",
+};
+
+export const MAGIC_SCHOOL_TO_SPELL_DATA: Record<MagicSchool, string> = {
+  pyromancy: "pyromancy",
+  oceansCall: "oceans-call",
+  greatStorm: "great-storm",
+  arcadian: "arcadian",
+  twinMoon: "twin-moon",
+  phantasm: "phantasm",
+};
+
+export function spellDataSchoolToMagicSchool(school: string): MagicSchool | null {
+  return SPELL_DATA_SCHOOL_TO_MAGIC[school] ?? null;
+}
+
+export function isMagicSchool(value: string): value is MagicSchool {
+  return (MAGIC_SCHOOLS as readonly string[]).includes(value);
+}
+
 export const MAGIC_SCHOOL_LABELS: Record<MagicSchool, string> = {
   pyromancy: "Pyromancy",
   oceansCall: "Ocean's Call",
@@ -67,6 +105,18 @@ export const MAGIC_SCHOOL_CSS: Record<MagicSchool, string> = {
   twinMoon: "school-twin-moon",
   phantasm: "school-phantasm",
 };
+
+/** Attribute that scales spell effects for each school of magic. */
+export const MAGIC_SCHOOL_SCALING: Record<MagicSchool, string> = {
+  pyromancy: "SRV",
+  oceansCall: "VIT",
+  greatStorm: "SPD",
+  arcadian: "SRV",
+  twinMoon: "VIT",
+  phantasm: "CHA",
+};
+
+export const SPELL_SCALING_ATTRIBUTES = ["SRV", "VIT", "SPD", "CHA"] as const;
 
 export const MAX_LEVEL = 15;
 export const MAX_LUCK_TOKENS_DEFAULT = 2;

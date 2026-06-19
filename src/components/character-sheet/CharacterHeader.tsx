@@ -5,10 +5,7 @@ import type { Character } from "@/lib/types/character";
 import { EditableField } from "@/components/ui/EditableField";
 import { EditableSelect } from "@/components/ui/EditableSelect";
 import { DerivedField } from "@/components/ui/DerivedField";
-import { TribeSelectorModal } from "./TribeSelectorModal";
-import { ClassSelectorModal } from "./ClassSelectorModal";
 import { useGameData } from "@/hooks/useGameData";
-import { applyTribeStats, applyClassTrainings } from "@/lib/utils";
 import meritThresholds from "../../../data/merit-thresholds.json";
 
 interface CharacterHeaderProps {
@@ -18,8 +15,6 @@ interface CharacterHeaderProps {
 
 export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
   const { tribes, classes, zodiac } = useGameData();
-  const [showTribeModal, setShowTribeModal] = useState(false);
-  const [showClassModal, setShowClassModal] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
   const selectedClass = classes.find((c) => c.id === character.class);
@@ -35,10 +30,6 @@ export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
   const levelHint = nextThreshold
     ? `${character.merit}/${nextThreshold.meritRequired}`
     : "max";
-
-  const handleTribeSelect = (tribeId: string, startingBonus?: { name: string; description: string }) => {
-    onUpdate((prev) => applyTribeStats(prev, tribeId, startingBonus));
-  };
 
   return (
     <div className="bg-surface border border-border-light rounded-lg">
@@ -71,34 +62,14 @@ export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
       {!collapsed && (
         <div className="px-3 pb-3 space-y-2">
           <div className="grid grid-cols-2 gap-2">
-            <div>
-              <label className="block text-[10px] uppercase tracking-wider text-text-muted mb-0.5">
-                Tribe
-              </label>
-              <button
-                type="button"
-                onClick={() => setShowTribeModal(true)}
-                className={`w-full text-left bg-surface border border-border-light rounded px-2 py-1 text-sm outline-none hover:border-accent transition-colors cursor-pointer ${
-                  selectedTribe ? "text-text" : "text-text-muted italic"
-                }`}
-              >
-                {selectedTribe ? selectedTribe.name : "Select Tribe"}
-              </button>
-            </div>
-            <div>
-              <label className="block text-[10px] uppercase tracking-wider text-text-muted mb-0.5">
-                Class
-              </label>
-              <button
-                type="button"
-                onClick={() => setShowClassModal(true)}
-                className={`w-full text-left bg-surface border border-border-light rounded px-2 py-1 text-sm outline-none hover:border-accent transition-colors cursor-pointer ${
-                  selectedClass ? "text-text" : "text-text-muted italic"
-                }`}
-              >
-                {selectedClass ? selectedClass.name : "Select Class"}
-              </button>
-            </div>
+            <DerivedField
+              value={selectedTribe?.name ?? "—"}
+              label="Tribe"
+            />
+            <DerivedField
+              value={selectedClass?.name ?? "—"}
+              label="Class"
+            />
           </div>
 
           <div className="grid grid-cols-3 gap-2">
@@ -132,19 +103,6 @@ export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
         </div>
       )}
 
-      <TribeSelectorModal
-        isOpen={showTribeModal}
-        onClose={() => setShowTribeModal(false)}
-        onSelect={handleTribeSelect}
-        currentTribeId={character.tribe}
-      />
-
-      <ClassSelectorModal
-        isOpen={showClassModal}
-        onClose={() => setShowClassModal(false)}
-        onSelect={(classId) => onUpdate((p) => applyClassTrainings(p, classId))}
-        currentClassId={character.class}
-      />
     </div>
   );
 }

@@ -1,25 +1,22 @@
 "use client";
 
 import type { MagicSchool } from "@/lib/types/character";
-import { MAGIC_SCHOOL_LABELS, MAGIC_SCHOOL_CSS } from "@/lib/constants";
+import {
+  MAGIC_SCHOOLS,
+  MAGIC_SCHOOL_LABELS,
+  MAGIC_SCHOOL_CSS,
+} from "@/lib/constants";
 
 interface MagicSchoolSelectorProps {
   selected: MagicSchool | null;
   onSelect: (school: MagicSchool) => void;
+  options?: MagicSchool[];
 }
-
-const SCHOOLS: MagicSchool[] = [
-  "pyromancy",
-  "oceansCall",
-  "greatStorm",
-  "arcadian",
-  "twinMoon",
-  "phantasm",
-];
 
 export function MagicSchoolSelector({
   selected,
   onSelect,
+  options = MAGIC_SCHOOLS,
 }: MagicSchoolSelectorProps) {
   return (
     <div>
@@ -27,7 +24,7 @@ export function MagicSchoolSelector({
         Choose School of Magic
       </h4>
       <div className="grid grid-cols-2 gap-1.5">
-        {SCHOOLS.map((school) => {
+        {options.map((school) => {
           const isSelected = school === selected;
           return (
             <button

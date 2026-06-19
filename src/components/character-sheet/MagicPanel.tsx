@@ -7,9 +7,22 @@ import { EditableSelect } from "@/components/ui/EditableSelect";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 import { Badge } from "@/components/ui/Badge";
 import { Modal } from "@/components/ui/Modal";
+import { MagicSchoolSelector } from "@/components/character-creation/MagicSchoolSelector";
 import { useGameData } from "@/hooks/useGameData";
-import { MAGIC_SCHOOL_CSS, MAGIC_SCHOOL_LABELS } from "@/lib/constants";
-import { generateId, spellMemoryUsed } from "@/lib/utils";
+import {
+  MAGIC_SCHOOLS,
+  MAGIC_SCHOOL_CSS,
+  MAGIC_SCHOOL_LABELS,
+  SPELL_SCALING_ATTRIBUTES,
+  spellDataSchoolToMagicSchool,
+} from "@/lib/constants";
+import {
+  addSpellSchool,
+  generateId,
+  removeSpellSchool,
+  spellMatchesKnownSchools,
+  spellMemoryUsed,
+} from "@/lib/utils";
 import type { SpellData } from "@/lib/types/game-data";
 
 interface MagicPanelProps {
@@ -20,6 +33,7 @@ interface MagicPanelProps {
 export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
   const { spells: allSpells } = useGameData();
   const [showSpellPicker, setShowSpellPicker] = useState(false);
+  const [showSchoolPicker, setShowSchoolPicker] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const magic = character.magic;
 
@@ -35,10 +49,13 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
 
   const addSpellFromData = useCallback(
     (spell: SpellData) => {
+      const school =
+        spellDataSchoolToMagicSchool(spell.school) ??
+        (spell.school as MagicSchool | "equipment" | "divine" | "core");
       const learned: LearnedSpell = {
         id: generateId(),
         name: spell.name,
-        school: spell.school as MagicSchool | "equipment" | "divine" | "core",
+        school,
         tier: (spell.tier as "novice" | "advanced" | "master") || "none",
         castCost: spell.castCost,
         effect: spell.effect,
@@ -76,22 +93,49 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
     [onUpdate]
   );
 
+  const handleAddSchool = useCallback(
+    (school: MagicSchool) => {
+      onUpdate((prev) => addSpellSchool(prev, school));
+      setShowSchoolPicker(false);
+    },
+    [onUpdate]
+  );
+
+  const handleRemoveSchool = useCallback(
+    (school: MagicSchool) => {
+      onUpdate((prev) => removeSpellSchool(prev, school));
+    },
+    [onUpdate]
+  );
+
   const memoryUsed = spellMemoryUsed(character);
   const memoryRemaining = magic.spellMemoryMax - memoryUsed;
   const learnedNames = new Set(magic.learnedSpells.map((s) => s.name.toLowerCase()));
+  const availableSchools = MAGIC_SCHOOLS.filter(
+    (school) => !magic.spellSchools.includes(school)
+  );
 
   const filteredSpells = allSpells.filter(
     (s) =>
+      spellMatchesKnownSchools(s.school, magic.spellSchools) &&
       !learnedNames.has(s.name.toLowerCase()) &&
       (s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-       s.school.toLowerCase().includes(searchQuery.toLowerCase()))
+        s.school.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
-  const schoolCss = (school: string) =>
-    MAGIC_SCHOOL_CSS[school as MagicSchool] || "";
+  const schoolCss = (school: string) => {
+    const normalized = spellDataSchoolToMagicSchool(school);
+    return normalized ? MAGIC_SCHOOL_CSS[normalized] : "";
+  };
 
-  const schoolLabel = (school: string) =>
-    MAGIC_SCHOOL_LABELS[school as MagicSchool] || school;
+  const schoolLabel = (school: string) => {
+    const normalized = spellDataSchoolToMagicSchool(school);
+    if (normalized) return MAGIC_SCHOOL_LABELS[normalized];
+    if (school in MAGIC_SCHOOL_LABELS) {
+      return MAGIC_SCHOOL_LABELS[school as MagicSchool];
+    }
+    return school;
+  };
 
   return (
     <div className="space-y-3">
@@ -112,13 +156,47 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
         <EditableSelect
           value={magic.scalingAttribute}
           onChange={(v) => updateMagic("scalingAttribute", v)}
-          options={[
-            { value: "INT", label: "INT" },
-            { value: "CHA", label: "CHA" },
-          ]}
+          options={SPELL_SCALING_ATTRIBUTES.map((attr) => ({
+            value: attr,
+            label: attr,
+          }))}
           label="Scaling Attr"
           placeholder="Select"
         />
+      </div>
+
+      <div className="space-y-1">
+        <div className="flex items-center justify-between">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-text-secondary">
+            Spell Schools
+          </h4>
+          {availableSchools.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setShowSchoolPicker(true)}
+              className="text-xs text-accent hover:underline"
+            >
+              + Add School
+            </button>
+          )}
+        </div>
+        {magic.spellSchools.length === 0 ? (
+          <p className="text-xs text-text-muted italic py-1">
+            No schools known. Add a school to learn spells from it.
+          </p>
+        ) : (
+          <div className="flex flex-wrap gap-1">
+            {magic.spellSchools.map((school) => (
+              <Badge
+                key={school}
+                variant="arcane"
+                onRemove={() => handleRemoveSchool(school)}
+              >
+                {MAGIC_SCHOOL_LABELS[school]}
+              </Badge>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="space-y-1">
@@ -160,8 +238,10 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
             Learned Spells
           </h4>
           <button
+            type="button"
             onClick={() => setShowSpellPicker(true)}
-            className="text-xs text-accent hover:underline"
+            disabled={magic.spellSchools.length === 0}
+            className="text-xs text-accent hover:underline disabled:opacity-40 disabled:no-underline disabled:cursor-not-allowed"
           >
             + Add Spell
           </button>
@@ -204,6 +284,7 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
                     <p className="italic text-text-muted">{spell.description}</p>
                   )}
                   <button
+                    type="button"
                     onClick={() => removeSpell(spell.id)}
                     className="text-danger hover:underline mt-1"
                   >
@@ -215,6 +296,18 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
           </div>
         )}
       </div>
+
+      <Modal
+        isOpen={showSchoolPicker}
+        onClose={() => setShowSchoolPicker(false)}
+        title="Add Spell School"
+      >
+        <MagicSchoolSelector
+          selected={null}
+          onSelect={handleAddSchool}
+          options={availableSchools}
+        />
+      </Modal>
 
       <Modal
         isOpen={showSpellPicker}
@@ -238,6 +331,7 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
             return (
               <button
                 key={spell.id}
+                type="button"
                 onClick={() => !exceedsMemory && addSpellFromData(spell)}
                 disabled={exceedsMemory}
                 className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
@@ -259,7 +353,11 @@ export function MagicPanel({ character, onUpdate }: MagicPanelProps) {
             );
           })}
           {filteredSpells.length === 0 && (
-            <p className="text-xs text-text-muted text-center py-4">No spells found</p>
+            <p className="text-xs text-text-muted text-center py-4">
+              {magic.spellSchools.length === 0
+                ? "Add a spell school first"
+                : "No spells found"}
+            </p>
           )}
         </div>
       </Modal>

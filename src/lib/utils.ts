@@ -4,8 +4,15 @@ import type {
   CharacterAttributes,
   AttributeKey,
   DamageModifierEntry,
+  MagicSchool,
 } from "./types/character";
-import { CHARACTER_VERSION, MAX_LUCK_TOKENS_DEFAULT } from "./constants";
+import {
+  CHARACTER_VERSION,
+  isMagicSchool,
+  MAGIC_SCHOOL_SCALING,
+  MAX_LUCK_TOKENS_DEFAULT,
+  spellDataSchoolToMagicSchool,
+} from "./constants";
 import meritThresholds from "../../data/merit-thresholds.json";
 import tribesData from "../../data/tribes.json";
 import classesData from "../../data/classes.json";
@@ -79,9 +86,28 @@ export function formatDamageModifierEntry(entry: DamageModifierEntry): string {
   return `${typeLabel} ${levelLabel}`;
 }
 
+function inferSpellSchools(character: Character): MagicSchool[] {
+  const existing = character.magic?.spellSchools;
+  if (Array.isArray(existing) && existing.length > 0) {
+    return existing.filter(isMagicSchool);
+  }
+
+  if (character.class === "pilgrim") return ["twinMoon"];
+
+  const fromSpells = new Set<MagicSchool>();
+  for (const spell of character.magic?.learnedSpells ?? []) {
+    const school = spellDataSchoolToMagicSchool(spell.school);
+    if (school) fromSpells.add(school);
+  }
+  if (fromSpells.size > 0) return [...fromSpells];
+
+  return [];
+}
+
 export function normalizeCharacter(character: Character): Character {
   const weaknesses = normalizeDamageModifiers(character.combatStats.weaknesses);
   const resistances = normalizeDamageModifiers(character.combatStats.resistances);
+  const spellSchools = inferSpellSchools(character);
 
   const normalized: Character = {
     ...character,
@@ -98,9 +124,21 @@ export function normalizeCharacter(character: Character): Character {
       weaknesses,
       resistances,
     },
+    magic: {
+      ...character.magic,
+      spellSchools,
+    },
   };
 
   return normalized;
+}
+
+export function spellMatchesKnownSchools(
+  spellSchool: string,
+  knownSchools: MagicSchool[],
+): boolean {
+  const school = spellDataSchoolToMagicSchool(spellSchool);
+  return school !== null && knownSchools.includes(school);
 }
 
 export function applyDerivedStats(character: Character): Character {
@@ -194,9 +232,98 @@ function findClass(classId: string): ClassData | undefined {
   return (classesData as ClassData[]).find((c) => c.id === classId);
 }
 
+const CLASS_FIXED_SCALING: Record<string, string> = {
+  pilgrim: MAGIC_SCHOOL_SCALING.twinMoon,
+};
+
+export function getScalingAttributeForClass(
+  classId: string,
+  magicSchool?: MagicSchool | null,
+  existingScaling?: string,
+): string {
+  if (classId === "mage") {
+    if (magicSchool) return MAGIC_SCHOOL_SCALING[magicSchool];
+    return existingScaling ?? "";
+  }
+
+  return CLASS_FIXED_SCALING[classId] ?? "";
+}
+
+export function applyClassScaling(
+  character: Character,
+  classId: string,
+  magicSchool?: MagicSchool | null,
+): Character {
+  const scaling = getScalingAttributeForClass(
+    classId,
+    magicSchool,
+    character.magic.scalingAttribute,
+  );
+
+  if (scaling === character.magic.scalingAttribute) return character;
+
+  return {
+    ...character,
+    magic: { ...character.magic, scalingAttribute: scaling },
+  };
+}
+
+export function applySpellSchools(
+  character: Character,
+  classId: string,
+  magicSchool?: MagicSchool | null,
+): Character {
+  const schools: MagicSchool[] = [];
+  if (classId === "mage" && magicSchool) {
+    schools.push(magicSchool);
+  } else if (classId === "pilgrim") {
+    schools.push("twinMoon");
+  }
+
+  return {
+    ...character,
+    magic: { ...character.magic, spellSchools: schools },
+  };
+}
+
+export function addSpellSchool(
+  character: Character,
+  school: MagicSchool,
+): Character {
+  if (character.magic.spellSchools.includes(school)) return character;
+
+  const spellSchools = [...character.magic.spellSchools, school];
+  const scalingAttribute =
+    character.magic.scalingAttribute || MAGIC_SCHOOL_SCALING[school];
+
+  return {
+    ...character,
+    magic: {
+      ...character.magic,
+      spellSchools,
+      scalingAttribute,
+    },
+  };
+}
+
+export function removeSpellSchool(
+  character: Character,
+  school: MagicSchool,
+): Character {
+  if (!character.magic.spellSchools.includes(school)) return character;
+
+  return {
+    ...character,
+    magic: {
+      ...character.magic,
+      spellSchools: character.magic.spellSchools.filter((s) => s !== school),
+    },
+  };
+}
+
 export function applyClassTrainings(character: Character, classId: string): Character {
   const cls = findClass(classId);
-  if (!cls) return { ...character, class: classId };
+  if (!cls) return applyClassScaling({ ...character, class: classId }, classId);
 
   const allTrainings = trainingsData as TrainingData[];
   const trainingsByName = new Map(allTrainings.map((t) => [t.name.toLowerCase(), t]));
@@ -213,11 +340,14 @@ export function applyClassTrainings(character: Character, classId: string): Char
     })
     .filter((e): e is NonNullable<typeof e> => e !== null);
 
-  return {
-    ...character,
-    class: classId,
-    trainings: [...withoutOldClass, ...newEntries],
-  };
+  return applyClassScaling(
+    {
+      ...character,
+      class: classId,
+      trainings: [...withoutOldClass, ...newEntries],
+    },
+    classId,
+  );
 }
 
 export function createDefaultCharacter(): Character {
@@ -260,6 +390,7 @@ export function createDefaultCharacter(): Character {
       spellMemoryCurrent: 0,
       spellMemoryMax: 0,
       scalingAttribute: "",
+      spellSchools: [],
       learnedSpells: [],
     },
     skills: [],

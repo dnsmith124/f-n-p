@@ -3,6 +3,8 @@ import {
   createDefaultCharacter,
   applyTribeStats,
   applyClassTrainings,
+  applyClassScaling,
+  applySpellSchools,
   applyDerivedStats,
   generateId,
   findTribe,
@@ -73,15 +75,6 @@ export function isStepValid(state: WizardState, step: number): boolean {
       return false;
   }
 }
-
-const MAGIC_SCHOOL_SCALING: Record<MagicSchool, string> = {
-  pyromancy: "INT",
-  oceansCall: "INT",
-  greatStorm: "INT",
-  arcadian: "INT",
-  twinMoon: "INT",
-  phantasm: "INT",
-};
 
 function applyTribeAttributeOverrides(
   character: Character,
@@ -189,9 +182,6 @@ function applyClassBonuses(
         magic: {
           ...c.magic,
           spellMemoryMax: c.magic.spellMemoryMax + 1,
-          scalingAttribute: state.magicSchool
-            ? MAGIC_SCHOOL_SCALING[state.magicSchool]
-            : "",
         },
       };
       break;
@@ -257,6 +247,8 @@ export function computePreviewCharacter(state: WizardState): Character {
   if (state.classId) {
     c = applyClassTrainings(c, state.classId);
     c = applyClassBonuses(c, state);
+    c = applyClassScaling(c, state.classId, state.magicSchool);
+    c = applySpellSchools(c, state.classId, state.magicSchool);
     if (state.selectedClassAbility) {
       const entry = findProgressionEntryByAbility(
         state.classId,

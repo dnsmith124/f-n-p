@@ -105,10 +105,18 @@ export function ReviewStep({ state, preview }: ReviewStepProps) {
             </h4>
             <StatRow label="Spell Die" value={preview.magic.spellDie || "—"} />
             <StatRow label="Spell Memory" value={preview.magic.spellMemoryMax} />
-            {state.magicSchool && (
+            {preview.magic.scalingAttribute && (
               <StatRow
-                label="School"
-                value={MAGIC_SCHOOL_LABELS[state.magicSchool]}
+                label="Scaling Attr"
+                value={preview.magic.scalingAttribute}
+              />
+            )}
+            {preview.magic.spellSchools.length > 0 && (
+              <StatRow
+                label="Spell Schools"
+                value={preview.magic.spellSchools
+                  .map((school) => MAGIC_SCHOOL_LABELS[school])
+                  .join(", ")}
               />
             )}
           </div>

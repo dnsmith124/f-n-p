@@ -82,6 +82,7 @@ export interface MagicStats {
   spellMemoryCurrent: number;
   spellMemoryMax: number;
   scalingAttribute: string;
+  spellSchools: MagicSchool[];
   learnedSpells: LearnedSpell[];
 }
 
