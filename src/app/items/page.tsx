@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useGameData } from "@/hooks/useGameData";
 import { AppHeader } from "@/components/ui/AppHeader";
@@ -32,6 +32,29 @@ function getItemsBackNav(from: string | null): { backHref: string; backLabel: st
 }
 
 export default function ItemsPage() {
+  return (
+    <Suspense fallback={<ItemsPageFallback />}>
+      <ItemsPageContent />
+    </Suspense>
+  );
+}
+
+function ItemsPageFallback() {
+  return (
+    <div className="flex flex-1 flex-col">
+      <AppHeader backHref="/" backLabel="Home" />
+      <div className="max-w-2xl mx-auto w-full p-4 pb-8">
+        <div className="text-center py-4 mb-2">
+          <h1 className="text-lg font-bold tracking-wide text-primary uppercase">
+            Item Reference
+          </h1>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ItemsPageContent() {
   const searchParams = useSearchParams();
   const from = searchParams.get("from");
   const { backHref, backLabel } = useMemo(() => getItemsBackNav(from), [from]);

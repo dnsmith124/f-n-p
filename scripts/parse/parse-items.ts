@@ -1206,7 +1206,7 @@ function stripEmpty(item: ItemData): Record<string, unknown> {
   return result;
 }
 
-export async function parseItemsV2(): Promise<ParseSummary> {
+export async function parseItems(): Promise<ParseSummary> {
   const summary = createSummary("items-v2");
   const path = resolveProjectPath("source-docs", "ITEMS.xlsx");
   const wb = loadWorkbook(path);
@@ -1271,5 +1271,5 @@ export async function parseItemsV2(): Promise<ParseSummary> {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  parseItemsV2().catch(console.error);
+  parseItems().catch(console.error);
 }
