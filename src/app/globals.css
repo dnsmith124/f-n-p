@@ -24,6 +24,13 @@
   --school-arcadian: #4E9A4E;
   --school-twin-moon: #9898B0;
   --school-phantasm: #9668C4;
+
+  --rarity-common: #8B8478;
+  --rarity-uncommon: #4E9A4E;
+  --rarity-rare: #4682B4;
+  --rarity-legendary: #DAA520;
+  --rarity-parallel: #9668C4;
+  --rarity-crafted: #B87333;
 }
 
 /* ===== Theme: Bioluminescent Dark ===== */
@@ -49,6 +56,13 @@
   --school-arcadian: #66BB6A;
   --school-twin-moon: #B0B0CC;
   --school-phantasm: #BB86FC;
+
+  --rarity-common: #687080;
+  --rarity-uncommon: #66BB6A;
+  --rarity-rare: #4DA8DA;
+  --rarity-legendary: #FFD700;
+  --rarity-parallel: #BB86FC;
+  --rarity-crafted: #FFB347;
 }
 
 /* ===== Theme: Warm Frontier ===== */
@@ -74,6 +88,13 @@
   --school-arcadian: #5B8A5B;
   --school-twin-moon: #8E8EA0;
   --school-phantasm: #8B6BAE;
+
+  --rarity-common: #9A8C7E;
+  --rarity-uncommon: #5B8A5B;
+  --rarity-rare: #4682B4;
+  --rarity-legendary: #CD950C;
+  --rarity-parallel: #8B6BAE;
+  --rarity-crafted: #B87333;
 }
 
 /* ===== Tailwind Theme Tokens ===== */
@@ -92,6 +113,12 @@
   --color-text-muted: var(--color-text-muted);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
+  --color-rarity-common: var(--rarity-common);
+  --color-rarity-uncommon: var(--rarity-uncommon);
+  --color-rarity-rare: var(--rarity-rare);
+  --color-rarity-legendary: var(--rarity-legendary);
+  --color-rarity-parallel: var(--rarity-parallel);
+  --color-rarity-crafted: var(--rarity-crafted);
 
   --font-sans: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
@@ -173,4 +200,30 @@ body {
 .school-phantasm {
   background-color: color-mix(in srgb, var(--school-phantasm) 8%, transparent);
   border-left: 3px solid color-mix(in srgb, var(--school-phantasm) 50%, transparent);
+}
+
+/* ===== Item Rarity Tints ===== */
+.rarity-common {
+  background-color: color-mix(in srgb, var(--rarity-common) 5%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-common) 30%, transparent);
+}
+.rarity-uncommon {
+  background-color: color-mix(in srgb, var(--rarity-uncommon) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-uncommon) 50%, transparent);
+}
+.rarity-rare {
+  background-color: color-mix(in srgb, var(--rarity-rare) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-rare) 50%, transparent);
+}
+.rarity-legendary {
+  background-color: color-mix(in srgb, var(--rarity-legendary) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-legendary) 50%, transparent);
+}
+.rarity-parallel {
+  background-color: color-mix(in srgb, var(--rarity-parallel) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-parallel) 50%, transparent);
+}
+.rarity-crafted {
+  background-color: color-mix(in srgb, var(--rarity-crafted) 8%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--rarity-crafted) 50%, transparent);
 }

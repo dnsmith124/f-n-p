@@ -1,10 +1,12 @@
+/**
+ * Fixed items parser — see parse-items.ts for the original implementation.
+ * Run: npm run parse:items:v2
+ */
 import {
   loadWorkbook,
   sheetToUnmergedGrid,
   cellToString,
   cellToNumber,
-  getDataSheetNames,
-  findRowByLabel,
   type CellValue,
 } from "./utils/xlsx";
 import { toKebabId, normalizeWhitespace, cleanDescription, deduplicateId, toTitleCase } from "./utils/strings";
@@ -23,6 +25,7 @@ interface ItemData {
   category: string;
   subcategory: string;
   rarity: string;
+  originalItem?: string;
   damage?: string;
   damageType?: string;
   training?: string;
@@ -48,6 +51,7 @@ interface ItemData {
   parry?: string;
   blockBonus?: string;
   description?: string;
+  curseEffects?: string;
 }
 
 const RARITY_MAP: Record<string, string> = {
@@ -62,6 +66,340 @@ const RARITY_MAP: Record<string, string> = {
   crafting: "n/a",
 };
 
+const CARD_PLACEHOLDER_NAMES = /^(ring name|armor name|item name)$/i;
+const MOD_LEFT_SKIP = /^(title granted|weapon mods|armor mods|shield mods|mod material|raw materials|creation|category)$/i;
+const MOD_RIGHT_SKIP = /^(title granted|weapon$|enchantments|armor$|armor mods|shield mods|mod material|arthosium|weaving)$/i;
+const LEFT_SECTION_HEADERS = /^(weapon mods|armor mods|shield mods)$/i;
+const MOD_MATERIAL_HEADER = /^mod material$/i;
+
+type SmithingSection = "weapon" | "armor" | "shield";
+type ModGrantSection = SmithingSection | "weaving";
+
+interface ModGrant {
+  name: string;
+  effect: string;
+  value?: number;
+  section: ModGrantSection;
+}
+
+function normalizeMaterialKey(name: string): string {
+  return name.trim().toLowerCase();
+}
+
+function capitalizeSection(section: ModGrantSection): string {
+  return section.charAt(0).toUpperCase() + section.slice(1);
+}
+
+function formatModGrants(grants: ModGrant[]): string {
+  return grants
+    .map((g) => {
+      const valuePart = g.value != null ? `${g.value} SV` : "n/a SV";
+      return `${g.name} (${capitalizeSection(g.section)}, ${valuePart}): ${g.effect}`;
+    })
+    .join("\n");
+}
+
+function collectSmithingModEffects(grid: CellValue[][]): Map<string, ModGrant[]> {
+  const byMaterial = new Map<string, ModGrant[]>();
+  let section: SmithingSection = "weapon";
+  let pastMaterials = false;
+
+  for (let r = 3; r < grid.length; r++) {
+    const title = str(grid[r]?.[0]);
+    if (!title) continue;
+
+    if (LEFT_SECTION_HEADERS.test(title)) {
+      if (/weapon/i.test(title)) section = "weapon";
+      else if (/armor/i.test(title)) section = "armor";
+      else section = "shield";
+      continue;
+    }
+
+    if (MOD_MATERIAL_HEADER.test(title)) {
+      pastMaterials = true;
+      continue;
+    }
+
+    if (pastMaterials || MOD_LEFT_SKIP.test(title)) continue;
+    if (title === title.toUpperCase() && title.length > 3 && !title.match(/\d/)) continue;
+
+    const material = str(grid[r]?.[4]);
+    if (!material) continue;
+
+    const effectText = str(grid[r]?.[1]);
+    if (!effectText) continue;
+
+    const grant: ModGrant = {
+      name: normalizeWhitespace(title),
+      effect: cleanDescription(effectText),
+      value: num(grid[r]?.[3]),
+      section,
+    };
+
+    const key = normalizeMaterialKey(material);
+    const existing = byMaterial.get(key);
+    if (existing) existing.push(grant);
+    else byMaterial.set(key, [grant]);
+  }
+
+  return byMaterial;
+}
+
+function collectWeavingModEffectsInto(
+  grid: CellValue[][],
+  byMaterial: Map<string, ModGrant[]>
+): void {
+  let inWeaving = false;
+  let pastRightMaterials = false;
+
+  for (let r = 3; r < grid.length; r++) {
+    const title = str(grid[r]?.[7]);
+    if (!title) continue;
+
+    if (/^weaving$/i.test(title) || /^arthosium$/i.test(title)) {
+      inWeaving = true;
+      continue;
+    }
+
+    if (MOD_MATERIAL_HEADER.test(title)) {
+      pastRightMaterials = true;
+      inWeaving = false;
+      continue;
+    }
+
+    if (pastRightMaterials || !inWeaving) continue;
+    if (MOD_RIGHT_SKIP.test(title)) continue;
+    if (title === title.toUpperCase() && title.length > 3 && !title.match(/\d/)) continue;
+
+    const material = str(grid[r]?.[9]);
+    if (!material) continue;
+
+    const effectText = str(grid[r]?.[8]);
+    if (!effectText) continue;
+
+    const grant: ModGrant = {
+      name: normalizeWhitespace(title),
+      effect: cleanDescription(effectText),
+      value: num(grid[r]?.[10]),
+      section: "weaving",
+    };
+
+    const key = normalizeMaterialKey(material);
+    const existing = byMaterial.get(key);
+    if (existing) existing.push(grant);
+    else byMaterial.set(key, [grant]);
+  }
+}
+
+function parseEyeStoneMaterials(
+  grid: CellValue[][],
+  byMaterial: Map<string, ModGrant[]>
+): ItemData[] {
+  const items: ItemData[] = [];
+  let pastHeader = false;
+
+  for (let r = 3; r < grid.length; r++) {
+    const title = str(grid[r]?.[0]);
+    if (!title) continue;
+
+    if (MOD_MATERIAL_HEADER.test(title)) {
+      pastHeader = true;
+      continue;
+    }
+
+    if (!pastHeader) continue;
+
+    const description = str(grid[r]?.[1]);
+    const item: ItemData = {
+      id: "",
+      name: normalizeWhitespace(title),
+      category: "mod",
+      subcategory: "eye-stone",
+      rarity: normalizeRarity(str(grid[r]?.[3]) || "n/a"),
+      description: description ? cleanDescription(description) : undefined,
+      value: num(grid[r]?.[2]),
+    };
+
+    const grants = byMaterial.get(normalizeMaterialKey(title));
+    if (grants?.length) {
+      item.effect = formatModGrants(grants);
+    }
+
+    items.push(item);
+  }
+
+  return items;
+}
+
+function parseArthreadMaterials(
+  grid: CellValue[][],
+  byMaterial: Map<string, ModGrant[]>
+): ItemData[] {
+  const items: ItemData[] = [];
+  let pastHeader = false;
+
+  for (let r = 3; r < grid.length; r++) {
+    const title = str(grid[r]?.[7]);
+    if (!title) continue;
+
+    if (MOD_MATERIAL_HEADER.test(title)) {
+      pastHeader = true;
+      continue;
+    }
+
+    if (!pastHeader) continue;
+
+    const description = str(grid[r]?.[8]);
+    const item: ItemData = {
+      id: "",
+      name: normalizeWhitespace(title),
+      category: "mod",
+      subcategory: "arthread",
+      rarity: normalizeRarity(str(grid[r]?.[9]) || "n/a"),
+      description: description ? cleanDescription(description) : undefined,
+      value: num(grid[r]?.[10]),
+    };
+
+    const grants = byMaterial.get(normalizeMaterialKey(title));
+    if (grants?.length) {
+      item.effect = formatModGrants(grants);
+    }
+
+    items.push(item);
+  }
+
+  return items;
+}
+
+function parseEnchantments(grid: CellValue[][]): ItemData[] {
+  const items: ItemData[] = [];
+  let section: "weapon" | "armor" = "weapon";
+  let inWeaving = false;
+  let pastRightMaterials = false;
+
+  for (let r = 3; r < grid.length; r++) {
+    const title = str(grid[r]?.[7]);
+    if (!title) continue;
+
+    if (/^weapon$/i.test(title)) {
+      section = "weapon";
+      inWeaving = false;
+      continue;
+    }
+    if (/^armor$/i.test(title) || /^enchantments$/i.test(title)) {
+      section = "armor";
+      inWeaving = false;
+      continue;
+    }
+    if (/^weaving$/i.test(title) || /^arthosium$/i.test(title)) {
+      inWeaving = true;
+      continue;
+    }
+    if (MOD_MATERIAL_HEADER.test(title)) {
+      pastRightMaterials = true;
+      inWeaving = false;
+      continue;
+    }
+
+    if (inWeaving || pastRightMaterials) continue;
+    if (MOD_RIGHT_SKIP.test(title)) continue;
+    if (title === title.toUpperCase() && title.length > 3 && !title.match(/\d/)) continue;
+
+    const effectText = str(grid[r]?.[8]);
+    if (!effectText) continue;
+
+    const school = str(grid[r]?.[12]);
+    items.push({
+      id: "",
+      name: normalizeWhitespace(title),
+      category: "enchantment",
+      subcategory: section,
+      rarity: "n/a",
+      effect: cleanDescription(effectText),
+      value: num(grid[r]?.[10]),
+      description: school && school !== "-" ? school : undefined,
+    });
+  }
+
+  return items;
+}
+const CRAFT_RECIPE_SKIP = /^(armorer|weaponsmith|weaver|weaving)/i;
+const CRAFT_MATERIAL_SKIP = /^(weapon subtype|shield subtype|crafting material list)$/i;
+const VALID_CRAFT_RARITIES = /^(common|uncomm(?:on)?\.?|rare|legendary|legendry|crafted|raw mat|craft mat|n\/a)$/i;
+
+type ShieldLayout = "common" | "rare" | "parallel";
+type LeftSectionKind = "melee" | "ranged" | "channeling" | "channeling-spellbook" | "shield";
+
+const SHIELD_COLUMNS: Record<
+  ShieldLayout,
+  {
+    blockRoll: number;
+    durability: number;
+    bashDmg: number;
+    parry: number;
+    blockBonus: number;
+    rareAttribute: number;
+    material: number;
+    weight: number;
+    type: number;
+    value: number;
+  }
+> = {
+  common: {
+    blockRoll: 1,
+    durability: 2,
+    bashDmg: 3,
+    parry: 4,
+    blockBonus: 5,
+    rareAttribute: -1,
+    material: 7,
+    weight: 8,
+    type: 9,
+    value: 10,
+  },
+  rare: {
+    blockRoll: 1,
+    durability: 2,
+    bashDmg: 3,
+    parry: 4,
+    blockBonus: 5,
+    rareAttribute: 6,
+    material: 7,
+    weight: 9,
+    type: 10,
+    value: 11,
+  },
+  parallel: {
+    blockRoll: 2,
+    durability: 3,
+    bashDmg: 4,
+    parry: 5,
+    blockBonus: 6,
+    rareAttribute: 7,
+    material: 8,
+    weight: 10,
+    type: 11,
+    value: 12,
+  },
+};
+
+function isValidCraftRarity(value: string | undefined): boolean {
+  if (!value) return false;
+  return VALID_CRAFT_RARITIES.test(value.trim());
+}
+
+function isShieldHeader(grid: CellValue[][], row: number): boolean {
+  const leftCell = cellToString(grid[row]?.[0])?.toLowerCase() || "";
+  if (!leftCell.includes("offhand") && !leftCell.includes("shield")) return false;
+  for (const col of [1, 2]) {
+    const label = cellToString(grid[row]?.[col])?.toLowerCase() || "";
+    if (label.includes("block") || label.includes("dmg") || label.includes("durability")) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function str(v: CellValue | undefined): string {
   const s = cellToString(v);
   return s === "-" ? "" : s;
@@ -74,43 +412,55 @@ function num(v: CellValue | undefined): number | undefined {
   return n === 0 && s !== "0" ? undefined : n;
 }
 
-function findSectionHeaders(
-  grid: CellValue[][],
-  startCol: number,
-  maxRow: number
-): { row: number; label: string }[] {
-  const headers: { row: number; label: string }[] = [];
-  const headerPatterns = [
-    /melee weapon/i, /ranged weapon/i, /channeling weapon/i,
-    /offhand item/i, /shield/i,
-    /supply item/i, /^tools$/i, /combat tool/i,
-    /main armor/i, /additional armor/i,
-    /helmet/i, /glove/i, /gauntlet/i, /footwear/i, /leg armor/i,
-    /parallel melee/i, /parallel ranged/i,
-  ];
-
-  for (let r = 0; r < maxRow && r < grid.length; r++) {
-    const cell = cellToString(grid[r]?.[startCol]);
-    if (!cell) continue;
-    if (headerPatterns.some((p) => p.test(cell))) {
-      headers.push({ row: r, label: cell });
-    }
-  }
-  return headers;
+function normalizeRarity(value: string | undefined): string {
+  if (!value) return "common";
+  let r = value.toLowerCase().replace(/\.$/, "").trim();
+  if (r === "uncomm") r = "uncommon";
+  if (r === "legendry") r = "legendary";
+  return r;
 }
 
-function parseWeaponSection(
+function isLegendaryTitle(name: string): boolean {
+  if (!name || name.length < 3 || CARD_PLACEHOLDER_NAMES.test(name)) return false;
+  if (name.includes(":")) return false;
+  return name === name.toUpperCase() && /[A-Z]/.test(name);
+}
+
+function cardColumnText(grid: CellValue[][], row: number, col: number): string {
+  for (let c = col; c <= col + 2; c++) {
+    const text = str(grid[row]?.[c]);
+    if (text) return text;
+  }
+  return "";
+}
+
+function isCardTitle(name: string, grid: CellValue[][], row: number, col: number): boolean {
+  if (!name || name.length < 3 || CARD_PLACEHOLDER_NAMES.test(name)) return false;
+  const chargesRow = str(grid[row + 1]?.[col]).toLowerCase();
+  if (!chargesRow.startsWith("charges")) return false;
+  if (/^curse effect|^value:/i.test(name)) return false;
+  return true;
+}
+
+function armorSubcategory(gearType: string): string {
+  const t = gearType.toLowerCase();
+  if (t.includes("helm")) return "helmet";
+  if (t.includes("glove") || t.includes("gauntlet")) return "gloves";
+  if (t.includes("foot") || t.includes("leg")) return "footwear";
+  return "body-armor";
+}
+
+function parseRareWeaponSection(
   grid: CellValue[][],
   headerRow: number,
   endRow: number,
   rarity: string,
-  subcategory: string,
-  summary: ParseSummary,
-  sheetName: string,
-  hasRareAttr: boolean = false
+  subcategory: string
 ): ItemData[] {
   const items: ItemData[] = [];
-  const colOffset = hasRareAttr ? 1 : 0;
+  const hdr = grid[headerRow] || [];
+  const col10Label = cellToString(hdr[10]).toLowerCase();
+  const isReload = col10Label.includes("reload");
 
   for (let r = headerRow + 1; r < endRow && r < grid.length; r++) {
     const name = str(grid[r]?.[0]);
@@ -122,27 +472,63 @@ function parseWeaponSection(
       category: "weapon",
       subcategory,
       rarity,
-      damage: str(grid[r]?.[1 + (hasRareAttr ? 1 : 0)]),
-      damageType: str(grid[r]?.[2 + (hasRareAttr ? 1 : 0)]),
-      training: str(grid[r]?.[3 + (hasRareAttr ? 1 : 0)]),
-      grip: str(grid[r]?.[4 + (hasRareAttr ? 1 : 0)]),
-      attribute: str(grid[r]?.[5 + (hasRareAttr ? 1 : 0)]),
+      damage: str(grid[r]?.[1]),
+      damageType: str(grid[r]?.[2]),
+      training: str(grid[r]?.[3]),
+      grip: str(grid[r]?.[4]),
+      attribute: str(grid[r]?.[5]),
+      rareAttribute: str(grid[r]?.[6]),
+      range: str(grid[r]?.[7]),
+      material: str(grid[r]?.[8]),
+      weight: num(grid[r]?.[9]),
+      value: num(grid[r]?.[11]),
     };
 
-    if (hasRareAttr) {
-      item.rareAttribute = str(grid[r]?.[6 + colOffset]);
-      item.range = str(grid[r]?.[7 + colOffset]);
-      item.material = str(grid[r]?.[8 + colOffset]);
-      item.weight = num(grid[r]?.[9 + colOffset]);
-      item.guard = str(grid[r]?.[10 + colOffset]);
-      item.value = num(grid[r]?.[11 + colOffset]);
-    } else {
-      item.range = str(grid[r]?.[6]);
-      item.material = str(grid[r]?.[7]);
-      item.weight = num(grid[r]?.[8]);
-      item.guard = str(grid[r]?.[9]);
-      item.value = num(grid[r]?.[10]);
-    }
+    if (isReload) item.reload = str(grid[r]?.[10]);
+    else item.guard = str(grid[r]?.[10]);
+
+    items.push(item);
+  }
+  return items;
+}
+
+function parseParallelWeaponSection(
+  grid: CellValue[][],
+  headerRow: number,
+  endRow: number,
+  rarity: string,
+  subcategory: string
+): ItemData[] {
+  const items: ItemData[] = [];
+  const hdr = grid[headerRow] || [];
+  const col11Label = cellToString(hdr[11]).toLowerCase();
+  const isReload = col11Label.includes("reload");
+
+  for (let r = headerRow + 1; r < endRow && r < grid.length; r++) {
+    const name = str(grid[r]?.[0]);
+    if (!name) continue;
+
+    const item: ItemData = {
+      id: "",
+      name: normalizeWhitespace(name),
+      category: "weapon",
+      subcategory,
+      rarity,
+      originalItem: str(grid[r]?.[1]) || undefined,
+      damage: str(grid[r]?.[2]),
+      damageType: str(grid[r]?.[3]),
+      training: str(grid[r]?.[4]),
+      grip: str(grid[r]?.[5]),
+      attribute: str(grid[r]?.[6]),
+      rareAttribute: str(grid[r]?.[7]),
+      range: str(grid[r]?.[8]),
+      material: str(grid[r]?.[9]),
+      weight: num(grid[r]?.[10]),
+      value: num(grid[r]?.[12]),
+    };
+
+    if (isReload) item.reload = str(grid[r]?.[11]);
+    else item.guard = str(grid[r]?.[11]);
 
     items.push(item);
   }
@@ -182,14 +568,58 @@ function parseCommonWeaponSection(
       value: num(grid[r]?.[10]),
     };
 
-    if (isReload) {
-      item.reload = str(grid[r]?.[9]);
+    if (isReload) item.reload = str(grid[r]?.[9]);
+    else item.guard = str(grid[r]?.[9]);
+
+    items.push(item);
+  }
+  return items;
+}
+
+function parseChannelingSpellbookSection(
+  grid: CellValue[][],
+  headerRow: number,
+  endRow: number,
+  rarity: string,
+  isParallel: boolean
+): ItemData[] {
+  const items: ItemData[] = [];
+
+  for (let r = headerRow + 1; r < endRow && r < grid.length; r++) {
+    const name = str(grid[r]?.[0]);
+    if (!name) continue;
+
+    const effectSource = isParallel ? str(grid[r]?.[2]) : str(grid[r]?.[1]);
+    const item: ItemData = {
+      id: "",
+      name: normalizeWhitespace(name),
+      category: "weapon",
+      subcategory: "channeling",
+      rarity,
+      effect: effectSource ? cleanDescription(effectSource) : undefined,
+    };
+
+    if (isParallel) {
+      item.originalItem = str(grid[r]?.[1]) || undefined;
+      item.training = str(grid[r]?.[8]) || undefined;
+      item.grip = str(grid[r]?.[10]) || undefined;
+      item.value = num(grid[r]?.[11]);
+      item.weight = num(grid[r]?.[12]);
+    } else if (rarity === "rare") {
+      item.rareAttribute = str(grid[r]?.[7]) || undefined;
+      item.grip = str(grid[r]?.[9]) || undefined;
+      item.value = num(grid[r]?.[10]);
+      item.weight = num(grid[r]?.[11]);
     } else {
-      item.guard = str(grid[r]?.[9]);
+      item.training = str(grid[r]?.[6]) || undefined;
+      item.weight = num(grid[r]?.[8]);
+      item.grip = str(grid[r]?.[9]) || undefined;
+      item.value = num(grid[r]?.[10]);
     }
 
     items.push(item);
   }
+
   return items;
 }
 
@@ -198,17 +628,11 @@ function parseSupplySection(
   headerRow: number,
   endRow: number,
   rarity: string,
-  startCol: number,
-  summary: ParseSummary,
-  sheetName: string
+  startCol: number
 ): ItemData[] {
   const items: ItemData[] = [];
   const hdr = grid[headerRow] || [];
-
   const hasMatCol = cellToString(hdr[startCol + 6]).toLowerCase().includes("material");
-  const typeCol = hasMatCol ? startCol + 7 : startCol + 7;
-  const wgtCol = hasMatCol ? startCol + 8 : startCol + 8;
-  const valCol = hasMatCol ? startCol + 9 : startCol + 9;
 
   for (let r = headerRow + 1; r < endRow && r < grid.length; r++) {
     const name = str(grid[r]?.[startCol]);
@@ -218,7 +642,7 @@ function parseSupplySection(
     const typeStr = str(grid[r]?.[startCol + 7]);
     const materialStr = hasMatCol ? str(grid[r]?.[startCol + 6]) : undefined;
 
-    const item: ItemData = {
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "supply",
@@ -229,9 +653,7 @@ function parseSupplySection(
       material: materialStr || undefined,
       weight: num(grid[r]?.[startCol + 8]),
       value: num(grid[r]?.[startCol + 9]),
-    };
-
-    items.push(item);
+    });
   }
   return items;
 }
@@ -250,7 +672,7 @@ function parseArmorSection(
     const name = str(grid[r]?.[startCol]);
     if (!name) continue;
 
-    const item: ItemData = {
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "armor",
@@ -263,9 +685,7 @@ function parseArmorSection(
       armorClass: str(grid[r]?.[startCol + 7]),
       weight: num(grid[r]?.[startCol + 8]),
       value: num(grid[r]?.[startCol + 9]),
-    };
-
-    items.push(item);
+    });
   }
   return items;
 }
@@ -274,314 +694,443 @@ function parseShieldSection(
   grid: CellValue[][],
   headerRow: number,
   endRow: number,
-  rarity: string
+  rarity: string,
+  layout: ShieldLayout
 ): ItemData[] {
   const items: ItemData[] = [];
+  const cols = SHIELD_COLUMNS[layout];
 
   for (let r = headerRow + 1; r < endRow && r < grid.length; r++) {
     const name = str(grid[r]?.[0]);
     if (!name) continue;
 
+    const typeVal = str(grid[r]?.[cols.type]);
     const item: ItemData = {
       id: "",
       name: normalizeWhitespace(name),
       category: "shield",
       subcategory: "shield",
       rarity,
-      blockRoll: str(grid[r]?.[1]),
-      durability: str(grid[r]?.[2]),
-      bashDmg: str(grid[r]?.[3]),
-      parry: str(grid[r]?.[4]),
-      blockBonus: str(grid[r]?.[5]),
-      material: str(grid[r]?.[7]),
-      weight: num(grid[r]?.[8]),
-      training: str(grid[r]?.[9]),
-      value: num(grid[r]?.[10]),
+      blockRoll: str(grid[r]?.[cols.blockRoll]),
+      durability: str(grid[r]?.[cols.durability]),
+      bashDmg: str(grid[r]?.[cols.bashDmg]),
+      parry: str(grid[r]?.[cols.parry]),
+      blockBonus: str(grid[r]?.[cols.blockBonus]),
+      material: str(grid[r]?.[cols.material]),
+      weight: num(grid[r]?.[cols.weight]),
+      value: num(grid[r]?.[cols.value]),
     };
+
+    if (cols.rareAttribute >= 0) {
+      item.rareAttribute = str(grid[r]?.[cols.rareAttribute]) || undefined;
+    }
+
+    if (typeVal === "Shield") item.type = "Shield";
+    else if (typeVal) item.grip = typeVal;
 
     items.push(item);
   }
   return items;
 }
 
-function parseCardItems(
+function findLegendaryStatStart(grid: CellValue[][], col: number, nameRow: number): number {
+  const statC = col + 2;
+  for (let r = nameRow + 2; r < Math.min(nameRow + 22, grid.length); r++) {
+    const label = str(grid[r]?.[statC]);
+    if (label === "DMG" || label === "Bonus 1") return r;
+  }
+  return -1;
+}
+
+function findLegendaryLabelRow(
+  grid: CellValue[][],
+  col: number,
+  startRow: number,
+  endRow: number,
+  label: string
+): number {
+  const statC = col + 2;
+  for (let r = startRow; r < endRow && r < grid.length; r++) {
+    if (str(grid[r]?.[statC]) === label) return r;
+  }
+  return -1;
+}
+
+const LEGENDARY_STAT_LABELS = new Set([
+  "DMG", "DMG Type", "Scaling", "Range", "Bonus", "Training", "Weight", "Value",
+  "Weapon Attributes", "Weapon Attribute", "Additional Attributes", "Additional Attribute",
+  "Bonus 1", "Bonus 2", "Weaknesses", "Resistances",
+]);
+
+function collectLegendaryLore(
+  grid: CellValue[][],
+  col: number,
+  nameRow: number
+): string {
+  const parts: string[] = [];
+  const endRow = Math.min(nameRow + 18, grid.length);
+
+  for (let r = nameRow + 2; r < endRow; r++) {
+    const text = str(grid[r]?.[col]);
+    const statLabel = str(grid[r]?.[col + 2]);
+    if (text === "Legendary Trait:" || statLabel === "Legendary Trait:" || statLabel === "Weight") break;
+    if (!text || text === "Description / Lore" || text === "Legendary Trait:") continue;
+    if (LEGENDARY_STAT_LABELS.has(text)) continue;
+    parts.push(text);
+  }
+
+  return parts.length > 0 ? cleanDescription(parts.join(" ")) : "";
+}
+
+function collectLegendaryTraitText(
+  grid: CellValue[][],
+  col: number,
+  traitRow: number,
+  endRow: number
+): string {
+  const statC = col + 2;
+  const parts: string[] = [];
+  for (let r = traitRow + 1; r < endRow && r < grid.length; r++) {
+    const left = str(grid[r]?.[col]);
+    const right = str(grid[r]?.[col + 1]);
+    if (left && left !== "Legendary Trait:") parts.push(left);
+    else if (right && right !== "Trait Name") parts.push(right);
+    if (str(grid[r]?.[statC]) === "Weight") break;
+  }
+  return parts.length > 0 ? cleanDescription(parts.join(" ")) : "";
+}
+
+function parseLegendaryCard(grid: CellValue[][], col: number, nameRow: number): ItemData | null {
+  const name = normalizeWhitespace(str(grid[nameRow]?.[col]));
+  if (!name) return null;
+
+  const statStart = findLegendaryStatStart(grid, col, nameRow);
+  if (statStart < 0) return null;
+
+  const statC = col + 2;
+  const statC2 = col + 3;
+  const endRow = Math.min(nameRow + 22, grid.length);
+  const isArmor = str(grid[statStart]?.[statC]) === "Bonus 1";
+
+  const charges = str(grid[nameRow + 1]?.[statC]);
+  const gearType = str(grid[nameRow + 1]?.[statC2]);
+
+  const item: ItemData = {
+    id: "",
+    name,
+    category: isArmor ? "armor" : "legendary-weapon",
+    subcategory: isArmor ? armorSubcategory(gearType) : "legendary-weapon",
+    rarity: "legendary",
+    charges: charges || undefined,
+    type: gearType || undefined,
+    description: collectLegendaryLore(grid, col, nameRow) || undefined,
+  };
+
+  if (isArmor) {
+    item.bonus = str(grid[statStart + 1]?.[statC]) || undefined;
+    const bonus2 = str(grid[statStart + 1]?.[statC2]);
+    if (bonus2) item.additionalEffects = bonus2;
+
+    const weakRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Weaknesses");
+    if (weakRow >= 0) {
+      const w1 = str(grid[weakRow + 1]?.[statC]);
+      const w2 = str(grid[weakRow + 1]?.[statC2]);
+      item.resistances = [w1, w2].filter(Boolean).join("; ") || undefined;
+    }
+
+    const resistRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Resistances");
+    if (resistRow >= 0) {
+      const r1 = str(grid[resistRow + 1]?.[statC]);
+      const r2 = str(grid[resistRow + 1]?.[statC2]);
+      const resist = [r1, r2].filter(Boolean).join("; ");
+      if (resist) item.resistances = item.resistances ? `${item.resistances}; ${resist}` : resist;
+    }
+
+    item.armorClass = gearType || undefined;
+  } else {
+    item.damage = str(grid[statStart + 1]?.[statC]) || undefined;
+    item.damageType = str(grid[statStart + 1]?.[statC2]) || undefined;
+
+    const scalingRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Scaling");
+    if (scalingRow >= 0) {
+      item.attribute = str(grid[scalingRow + 1]?.[statC]) || undefined;
+      item.range = str(grid[scalingRow + 1]?.[statC2]) || undefined;
+    }
+
+    const bonusRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Bonus");
+    if (bonusRow >= 0) {
+      item.bonus = str(grid[bonusRow + 1]?.[statC]) || undefined;
+      item.training = str(grid[bonusRow + 1]?.[statC2]) || undefined;
+    }
+
+    const attrRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Weapon Attributes");
+    const attrRowAlt = attrRow < 0
+      ? findLegendaryLabelRow(grid, col, statStart, endRow, "Weapon Attribute")
+      : -1;
+    const resolvedAttrRow = attrRow >= 0 ? attrRow : attrRowAlt;
+    if (resolvedAttrRow >= 0) {
+      const wa = str(grid[resolvedAttrRow + 1]?.[statC]);
+      if (wa) item.rareAttribute = wa;
+    }
+  }
+
+  for (let r = statStart; r < endRow; r++) {
+    if (str(grid[r]?.[col]) === "Legendary Trait:") {
+      const traitName = str(grid[r]?.[col + 1]);
+      if (traitName && traitName !== "Trait Name") item.effect = traitName;
+      const traitText = collectLegendaryTraitText(grid, col, r, endRow);
+      if (traitText) {
+        item.additionalEffects = item.additionalEffects
+          ? `${item.additionalEffects} ${traitText}`
+          : traitText;
+      }
+      break;
+    }
+  }
+
+  const weightRow = findLegendaryLabelRow(grid, col, statStart, endRow, "Weight");
+  if (weightRow >= 0) {
+    item.weight = num(grid[weightRow + 1]?.[statC]);
+    item.value = num(grid[weightRow + 1]?.[statC2]);
+  }
+
+  return item;
+}
+
+function parseLegendarySection(grid: CellValue[][]): ItemData[] {
+  const items: ItemData[] = [];
+  const CARD_COLS = [0, 5, 10, 15];
+  const seen = new Set<string>();
+
+  for (let r = 3; r < grid.length; r++) {
+    for (const col of CARD_COLS) {
+      const rawName = str(grid[r]?.[col]);
+      if (!isLegendaryTitle(rawName)) continue;
+      const meta = str(grid[r + 1]?.[col]).toLowerCase();
+      if (!meta.includes("description")) continue;
+
+      const item = parseLegendaryCard(grid, col, r);
+      if (!item || seen.has(item.name)) continue;
+      seen.add(item.name);
+      items.push(item);
+    }
+  }
+
+  return items;
+}
+
+function parseRingArtifactCards(
   grid: CellValue[][],
   category: string,
-  rarity: string,
-  summary: ParseSummary,
-  sheetName: string
+  rarity: string
 ): ItemData[] {
   const items: ItemData[] = [];
   const COLS = [0, 3, 6, 9, 12, 15, 18];
+  const seen = new Set<string>();
 
   for (let r = 3; r < grid.length; r++) {
     for (const col of COLS) {
       const name = str(grid[r]?.[col]);
-      if (!name) continue;
-      if (name.toLowerCase().includes("charges:") || name.toLowerCase() === "description / lore") continue;
+      if (!isCardTitle(name, grid, r, col)) continue;
 
-      const chargeRow = grid[r + 1];
-      const chargesVal = str(chargeRow?.[col + 1]);
+      const chargesVal = str(grid[r + 1]?.[col + 1]);
       const descParts: string[] = [];
-      for (let dr = r + 2; dr < Math.min(r + 8, grid.length); dr++) {
-        const dv = str(grid[dr]?.[col]);
-        if (!dv) break;
-        if (dv.toLowerCase() === "charges:" || dv.toLowerCase().includes("description / lore")) break;
-        descParts.push(dv);
+      const curseParts: string[] = [];
+      let inCurse = false;
+
+      for (let dr = r + 2; dr < grid.length; dr++) {
+        const cell = cardColumnText(grid, dr, col);
+        if (!cell) break;
+        const lower = cell.toLowerCase();
+        if (lower.startsWith("value:")) break;
+        if (isCardTitle(cell, grid, dr, col)) break;
+        if (lower.startsWith("curse effect")) {
+          inCurse = true;
+          continue;
+        }
+        if (inCurse) curseParts.push(cell);
+        else descParts.push(cell);
       }
 
-      const item: ItemData = {
+      const normalizedName = normalizeWhitespace(name);
+      if (seen.has(normalizedName)) continue;
+      seen.add(normalizedName);
+
+      items.push({
         id: "",
-        name: normalizeWhitespace(name),
+        name: normalizedName,
         category,
         subcategory: category,
         rarity,
         charges: chargesVal || undefined,
         description: descParts.length > 0 ? cleanDescription(descParts.join(" ")) : undefined,
-      };
-
-      const typeVal = str(chargeRow?.[col + 2]);
-      if (typeVal) item.type = typeVal;
-
-      items.push(item);
-    }
-
-    const nextHeaderRow = grid[r + 8];
-    if (nextHeaderRow) {
-      const hasNextItem = COLS.some((c) => {
-        const v = str(grid[r + 8]?.[c]);
-        return v && !v.toLowerCase().includes("charges");
+        curseEffects: curseParts.length > 0 ? cleanDescription(curseParts.join(" ")) : undefined,
       });
-      if (hasNextItem) r += 7;
     }
-  }
-
-  const seen = new Set<string>();
-  return items.filter((item) => {
-    if (seen.has(item.name)) return false;
-    seen.add(item.name);
-    return true;
-  });
-}
-
-function parseModsSection(
-  grid: CellValue[][],
-  summary: ParseSummary,
-  sheetName: string
-): ItemData[] {
-  const items: ItemData[] = [];
-
-  const leftEnd = findNextEmptyCol(grid, 2, 0);
-  for (let r = 3; r < grid.length; r++) {
-    const title = str(grid[r]?.[0]);
-    if (!title) continue;
-
-    const item: ItemData = {
-      id: "",
-      name: normalizeWhitespace(title),
-      category: "mod",
-      subcategory: "weapon-mod",
-      rarity: "n/a",
-      effect: str(grid[r]?.[1]) ? cleanDescription(cellToString(grid[r]?.[1])) : undefined,
-      value: num(grid[r]?.[3]),
-      material: str(grid[r]?.[4]),
-    };
-    items.push(item);
-  }
-
-  for (let r = 3; r < grid.length; r++) {
-    const title = str(grid[r]?.[7]);
-    if (!title) continue;
-
-    const item: ItemData = {
-      id: "",
-      name: normalizeWhitespace(title),
-      category: "mod",
-      subcategory: "enchantment",
-      rarity: "n/a",
-      effect: str(grid[r]?.[8]) ? cleanDescription(cellToString(grid[r]?.[8])) : undefined,
-      value: num(grid[r]?.[10]),
-      description: str(grid[r]?.[12]) || undefined,
-    };
-    items.push(item);
   }
 
   return items;
 }
 
-function parseFoodSection(
-  grid: CellValue[][],
-  summary: ParseSummary,
-  sheetName: string
-): ItemData[] {
+function parseModsSection(grid: CellValue[][]): ItemData[] {
+  const byMaterial = collectSmithingModEffects(grid);
+  collectWeavingModEffectsInto(grid, byMaterial);
+
+  return [
+    ...parseEyeStoneMaterials(grid, byMaterial),
+    ...parseArthreadMaterials(grid, byMaterial),
+    ...parseEnchantments(grid),
+  ];
+}
+
+function parseFoodSection(grid: CellValue[][]): ItemData[] {
   const items: ItemData[] = [];
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[0]);
     if (!name) continue;
+    if (/^raw materials$/i.test(name)) break;
+    if (/^item name$/i.test(name)) continue;
 
-    const item: ItemData = {
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "food",
-      subcategory: str(grid[r]?.[3]) || "common",
-      rarity: str(grid[r]?.[3]) || "common",
+      subcategory: normalizeRarity(str(grid[r]?.[3])),
+      rarity: normalizeRarity(str(grid[r]?.[3])),
       effect: str(grid[r]?.[4]) ? cleanDescription(cellToString(grid[r]?.[4])) : undefined,
       value: num(grid[r]?.[2]),
-    };
-    items.push(item);
+    });
   }
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[10]);
     if (!name) continue;
+    if (/^raw materials$/i.test(str(grid[r]?.[0]))) break;
+    if (/^spirits$/i.test(name)) continue;
+    if (/^item name$/i.test(name)) continue;
 
-    const item: ItemData = {
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "food",
-      subcategory: str(grid[r]?.[13]) || "common",
-      rarity: str(grid[r]?.[13]) || "common",
+      subcategory: normalizeRarity(str(grid[r]?.[13])),
+      rarity: normalizeRarity(str(grid[r]?.[13])),
       effect: str(grid[r]?.[14]) ? cleanDescription(cellToString(grid[r]?.[14])) : undefined,
       value: num(grid[r]?.[12]),
-    };
-    items.push(item);
+    });
   }
 
   return items;
 }
 
-function parseCraftingSection(
-  grid: CellValue[][],
-  summary: ParseSummary,
-  sheetName: string
-): ItemData[] {
+function parseCraftingSection(grid: CellValue[][]): ItemData[] {
   const items: ItemData[] = [];
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[0]);
     if (!name) continue;
+    if (CRAFT_RECIPE_SKIP.test(name)) continue;
     if (name === name.toUpperCase() && !name.match(/\d/)) continue;
 
-    const item: ItemData = {
+    const rarityVal = str(grid[r]?.[1]);
+    if (!isValidCraftRarity(rarityVal)) continue;
+    if (normalizeWhitespace(name).toLowerCase() === rarityVal.toLowerCase()) continue;
+
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "crafting",
       subcategory: "recipe",
-      rarity: str(grid[r]?.[1]) || "common",
+      rarity: normalizeRarity(rarityVal),
       material: [str(grid[r]?.[2]), str(grid[r]?.[3])].filter(Boolean).join(" + ") || undefined,
-    };
-    items.push(item);
+    });
   }
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[5]);
     if (!name) continue;
+    if (CRAFT_MATERIAL_SKIP.test(name)) break;
+    if (/^crafting material list$/i.test(name)) continue;
 
-    const item: ItemData = {
+    const rarityVal = str(grid[r]?.[7]);
+    if (!isValidCraftRarity(rarityVal)) continue;
+
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "crafting",
       subcategory: "material",
-      rarity: str(grid[r]?.[7]) || "common",
+      rarity: normalizeRarity(rarityVal),
       value: num(grid[r]?.[6]),
-    };
-    items.push(item);
+    });
   }
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[13]);
     if (!name) continue;
+    if (/^ingredients/i.test(name)) continue;
 
-    const item: ItemData = {
+    const rarityVal = str(grid[r]?.[15]);
+    if (rarityVal && !isValidCraftRarity(rarityVal)) continue;
+
+    items.push({
       id: "",
       name: normalizeWhitespace(name),
       category: "crafting",
       subcategory: "ingredient",
-      rarity: str(grid[r]?.[15]) || "common",
+      rarity: normalizeRarity(str(grid[r]?.[15])),
       value: num(grid[r]?.[14]),
       description: str(grid[r]?.[17]) || undefined,
-    };
-    items.push(item);
+    });
   }
 
   return items;
 }
 
-function findNextEmptyCol(grid: CellValue[][], row: number, startCol: number): number {
-  const r = grid[row] || [];
-  for (let c = startCol; c < r.length; c++) {
-    if (r[c] === null || r[c] === undefined || String(r[c]).trim() === "") return c;
-  }
-  return r.length;
-}
-
-function findSectionEnd(
-  grid: CellValue[][],
-  startRow: number,
-  col: number,
-  maxRow: number
-): number {
-  for (let r = startRow + 1; r < maxRow && r < grid.length; r++) {
-    const cell = cellToString(grid[r]?.[col]);
-    if (!cell) {
-      let allEmpty = true;
-      for (let check = r; check < Math.min(r + 3, grid.length); check++) {
-        if (cellToString(grid[check]?.[col])) { allEmpty = false; break; }
-      }
-      if (allEmpty) return r;
-    }
-  }
-  return Math.min(maxRow, grid.length);
-}
-
 function parseGearSheet(
   grid: CellValue[][],
   rarity: string,
-  summary: ParseSummary,
   sheetName: string
 ): ItemData[] {
   const items: ItemData[] = [];
   const isRare = rarity === "rare";
   const isParallel = rarity === "parallel";
-  const hasExtraCol = isRare || isParallel;
+  const shieldLayout: ShieldLayout = isParallel ? "parallel" : isRare ? "rare" : "common";
 
-  const leftHeaders: { row: number; label: string; subcategory: string }[] = [];
-  const rightHeaders: { row: number; label: string; subcategory: string; category: string }[] = [];
+  const leftHeaders: { row: number; kind: LeftSectionKind }[] = [];
+  const rightHeaders: { row: number; subcategory: string; category: string }[] = [];
 
   for (let r = 2; r < Math.min(200, grid.length); r++) {
     const leftCell = cellToString(grid[r]?.[0])?.toLowerCase() || "";
-    if (leftCell.includes("melee weapon") || leftCell.includes("parallel melee")) {
-      leftHeaders.push({ row: r, label: cellToString(grid[r]?.[0]), subcategory: "melee" });
+    if (leftCell.includes("channeling spellbook")) {
+      leftHeaders.push({ row: r, kind: "channeling-spellbook" });
+    } else if (leftCell.includes("melee weapon") || leftCell.includes("parallel melee")) {
+      leftHeaders.push({ row: r, kind: "melee" });
     } else if (leftCell.includes("ranged weapon") || leftCell.includes("parallel ranged")) {
-      leftHeaders.push({ row: r, label: cellToString(grid[r]?.[0]), subcategory: "ranged" });
+      leftHeaders.push({ row: r, kind: "ranged" });
     } else if (leftCell.includes("channeling")) {
-      leftHeaders.push({ row: r, label: cellToString(grid[r]?.[0]), subcategory: "channeling" });
-    } else if (leftCell.includes("offhand") || leftCell.includes("shield")) {
-      if (cellToString(grid[r]?.[1])?.toLowerCase().includes("block") ||
-          cellToString(grid[r]?.[1])?.toLowerCase().includes("dmg")) {
-        leftHeaders.push({ row: r, label: cellToString(grid[r]?.[0]), subcategory: "shield" });
-      }
+      leftHeaders.push({ row: r, kind: "channeling" });
+    } else if (isShieldHeader(grid, r)) {
+      leftHeaders.push({ row: r, kind: "shield" });
     }
 
     const rightStartCol = isParallel ? 14 : 12;
     const rightCell = cellToString(grid[r]?.[rightStartCol])?.toLowerCase() || "";
     if (rightCell.includes("supply")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "supply", category: "supply" });
+      rightHeaders.push({ row: r, subcategory: "supply", category: "supply" });
     } else if (rightCell === "tools") {
-      rightHeaders.push({ row: r, label: "Tools", subcategory: "tool", category: "supply" });
+      rightHeaders.push({ row: r, subcategory: "tool", category: "supply" });
     } else if (rightCell.includes("combat tool")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "combat-tool", category: "supply" });
+      rightHeaders.push({ row: r, subcategory: "combat-tool", category: "supply" });
     } else if (rightCell.includes("main armor") || rightCell.includes("armor item")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "body-armor", category: "armor" });
-    } else if (rightCell.includes("additional armor")) {
-      // skip label row
+      rightHeaders.push({ row: r, subcategory: "body-armor", category: "armor" });
     } else if (rightCell.includes("helmet")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "helmet", category: "armor" });
+      rightHeaders.push({ row: r, subcategory: "helmet", category: "armor" });
     } else if (rightCell.includes("glove") || rightCell.includes("gauntlet")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "gloves", category: "armor" });
+      rightHeaders.push({ row: r, subcategory: "gloves", category: "armor" });
     } else if (rightCell.includes("footwear") || rightCell.includes("leg armor")) {
-      rightHeaders.push({ row: r, label: cellToString(grid[r]?.[rightStartCol]), subcategory: "footwear", category: "armor" });
+      rightHeaders.push({ row: r, subcategory: "footwear", category: "armor" });
     }
   }
 
@@ -589,12 +1138,16 @@ function parseGearSheet(
     const h = leftHeaders[i];
     const nextRow = leftHeaders[i + 1]?.row ?? grid.length;
 
-    if (h.subcategory === "shield") {
-      items.push(...parseShieldSection(grid, h.row, nextRow, rarity));
-    } else if (hasExtraCol) {
-      items.push(...parseWeaponSection(grid, h.row, nextRow, rarity, h.subcategory, summary, sheetName, true));
+    if (h.kind === "shield") {
+      items.push(...parseShieldSection(grid, h.row, nextRow, rarity, shieldLayout));
+    } else if (h.kind === "channeling-spellbook") {
+      items.push(...parseChannelingSpellbookSection(grid, h.row, nextRow, rarity, isParallel));
+    } else if (isParallel) {
+      items.push(...parseParallelWeaponSection(grid, h.row, nextRow, rarity, h.kind));
+    } else if (isRare) {
+      items.push(...parseRareWeaponSection(grid, h.row, nextRow, rarity, h.kind));
     } else {
-      items.push(...parseCommonWeaponSection(grid, h.row, nextRow, rarity, h.subcategory));
+      items.push(...parseCommonWeaponSection(grid, h.row, nextRow, rarity, h.kind));
     }
   }
 
@@ -606,20 +1159,60 @@ function parseGearSheet(
     if (h.category === "armor") {
       items.push(...parseArmorSection(grid, h.row, nextRow, rarity, rightStartCol, h.subcategory));
     } else {
-      items.push(...parseSupplySection(grid, h.row, nextRow, rarity, rightStartCol, summary, sheetName));
+      items.push(...parseSupplySection(grid, h.row, nextRow, rarity, rightStartCol));
     }
   }
 
   return items;
 }
 
-export async function parseItems(): Promise<ParseSummary> {
-  const summary = createSummary("items");
+function finalizeItems(
+  sheetItems: ItemData[],
+  sheetRarity: string,
+  existingIds: Set<string>
+): ItemData[] {
+  const result: ItemData[] = [];
+
+  for (const item of sheetItems) {
+    if (!item.name) continue;
+
+    if (item.name === item.name.toUpperCase() && item.name.length > 3) {
+      item.name = toTitleCase(item.name);
+    }
+    if (item.subcategory) {
+      item.subcategory = normalizeRarity(item.subcategory);
+    }
+    if (item.rarity) {
+      item.rarity = normalizeRarity(item.rarity);
+    }
+
+    const idRarity = item.rarity && item.rarity !== "n/a" ? item.rarity : sheetRarity;
+    const baseId = toKebabId(`${idRarity}-${item.name}`);
+    item.id = deduplicateId(baseId, existingIds);
+    existingIds.add(item.id);
+    result.push(item);
+  }
+
+  return result;
+}
+
+function stripEmpty(item: ItemData): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(item)) {
+    if (value !== undefined && value !== null && value !== "") {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+
+export async function parseItemsV2(): Promise<ParseSummary> {
+  const summary = createSummary("items-v2");
   const path = resolveProjectPath("source-docs", "ITEMS.xlsx");
   const wb = loadWorkbook(path);
 
   if (!wb) {
-    log.error("items", `File not found: ${path}`, summary);
+    log.error("items-v2", `File not found: ${path}`, summary);
     printSummary(summary);
     return summary;
   }
@@ -628,10 +1221,10 @@ export async function parseItems(): Promise<ParseSummary> {
   const existingIds = new Set<string>();
 
   for (const sheetName of wb.SheetNames) {
-    log.info("items", `Parsing sheet: ${sheetName}`);
+    log.info("items-v2", `Parsing sheet: ${sheetName}`);
     const sheet = wb.Sheets[sheetName];
     const grid = sheetToUnmergedGrid(sheet);
-    const rarity = RARITY_MAP[sheetName.toLowerCase()] || "common";
+    const sheetRarity = RARITY_MAP[sheetName.toLowerCase()] || "common";
 
     let sheetItems: ItemData[] = [];
 
@@ -639,73 +1232,44 @@ export async function parseItems(): Promise<ParseSummary> {
       const lowerName = sheetName.toLowerCase();
 
       if (lowerName.includes("gear") && !lowerName.includes("legendary")) {
-        sheetItems = parseGearSheet(grid, rarity, summary, sheetName);
+        sheetItems = parseGearSheet(grid, sheetRarity, sheetName);
       } else if (lowerName.includes("legendary")) {
-        sheetItems = parseCardItems(grid, "legendary-weapon", "legendary", summary, sheetName);
+        sheetItems = parseLegendarySection(grid);
       } else if (lowerName.includes("ring")) {
-        sheetItems = parseCardItems(grid, "ring", "rare", summary, sheetName);
+        sheetItems = parseRingArtifactCards(grid, "ring", "rare");
       } else if (lowerName.includes("artifact")) {
-        sheetItems = parseCardItems(grid, "artifact", "rare", summary, sheetName);
+        sheetItems = parseRingArtifactCards(grid, "artifact", "rare");
       } else if (lowerName.includes("mod") || lowerName.includes("enchant")) {
-        sheetItems = parseModsSection(grid, summary, sheetName);
+        sheetItems = parseModsSection(grid);
       } else if (lowerName.includes("food") || lowerName.includes("material")) {
-        sheetItems = parseFoodSection(grid, summary, sheetName);
+        sheetItems = parseFoodSection(grid);
       } else if (lowerName.includes("craft")) {
-        sheetItems = parseCraftingSection(grid, summary, sheetName);
+        sheetItems = parseCraftingSection(grid);
       } else {
-        log.warn("items", `Sheet "${sheetName}": unknown layout, skipping`, summary, sheetName);
+        log.warn("items-v2", `Sheet "${sheetName}": unknown layout, skipping`, summary, sheetName);
         summary.skipped++;
         summary.skippedSheets.push(sheetName);
         continue;
       }
 
-      for (const item of sheetItems) {
-        if (!item.name) {
-          log.warn("items", `Sheet "${sheetName}": item with empty name, skipping`, summary, sheetName);
-          continue;
-        }
-        if (item.name === item.name.toUpperCase() && item.name.length > 3) {
-          item.name = toTitleCase(item.name);
-        }
-        if (item.subcategory) {
-          item.subcategory = item.subcategory.toLowerCase().replace(/\.$/, "").trim();
-          if (item.subcategory === "uncomm") item.subcategory = "uncommon";
-        }
-        if (item.rarity) {
-          item.rarity = item.rarity.toLowerCase().replace(/\.$/, "").trim();
-          if (item.rarity === "uncomm") item.rarity = "uncommon";
-        }
-        const baseId = toKebabId(`${rarity}-${item.name}`);
-        item.id = deduplicateId(baseId, existingIds);
-        existingIds.add(item.id);
-      }
-
-      log.info("items", `  Found ${sheetItems.length} items`);
-      allItems.push(...sheetItems);
-      summary.parsed += sheetItems.length;
+      const finalized = finalizeItems(sheetItems, sheetRarity, existingIds);
+      log.info("items-v2", `  Found ${finalized.length} items`);
+      allItems.push(...finalized);
+      summary.parsed += finalized.length;
     } catch (err) {
-      log.error("items", `Sheet "${sheetName}": parse error: ${err}`, summary);
+      log.error("items-v2", `Sheet "${sheetName}": parse error: ${err}`, summary);
       summary.skipped++;
       summary.skippedSheets.push(sheetName);
     }
   }
 
-  const cleaned = allItems.map((item) => {
-    const result: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(item)) {
-      if (value !== undefined && value !== null && value !== "") {
-        result[key] = value;
-      }
-    }
-    return result;
-  });
-
+  const cleaned = allItems.map(stripEmpty);
   writeJsonOutput("items.json", cleaned);
-  log.info("items", `Wrote ${cleaned.length} items to data/items.json`);
+  log.info("items-v2", `Wrote ${cleaned.length} items to data/items.json`);
   printSummary(summary);
   return summary;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  parseItems().catch(console.error);
+  parseItemsV2().catch(console.error);
 }

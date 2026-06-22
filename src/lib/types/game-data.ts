@@ -104,6 +104,7 @@ export interface ItemData {
   category: string;
   subcategory: string;
   rarity: string;
+  originalItem?: string;
   damage?: string;
   damageType?: string;
   training?: string;
@@ -129,6 +130,7 @@ export interface ItemData {
   parry?: string;
   blockBonus?: string;
   description?: string;
+  curseEffects?: string;
 }
 
 export interface ZodiacData {

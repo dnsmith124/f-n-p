@@ -7,6 +7,7 @@ import {
   ATTRIBUTE_KEYS,
   ATTRIBUTE_ABBR,
   ATTRIBUTE_DESCRIPTIONS,
+  ATTRIBUTE_TOOLTIPS,
   ATTRIBUTE_MAX,
 } from "@/lib/constants";
 import { HintTooltip } from "@/components/ui/HintTooltip";
@@ -84,9 +85,9 @@ export function AttributeStep({
               }`}
             >
               <HintTooltip
-                content={ATTRIBUTE_DESCRIPTIONS[attr]}
+                panel
+                content={ATTRIBUTE_TOOLTIPS[attr]}
                 className="flex-1 min-w-0"
-                tooltipClassName="max-w-56 whitespace-normal"
                 ariaLabel={`${ATTRIBUTE_ABBR[attr]}: ${ATTRIBUTE_DESCRIPTIONS[attr]}`}
               >
                 <div>

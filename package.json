@@ -10,6 +10,7 @@
     "parse": "tsx scripts/parse/parse-all.ts",
     "parse:classes": "tsx scripts/parse/parse-classes.ts",
     "parse:items": "tsx scripts/parse/parse-items.ts",
+    "parse:items:v2": "tsx scripts/parse/parse-items.ts",
     "parse:tribes": "tsx scripts/parse/parse-tribes.ts",
     "parse:spells": "tsx scripts/parse/parse-spells.ts"
   },

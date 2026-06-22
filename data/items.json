@@ -1244,16 +1244,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Pyromancy spell",
-    "damageType": "Allows wielder to memorize 1 additional Pyromancy spell",
-    "training": "Allows wielder to memorize 1 additional Pyromancy spell",
-    "grip": "Allows wielder to memorize 1 additional Pyromancy spell",
-    "attribute": "Allows wielder to memorize 1 additional Pyromancy spell",
-    "range": "Pyromancy",
-    "material": "Pyromancy",
+    "effect": "Allows wielder to memorize 1 additional Pyromancy spell",
+    "training": "Pyromancy",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-mariners-prayerbook",
@@ -1261,16 +1256,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Ocean's Call spell",
-    "damageType": "Allows wielder to memorize 1 additional Ocean's Call spell",
-    "training": "Allows wielder to memorize 1 additional Ocean's Call spell",
-    "grip": "Allows wielder to memorize 1 additional Ocean's Call spell",
-    "attribute": "Allows wielder to memorize 1 additional Ocean's Call spell",
-    "range": "Ocean's Call",
-    "material": "Ocean's Call",
+    "effect": "Allows wielder to memorize 1 additional Ocean's Call spell",
+    "training": "Ocean's Call",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-book-of-the-three-virtues",
@@ -1278,16 +1268,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Great Storm spell",
-    "damageType": "Allows wielder to memorize 1 additional Great Storm spell",
-    "training": "Allows wielder to memorize 1 additional Great Storm spell",
-    "grip": "Allows wielder to memorize 1 additional Great Storm spell",
-    "attribute": "Allows wielder to memorize 1 additional Great Storm spell",
-    "range": "Great Storm",
-    "material": "Great Storm",
+    "effect": "Allows wielder to memorize 1 additional Great Storm spell",
+    "training": "Great Storm",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-scroll-of-leaf-and-stone",
@@ -1295,16 +1280,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Arcadian spell",
-    "damageType": "Allows wielder to memorize 1 additional Arcadian spell",
-    "training": "Allows wielder to memorize 1 additional Arcadian spell",
-    "grip": "Allows wielder to memorize 1 additional Arcadian spell",
-    "attribute": "Allows wielder to memorize 1 additional Arcadian spell",
-    "range": "Arcadian",
-    "material": "Arcadian",
+    "effect": "Allows wielder to memorize 1 additional Arcadian spell",
+    "training": "Arcadian",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-the-solar-gospel",
@@ -1312,16 +1292,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Twin Moon spell",
-    "damageType": "Allows wielder to memorize 1 additional Twin Moon spell",
-    "training": "Allows wielder to memorize 1 additional Twin Moon spell",
-    "grip": "Allows wielder to memorize 1 additional Twin Moon spell",
-    "attribute": "Allows wielder to memorize 1 additional Twin Moon spell",
-    "range": "Twin Moon",
-    "material": "Twin Moon",
+    "effect": "Allows wielder to memorize 1 additional Twin Moon spell",
+    "training": "Twin Moon",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-black-bound-grimoire",
@@ -1329,16 +1304,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "common",
-    "damage": "Allows wielder to memorize 1 additional Phantasm spell",
-    "damageType": "Allows wielder to memorize 1 additional Phantasm spell",
-    "training": "Allows wielder to memorize 1 additional Phantasm spell",
-    "grip": "Allows wielder to memorize 1 additional Phantasm spell",
-    "attribute": "Allows wielder to memorize 1 additional Phantasm spell",
-    "range": "Phantasm",
-    "material": "Phantasm",
+    "effect": "Allows wielder to memorize 1 additional Phantasm spell",
+    "training": "Phantasm",
     "weight": 1,
-    "value": 55,
-    "guard": "1H"
+    "grip": "1H",
+    "value": 55
   },
   {
     "id": "common-wooden-buckler",
@@ -1353,8 +1323,8 @@
     "blockBonus": "Elec (1)",
     "material": "Wood",
     "weight": 1,
-    "training": "Shield",
-    "value": 15
+    "value": 15,
+    "type": "Shield"
   },
   {
     "id": "common-wooden-kite-shield",
@@ -1369,8 +1339,8 @@
     "blockBonus": "Elec (1)",
     "material": "Wood",
     "weight": 1,
-    "training": "Shield",
-    "value": 25
+    "value": 25,
+    "type": "Shield"
   },
   {
     "id": "common-wooden-tower-shield",
@@ -1384,8 +1354,8 @@
     "blockBonus": "Elec (1)",
     "material": "Wood",
     "weight": 2,
-    "training": "Shield",
-    "value": 40
+    "value": 40,
+    "type": "Shield"
   },
   {
     "id": "common-scrap-metal-buckler",
@@ -1399,8 +1369,8 @@
     "parry": "1D4",
     "material": "Iron/Scrp",
     "weight": 1,
-    "training": "Shield",
-    "value": 30
+    "value": 30,
+    "type": "Shield"
   },
   {
     "id": "common-scrap-metal-heater",
@@ -1414,8 +1384,8 @@
     "parry": "1D6",
     "material": "Iron/Scrp",
     "weight": 1,
-    "training": "Shield",
-    "value": 50
+    "value": 50,
+    "type": "Shield"
   },
   {
     "id": "common-scrap-tower-shield",
@@ -1428,8 +1398,8 @@
     "bashDmg": "1D8 Crush",
     "material": "Iron/Scrp",
     "weight": 2,
-    "training": "Shield",
-    "value": 85
+    "value": 85,
+    "type": "Shield"
   },
   {
     "id": "common-scale-shield",
@@ -1444,8 +1414,8 @@
     "blockBonus": "Fire (1)",
     "material": "Scale",
     "weight": 1,
-    "training": "Shield",
-    "value": 65
+    "value": 65,
+    "type": "Shield"
   },
   {
     "id": "common-scale-tower-shield",
@@ -1459,8 +1429,8 @@
     "blockBonus": "Fire (1)",
     "material": "Scale",
     "weight": 2,
-    "training": "Shield",
-    "value": 105
+    "value": 105,
+    "type": "Shield"
   },
   {
     "id": "common-plank-shield",
@@ -1474,8 +1444,8 @@
     "blockBonus": "Elec (2)",
     "material": "Wood",
     "weight": 1,
-    "training": "Shield",
-    "value": 5
+    "value": 5,
+    "type": "Shield"
   },
   {
     "id": "common-healing-powder",
@@ -2417,16 +2387,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Energy",
-    "training": "1H",
-    "grip": "Thrust",
-    "attribute": "(action) +1D6 light DMG for 3 rnds",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "1",
-    "weight": 17,
-    "guard": "150"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Energy",
+    "grip": "1H",
+    "attribute": "Thrust",
+    "rareAttribute": "(action) +1D6 light DMG for 3 rnds",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 1,
+    "value": 150,
+    "guard": "17"
   },
   {
     "id": "rare-great-glimmerblade",
@@ -2434,16 +2405,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Energy",
-    "training": "2H",
-    "grip": "Thrust",
-    "attribute": "(action) +1D6 light DMG for 3 rnds",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 15,
-    "guard": "200"
+    "damage": "1D8",
+    "damageType": "Slash",
+    "training": "Energy",
+    "grip": "2H",
+    "attribute": "Thrust",
+    "rareAttribute": "(action) +1D6 light DMG for 3 rnds",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 200,
+    "guard": "15"
   },
   {
     "id": "rare-silver-needle",
@@ -2451,15 +2423,16 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Knife",
-    "training": "1H",
-    "grip": "Puncture",
-    "attribute": "deals +9 DMG to sylvan enemies",
-    "rareAttribute": "Melee",
-    "range": "Silver",
-    "material": "1",
-    "guard": "90"
+    "damage": "1 (no scaling)",
+    "damageType": "Pierce",
+    "training": "Knife",
+    "grip": "1H",
+    "attribute": "Puncture",
+    "rareAttribute": "deals +9 DMG to sylvan enemies",
+    "range": "Melee",
+    "material": "Silver",
+    "weight": 1,
+    "value": 90
   },
   {
     "id": "rare-volt-rod",
@@ -2467,16 +2440,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Crush",
-    "damageType": "Energy",
-    "training": "1H",
-    "grip": "Daze",
-    "attribute": "(action) +1D4 elec. DMG for 3 rnds",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 17,
-    "guard": "110"
+    "damage": "1D6",
+    "damageType": "Crush",
+    "training": "Energy",
+    "grip": "1H",
+    "attribute": "Daze",
+    "rareAttribute": "(action) +1D4 elec. DMG for 3 rnds",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 110,
+    "guard": "17"
   },
   {
     "id": "rare-ornate-dagger",
@@ -2484,16 +2458,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Knife",
-    "training": "1H",
-    "grip": "Lethal",
-    "attribute": "re-roll missed ATK once per turn",
-    "rareAttribute": "Melee",
-    "range": "Gold",
-    "material": "1",
-    "weight": 20,
-    "guard": "100"
+    "damage": "1D4",
+    "damageType": "Pierce",
+    "training": "Knife",
+    "grip": "1H",
+    "attribute": "Lethal",
+    "rareAttribute": "re-roll missed ATK once per turn",
+    "range": "Melee",
+    "material": "Gold",
+    "weight": 1,
+    "value": 100,
+    "guard": "20"
   },
   {
     "id": "rare-refractor-spear",
@@ -2501,16 +2476,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Electric",
-    "damageType": "Energy",
-    "training": "2H",
-    "grip": "Phase",
-    "attribute": "successful block: 1D4 elec DMG",
-    "rareAttribute": "2",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 16,
-    "guard": "175"
+    "damage": "1D8",
+    "damageType": "Electric",
+    "training": "Energy",
+    "grip": "2H",
+    "attribute": "Phase",
+    "rareAttribute": "successful block: 1D4 elec DMG",
+    "range": "2",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 175,
+    "guard": "16"
   },
   {
     "id": "rare-plasma-knife",
@@ -2518,16 +2494,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Energy",
-    "training": "1H",
-    "grip": "Rending",
-    "attribute": "Deals +1D4 direct DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "1",
-    "weight": 20,
-    "guard": "65"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Energy",
+    "grip": "1H",
+    "attribute": "Rending",
+    "rareAttribute": "Deals +1D4 direct DMG on hit",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 1,
+    "value": 65,
+    "guard": "20"
   },
   {
     "id": "rare-plasma-sword",
@@ -2535,16 +2512,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Energy",
-    "training": "1H",
-    "grip": "Rending",
-    "attribute": "Deals +1D4 direct DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 16,
-    "guard": "80"
+    "damage": "1D8",
+    "damageType": "Slash",
+    "training": "Energy",
+    "grip": "1H",
+    "attribute": "Rending",
+    "rareAttribute": "Deals +1D4 direct DMG on hit",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 80,
+    "guard": "16"
   },
   {
     "id": "rare-tyrant-katana",
@@ -2552,16 +2530,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "training": "2H",
-    "grip": "Lethal",
-    "attribute": "NPC only: crits reduce HP to 0",
-    "rareAttribute": "Melee",
-    "range": "Meteorite",
-    "material": "2",
-    "weight": 14,
-    "guard": "95"
+    "damage": "1D10",
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "grip": "2H",
+    "attribute": "Lethal",
+    "rareAttribute": "NPC only: crits reduce HP to 0",
+    "range": "Melee",
+    "material": "Meteorite",
+    "weight": 2,
+    "value": 95,
+    "guard": "14"
   },
   {
     "id": "rare-liars-lance",
@@ -2569,16 +2548,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "2H",
-    "grip": "Charge!",
-    "attribute": "gain +1 range for -1 DT",
-    "rareAttribute": "2",
-    "range": "Iron",
-    "material": "2",
-    "weight": 14,
-    "guard": "70"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "2H",
+    "attribute": "Charge!",
+    "rareAttribute": "gain +1 range for -1 DT",
+    "range": "2",
+    "material": "Iron",
+    "weight": 2,
+    "value": 70,
+    "guard": "14"
   },
   {
     "id": "rare-everfrost-axe",
@@ -2586,16 +2566,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Axe",
-    "training": "1H",
-    "grip": "Splitter",
-    "attribute": "Deals +1D4 Ice DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "(self repair)",
-    "material": "1",
-    "weight": 17,
-    "guard": "70"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Axe",
+    "grip": "1H",
+    "attribute": "Splitter",
+    "rareAttribute": "Deals +1D4 Ice DMG on hit",
+    "range": "Melee",
+    "material": "(self repair)",
+    "weight": 1,
+    "value": 70,
+    "guard": "17"
   },
   {
     "id": "rare-elven-spear",
@@ -2603,16 +2584,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "1H",
-    "grip": "Phalanx",
-    "attribute": "Phalanx DMG is not reduced to LDR",
-    "rareAttribute": "Melee",
-    "range": "Selasite",
-    "material": "1",
-    "weight": 16,
-    "guard": "50"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "1H",
+    "attribute": "Phalanx",
+    "rareAttribute": "Phalanx DMG is not reduced to LDR",
+    "range": "Melee",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 50,
+    "guard": "16"
   },
   {
     "id": "rare-stinger",
@@ -2620,16 +2602,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Dueling Blade",
-    "training": "1H",
-    "grip": "Counter",
-    "attribute": "Poisons target (resist w/ VIT 5+)",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "1",
-    "weight": 17,
-    "guard": "70"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Dueling Blade",
+    "grip": "1H",
+    "attribute": "Counter",
+    "rareAttribute": "Poisons target (resist w/ VIT 5+)",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 1,
+    "value": 70,
+    "guard": "17"
   },
   {
     "id": "rare-wildfire",
@@ -2637,16 +2620,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "training": "2H",
-    "grip": "Sweep",
-    "attribute": "Attribute ATKs deal +1D4 fire DMG",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "2",
-    "weight": 16,
-    "guard": "50"
+    "damage": "1D10",
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "grip": "2H",
+    "attribute": "Sweep",
+    "rareAttribute": "Attribute ATKs deal +1D4 fire DMG",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 2,
+    "value": 50,
+    "guard": "16"
   },
   {
     "id": "rare-magic-poker",
@@ -2654,16 +2638,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "1H",
-    "grip": "Thrust",
-    "attribute": "Deals +1D4 fire DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 15,
-    "guard": "40"
+    "damage": "1D4",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "1H",
+    "attribute": "Thrust",
+    "rareAttribute": "Deals +1D4 fire DMG on hit",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 40,
+    "guard": "15"
   },
   {
     "id": "rare-eclipse-scimitar",
@@ -2671,16 +2656,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Light Blade",
-    "training": "1H",
-    "grip": "Matched",
-    "attribute": "deals direct DMG = target's BAR",
-    "rareAttribute": "Melee",
-    "range": "Selasite",
-    "material": "1",
-    "weight": 16,
-    "guard": "90"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Light Blade",
+    "grip": "1H",
+    "attribute": "Matched",
+    "rareAttribute": "deals direct DMG = target's BAR",
+    "range": "Melee",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 90,
+    "guard": "16"
   },
   {
     "id": "rare-misericorde",
@@ -2688,16 +2674,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Knife",
-    "training": "1H",
-    "grip": "Puncture",
-    "attribute": "Critical Hits deal +5 direct DMG",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 19,
-    "guard": "50"
+    "damage": "1D4",
+    "damageType": "Pierce",
+    "training": "Knife",
+    "grip": "1H",
+    "attribute": "Puncture",
+    "rareAttribute": "Critical Hits deal +5 direct DMG",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 50,
+    "guard": "19"
   },
   {
     "id": "rare-withered-lance",
@@ -2705,16 +2692,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "1H",
-    "grip": "Lunge",
-    "attribute": "Poisons & +1D6 toxic DMG on throw",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 16,
-    "guard": "40"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "1H",
+    "attribute": "Lunge",
+    "rareAttribute": "Poisons & +1D6 toxic DMG on throw",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 40,
+    "guard": "16"
   },
   {
     "id": "rare-blade-of-the-1st-virtue",
@@ -2722,16 +2710,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Knife",
-    "training": "1H",
-    "grip": "Counter",
-    "attribute": "Gain Spell \"Storm Slash\"",
-    "rareAttribute": "Melee",
-    "range": "Selasite",
-    "material": "1",
-    "weight": 20,
-    "guard": "70"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Knife",
+    "grip": "1H",
+    "attribute": "Counter",
+    "rareAttribute": "Gain Spell \"Storm Slash\"",
+    "range": "Melee",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 70,
+    "guard": "20"
   },
   {
     "id": "rare-spear-of-the-3rd-virtue",
@@ -2739,16 +2728,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "2H",
-    "grip": "Obstruct",
-    "attribute": "Throw deals a HDR of Elec DMG",
-    "rareAttribute": "2",
-    "range": "Selasite",
-    "material": "1",
-    "weight": 15,
-    "guard": "100"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "2H",
+    "attribute": "Obstruct",
+    "rareAttribute": "Throw deals a HDR of Elec DMG",
+    "range": "2",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 100,
+    "guard": "15"
   },
   {
     "id": "rare-winged-corsair-halberd",
@@ -2756,16 +2746,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Polearm",
-    "training": "1H",
-    "grip": "Thrust",
-    "attribute": "Jumping ATKs add +1 DT",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 15,
-    "guard": "65"
+    "damage": "1D8",
+    "damageType": "Slash",
+    "training": "Polearm",
+    "grip": "1H",
+    "attribute": "Thrust",
+    "rareAttribute": "Jumping ATKs add +1 DT",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 65,
+    "guard": "15"
   },
   {
     "id": "rare-holdout-gauntlet",
@@ -2773,14 +2764,15 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Fist",
-    "grip": "Gauntlet",
-    "attribute": "Grants slash resistance (1)",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "guard": "60"
+    "damage": "1D4",
+    "damageType": "Pierce",
+    "training": "Fist",
+    "attribute": "Gauntlet",
+    "rareAttribute": "Grants slash resistance (1)",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 60
   },
   {
     "id": "rare-defenders-longsword",
@@ -2788,16 +2780,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Light Blade",
-    "training": "1H",
-    "grip": "Two-Hand",
-    "attribute": "Deals +1D4 Light DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 16,
-    "guard": "85"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Light Blade",
+    "grip": "1H",
+    "attribute": "Two-Hand",
+    "rareAttribute": "Deals +1D4 Light DMG on hit",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 85,
+    "guard": "16"
   },
   {
     "id": "rare-lighthouse-hammer",
@@ -2805,16 +2798,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Crush",
-    "damageType": "Heavy Maul",
-    "training": "2H",
-    "grip": "Daze",
-    "attribute": "Deals +1D6 fire DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 15,
-    "guard": "170"
+    "damage": "1D8",
+    "damageType": "Crush",
+    "training": "Heavy Maul",
+    "grip": "2H",
+    "attribute": "Daze",
+    "rareAttribute": "Deals +1D6 fire DMG on hit",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 170,
+    "guard": "15"
   },
   {
     "id": "rare-maharan-axe-of-honor",
@@ -2822,8 +2816,8 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Axe",
-    "grip": "Splitter"
+    "training": "Axe",
+    "attribute": "Splitter"
   },
   {
     "id": "rare-loyalist-blade",
@@ -2831,16 +2825,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Dueling Blade",
-    "training": "1H",
-    "grip": "Parry",
-    "attribute": "Deals +1D4 ice DMG on hit",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "1",
-    "weight": 16,
-    "guard": "90"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Dueling Blade",
+    "grip": "1H",
+    "attribute": "Parry",
+    "rareAttribute": "Deals +1D4 ice DMG on hit",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 1,
+    "value": 90,
+    "guard": "16"
   },
   {
     "id": "rare-navaja",
@@ -2848,16 +2843,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Knife",
-    "training": "1H",
-    "grip": "Counter",
-    "attribute": "concealed even when equipped",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 18,
-    "guard": "45"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Knife",
+    "grip": "1H",
+    "attribute": "Counter",
+    "rareAttribute": "concealed even when equipped",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 45,
+    "guard": "18"
   },
   {
     "id": "rare-firelance",
@@ -2865,16 +2861,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "1H",
-    "grip": "Obstruct",
-    "attribute": "Cannon:2D4 DMG/sweep/reload:1",
-    "rareAttribute": "2",
-    "range": "Iron",
-    "material": "2",
-    "weight": 17,
-    "guard": "80"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "1H",
+    "attribute": "Obstruct",
+    "rareAttribute": "Cannon:2D4 DMG/sweep/reload:1",
+    "range": "2",
+    "material": "Iron",
+    "weight": 2,
+    "value": 80,
+    "guard": "17"
   },
   {
     "id": "rare-feyhunter-greatsword",
@@ -2882,16 +2879,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "training": "2H",
-    "grip": "Parry",
-    "attribute": "Disrupts Sylvan Aura on hit",
-    "rareAttribute": "Melee",
-    "range": "Selasite",
-    "material": "2",
-    "weight": 14,
-    "guard": "110"
+    "damage": "1D10",
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "grip": "2H",
+    "attribute": "Parry",
+    "rareAttribute": "Disrupts Sylvan Aura on hit",
+    "range": "Melee",
+    "material": "Selasite",
+    "weight": 2,
+    "value": 110,
+    "guard": "14"
   },
   {
     "id": "rare-unars-stone-claymore",
@@ -2899,16 +2897,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "training": "2H",
-    "grip": "Sweep",
-    "attribute": "spin dealing DMG in 3x3 (-scaling)",
-    "rareAttribute": "Melee",
-    "range": "Stone",
-    "material": "3",
-    "weight": 17,
-    "guard": "90"
+    "damage": "1D10",
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "grip": "2H",
+    "attribute": "Sweep",
+    "rareAttribute": "spin dealing DMG in 3x3 (-scaling)",
+    "range": "Melee",
+    "material": "Stone",
+    "weight": 3,
+    "value": 90,
+    "guard": "17"
   },
   {
     "id": "rare-embers-of-rebellion",
@@ -2916,16 +2915,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "training": "2H",
-    "grip": "Lethal",
-    "attribute": "deal +1D4 fire DMG (+STR)",
-    "rareAttribute": "Melee",
-    "range": "Zozimite",
-    "material": "2",
-    "weight": 14,
-    "guard": "120"
+    "damage": "1D8",
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "grip": "2H",
+    "attribute": "Lethal",
+    "rareAttribute": "deal +1D4 fire DMG (+STR)",
+    "range": "Melee",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 120,
+    "guard": "14"
   },
   {
     "id": "rare-petal-blade",
@@ -2933,8 +2933,8 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Light Blade",
-    "training": "1H"
+    "training": "Light Blade",
+    "grip": "1H"
   },
   {
     "id": "rare-fist-of-yad",
@@ -2942,16 +2942,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Crush",
-    "damageType": "Fist",
-    "training": "1H",
-    "grip": "Impact",
-    "attribute": "deal LDR to knock target 1D4 tiles",
-    "rareAttribute": "Melee",
-    "range": "Copper",
-    "material": "3",
-    "weight": 18,
-    "guard": "345"
+    "damage": "1D10",
+    "damageType": "Crush",
+    "training": "Fist",
+    "grip": "1H",
+    "attribute": "Impact",
+    "rareAttribute": "deal LDR to knock target 1D4 tiles",
+    "range": "Melee",
+    "material": "Copper",
+    "weight": 3,
+    "value": 345,
+    "guard": "18"
   },
   {
     "id": "rare-scatter-hatchet",
@@ -2959,16 +2960,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Axe",
-    "training": "1H",
-    "grip": "Splitter",
-    "attribute": "Cannon:2D4 DMG/sweep/reload:1",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "2",
-    "weight": 17,
-    "guard": "95"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Axe",
+    "grip": "1H",
+    "attribute": "Splitter",
+    "rareAttribute": "Cannon:2D4 DMG/sweep/reload:1",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 2,
+    "value": 95,
+    "guard": "17"
   },
   {
     "id": "rare-ballistic-rapier",
@@ -2976,16 +2978,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Dueling Blade",
-    "training": "1H",
-    "grip": "Lunge",
-    "attribute": "Shot:1D10 DMG / range:5 / reload:1",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "2",
-    "weight": 16,
-    "guard": "120"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Dueling Blade",
+    "grip": "1H",
+    "attribute": "Lunge",
+    "rareAttribute": "Shot:1D10 DMG / range:5 / reload:1",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 2,
+    "value": 120,
+    "guard": "16"
   },
   {
     "id": "rare-starless-lance",
@@ -2993,16 +2996,16 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Polearm",
-    "training": "2H",
-    "grip": "Zodiac",
-    "attribute": "ends target's Buffs on hit",
-    "rareAttribute": "2",
-    "range": "Meteorite",
-    "material": "2",
-    "weight": 15,
-    "guard": "445"
+    "damageType": "Pierce",
+    "training": "Polearm",
+    "grip": "2H",
+    "attribute": "Zodiac",
+    "rareAttribute": "ends target's Buffs on hit",
+    "range": "2",
+    "material": "Meteorite",
+    "weight": 2,
+    "value": 445,
+    "guard": "15"
   },
   {
     "id": "rare-tower-of-luminance",
@@ -3010,11 +3013,11 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Heavy Blade",
-    "grip": "Zodiac",
-    "rareAttribute": "2",
-    "guard": "445"
+    "damageType": "Slash",
+    "training": "Heavy Blade",
+    "attribute": "Zodiac",
+    "range": "2",
+    "value": 445
   },
   {
     "id": "rare-shadow-of-the-eclipse",
@@ -3022,9 +3025,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Light Maul",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Light Maul",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-shard-of-the-eclipse",
@@ -3032,9 +3035,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Fist",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Fist",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-corona-of-the-eclipse",
@@ -3042,9 +3045,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Axe",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Axe",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-queens-guardian",
@@ -3052,9 +3055,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Dueling Blade",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Dueling Blade",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-heavensfall-hammer",
@@ -3062,9 +3065,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Heavy Maul",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Heavy Maul",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-sword-of-holy-rain",
@@ -3072,9 +3075,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Light Blade",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Light Blade",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-celestial-dagger",
@@ -3082,9 +3085,9 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damageType": "Knife",
-    "grip": "Zodiac",
-    "guard": "445"
+    "training": "Knife",
+    "attribute": "Zodiac",
+    "value": 445
   },
   {
     "id": "rare-scrap-cutter",
@@ -3092,16 +3095,17 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Light Blade",
-    "training": "1H",
-    "grip": "Bludgeon",
-    "attribute": "can be used as a knife/pry/lever tool",
-    "rareAttribute": "Melee",
-    "range": "Iron",
-    "material": "1",
-    "weight": 16,
-    "guard": "30"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Light Blade",
+    "grip": "1H",
+    "attribute": "Bludgeon",
+    "rareAttribute": "can be used as a knife/pry/lever tool",
+    "range": "Melee",
+    "material": "Iron",
+    "weight": 1,
+    "value": 30,
+    "guard": "16"
   },
   {
     "id": "rare-flare-refractor",
@@ -3109,15 +3113,16 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Fire",
-    "damageType": "Energy",
-    "training": "2H",
-    "grip": "Phase",
-    "attribute": "targets all units in linear range",
-    "rareAttribute": "4",
-    "range": "Zozimite",
-    "material": "2",
-    "guard": "200"
+    "damage": "1D8",
+    "damageType": "Fire",
+    "training": "Energy",
+    "grip": "2H",
+    "attribute": "Phase",
+    "rareAttribute": "targets all units in linear range",
+    "range": "4",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 200
   },
   {
     "id": "rare-freeze-refractor",
@@ -3125,15 +3130,16 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Ice",
-    "damageType": "Energy",
-    "training": "2H",
-    "grip": "Phase",
-    "attribute": "targets all units in linear range",
-    "rareAttribute": "4",
-    "range": "Zozimite",
-    "material": "2",
-    "guard": "200"
+    "damage": "1D8",
+    "damageType": "Ice",
+    "training": "Energy",
+    "grip": "2H",
+    "attribute": "Phase",
+    "rareAttribute": "targets all units in linear range",
+    "range": "4",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 200
   },
   {
     "id": "rare-shock-refractor",
@@ -3141,15 +3147,16 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Electric",
-    "damageType": "Energy",
-    "training": "2H",
-    "grip": "Phase",
-    "attribute": "targets all units in linear range",
-    "rareAttribute": "4",
-    "range": "Zozimite",
-    "material": "2",
-    "guard": "200"
+    "damage": "1D8",
+    "damageType": "Electric",
+    "training": "Energy",
+    "grip": "2H",
+    "attribute": "Phase",
+    "rareAttribute": "targets all units in linear range",
+    "range": "4",
+    "material": "Zozimite",
+    "weight": 2,
+    "value": 200
   },
   {
     "id": "rare-elven-longbow",
@@ -3157,14 +3164,15 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Bow",
-    "training": "2H",
-    "grip": "Puncture",
-    "rareAttribute": "6",
-    "range": "Selasite",
-    "material": "1",
-    "guard": "80"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Bow",
+    "grip": "2H",
+    "attribute": "Puncture",
+    "range": "6",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 80
   },
   {
     "id": "rare-brigade-hand-cannon",
@@ -3172,16 +3180,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Crush",
-    "damageType": "Mortar",
-    "training": "1H",
-    "grip": "Blast",
-    "attribute": "using special ammo grants CRIT+1",
-    "rareAttribute": "5",
-    "range": "Zozimite",
-    "material": "2",
+    "damage": "1D6",
+    "damageType": "Crush",
+    "training": "Mortar",
+    "grip": "1H",
+    "attribute": "Blast",
+    "rareAttribute": "using special ammo grants CRIT+1",
+    "range": "5",
+    "material": "Zozimite",
     "weight": 2,
-    "guard": "130"
+    "value": 130,
+    "reload": "2"
   },
   {
     "id": "rare-btona-stormhazer",
@@ -3189,16 +3198,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Autobow",
-    "training": "2H",
-    "grip": "Volley",
-    "attribute": "Volley fires 2 bolts (if loaded)",
-    "rareAttribute": "6",
-    "range": "Iron",
-    "material": "3",
-    "weight": 9,
-    "guard": "220"
+    "damage": "1D4",
+    "damageType": "Pierce",
+    "training": "Autobow",
+    "grip": "2H",
+    "attribute": "Volley",
+    "rareAttribute": "Volley fires 2 bolts (if loaded)",
+    "range": "6",
+    "material": "Iron",
+    "weight": 3,
+    "value": 220,
+    "reload": "9"
   },
   {
     "id": "rare-patina-bombard",
@@ -3206,16 +3216,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Crush",
-    "damageType": "Mortar",
-    "training": "2H",
-    "grip": "Blast",
-    "attribute": "can not use special ammo",
-    "rareAttribute": "9",
-    "range": "Copper",
-    "material": "4",
-    "weight": 1,
-    "guard": "315"
+    "damage": "HD10",
+    "damageType": "Crush",
+    "training": "Mortar",
+    "grip": "2H",
+    "attribute": "Blast",
+    "rareAttribute": "can not use special ammo",
+    "range": "9",
+    "material": "Copper",
+    "weight": 4,
+    "value": 315,
+    "reload": "1"
   },
   {
     "id": "rare-repeating-crossbow",
@@ -3223,16 +3234,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Bow",
-    "training": "2H",
-    "grip": "Brace",
-    "attribute": "has a chamber of 3 bolts",
-    "rareAttribute": "6",
-    "range": "Iron",
-    "material": "1",
-    "weight": 3,
-    "guard": "85"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Bow",
+    "grip": "2H",
+    "attribute": "Brace",
+    "rareAttribute": "has a chamber of 3 bolts",
+    "range": "6",
+    "material": "Iron",
+    "weight": 1,
+    "value": 85,
+    "reload": "3"
   },
   {
     "id": "rare-hazer-sargo-pattern",
@@ -3240,15 +3252,16 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Autobow",
-    "training": "1H",
-    "grip": "Volley",
-    "rareAttribute": "4",
-    "range": "Iron",
-    "material": "1",
-    "weight": 5,
-    "guard": "160"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Autobow",
+    "grip": "1H",
+    "attribute": "Volley",
+    "range": "4",
+    "material": "Iron",
+    "weight": 1,
+    "value": 160,
+    "reload": "5"
   },
   {
     "id": "rare-hazer-neftari-pattern",
@@ -3256,15 +3269,16 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Autobow",
-    "training": "1H",
-    "grip": "Volley",
-    "rareAttribute": "4",
-    "range": "Iron",
-    "material": "1",
-    "weight": 5,
-    "guard": "160"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Autobow",
+    "grip": "1H",
+    "attribute": "Volley",
+    "range": "4",
+    "material": "Iron",
+    "weight": 1,
+    "value": 160,
+    "reload": "5"
   },
   {
     "id": "rare-wall-cracker",
@@ -3272,16 +3286,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Mortar",
-    "training": "2H",
-    "grip": "Splitter",
-    "attribute": "deals +1D8 crush / x2 to objects",
-    "rareAttribute": "3",
-    "range": "Zozimite",
-    "material": "3",
-    "weight": 1,
-    "guard": "400"
+    "damage": "1D10",
+    "damageType": "Pierce",
+    "training": "Mortar",
+    "grip": "2H",
+    "attribute": "Splitter",
+    "rareAttribute": "deals +1D8 crush / x2 to objects",
+    "range": "3",
+    "material": "Zozimite",
+    "weight": 3,
+    "value": 400,
+    "reload": "1"
   },
   {
     "id": "rare-deadeye-hazer",
@@ -3289,16 +3304,17 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Autobow",
-    "training": "2H",
-    "grip": "Brace",
-    "attribute": "DMG rolled as HDR if Braced",
-    "rareAttribute": "10",
-    "range": "Iron",
-    "material": "2",
+    "damage": "1D10",
+    "damageType": "Pierce",
+    "training": "Autobow",
+    "grip": "2H",
+    "attribute": "Brace",
+    "rareAttribute": "DMG rolled as HDR if Braced",
+    "range": "10",
+    "material": "Iron",
     "weight": 2,
-    "guard": "210"
+    "value": 210,
+    "reload": "2"
   },
   {
     "id": "rare-rimestar-needle",
@@ -3306,9 +3322,9 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damageType": "Throwing",
-    "training": "1H",
-    "grip": "Zodiac"
+    "training": "Throwing",
+    "grip": "1H",
+    "attribute": "Zodiac"
   },
   {
     "id": "rare-twinned-cresent",
@@ -3316,11 +3332,12 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Bow",
-    "training": "2H",
-    "grip": "Zodiac",
-    "attribute": "fires a 2nd, 1D8 dark DMG arrow"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Bow",
+    "grip": "2H",
+    "attribute": "Zodiac",
+    "rareAttribute": "fires a 2nd, 1D8 dark DMG arrow"
   },
   {
     "id": "rare-archive-initiate-blade",
@@ -3328,16 +3345,17 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Channeling",
-    "training": "1H",
-    "grip": "Puncture",
-    "attribute": "Spellcast rolls +1",
-    "rareAttribute": "Melee",
-    "range": "Wood",
-    "material": "1",
-    "weight": 17,
-    "guard": "55"
+    "damage": "1D6",
+    "damageType": "Pierce",
+    "training": "Channeling",
+    "grip": "1H",
+    "attribute": "Puncture",
+    "rareAttribute": "Spellcast rolls +1",
+    "range": "Melee",
+    "material": "Wood",
+    "weight": 1,
+    "value": 55,
+    "guard": "17"
   },
   {
     "id": "rare-horn-of-the-guardian",
@@ -3345,16 +3363,17 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Pierce",
-    "damageType": "Channeling",
-    "training": "2H",
-    "grip": "Thrust",
-    "attribute": "Spell: \"Winds of Destruction\"",
-    "rareAttribute": "Melee",
-    "range": "Selasite",
-    "material": "1",
-    "weight": 15,
-    "guard": "160"
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "training": "Channeling",
+    "grip": "2H",
+    "attribute": "Thrust",
+    "rareAttribute": "Spell: \"Winds of Destruction\"",
+    "range": "Melee",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 160,
+    "guard": "15"
   },
   {
     "id": "rare-wand-of-the-2nd-virtue",
@@ -3362,15 +3381,16 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Electric",
-    "damageType": "Channeling",
-    "training": "1H",
-    "grip": "Versatile",
-    "attribute": "MOVE +2",
-    "rareAttribute": "2",
-    "range": "Selasite",
-    "material": "1",
-    "guard": "100"
+    "damage": "1D6",
+    "damageType": "Electric",
+    "training": "Channeling",
+    "grip": "1H",
+    "attribute": "Versatile",
+    "rareAttribute": "MOVE +2",
+    "range": "2",
+    "material": "Selasite",
+    "weight": 1,
+    "value": 100
   },
   {
     "id": "rare-golav-shardstaff",
@@ -3378,16 +3398,17 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Fire",
-    "damageType": "Channeling",
-    "training": "1H",
-    "grip": "Versatile",
-    "attribute": "Gain Water/Ice resistance (1)",
-    "rareAttribute": "3",
-    "range": "Meteorite",
-    "material": "2",
-    "weight": 19,
-    "guard": "220"
+    "damage": "1D8",
+    "damageType": "Fire",
+    "training": "Channeling",
+    "grip": "1H",
+    "attribute": "Versatile",
+    "rareAttribute": "Gain Water/Ice resistance (1)",
+    "range": "3",
+    "material": "Meteorite",
+    "weight": 2,
+    "value": 220,
+    "guard": "19"
   },
   {
     "id": "rare-hexgold-xiphos",
@@ -3395,16 +3416,17 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Slash",
-    "damageType": "Channeling",
-    "training": "1H",
-    "grip": "Thrust",
-    "attribute": "lower BAR to 0 (1 rnd / stacks 3)",
-    "rareAttribute": "Melee",
-    "range": "Gold",
-    "material": "1",
-    "weight": 17,
-    "guard": "150"
+    "damage": "1D6",
+    "damageType": "Slash",
+    "training": "Channeling",
+    "grip": "1H",
+    "attribute": "Thrust",
+    "rareAttribute": "lower BAR to 0 (1 rnd / stacks 3)",
+    "range": "Melee",
+    "material": "Gold",
+    "weight": 1,
+    "value": 150,
+    "guard": "17"
   },
   {
     "id": "rare-warped-black-staff",
@@ -3412,16 +3434,17 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Fire",
-    "damageType": "Channeling",
-    "training": "2H",
-    "grip": "Versatile",
-    "attribute": "all Fire DMG dealt +2",
-    "rareAttribute": "3",
-    "range": "Iron",
-    "material": "2",
-    "weight": 20,
-    "guard": "180"
+    "damage": "1D6",
+    "damageType": "Fire",
+    "training": "Channeling",
+    "grip": "2H",
+    "attribute": "Versatile",
+    "rareAttribute": "all Fire DMG dealt +2",
+    "range": "3",
+    "material": "Iron",
+    "weight": 2,
+    "value": 180,
+    "guard": "20"
   },
   {
     "id": "rare-amber-scepter",
@@ -3429,8 +3452,8 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damageType": "Channeling",
-    "grip": "Zodiac"
+    "training": "Channeling",
+    "attribute": "Zodiac"
   },
   {
     "id": "rare-new-book-of-mhire",
@@ -3438,16 +3461,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "damageType": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "training": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "grip": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "attribute": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
+    "effect": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
     "rareAttribute": "Twin Moon",
-    "range": "Twin Moon",
-    "material": "1H",
-    "weight": 80,
-    "guard": "1"
+    "grip": "1H",
+    "value": 80,
+    "weight": 1
   },
   {
     "id": "rare-manual-of-healing",
@@ -3455,16 +3473,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "All HP restoration via items,abilities or spells is increased +1",
-    "damageType": "All HP restoration via items,abilities or spells is increased +1",
-    "training": "All HP restoration via items,abilities or spells is increased +1",
-    "grip": "All HP restoration via items,abilities or spells is increased +1",
-    "attribute": "All HP restoration via items,abilities or spells is increased +1",
+    "effect": "All HP restoration via items,abilities or spells is increased +1",
     "rareAttribute": "n/a (any)",
-    "range": "n/a (any)",
-    "material": "1H",
-    "weight": 60,
-    "guard": "1"
+    "grip": "1H",
+    "value": 60,
+    "weight": 1
   },
   {
     "id": "rare-hymnal-of-the-battlemother",
@@ -3472,16 +3485,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Add +2 spellcast rolls when Charge Boosting",
-    "damageType": "Add +2 spellcast rolls when Charge Boosting",
-    "training": "Add +2 spellcast rolls when Charge Boosting",
-    "grip": "Add +2 spellcast rolls when Charge Boosting",
-    "attribute": "Add +2 spellcast rolls when Charge Boosting",
+    "effect": "Add +2 spellcast rolls when Charge Boosting",
     "rareAttribute": "n/a (any)",
-    "range": "n/a (any)",
-    "material": "1H",
-    "weight": 115,
-    "guard": "1"
+    "grip": "1H",
+    "value": 115,
+    "weight": 1
   },
   {
     "id": "rare-hexgold-grimoire",
@@ -3489,16 +3497,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
-    "damageType": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
-    "training": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
-    "grip": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
-    "attribute": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
+    "effect": "All saves imposed on targets via spellcasting gain +2 to their minumum threshold",
     "rareAttribute": "n/a (any)",
-    "range": "n/a (any)",
-    "material": "1H",
-    "weight": 100,
-    "guard": "1"
+    "grip": "1H",
+    "value": 100,
+    "weight": 1
   },
   {
     "id": "rare-book-of-rememberances",
@@ -3506,16 +3509,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Grants +1 MEM while equipped in Armaments",
-    "damageType": "Grants +1 MEM while equipped in Armaments",
-    "training": "Grants +1 MEM while equipped in Armaments",
-    "grip": "Grants +1 MEM while equipped in Armaments",
-    "attribute": "Grants +1 MEM while equipped in Armaments",
+    "effect": "Grants +1 MEM while equipped in Armaments",
     "rareAttribute": "n/a (any)",
-    "range": "n/a (any)",
-    "material": "1H",
-    "weight": 75,
-    "guard": "1"
+    "grip": "1H",
+    "value": 75,
+    "weight": 1
   },
   {
     "id": "rare-grimoire-of-calefaction",
@@ -3523,16 +3521,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "rare",
-    "damage": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
-    "damageType": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
-    "training": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
-    "grip": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
-    "attribute": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
+    "effect": "Allows wielder to cast spell: \"Burning Mist\" / Grants ice/water resist (1) while equipped",
     "rareAttribute": "Pyromancy/Arcadian",
-    "range": "Pyromancy/Arcadian",
-    "material": "1H",
-    "weight": 200,
-    "guard": "1"
+    "grip": "1H",
+    "value": 200,
+    "weight": 1
   },
   {
     "id": "rare-mages-shield",
@@ -3544,7 +3537,10 @@
     "durability": "5 pts.",
     "bashDmg": "1D4 Crush",
     "material": "Zozimite",
-    "training": "1"
+    "weight": 1,
+    "value": 70,
+    "rareAttribute": "can act as channeling item",
+    "type": "Shield"
   },
   {
     "id": "rare-steel-shield",
@@ -3557,7 +3553,9 @@
     "bashDmg": "1D6 Crush",
     "parry": "1D4",
     "material": "Iron",
-    "training": "1"
+    "weight": 1,
+    "value": 60,
+    "type": "Shield"
   },
   {
     "id": "rare-repulsing-shield",
@@ -3570,7 +3568,10 @@
     "bashDmg": "1D4 Crush",
     "blockBonus": "Crush (1)",
     "material": "Zozimite",
-    "training": "1"
+    "weight": 1,
+    "value": 75,
+    "rareAttribute": "knockback attacker 1 tile",
+    "type": "Shield"
   },
   {
     "id": "rare-leering-shield",
@@ -3584,7 +3585,10 @@
     "parry": "1D6",
     "blockBonus": "Mind (1)",
     "material": "Iron",
-    "training": "1"
+    "weight": 1,
+    "value": 80,
+    "rareAttribute": "intimidation rolls +2",
+    "type": "Shield"
   },
   {
     "id": "rare-maharan-honor-shield",
@@ -3598,7 +3602,10 @@
     "parry": "1D6",
     "blockBonus": "Ice / Water (1)",
     "material": "Selasite",
-    "training": "1"
+    "weight": 1,
+    "value": 95,
+    "rareAttribute": "Burned status immunity",
+    "type": "Shield"
   },
   {
     "id": "rare-spiked-targe",
@@ -3610,7 +3617,10 @@
     "durability": "8 pts.",
     "bashDmg": "1D8 Pierce",
     "material": "Iron",
-    "training": "1"
+    "weight": 1,
+    "value": 70,
+    "rareAttribute": "Base Crit chance -1 (bash only)",
+    "type": "Shield"
   },
   {
     "id": "rare-darkmoon-greatshield",
@@ -3623,7 +3633,10 @@
     "bashDmg": "1D8 Dark",
     "blockBonus": "Dark (1)",
     "material": "Selasite",
-    "training": "2"
+    "weight": 2,
+    "value": 155,
+    "rareAttribute": "Grants light resistance (1)",
+    "type": "Shield"
   },
   {
     "id": "rare-lightmoon-greatshield",
@@ -3636,7 +3649,10 @@
     "bashDmg": "1D8 Light",
     "blockBonus": "Light (1)",
     "material": "Selasite",
-    "training": "2"
+    "weight": 2,
+    "value": 155,
+    "rareAttribute": "Grants dark resistance (1)",
+    "type": "Shield"
   },
   {
     "id": "rare-dueling-shield",
@@ -3649,7 +3665,10 @@
     "bashDmg": "1D4 Slash",
     "parry": "1D4",
     "material": "Iron",
-    "training": "1"
+    "weight": 1,
+    "value": 65,
+    "rareAttribute": "Parry rolls are made as LDR",
+    "type": "Shield"
   },
   {
     "id": "rare-winged-buckler",
@@ -3663,7 +3682,10 @@
     "parry": "1D4",
     "blockBonus": "Wind (1)",
     "material": "Selasite",
-    "training": "1"
+    "weight": 1,
+    "value": 100,
+    "rareAttribute": "Grants +1 EVA when equipped",
+    "type": "Shield"
   },
   {
     "id": "rare-lightning-deflector",
@@ -3676,14 +3698,18 @@
     "bashDmg": "1D6 Elec",
     "blockBonus": "Elec (2)",
     "material": "Zozimite",
-    "training": "1"
+    "weight": 1,
+    "value": 170,
+    "rareAttribute": "make a perfect block for 3 dur.",
+    "type": "Shield"
   },
   {
     "id": "rare-halo-of-protection",
     "name": "Halo of Protection ★",
     "category": "shield",
     "subcategory": "shield",
-    "rarity": "rare"
+    "rarity": "rare",
+    "rareAttribute": "has 'Zodiac' weapon ATTR"
   },
   {
     "id": "parallel-frostbite-edge",
@@ -3691,6 +3717,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Everfrost Axe",
     "damage": "1D4",
     "damageType": "Slash",
     "training": "Axe",
@@ -3700,8 +3727,8 @@
     "range": "Melee",
     "material": "(self repair)",
     "weight": 1,
-    "guard": "18",
-    "value": 90
+    "value": 90,
+    "guard": "18"
   },
   {
     "id": "parallel-scorpions-tail",
@@ -3709,6 +3736,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Stinger",
     "damage": "1D6",
     "damageType": "Pierce",
     "training": "Dueling Blade",
@@ -3718,8 +3746,8 @@
     "range": "2",
     "material": "Zozimite",
     "weight": 1,
-    "guard": "19",
-    "value": 85
+    "value": 85,
+    "guard": "19"
   },
   {
     "id": "parallel-monsoon",
@@ -3727,6 +3755,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Wildfire",
     "damage": "1D8",
     "damageType": "Slash",
     "training": "Heavy Blade",
@@ -3736,8 +3765,8 @@
     "range": "Melee",
     "material": "Iron",
     "weight": 2,
-    "guard": "16",
-    "value": 50
+    "value": 50,
+    "guard": "16"
   },
   {
     "id": "parallel-gravity-shamshir",
@@ -3745,6 +3774,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Eclipse Scimitar",
     "damage": "1D6",
     "damageType": "Slash",
     "training": "Light Blade",
@@ -3754,8 +3784,8 @@
     "range": "Melee",
     "material": "Selasite",
     "weight": 1,
-    "guard": "17",
-    "value": 115
+    "value": 115,
+    "guard": "17"
   },
   {
     "id": "parallel-hoplites-pride",
@@ -3763,6 +3793,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Withered Lance",
     "damage": "1D6",
     "damageType": "Pierce",
     "training": "Polearm",
@@ -3772,8 +3803,8 @@
     "range": "2",
     "material": "Iron",
     "weight": 1,
-    "guard": "17",
-    "value": 80
+    "value": 80,
+    "guard": "17"
   },
   {
     "id": "parallel-fusion-lance",
@@ -3781,6 +3812,7 @@
     "category": "weapon",
     "subcategory": "melee",
     "rarity": "parallel",
+    "originalItem": "Refractor Spear",
     "damage": "1D6",
     "damageType": "Ice",
     "training": "Energy",
@@ -3790,8 +3822,8 @@
     "range": "3",
     "material": "Zozimite",
     "weight": 2,
-    "guard": "16",
-    "value": 175
+    "value": 175,
+    "guard": "16"
   },
   {
     "id": "parallel-bright-refractor",
@@ -3799,6 +3831,7 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "parallel",
+    "originalItem": "Flare Refractor",
     "damage": "1D8",
     "damageType": "Light",
     "training": "Energy",
@@ -3816,6 +3849,7 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "parallel",
+    "originalItem": "Freeze Refractor",
     "damage": "1D8",
     "damageType": "Dark",
     "training": "Energy",
@@ -3833,6 +3867,7 @@
     "category": "weapon",
     "subcategory": "ranged",
     "rarity": "parallel",
+    "originalItem": "Shock Refractor",
     "damage": "1D8",
     "damageType": "Toxic",
     "training": "Energy",
@@ -3850,17 +3885,11 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "parallel",
-    "damage": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "damageType": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "training": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "grip": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "attribute": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "rareAttribute": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
-    "range": "Twin Moon",
-    "material": "Twin Moon",
-    "weight": 1,
-    "guard": "80",
-    "value": 1
+    "effect": "Allows wielder to cast spell: \"Compel Spirits\" / Grants dark resist (1) while equipped",
+    "training": "Twin Moon",
+    "grip": "1H",
+    "value": 80,
+    "weight": 1
   },
   {
     "id": "parallel-manual-of-healing",
@@ -3868,185 +3897,154 @@
     "category": "weapon",
     "subcategory": "channeling",
     "rarity": "parallel",
-    "damage": "All HP restoration via items,abilities or spells is increased +1",
-    "damageType": "All HP restoration via items,abilities or spells is increased +1",
-    "training": "All HP restoration via items,abilities or spells is increased +1",
-    "grip": "All HP restoration via items,abilities or spells is increased +1",
-    "attribute": "All HP restoration via items,abilities or spells is increased +1",
-    "rareAttribute": "All HP restoration via items,abilities or spells is increased +1",
-    "range": "n/a (any)",
-    "material": "n/a (any)",
-    "weight": 1,
-    "guard": "45",
-    "value": 1
-  },
-  {
-    "id": "parallel-offhand-items",
-    "name": "Offhand Items",
-    "category": "weapon",
-    "subcategory": "channeling",
-    "rarity": "parallel",
-    "damage": "Block Roll",
-    "damageType": "Durability",
-    "training": "Bash DMG",
-    "grip": "Parry",
-    "attribute": "Block Bonus",
-    "rareAttribute": "Rare Shield Attribute",
-    "range": "Material",
-    "material": "Material",
-    "guard": "Training"
+    "effect": "All HP restoration via items,abilities or spells is increased +1",
+    "training": "n/a (any)",
+    "grip": "1H",
+    "value": 45,
+    "weight": 1
   },
   {
     "id": "parallel-mages-shield",
     "name": "Mage's Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "16 (+MEM)",
-    "damageType": "5 pts.",
-    "training": "1D4 Crush",
-    "rareAttribute": "can act as channeling item",
-    "range": "Zozimite",
+    "blockRoll": "16 (+MEM)",
+    "durability": "5 pts.",
+    "bashDmg": "1D4 Crush",
     "material": "Zozimite",
     "weight": 1,
-    "guard": "Shield",
-    "value": 70
+    "value": 70,
+    "rareAttribute": "can act as channeling item",
+    "type": "Shield"
   },
   {
     "id": "parallel-steel-shield",
     "name": "Steel Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "15 (+SPD)",
-    "damageType": "9 pts.",
-    "training": "1D6 Crush",
-    "grip": "1D4",
-    "range": "Iron",
+    "blockRoll": "15 (+SPD)",
+    "durability": "9 pts.",
+    "bashDmg": "1D6 Crush",
+    "parry": "1D4",
     "material": "Iron",
     "weight": 1,
-    "guard": "Shield",
-    "value": 60
+    "value": 60,
+    "type": "Shield"
   },
   {
     "id": "parallel-magnetism-shield",
     "name": "Magnetism Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "16 (+SPD)",
-    "damageType": "7 pts.",
-    "training": "1D4 Crush",
-    "attribute": "Elec (1)",
-    "rareAttribute": "knockback (1) iron wpn users",
-    "range": "Zozimite",
+    "blockRoll": "16 (+SPD)",
+    "durability": "7 pts.",
+    "bashDmg": "1D4 Crush",
+    "blockBonus": "Elec (1)",
     "material": "Zozimite",
     "weight": 1,
-    "guard": "Shield",
-    "value": 75
+    "value": 75,
+    "rareAttribute": "knockback (1) iron wpn users",
+    "type": "Shield"
   },
   {
     "id": "parallel-leering-shield",
     "name": "Leering Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "15 (+CHA)",
-    "damageType": "7 pts.",
-    "training": "1D6 Crush",
-    "grip": "1D6",
-    "attribute": "Mind (1)",
-    "rareAttribute": "intimidation rolls +2",
-    "range": "Iron",
+    "blockRoll": "15 (+CHA)",
+    "durability": "7 pts.",
+    "bashDmg": "1D6 Crush",
+    "parry": "1D6",
+    "blockBonus": "Mind (1)",
     "material": "Iron",
     "weight": 1,
-    "guard": "Shield",
-    "value": 80
+    "value": 80,
+    "rareAttribute": "intimidation rolls +2",
+    "type": "Shield"
   },
   {
     "id": "parallel-maharan-honor-shield",
     "name": "Maharan Honor Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "15 (+SPD)",
-    "damageType": "7 pts.",
-    "training": "1D6 Crush",
-    "grip": "1D6",
-    "attribute": "Ice / Water (1)",
-    "rareAttribute": "Burned status immunity",
-    "range": "Selasite",
+    "blockRoll": "15 (+SPD)",
+    "durability": "7 pts.",
+    "bashDmg": "1D6 Crush",
+    "parry": "1D6",
+    "blockBonus": "Ice / Water (1)",
     "material": "Selasite",
     "weight": 1,
-    "guard": "Shield",
-    "value": 95
+    "value": 95,
+    "rareAttribute": "Burned status immunity",
+    "type": "Shield"
   },
   {
     "id": "parallel-spiked-targe",
     "name": "Spiked Targe",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "16 (+SPD)",
-    "damageType": "8 pts.",
-    "training": "1D8 Pierce",
-    "rareAttribute": "Base Crit chance -1 (bash only)",
-    "range": "Iron",
+    "blockRoll": "16 (+SPD)",
+    "durability": "8 pts.",
+    "bashDmg": "1D8 Pierce",
     "material": "Iron",
     "weight": 1,
-    "guard": "Shield",
-    "value": 70
+    "value": 70,
+    "rareAttribute": "Base Crit chance -1 (bash only)",
+    "type": "Shield"
   },
   {
     "id": "parallel-darkmoon-greatshield",
     "name": "Darkmoon Greatshield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "14 (+SPD)",
-    "damageType": "12 pts.",
-    "training": "1D8 Dark",
-    "attribute": "Dark (1)",
-    "rareAttribute": "Grants light resistance (1)",
-    "range": "Selasite",
+    "blockRoll": "14 (+SPD)",
+    "durability": "12 pts.",
+    "bashDmg": "1D8 Dark",
+    "blockBonus": "Dark (1)",
     "material": "Selasite",
     "weight": 2,
-    "guard": "Shield",
-    "value": 155
+    "value": 155,
+    "rareAttribute": "Grants light resistance (1)",
+    "type": "Shield"
   },
   {
     "id": "parallel-lightmoon-greatshield",
     "name": "Lightmoon Greatshield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "14 (+SPD)",
-    "damageType": "12 pts.",
-    "training": "1D8 Light",
-    "attribute": "Light (1)",
-    "rareAttribute": "Grants dark resistance (1)",
-    "range": "Selasite",
+    "blockRoll": "14 (+SPD)",
+    "durability": "12 pts.",
+    "bashDmg": "1D8 Light",
+    "blockBonus": "Light (1)",
     "material": "Selasite",
     "weight": 2,
-    "guard": "Shield",
-    "value": 155
+    "value": 155,
+    "rareAttribute": "Grants dark resistance (1)",
+    "type": "Shield"
   },
   {
     "id": "parallel-dueling-shield",
     "name": "Dueling Shield",
-    "category": "weapon",
-    "subcategory": "channeling",
+    "category": "shield",
+    "subcategory": "shield",
     "rarity": "parallel",
-    "damage": "17 (+SPD)",
-    "damageType": "8 pts.",
-    "training": "1D4 Slash",
-    "grip": "1D4",
-    "rareAttribute": "Parry rolls are made as LDR",
-    "range": "Iron",
+    "blockRoll": "17 (+SPD)",
+    "durability": "8 pts.",
+    "bashDmg": "1D4 Slash",
+    "parry": "1D4",
     "material": "Iron",
     "weight": 1,
-    "guard": "Shield",
-    "value": 65
+    "value": 65,
+    "rareAttribute": "Parry rolls are made as LDR",
+    "type": "Shield"
   },
   {
     "id": "parallel-calhedite-armor",
@@ -4622,18 +4620,18 @@
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "Description / Lore",
-    "description": "The greataxe of Lamiiran legend wielded by their first queen, Amberil Daetus the Bond-Breaker that was used to annihalate the Pale Elves. It is red and pale blue like blood stained snow. Legendary Trait:",
-    "type": "3"
-  },
-  {
-    "id": "legendary-gear-type",
-    "name": "Gear Type",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "DMG Type Slash Range Melee Training Axe",
-    "type": "Description / Lore"
+    "charges": "3",
+    "type": "Weapon(2H)",
+    "description": "The greataxe of Lamiiran legend wielded by their first queen, Amberil Daetus the Bond-Breaker that was used to annihalate the Pale Elves. It is red and pale blue like blood stained snow.",
+    "damage": "2D6",
+    "damageType": "Slash",
+    "attribute": "STR",
+    "range": "Melee",
+    "bonus": "STR+1",
+    "training": "Axe",
+    "rareAttribute": "Splitter",
+    "weight": 3,
+    "value": 2500
   },
   {
     "id": "legendary-shatterbrand",
@@ -4642,201 +4640,149 @@
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
     "charges": "3",
-    "description": "The Monster King and his legion once besieged Jezar for so long the Hunter-Crusaders began using shards of swords as daggers in the fray. This blade appeared after the seige was broken. Shatter Storm (Action) Raise Shatterbrand and fire each",
-    "type": "Weapon(1H)"
+    "type": "Weapon(1H)",
+    "description": "The Monster King and his legion once besieged Jezar for so long the Hunter-Crusaders began using shards of swords as daggers in the fray. This blade appeared after the seige was broken.",
+    "damage": "1D8",
+    "damageType": "Pierce",
+    "attribute": "STR",
+    "range": "2",
+    "bonus": "VIT+1",
+    "training": "L.Blade",
+    "rareAttribute": "2-Hand",
+    "effect": "Shatter Storm",
+    "additionalEffects": "(Action) Raise Shatterbrand and fire each of its shards dealing 1D6+4 Pierce DMG to",
+    "weight": 1,
+    "value": 1840
   },
   {
-    "id": "legendary-charges",
-    "name": "Charges",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "Med. Armor",
-    "description": "Bonus 1 ARM +1 Weaknesses"
-  },
-  {
-    "id": "legendary-armor-name",
-    "name": "Armor Name",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "Description / Lore"
-  },
-  {
-    "id": "legendary-value",
-    "name": "Value",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "Weapon Attributes Splitter",
-    "type": "all enemy units in a 5x5 area (from self)."
-  },
-  {
-    "id": "legendary-of-its-shards-dealing-1d6-4-pierce-dmg-to",
-    "name": "of its shards dealing 1D6+4 Pierce DMG to",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
+    "id": "legendary-armor-of-adorim",
+    "name": "Armor Of Adorim",
+    "category": "armor",
+    "subcategory": "body-armor",
     "rarity": "legendary",
     "charges": "1",
-    "description": "Targets must make a STR save (15+) or be inflicted with the Needled status effect.",
-    "type": "1840"
+    "type": "Med. Armor",
+    "description": "The sanctified breastplate of Saint Adorim. It is said this once mundane brass armor became radiant with sacred magic on its own during his martyrdom protecting his flock in the ruins.",
+    "bonus": "ARM +1",
+    "additionalEffects": "BAR +2 Sacrifice 5 of your own HP to release a pulse of light that restores 10 HP to all",
+    "resistances": "Dark / Light (x); Dark / Light (x)",
+    "armorClass": "Med. Armor",
+    "effect": "Martyr's Ward",
+    "weight": 3,
+    "value": 3610
   },
   {
-    "id": "legendary-weight",
-    "name": "Weight",
+    "id": "legendary-hammer-of-the-hidden-virtue",
+    "name": "Hammer Of The Hidden Virtue",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "3610",
-    "description": "Additional Attributes"
+    "charges": "2",
+    "type": "Weapon(2H)",
+    "description": "The hidden weapon of the Maazenite Faith given by their God himself and the final piece of the Arsenal of the Sky: This hammer embodies the fourth, unspoken Virtue of destruction.",
+    "damage": "2D6",
+    "damageType": "Crush",
+    "attribute": "STR",
+    "range": "Melee",
+    "bonus": "SPD+1",
+    "training": "Heavy Maul",
+    "rareAttribute": "Impact",
+    "effect": "Virtuous Destruction",
+    "additionalEffects": "(Action) strike your target dealing this weapon's DMG as well as an additional",
+    "weight": 3,
+    "value": 3250
   },
   {
-    "id": "legendary-by-their-god-himself-and-the-final-piece-of-the",
-    "name": "by their God himself and the final piece of the",
+    "id": "legendary-tachum-s",
+    "name": "Ta'chumōs",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "Arsenal of the Sky: This hammer embodies the",
-    "description": "fourth, unspoken Virtue of destruction. Legendary Trait: (Action) strike your target dealing this weapon's DMG as well as an additional 10 pts. of either Electric or Sound DMG (user's choice). Target is also staggered for",
-    "type": "Scaling"
+    "description": "The mythical weapon carried by one of the two original God-Ascendants, The Spearman, avatar of the fight; the fight within- the constant fight for survival. It feels perfect in the hand.",
+    "bonus": "SRV+1"
   },
   {
-    "id": "legendary-crush",
-    "name": "Crush",
+    "id": "legendary-euphoria",
+    "name": "Euphoria",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "description": "Melee Training Heavy Maul Value 3250 Weapon Attributes",
-    "type": "avatar of the fight; the fight within- the constant"
+    "type": "2H Weapon",
+    "damageType": "Slash",
+    "attribute": "STR",
+    "range": "Melee"
   },
   {
-    "id": "legendary-original-god-ascendants-the-spearman",
-    "name": "original God-Ascendants, The Spearman,",
+    "id": "legendary-mistlight",
+    "name": "Mistlight",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "Scaling",
-    "description": "fight for survival. It feels perfect in the hand. Trait Name",
-    "type": "Range"
+    "charges": "5 (Max)",
+    "type": "1H Weapon",
+    "description": "Vibrant turquoise handle wrapped in pearl pink cloth, shining blade tinged blue like the brine; a weapon spoke of in maritime legends from pirate lord to adventurer extrordinaire.",
+    "damage": "1D8",
+    "damageType": "Slash",
+    "attribute": "STR or VIT",
+    "range": "Melee",
+    "bonus": "EVA+1",
+    "training": "Dueling Srd.",
+    "rareAttribute": "Parry",
+    "effect": "Rising Tide",
+    "additionalEffects": "Each successful strike with Mistlight grants it 1 'charge' granting the wielder +1 ATK.",
+    "weight": 1,
+    "value": 2110
   },
   {
-    "id": "legendary-their-next-turn",
-    "name": "their next turn.",
+    "id": "legendary-anathema",
+    "name": "Anathema",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "description": "EUPHORIA"
+    "type": "1H Weapon",
+    "damage": "1D8",
+    "damageType": "Crush",
+    "attribute": "STR+VIT",
+    "range": "Melee",
+    "training": "Light Maul",
+    "weight": 2,
+    "value": 2400
   },
   {
-    "id": "legendary-impact",
-    "name": "Impact",
+    "id": "legendary-glimpse-of-the-beyond",
+    "name": "Glimpse Of The Beyond",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "description": "Gear Type 2H Weapon DMG Type Slash Range Melee"
+    "type": "2H Weapon",
+    "training": "Bow"
   },
   {
-    "id": "legendary-legendary-trait",
-    "name": "Legendary Trait:",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary"
-  },
-  {
-    "id": "legendary-training",
-    "name": "Training",
+    "id": "legendary-twin-moon-sceptres",
+    "name": "Twin Moon Sceptres",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "description": "Value",
-    "type": "Each successful strike with Mistlight grants"
+    "description": "Two magic rods of immense power that can never be seperated; One a white cresent moon, one a black new moon. The were the chosen tools of Trovanhim before his ascension.",
+    "training": "Channeling",
+    "weight": 2
   },
   {
-    "id": "legendary-rising-tide",
-    "name": "Rising Tide",
+    "id": "legendary-thread-of-starlight",
+    "name": "Thread Of Starlight",
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "EVA+1",
-    "description": "it 1 'charge' granting the wielder +1 ATK. Charges can be spent using an action to deal XD4 Water DMG to a target in melee (X = Charges) (charges reset after use/battle)",
-    "type": "Dueling Srd."
-  },
-  {
-    "id": "legendary-resistances",
-    "name": "Resistances",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "Weight"
-  },
-  {
-    "id": "legendary-1h-weapon",
-    "name": "1H Weapon",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "Crush Range Melee Training Light Maul Value"
-  },
-  {
-    "id": "legendary-2400",
-    "name": "2400",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary"
-  },
-  {
-    "id": "legendary-one-a-black-new-moon-the-were-the-chosen",
-    "name": "one a black new moon. The were the chosen",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "tools of Trovanhim before his ascension.",
-    "description": "Legendary Trait:"
-  },
-  {
-    "id": "legendary-range",
-    "name": "Range",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "Training Channeling Value",
-    "type": "slaying the Ancient Dragon of Morda"
-  },
-  {
-    "id": "legendary-blademaster-yotiro-moonchaser-to-assist-him-in",
-    "name": "blademaster,Yotiro Moonchaser to assist him in",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "STR/FNS",
-    "description": "Trait Name",
-    "type": "Melee"
-  },
-  {
-    "id": "legendary-weaknesses",
-    "name": "Weaknesses",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "description": "Resistances"
-  },
-  {
-    "id": "legendary-tools-of-trovanhim-before-his-ascension",
-    "name": "tools of Trovanhim before his ascension.",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "Trait Name",
-    "type": "Bonus"
-  },
-  {
-    "id": "legendary-slaying-the-ancient-dragon-of-morda",
-    "name": "slaying the Ancient Dragon of Morda",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary",
-    "charges": "Bonus",
-    "type": "Training"
+    "type": "2H Weapon",
+    "description": "A dark silver katana with a razor-thin blade. In legend, this blade was forged for the Gothrin blademaster,Yotiro Moonchaser to assist him in slaying the Ancient Dragon of Morda",
+    "damage": "1D8",
+    "damageType": "Slash",
+    "attribute": "STR/FNS",
+    "range": "Melee",
+    "training": "L/H Blade",
+    "rareAttribute": "Rending",
+    "weight": 1,
+    "value": 1680
   },
   {
     "id": "legendary-silver-lion-claw",
@@ -4844,29 +4790,12 @@
     "category": "legendary-weapon",
     "subcategory": "legendary-weapon",
     "rarity": "legendary",
-    "charges": "Description / Lore",
-    "description": "The Battlemother Althea shattered, lost and destroyed many weapons in her eternal conquest against monster-kind, but this silver knife was her only constant armament. Legendary Trait:"
-  },
-  {
-    "id": "legendary-weapon-attribute",
-    "name": "Weapon Attribute",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary"
-  },
-  {
-    "id": "legendary-additional-attribute",
-    "name": "Additional Attribute",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary"
-  },
-  {
-    "id": "legendary-additional-attributes",
-    "name": "Additional Attributes",
-    "category": "legendary-weapon",
-    "subcategory": "legendary-weapon",
-    "rarity": "legendary"
+    "type": "1H Weapon",
+    "description": "The Battlemother Althea shattered, lost and destroyed many weapons in her eternal conquest against monster-kind, but this silver knife was her only constant armament.",
+    "damage": "1D8",
+    "damageType": "Slash",
+    "range": "Melee",
+    "training": "Knife"
   },
   {
     "id": "rare-ivory-sword-ring",
@@ -4875,7 +4804,8 @@
     "subcategory": "ring",
     "rarity": "rare",
     "charges": "1 (Summon)",
-    "description": "Summon a floating white sword of energy that can you can command to make a 1D6 Slash DMG ATK (+INT) in melee using move action (lasts 1D4 rnds) Curse Effect(s):"
+    "description": "Summon a floating white sword of energy that can you can command to make a 1D6 Slash DMG ATK (+INT) in melee using move action (lasts 1D4 rnds)",
+    "curseEffects": "Can not unequip unless 1 Seeker Stone is sacrified"
   },
   {
     "id": "rare-crest-of-cloudless-woods",
@@ -4884,7 +4814,8 @@
     "subcategory": "ring",
     "rarity": "rare",
     "charges": "n/a",
-    "description": "Grants wearer immunity to status effects caused by Flora enemies and plant-based traps (mushroom spores, vines, etc.) Grants +1 VIT as well. Curse Effect(s):"
+    "description": "Grants wearer immunity to status effects caused by Flora enemies and plant-based traps (mushroom spores, vines, etc.) Grants +1 VIT as well.",
+    "curseEffects": "n/a"
   },
   {
     "id": "rare-ring-of-fortune",
@@ -4902,7 +4833,8 @@
     "subcategory": "ring",
     "rarity": "rare",
     "charges": "4 (activation)",
-    "description": "Grant yourself advantage on your next stealth roll and advantage on any Concentration: Hearing rolls made while hidden while effect active. Curse Effect(s):"
+    "description": "Grant yourself advantage on your next stealth roll and advantage on any Concentration: Hearing rolls made while hidden while effect active.",
+    "curseEffects": "n/a"
   },
   {
     "id": "rare-javelin-ring",
@@ -4929,115 +4861,74 @@
     "subcategory": "ring",
     "rarity": "rare",
     "charges": "4 (bolts)",
-    "description": "Grants the wearer the ability to cast a freezing bolt: Deals 1D6 Ice DMG to a target within 7 tiles Also inflicts 1D4 pts. of the Freeze status effect Curse Effect(s):"
+    "description": "Grants the wearer the ability to cast a freezing bolt: Deals 1D6 Ice DMG to a target within 7 tiles Also inflicts 1D4 pts. of the Freeze status effect",
+    "curseEffects": "Inflicts fire weakness (1) on wearer"
   },
   {
-    "id": "rare-can-not-unequip-unless-1",
-    "name": "Can not unequip unless 1",
+    "id": "rare-ring-of-the-diplomat",
+    "name": "Ring Of The Diplomat",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "charges": "Seeker Stone is sacrified",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "Grants wearer +2 to Diplomacy, Disposition and Persuasion checks (CHA) as well as the knowledge of which form of speech will be most effective.",
+    "curseEffects": "Cannot remove ring while in conversation; -5 Misinfo. checks"
   },
   {
-    "id": "rare-n-a",
-    "name": "n/a",
+    "id": "rare-sable-sword-ring",
+    "name": "Sable Sword Ring",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "description": "Value:"
+    "charges": "1 (Summon)",
+    "description": "Summon a floating black sword of energy that can you can command to make a 1D6 pierce DMG ATK (+MEM) melee using move action (lasts 1D4 rnds)",
+    "curseEffects": "Can not unequip unless 1 Seeker Stone is sacrified"
   },
   {
-    "id": "rare-causes-curse-status-effect",
-    "name": "Causes Curse status effect",
+    "id": "rare-ring-of-iron-courage",
+    "name": "Ring Of Iron Courage",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "charges": "resist rolls disadvantage",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "Gain +1 ARM when Locked-up with an opposing unit"
   },
   {
-    "id": "rare-lowers-int-attr-by-1-pt",
-    "name": "Lowers INT ATTR by 1 pt.",
+    "id": "rare-winnowers-ring",
+    "name": "Winnower's Ring",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "Grants the wearer advantage on Nature checks (SRV) and advantage on ATKs made toward Floral enemies."
   },
   {
-    "id": "rare-inflicts-fire-weakness-1-on",
-    "name": "Inflicts fire weakness (1) on",
+    "id": "rare-ruby-of-the-red-lady",
+    "name": "Ruby Of The Red Lady",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "charges": "wearer",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "The wearer evades the first strike made towards them during every new battle they participate in."
   },
   {
-    "id": "rare-checks-cha-as-well-as-the",
-    "name": "checks (CHA) as well as the",
+    "id": "rare-firehand-ring",
+    "name": "Firehand Ring",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "charges": "knowledge of which form of",
-    "description": "speech will be most effective. Curse Effect(s): Cannot remove ring while in conversation; -5 Misinfo. checks Value:"
+    "charges": "5 (bolts)",
+    "description": "Grants the wearer the ability to cast a small fireball: deals 1D6 fire DMG in a 5 tile range. Also inflicts the Burned status effect (resist status with VIT 10+)",
+    "curseEffects": "Inflicts water weakness (1) on wearer"
   },
   {
-    "id": "rare-command-to-make-a-1d6-pierce",
-    "name": "command to make a 1D6 pierce",
+    "id": "rare-ring-of-retaliation",
+    "name": "Ring Of Retaliation",
     "category": "ring",
     "subcategory": "ring",
     "rarity": "rare",
-    "charges": "DMG ATK (+MEM) melee using",
-    "description": "move action (lasts 1D4 rnds) Curse Effect(s): Can not unequip unless 1 Seeker Stone is sacrified Value:"
-  },
-  {
-    "id": "rare-advantage-on-atks-made",
-    "name": "advantage on ATKs made",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare",
-    "charges": "toward Floral enemies."
-  },
-  {
-    "id": "rare-during-every-new-battle-they",
-    "name": "during every new battle they",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare",
-    "charges": "participate in."
-  },
-  {
-    "id": "rare-fire-dmg-in-a-5-tile-range-also",
-    "name": "fire DMG in a 5 tile range. Also",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare",
-    "charges": "inflicts the Burned status effect",
-    "description": "(resist status with VIT 10+) Curse Effect(s): Inflicts water weakness (1) on wearer Value:"
-  },
-  {
-    "id": "rare-weapons-costing-1-ring-charge",
-    "name": "weapons (costing 1 ring charge",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare",
-    "charges": "to perform)."
-  },
-  {
-    "id": "rare-ring-name",
-    "name": "Ring Name",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare"
-  },
-  {
-    "id": "rare-value",
-    "name": "Value:",
-    "category": "ring",
-    "subcategory": "ring",
-    "rarity": "rare"
+    "charges": "3 (counters)",
+    "description": "Grants the wearer the 'Counter' attribute with all equipped melee weapons (costing 1 ring charge to perform)."
   },
   {
     "id": "rare-zandor-flute",
@@ -5046,7 +4937,8 @@
     "subcategory": "artifact",
     "rarity": "rare",
     "charges": "n/a",
-    "description": "User can make a Performance roll to play a tune (CHA 12+). If successful, restore 1D6 HP to self/target within earshot. (takes Main Action) Curse Effect(s):"
+    "description": "User can make a Performance roll to play a tune (CHA 12+). If successful, restore 1D6 HP to self/target within earshot. (takes Main Action)",
+    "curseEffects": "Critical fail rolls deal 1D4 Sound DMG to your target instead."
   },
   {
     "id": "rare-guiding-glowstone",
@@ -5055,7 +4947,8 @@
     "subcategory": "artifact",
     "rarity": "rare",
     "charges": "n/a",
-    "description": "Attached to the belt or on a bag; Illuminates the immediate area in a warm yellow light. Can be toggled on and off with a whisper. Curse Effect(s):"
+    "description": "Attached to the belt or on a bag; Illuminates the immediate area in a warm yellow light. Can be toggled on and off with a whisper.",
+    "curseEffects": "n/a"
   },
   {
     "id": "rare-jade-feather",
@@ -5064,7 +4957,8 @@
     "subcategory": "artifact",
     "rarity": "rare",
     "charges": "n/a",
-    "description": "A small jade colored feather strung around a circle of black beads. Increases ATK & DMG rolls made with ranged weapons by +1. Curse Effect(s):"
+    "description": "A small jade colored feather strung around a circle of black beads. Increases ATK & DMG rolls made with ranged weapons by +1.",
+    "curseEffects": "n/a"
   },
   {
     "id": "rare-repulsor-band",
@@ -5073,7 +4967,8 @@
     "subcategory": "artifact",
     "rarity": "rare",
     "charges": "1 (activation)",
-    "description": "A metal band infused with advanced shielding technologies and magics; Takes action to activate- nullifies physical projectiles for 1D4 rounds. Curse Effect(s):"
+    "description": "A metal band infused with advanced shielding technologies and magics; Takes action to activate- nullifies physical projectiles for 1D4 rounds.",
+    "curseEffects": "n/a"
   },
   {
     "id": "rare-journeymans-chain",
@@ -5091,7 +4986,8 @@
     "subcategory": "artifact",
     "rarity": "rare",
     "charges": "2 (ability use)",
-    "description": "Allows the wearer to perform the Creeper ability \"Creeper Venom\" (no STAM cost) perform an ATK that deals 1D4 crush DMG; may poison target (resisted: VIT 13+) Curse Effect(s):"
+    "description": "Allows the wearer to perform the Creeper ability \"Creeper Venom\" (no STAM cost) perform an ATK that deals 1D4 crush DMG; may poison target (resisted: VIT 13+)",
+    "curseEffects": "Inflicts Light DMG weakness on wearer (1 level)"
   },
   {
     "id": "rare-fallen-warden-eye",
@@ -5103,86 +4999,68 @@
     "description": "Gain the ability to use your Movement Action to increase your next ATK roll by +3."
   },
   {
-    "id": "rare-critical-fail-rolls-deal-1d4-sound",
-    "name": "Critical fail rolls deal 1D4 Sound",
+    "id": "rare-ancient-seeker-stone",
+    "name": "Ancient Seeker Stone",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "DMG to your target instead.",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "Increases wearer's Spell Memory by +1 (a new spell can be memorized immediately upon equipping)."
   },
   {
-    "id": "rare-n-a-2",
-    "name": "n/a",
+    "id": "rare-amulet-of-blades",
+    "name": "Amulet Of Blades",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "The wearer boosts any slashing DMG dealt by +2"
   },
   {
-    "id": "rare-inflicts-light-dmg-weakness-on",
-    "name": "Inflicts Light DMG weakness on",
+    "id": "rare-false-knights-jewel",
+    "name": "False Knight's Jewel",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "wearer (1 level)",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "A cracked blue gem on a chain. Grants the wearer Shield training as long as this item is equipped."
   },
   {
-    "id": "rare-inflicts-sound-dmg-weakness",
-    "name": "Inflicts Sound DMG weakness",
+    "id": "rare-masters-cape",
+    "name": "Master's Cape",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "on wearer (1 level)",
-    "description": "Value:"
+    "charges": "n/a",
+    "description": "Grant the wearer a training of their choice while wearing this item."
   },
   {
-    "id": "rare-be-memorized-immediately",
-    "name": "be memorized immediately",
+    "id": "rare-cleansing-beads",
+    "name": "Cleansing Beads",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "upon equipping)."
+    "charges": "1 (activation)",
+    "description": "Bright blue beads that look very old, perhaps for use in prayer; Cures the wearer of any status effect using their action to do so."
   },
   {
-    "id": "rare-training-as-long-as-this-item-is",
-    "name": "training as long as this item is",
+    "id": "rare-cavaliers-charm",
+    "name": "Cavalier's Charm",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "equipped."
+    "charges": "n/a",
+    "description": "A pendant made of brass that has an inked etching of a lance wielding horseman upon it. All of the wearer's melee weapons gain the 'Charge!' attribute",
+    "curseEffects": "Missed 'Charge!' ATKs cost the attacker 1 STAM"
   },
   {
-    "id": "rare-item",
-    "name": "item.",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare"
-  },
-  {
-    "id": "rare-cures-the-wearer-of-any-status",
-    "name": "Cures the wearer of any status",
+    "id": "rare-razor-scale",
+    "name": "Razor Scale",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "effect using their action to do so."
-  },
-  {
-    "id": "rare-wielding-horseman-upon-it-all",
-    "name": "wielding horseman upon it. All",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare",
-    "charges": "of the wearer's melee weapons",
-    "description": "gain the 'Charge!' attribute Curse Effect(s): Missed 'Charge!' ATKs cost the attacker 1 STAM Value:"
-  },
-  {
-    "id": "rare-threshold-by-1-pt",
-    "name": "Threshold by 1 pt.",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare"
+    "charges": "n/a",
+    "description": "The silvery scale of a Razorfish; Lowers the wearer's Critical Hit Threshold by 1 pt."
   },
   {
     "id": "rare-panjighals-shackle",
@@ -5243,50 +5121,56 @@
     "rarity": "rare"
   },
   {
-    "id": "rare-removing-this-artifact-reduces",
-    "name": "removing this artifact reduces",
+    "id": "rare-charm-of-althea",
+    "name": "Charm Of Althea",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "wearer's STAM to 0",
-    "description": "Value:"
+    "description": "Gain advantage on Initiative rolls when a Monster-type unit is in the enemy party."
   },
   {
-    "id": "rare-initiative-rolls-made-when",
-    "name": "Initiative rolls made when",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare",
-    "charges": "undead are in combat suffer -3",
-    "description": "Value:"
-  },
-  {
-    "id": "rare-suffer-mind-weakness-2-while",
-    "name": "suffer Mind weakness (2) while",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare",
-    "charges": "equipped",
-    "description": "Value:"
-  },
-  {
-    "id": "rare-unit-is-in-the-enemy-party",
-    "name": "unit is in the enemy party.",
+    "id": "rare-charm-of-zyzimar",
+    "name": "Charm Of Zyzimar",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare"
   },
   {
-    "id": "rare-effect-by-1-per-activation-and",
-    "name": "effect by 1 per activation and",
+    "id": "rare-charm-of-agrema",
+    "name": "Charm Of Agrema",
+    "category": "artifact",
+    "subcategory": "artifact",
+    "rarity": "rare"
+  },
+  {
+    "id": "rare-charm-of-guul-nok",
+    "name": "Charm Of Guul-nok",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare",
-    "charges": "increase their duration by 1."
+    "description": "Increase the DMG dealt via the poison and needled status effect by 1 per activation and increase their duration by 1."
   },
   {
-    "id": "rare-standard-1d20-roll",
-    "name": "standard 1D20 roll.",
+    "id": "rare-charm-of-ronash",
+    "name": "Charm Of Ronash",
+    "category": "artifact",
+    "subcategory": "artifact",
+    "rarity": "rare",
+    "charges": "n/a",
+    "description": "Invert the values of your ARM and BAR stats while equipped."
+  },
+  {
+    "id": "rare-charm-of-the-red-lady",
+    "name": "Charm Of The Red Lady",
+    "category": "artifact",
+    "subcategory": "artifact",
+    "rarity": "rare",
+    "charges": "1 (negation)",
+    "description": "Negate an imposed Disadvantage roll making it a standard 1D20 roll."
+  },
+  {
+    "id": "rare-charm-of-the-warshadow",
+    "name": "Charm Of The Warshadow",
     "category": "artifact",
     "subcategory": "artifact",
     "rarity": "rare"
@@ -5306,512 +5190,156 @@
     "rarity": "rare"
   },
   {
-    "id": "rare-item-name",
-    "name": "Item Name",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare"
-  },
-  {
-    "id": "rare-value-2",
-    "name": "Value:",
-    "category": "artifact",
-    "subcategory": "artifact",
-    "rarity": "rare"
-  },
-  {
-    "id": "n-a-simple",
-    "name": "Simple",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon loses its ATTR DMG scaling but increases its base DMG die 1 DT.",
-    "value": 15,
-    "material": "Metallic Eye Stone"
-  },
-  {
-    "id": "n-a-white",
-    "name": "White",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon can harm Apparition-type units and gains advantage on ATKs to all undead",
-    "value": 25,
-    "material": "Gleaming Eye Stone"
-  },
-  {
-    "id": "n-a-razor",
-    "name": "Razor",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon doubles initial DMG rolls (before SPD is added) on critical hits.",
-    "value": 25,
-    "material": "Crimson Eye Stone"
-  },
-  {
-    "id": "n-a-keen",
-    "name": "Keen",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon gains a lowered Crit Rate by 1 pt.",
-    "value": 25,
-    "material": "Crimson Eye Stone"
-  },
-  {
-    "id": "n-a-beam",
-    "name": "Beam",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon can fire a 1D6 light (or enchant element) DMG beam (8 tile rng / takes action)",
-    "value": 50,
-    "material": "Prismatic Eye Stone"
-  },
-  {
-    "id": "n-a-silver",
-    "name": "Silver",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon deals HDRs to Monster type enemies and disrupts Sylvan enemies' auras",
-    "value": 20,
-    "material": "Silver Eye Stone"
-  },
-  {
-    "id": "n-a-disruption",
-    "name": "Disruption",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon's strikes disrupts a warden construct's defense field for 1D4 rounds.",
-    "value": 100,
-    "material": "Amber Eye Stone"
-  },
-  {
-    "id": "n-a-golden",
-    "name": "Golden",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "weapon loses ATTR scaling but boosts elemental enchantments by 1 DT in DMG.",
-    "value": 25,
-    "material": "Gold Eye Stone"
-  },
-  {
-    "id": "n-a-psyonic",
-    "name": "Psyonic",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "user adds their MEM attribute total to DMG rolls instead of STR or FNS",
-    "value": 30,
-    "material": "Violet Eye Stone"
-  },
-  {
-    "id": "n-a-swift",
-    "name": "Swift",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "user adds their SPD attribute total to DMG rolls instead of STR or FNS",
-    "value": 30,
-    "material": "Celadon Eye Stone"
-  },
-  {
-    "id": "n-a-shattering",
-    "name": "Shattering",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grants this weapon the \"Splitter' attribute",
-    "value": 30,
-    "material": "Celadon Eye Stone"
-  },
-  {
-    "id": "n-a-spiked",
-    "name": "Spiked",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grants this weapon the \"Thrust' attribute (adds small metal spike to weapon)",
-    "value": 15,
-    "material": "Barbed Eye Stone"
-  },
-  {
-    "id": "n-a-lightweight",
-    "name": "Lightweight",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Lower weight by 1",
-    "value": 15,
-    "material": "Teal Eye Stone"
-  },
-  {
-    "id": "n-a-balanced",
-    "name": "Balanced",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grants this weapon advantage on throwing ATKs",
-    "value": 20,
-    "material": "Teal Eye Stone"
-  },
-  {
-    "id": "n-a-smasher",
-    "name": "Smasher",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grants this weapon the \"Bludgeon\" attribute (adds small rounded metal plate to weapon)",
-    "value": 15,
-    "material": "Metallic Eye Stone"
-  },
-  {
-    "id": "n-a-armor-mods",
-    "name": "Armor Mods",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "The act of modifying armor items with magical crystals called \"Eye Stones\". To modify armor, players must either provide said",
-    "material": "The act of modifying armor items with magical crystals called \"Eye Stones\". To modify armor, players must either provide said"
-  },
-  {
-    "id": "n-a-armor-mods-2",
-    "name": "Armor Mods",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "materials to a smith and pay them or to another player's character who is proficient in smithing.",
-    "material": "materials to a smith and pay them or to another player's character who is proficient in smithing."
-  },
-  {
-    "id": "n-a-title-granted",
-    "name": "Title Granted",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Changes / Description",
-    "material": "Material Used"
-  },
-  {
-    "id": "n-a-plated",
-    "name": "Plated",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Chest only] ARM+1 / lower EVA and MOVE by 1 when equipped",
-    "value": 20,
-    "material": "Metallic Eye Stone"
-  },
-  {
-    "id": "n-a-thorned",
-    "name": "Thorned",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "enemies making melee ATKs or Martial Maneuvers towards you take 1 pierce DMG",
-    "value": 15,
-    "material": "Barbed Eye Stone"
-  },
-  {
-    "id": "n-a-mirrored",
-    "name": "Mirrored",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Iron material only] BAR +1 / deal 1 Direct DMG back to the caster if hit with an offensive spells",
-    "value": 40,
-    "material": "Prismatic Eye Stone"
-  },
-  {
-    "id": "n-a-mind-shield",
-    "name": "Mind-Shield",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Helm] Armor adds BAR+1",
-    "value": 30,
-    "material": "Violet Eye Stone"
-  },
-  {
-    "id": "n-a-mages",
-    "name": "Mage's",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Armor grants +1 to Spellcasting rolls",
-    "value": 30,
-    "material": "Violet Eye Stone"
-  },
-  {
-    "id": "n-a-lucky",
-    "name": "Lucky",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Crit DMG resistance (1)",
-    "value": 25,
-    "material": "Crimson Eye Stone"
-  },
-  {
-    "id": "n-a-flexile",
-    "name": "Flexile",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Legs] Armor adds EVA +1",
-    "value": 30,
-    "material": "Celadon Eye Stone"
-  },
-  {
-    "id": "n-a-lightweight-2",
-    "name": "Lightweight",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Lower weight by 1",
-    "value": 10,
-    "material": "Teal Eye Stone"
-  },
-  {
-    "id": "n-a-respite",
-    "name": "Respite",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Main Armor] While equipped, no longer lose 1 Stamina after a combat scenario",
-    "value": 15,
-    "material": "Gleaming Eye Stone"
-  },
-  {
-    "id": "n-a-unbreakable",
-    "name": "Unbreakable",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "This armor piece can not be broken",
-    "value": 10,
-    "material": "Metallic Eye Stone"
-  },
-  {
-    "id": "n-a-warden",
-    "name": "Warden",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "[Main Armor] Armor emits a Defense Field: Ranged ATK immunity while at Max HP",
-    "value": 100,
-    "material": "Amber Eye Stone"
-  },
-  {
-    "id": "n-a-shield-mods",
-    "name": "Shield Mods",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "The act of modifying shields with magical crystals called \"Eye Stones\". To modify shields players must either provide said",
-    "material": "The act of modifying shields with magical crystals called \"Eye Stones\". To modify shields players must either provide said"
-  },
-  {
-    "id": "n-a-shield-mods-2",
-    "name": "Shield Mods",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "materials to a smith and pay them or to another player's character who is proficient in smithing.",
-    "material": "materials to a smith and pay them or to another player's character who is proficient in smithing."
-  },
-  {
-    "id": "n-a-title-granted-2",
-    "name": "Title Granted",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Changes / Description",
-    "material": "Material Used"
-  },
-  {
-    "id": "n-a-sturdy",
-    "name": "Sturdy",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Increase shield's durability stat by +3",
-    "value": 20,
-    "material": "Metallic Eye Stone"
-  },
-  {
-    "id": "n-a-striker",
-    "name": "Striker",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Boost shield's Bash DMG by 1 DT",
-    "value": 15,
-    "material": "Barbed Eye Stone"
-  },
-  {
-    "id": "n-a-lightweight-3",
-    "name": "Lightweight",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Lower weight by 1 pt.",
-    "value": 10,
-    "material": "Teal Eye Stone"
-  },
-  {
-    "id": "n-a-beam-2",
-    "name": "Beam",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "this weapon can fire a 1D6 light (or enchant element) DMG beam (8 tile rng / takes action)",
-    "value": 50,
-    "material": "Prismatic Eye Stone"
-  },
-  {
-    "id": "n-a-defender",
-    "name": "Defender",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Lower Block check requirement for this shield by 2 pts.",
-    "value": 30,
-    "material": "Celadon Eye Stone"
-  },
-  {
-    "id": "n-a-duelist",
-    "name": "Duelist",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grant Parry action (standard 1D6 risk) to shield or lower existing Parry risk 1 DT",
-    "value": 30,
-    "material": "Crimson Eye Stone"
-  },
-  {
-    "id": "n-a-returning",
-    "name": "Returning",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "grant shield throw action: deals Bash DMG at 3+STR range (costs 1 durability); returns to user",
-    "value": 25,
-    "material": "Violet Eye Stone"
-  },
-  {
-    "id": "n-a-mod-material",
-    "name": "Mod Material",
-    "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "Description"
-  },
-  {
-    "id": "n-a-metallic-eye-stone",
+    "id": "uncommon-metallic-eye-stone",
     "name": "Metallic Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a shiny, metallic smithing stone that resembles an angered eye"
+    "subcategory": "eye-stone",
+    "rarity": "uncommon",
+    "description": "a shiny, metallic smithing stone that resembles an angered eye",
+    "value": 20,
+    "effect": "Simple (Weapon, 15 SV): this weapon loses its ATTR DMG scaling but increases its base DMG die 1 DT.\nSmasher (Weapon, 15 SV): grants this weapon the \"Bludgeon\" attribute (adds small rounded metal plate to weapon)\nPlated (Armor, 20 SV): [Chest only] ARM+1 / lower EVA and MOVE by 1 when equipped\nUnbreakable (Armor, 10 SV): This armor piece can not be broken\nSturdy (Shield, 20 SV): Increase shield's durability stat by +3"
   },
   {
-    "id": "n-a-gleaming-eye-stone",
+    "id": "rare-gleaming-eye-stone",
     "name": "Gleaming Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a pure-white smithing stone that has the likeness of a peaceful, closed eye"
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a pure-white smithing stone that has the likeness of a peaceful, closed eye",
+    "value": 50,
+    "effect": "White (Weapon, 25 SV): this weapon can harm Apparition-type units and gains advantage on ATKs to all undead\nRespite (Armor, 15 SV): [Main Armor] While equipped, no longer lose 1 Stamina after a combat scenario"
   },
   {
-    "id": "n-a-barbed-eye-stone",
+    "id": "uncommon-barbed-eye-stone",
     "name": "Barbed Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a blackened smithing stone that resembled a painfully impaled eyeball."
+    "subcategory": "eye-stone",
+    "rarity": "uncommon",
+    "description": "a blackened smithing stone that resembled a painfully impaled eyeball.",
+    "value": 15,
+    "effect": "Spiked (Weapon, 15 SV): grants this weapon the \"Thrust' attribute (adds small metal spike to weapon)\nThorned (Armor, 15 SV): enemies making melee ATKs or Martial Maneuvers towards you take 1 pierce DMG\nStriker (Shield, 15 SV): Boost shield's Bash DMG by 1 DT"
   },
   {
-    "id": "n-a-crimson-eye-stone",
+    "id": "rare-crimson-eye-stone",
     "name": "Crimson Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a dark-red smithing stone that seems to depict a furious, bloodshot eye."
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a dark-red smithing stone that seems to depict a furious, bloodshot eye.",
+    "value": 35,
+    "effect": "Razor (Weapon, 25 SV): this weapon doubles initial DMG rolls (before SPD is added) on critical hits.\nKeen (Weapon, 25 SV): this weapon gains a lowered Crit Rate by 1 pt.\nLucky (Armor, 25 SV): Crit DMG resistance (1)\nDuelist (Shield, 30 SV): grant Parry action (standard 1D6 risk) to shield or lower existing Parry risk 1 DT"
   },
   {
-    "id": "n-a-prismatic-eye-stone",
+    "id": "rare-prismatic-eye-stone",
     "name": "Prismatic Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a rainbow smithing stone that resembles a milky, blinded eyeball."
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a rainbow smithing stone that resembles a milky, blinded eyeball.",
+    "value": 65,
+    "effect": "Beam (Weapon, 50 SV): this weapon can fire a 1D6 light (or enchant element) DMG beam (8 tile rng / takes action)\nMirrored (Armor, 40 SV): [Iron material only] BAR +1 / deal 1 Direct DMG back to the caster if hit with an offensive spells\nBeam (Shield, 50 SV): this weapon can fire a 1D6 light (or enchant element) DMG beam (8 tile rng / takes action)"
   },
   {
-    "id": "n-a-silver-eye-stone",
+    "id": "rare-silver-eye-stone",
     "name": "Silver Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a shiny silver smithing stone that has the thin, sharp pupil of a snake's eye."
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a shiny silver smithing stone that has the thin, sharp pupil of a snake's eye.",
+    "value": 30,
+    "effect": "Silver (Weapon, 20 SV): this weapon deals HDRs to Monster type enemies and disrupts Sylvan enemies' auras"
   },
   {
-    "id": "n-a-amber-eye-stone",
+    "id": "legendary-amber-eye-stone",
     "name": "Amber Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a glowing orange smithing stone that looks like a blankly staring eyeball."
+    "subcategory": "eye-stone",
+    "rarity": "legendary",
+    "description": "a glowing orange smithing stone that looks like a blankly staring eyeball.",
+    "value": 200,
+    "effect": "Disruption (Weapon, 100 SV): this weapon's strikes disrupts a warden construct's defense field for 1D4 rounds.\nWarden (Armor, 100 SV): [Main Armor] Armor emits a Defense Field: Ranged ATK immunity while at Max HP"
   },
   {
-    "id": "n-a-gold-eye-stone",
+    "id": "rare-gold-eye-stone",
     "name": "Gold Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a smithing stone made of gold that looks like an eye squinting in glee"
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a smithing stone made of gold that looks like an eye squinting in glee",
+    "value": 50,
+    "effect": "Golden (Weapon, 25 SV): weapon loses ATTR scaling but boosts elemental enchantments by 1 DT in DMG."
   },
   {
-    "id": "n-a-violet-eye-stone",
+    "id": "rare-violet-eye-stone",
     "name": "Violet Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a vibrant purple smithing stone that has the likeness of a crazed, wide eye."
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a vibrant purple smithing stone that has the likeness of a crazed, wide eye.",
+    "value": 40,
+    "effect": "Psyonic (Weapon, 30 SV): user adds their MEM attribute total to DMG rolls instead of STR or FNS\nMind-Shield (Armor, 30 SV): [Helm] Armor adds BAR+1\nMage's (Armor, 30 SV): Armor grants +1 to Spellcasting rolls\nReturning (Shield, 25 SV): grant shield throw action: deals Bash DMG at 3+STR range (costs 1 durability); returns to user"
   },
   {
-    "id": "n-a-celadon-eye-stone",
+    "id": "rare-celadon-eye-stone",
     "name": "Celadon Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a muted green smithing stone formation that resembles a shifty, half-shut eye."
+    "subcategory": "eye-stone",
+    "rarity": "rare",
+    "description": "a muted green smithing stone formation that resembles a shifty, half-shut eye.",
+    "value": 45,
+    "effect": "Swift (Weapon, 30 SV): user adds their SPD attribute total to DMG rolls instead of STR or FNS\nShattering (Weapon, 30 SV): grants this weapon the \"Splitter' attribute\nFlexile (Armor, 30 SV): [Legs] Armor adds EVA +1\nDefender (Shield, 30 SV): Lower Block check requirement for this shield by 2 pts."
   },
   {
-    "id": "n-a-teal-eye-stone",
+    "id": "uncommon-teal-eye-stone",
     "name": "Teal Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a bright blue smithing stone that seemingly depicts a sleepy closing eyeball."
+    "subcategory": "eye-stone",
+    "rarity": "uncommon",
+    "description": "a bright blue smithing stone that seemingly depicts a sleepy closing eyeball.",
+    "value": 20,
+    "effect": "Lightweight (Weapon, 15 SV): Lower weight by 1\nBalanced (Weapon, 20 SV): grants this weapon advantage on throwing ATKs\nLightweight (Armor, 10 SV): Lower weight by 1\nLightweight (Shield, 10 SV): Lower weight by 1 pt."
   },
   {
-    "id": "n-a-frenzied-eye-stone",
+    "id": "legendary-frenzied-eye-stone",
     "name": "Frenzied Eye Stone",
     "category": "mod",
-    "subcategory": "weapon-mod",
-    "rarity": "n/a",
-    "effect": "a pink smithing stone with dozens of suffering eyes budding from one another"
+    "subcategory": "eye-stone",
+    "rarity": "legendary",
+    "description": "a pink smithing stone with dozens of suffering eyes budding from one another",
+    "value": 245
+  },
+  {
+    "id": "rare-heavy-arthread",
+    "name": "Heavy Arthread",
+    "category": "mod",
+    "subcategory": "arthread",
+    "rarity": "rare",
+    "value": 70,
+    "effect": "Ironthread (Weaving, 20 SV): [Main] adds +1 ARM to a clothing item\nTraumathread (Weaving, 15 SV): [Helm] adds Crit resistance (1) and Headshot protection\nPowerthread (Weaving, 25 SV): [Gloves] adds +1 to ATK rolls"
+  },
+  {
+    "id": "rare-spiral-arthread",
+    "name": "Spiral Arthread",
+    "category": "mod",
+    "subcategory": "arthread",
+    "rarity": "rare",
+    "value": 70,
+    "effect": "Mirrorthread (Weaving, 20 SV): [Main] adds +1 BAR to a clothing item\nMindthread (Weaving, 25 SV): [Gloves] adds +1 to spellcasting rolls"
+  },
+  {
+    "id": "rare-feather-arthread",
+    "name": "Feather Arthread",
+    "category": "mod",
+    "subcategory": "arthread",
+    "rarity": "rare",
+    "value": 70,
+    "effect": "Springthread (Weaving, n/a SV): [Boots] grants wearer +1 Jump distance and elevation"
   },
   {
     "id": "n-a-flame-inferno",
     "name": "Flame / Inferno",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) fire DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5820,8 +5348,8 @@
   {
     "id": "n-a-frost-blizzard",
     "name": "Frost / Blizzard",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) ice DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5830,8 +5358,8 @@
   {
     "id": "n-a-lightning-fulgur",
     "name": "Lightning / Fulgur",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) elec. DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5840,8 +5368,8 @@
   {
     "id": "n-a-water-torrent",
     "name": "Water / Torrent",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) water DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5850,8 +5378,8 @@
   {
     "id": "n-a-gale-storm",
     "name": "Gale / Storm",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) wind DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5860,8 +5388,8 @@
   {
     "id": "n-a-radiant-incandescent",
     "name": "Radiant / Incandescent",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) light DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5870,8 +5398,8 @@
   {
     "id": "n-a-darkness-void",
     "name": "Darkness / Void",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv. dark DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5880,8 +5408,8 @@
   {
     "id": "n-a-thunder-sonic",
     "name": "Thunder / Sonic",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) sound DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5890,8 +5418,8 @@
   {
     "id": "n-a-corrosion-mordant",
     "name": "Corrosion / Mordant",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) toxic DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5900,8 +5428,8 @@
   {
     "id": "n-a-psychic-augur",
     "name": "Psychic / Augur",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Permanently add 1D4 (Std.) or 1D6 (Adv.) mind DMG; Weapon loses ATTR Scaling",
     "value": 25,
@@ -5910,8 +5438,8 @@
   {
     "id": "n-a-venom",
     "name": "Venom",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon poisons the target upon critical hit or dealing its max (base DMG)",
     "value": 15
@@ -5919,8 +5447,8 @@
   {
     "id": "n-a-burning",
     "name": "Burning",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon burns the target upon critical hit or dealing its max (base DMG)",
     "value": 15
@@ -5928,8 +5456,8 @@
   {
     "id": "n-a-bloodspike",
     "name": "Bloodspike",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon needles the target upon critical hit or dealing its max (base DMG)",
     "value": 15
@@ -5937,8 +5465,8 @@
   {
     "id": "n-a-plus",
     "name": "\"Plus\" (+ #)",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "Boost ATK by +1, 2 or 3 (adv.) depending on the ENCH Lv. (can stack w/ other enchantments)",
     "value": 10
@@ -5946,8 +5474,8 @@
   {
     "id": "n-a-ethereal",
     "name": "Ethereal",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon ignores its target's ARM value",
     "value": 45,
@@ -5956,8 +5484,8 @@
   {
     "id": "n-a-bound",
     "name": "Bound",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon returns to its user after being thrown (instant re-equip)",
     "value": 20
@@ -5965,44 +5493,17 @@
   {
     "id": "n-a-force",
     "name": "Force",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "weapon",
     "rarity": "n/a",
     "effect": "This weapon knocks its target back 1D4 tiles upon critical hit or dealing its max (base DMG)",
     "value": 15
   },
   {
-    "id": "n-a-armor",
-    "name": "Armor",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "The act of casting permanent magical enchantments on armor items . Knowledge of certain schools of magic are required for",
-    "description": "The act of casting permanent magical enchantments on armor items . Knowledge of certain schools of magic are required for"
-  },
-  {
-    "id": "n-a-enchantments",
-    "name": "Enchantments",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "different enchantments as well as a level of proficiency determined by the INT and MEM attributes.",
-    "description": "different enchantments as well as a level of proficiency determined by the INT and MEM attributes."
-  },
-  {
-    "id": "n-a-title-granted-3",
-    "name": "Title Granted",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "Enhancement / Description",
-    "description": "Magic School Req."
-  },
-  {
     "id": "n-a-flame",
     "name": "Flame",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add fire (1) resistance / [Shield] when blocking deal 1D4 fire back to attacker",
     "value": 25,
@@ -6011,8 +5512,8 @@
   {
     "id": "n-a-frost",
     "name": "Frost",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add ice (1) resistance / [Shield] when blocking deal 1D4 ice back to attacker",
     "value": 25,
@@ -6021,8 +5522,8 @@
   {
     "id": "n-a-lightning",
     "name": "Lightning",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add elec. (1) resistance / [Shield] when blocking deal 1D4 elec. back to attacker",
     "value": 25,
@@ -6031,8 +5532,8 @@
   {
     "id": "n-a-water",
     "name": "Water",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add water (1) resistance / [Shield] when blocking deal 1D4 water back to attacker",
     "value": 25,
@@ -6041,8 +5542,8 @@
   {
     "id": "n-a-wind",
     "name": "Wind",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add wind (1) resistance / [Shield] when blocking deal 1D4 wind back to attacker",
     "value": 25,
@@ -6051,8 +5552,8 @@
   {
     "id": "n-a-radiant",
     "name": "Radiant",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add light (1) resistance / [Shield] when blocking deal 1D4 light back to attacker",
     "value": 25,
@@ -6061,8 +5562,8 @@
   {
     "id": "n-a-darkness",
     "name": "Darkness",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add dark (1) resistance / [Shield] when blocking deal 1D4 dark back to attacker",
     "value": 25,
@@ -6071,8 +5572,8 @@
   {
     "id": "n-a-aural",
     "name": "Aural",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add sound (1) resistance / [Shield] when blocking deal 1D4 sound back to attacker",
     "value": 25,
@@ -6081,8 +5582,8 @@
   {
     "id": "n-a-corrosion",
     "name": "Corrosion",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add toxic (1) resistance / [Shield] when blocking deal 1D4 toxic back to attacker",
     "value": 25,
@@ -6091,8 +5592,8 @@
   {
     "id": "n-a-psychic",
     "name": "Psychic",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Helm] add mind (1) resistance / [Shield] when blocking deal 1D4 mind back to attacker",
     "value": 25,
@@ -6101,8 +5602,8 @@
   {
     "id": "n-a-purifying",
     "name": "Purifying",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main Armor] add poison immunity",
     "value": 20
@@ -6110,8 +5611,8 @@
   {
     "id": "n-a-telekinetic",
     "name": "Telekinetic",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Glove] gain ability to pull small objects towards you that are nearby (3 tiles in combat)",
     "value": 55,
@@ -6120,8 +5621,8 @@
   {
     "id": "n-a-deflection",
     "name": "Deflection",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Glove] gain ability to block in melee (16+) if user has a hand free",
     "value": 45
@@ -6129,8 +5630,8 @@
   {
     "id": "n-a-silent",
     "name": "Silent",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Boots] gain advantage on stealth checks; Footsteps make no sound",
     "value": 40,
@@ -6139,8 +5640,8 @@
   {
     "id": "n-a-shielded",
     "name": "Shielded",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Boots] Ignore the effects of Effect Tiles",
     "value": 35
@@ -6148,8 +5649,8 @@
   {
     "id": "n-a-speed",
     "name": "Speed",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Boots / Legs] armor grants +1 MOVE",
     "value": 15
@@ -6157,8 +5658,8 @@
   {
     "id": "n-a-repelling",
     "name": "Repelling",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Shield] knock target back 1D4 tiles when blocking an ATK in melee",
     "value": 30,
@@ -6167,8 +5668,8 @@
   {
     "id": "n-a-healing",
     "name": "Healing",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Main / Helm] Restore 1D4 HP after a successful combat scenario concludes",
     "value": 10
@@ -6176,122 +5677,11 @@
   {
     "id": "n-a-spellbreak",
     "name": "Spellbreak",
-    "category": "mod",
-    "subcategory": "enchantment",
+    "category": "enchantment",
+    "subcategory": "armor",
     "rarity": "n/a",
     "effect": "[Shield] gain the ability to block magic attacks (same rolls / outcomes as standard block action)",
     "value": 20
-  },
-  {
-    "id": "n-a-arthosium",
-    "name": "Arthosium",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "There exists an ancient method of spinning the legendary metal, Arthosium into hair-fine silk. This mythically durable thread is then",
-    "description": "There exists an ancient method of spinning the legendary metal, Arthosium into hair-fine silk. This mythically durable thread is then"
-  },
-  {
-    "id": "n-a-weaving",
-    "name": "Weaving",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "woven into mundane clothing to give it the defensive capabilities and durability of armor as well as other magical properties.",
-    "description": "woven into mundane clothing to give it the defensive capabilities and durability of armor as well as other magical properties."
-  },
-  {
-    "id": "n-a-title-granted-4",
-    "name": "Title Granted",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "Changes / Description"
-  },
-  {
-    "id": "n-a-ironthread",
-    "name": "Ironthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Main] adds +1 ARM to a clothing item",
-    "value": 20
-  },
-  {
-    "id": "n-a-mirrorthread",
-    "name": "Mirrorthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Main] adds +1 BAR to a clothing item",
-    "value": 20
-  },
-  {
-    "id": "n-a-traumathread",
-    "name": "Traumathread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Helm] adds Crit resistance (1) and Headshot protection",
-    "value": 15
-  },
-  {
-    "id": "n-a-powerthread",
-    "name": "Powerthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Gloves] adds +1 to ATK rolls",
-    "value": 25
-  },
-  {
-    "id": "n-a-mindthread",
-    "name": "Mindthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Gloves] adds +1 to spellcasting rolls",
-    "value": 25
-  },
-  {
-    "id": "n-a-springthread",
-    "name": "Springthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "[Boots] grants wearer +1 Jump distance and elevation"
-  },
-  {
-    "id": "n-a-mod-material-2",
-    "name": "Mod Material",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "effect": "Description"
-  },
-  {
-    "id": "n-a-heavy-arthread",
-    "name": "Heavy Arthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "value": 70
-  },
-  {
-    "id": "n-a-spiral-arthread",
-    "name": "Spiral Arthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "value": 70
-  },
-  {
-    "id": "n-a-feather-arthread",
-    "name": "Feather Arthread",
-    "category": "mod",
-    "subcategory": "enchantment",
-    "rarity": "n/a",
-    "value": 70
   },
   {
     "id": "common-animal-meat",
@@ -6328,7 +5718,7 @@
     "value": 2
   },
   {
-    "id": "common-desert-fruit",
+    "id": "uncommon-desert-fruit",
     "name": "Desert Fruit",
     "category": "food",
     "subcategory": "uncommon",
@@ -6354,7 +5744,7 @@
     "value": 3
   },
   {
-    "id": "common-bread",
+    "id": "uncommon-bread",
     "name": "Bread",
     "category": "food",
     "subcategory": "uncommon",
@@ -6397,7 +5787,7 @@
     "value": 3
   },
   {
-    "id": "common-spicy-mushroom",
+    "id": "uncommon-spicy-mushroom",
     "name": "Spicy Mushroom",
     "category": "food",
     "subcategory": "uncommon",
@@ -6406,7 +5796,7 @@
     "value": 9
   },
   {
-    "id": "common-chilling-mushroom",
+    "id": "uncommon-chilling-mushroom",
     "name": "Chilling Mushroom",
     "category": "food",
     "subcategory": "uncommon",
@@ -6415,7 +5805,7 @@
     "value": 9
   },
   {
-    "id": "common-rock-fish",
+    "id": "uncommon-rock-fish",
     "name": "Rock Fish",
     "category": "food",
     "subcategory": "uncommon",
@@ -6440,140 +5830,7 @@
     "value": 8
   },
   {
-    "id": "common-raw-materials",
-    "name": "Raw Materials",
-    "category": "food",
-    "subcategory": "raw materials",
-    "rarity": "raw materials",
-    "effect": "The general names for items used to repair damaged gear; Multiple items may be applicable for a"
-  },
-  {
-    "id": "common-raw-materials-2",
-    "name": "Raw Materials",
-    "category": "food",
-    "subcategory": "raw materials",
-    "rarity": "raw materials",
-    "effect": "material requirement (e.g. if an item requires 'Hide', Animal Hide and Monster Hide are both usable)"
-  },
-  {
-    "id": "common-raw-material-type",
-    "name": "Raw Material Type",
-    "category": "food",
-    "subcategory": "rarity",
-    "rarity": "rarity",
-    "effect": "Other Items in Family:"
-  },
-  {
-    "id": "common-wood",
-    "name": "Wood",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-iron",
-    "name": "Iron",
-    "category": "food",
-    "subcategory": "uncommon",
-    "rarity": "uncommon",
-    "effect": "Iron Ore, Scrap Metal (situationally)"
-  },
-  {
-    "id": "common-hide",
-    "name": "Hide",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common",
-    "effect": "Animal Hide, Monster Hide, Scale Hide, etc."
-  },
-  {
-    "id": "common-linen",
-    "name": "Linen",
-    "category": "food",
-    "subcategory": "uncommon",
-    "rarity": "uncommon"
-  },
-  {
-    "id": "common-scale",
-    "name": "Scale",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common",
-    "effect": "Scale Hide"
-  },
-  {
-    "id": "common-copper",
-    "name": "Copper",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-calhedite-dormant",
-    "name": "Calhedite (dormant)",
-    "category": "food",
-    "subcategory": "legendary",
-    "rarity": "legendary"
-  },
-  {
-    "id": "common-zozimite",
-    "name": "Zozimite",
-    "category": "food",
-    "subcategory": "rare",
-    "rarity": "rare"
-  },
-  {
-    "id": "common-scrap-metal",
-    "name": "Scrap Metal",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common",
-    "effect": "Iron (can be crafted in to from 3 Scrap Metal)"
-  },
-  {
-    "id": "common-gold",
-    "name": "Gold",
-    "category": "food",
-    "subcategory": "rare",
-    "rarity": "rare"
-  },
-  {
-    "id": "common-meteorite",
-    "name": "Meteorite",
-    "category": "food",
-    "subcategory": "rare",
-    "rarity": "rare"
-  },
-  {
-    "id": "common-selasite",
-    "name": "Selasite",
-    "category": "food",
-    "subcategory": "rare",
-    "rarity": "rare"
-  },
-  {
-    "id": "common-silk",
-    "name": "Silk",
-    "category": "food",
-    "subcategory": "uncommon",
-    "rarity": "uncommon"
-  },
-  {
-    "id": "common-arthosium",
-    "name": "Arthosium",
-    "category": "food",
-    "subcategory": "legendary",
-    "rarity": "legendary"
-  },
-  {
-    "id": "common-silver",
-    "name": "Silver",
-    "category": "food",
-    "subcategory": "uncommon",
-    "rarity": "uncommon"
-  },
-  {
-    "id": "common-tea-leaves",
+    "id": "uncommon-tea-leaves",
     "name": "Tea Leaves",
     "category": "food",
     "subcategory": "uncommon",
@@ -6582,7 +5839,7 @@
     "value": 5
   },
   {
-    "id": "common-coffee-beans",
+    "id": "uncommon-coffee-beans",
     "name": "Coffee Beans",
     "category": "food",
     "subcategory": "uncommon",
@@ -6591,7 +5848,7 @@
     "value": 6
   },
   {
-    "id": "common-honey",
+    "id": "uncommon-honey",
     "name": "Honey",
     "category": "food",
     "subcategory": "uncommon",
@@ -6608,7 +5865,7 @@
     "value": 3
   },
   {
-    "id": "common-desert-spice",
+    "id": "rare-desert-spice",
     "name": "Desert Spice",
     "category": "food",
     "subcategory": "rare",
@@ -6617,7 +5874,7 @@
     "value": 20
   },
   {
-    "id": "common-fruit-juice",
+    "id": "uncommon-fruit-juice",
     "name": "Fruit Juice",
     "category": "food",
     "subcategory": "uncommon",
@@ -6625,7 +5882,7 @@
     "value": 6
   },
   {
-    "id": "common-black-pepper",
+    "id": "uncommon-black-pepper",
     "name": "Black Pepper",
     "category": "food",
     "subcategory": "uncommon",
@@ -6634,7 +5891,7 @@
     "value": 8
   },
   {
-    "id": "common-alanos-starspice",
+    "id": "legendary-alanos-starspice",
     "name": "Alanos Starspice",
     "category": "food",
     "subcategory": "legendary",
@@ -6643,27 +5900,13 @@
     "value": 225
   },
   {
-    "id": "common-mhiridian-blackherb",
+    "id": "rare-mhiridian-blackherb",
     "name": "Mhiridian Blackherb",
     "category": "food",
     "subcategory": "rare",
     "rarity": "rare",
     "effect": "grants ability to target Apparitions until next rest",
     "value": 25
-  },
-  {
-    "id": "common-spirits",
-    "name": "Spirits",
-    "category": "food",
-    "subcategory": "spirits",
-    "rarity": "spirits"
-  },
-  {
-    "id": "common-spirits-2",
-    "name": "Spirits",
-    "category": "food",
-    "subcategory": "spirits",
-    "rarity": "spirits"
   },
   {
     "id": "common-grast-ale",
@@ -6675,7 +5918,7 @@
     "value": 2
   },
   {
-    "id": "common-mordegal-bourbon",
+    "id": "uncommon-mordegal-bourbon",
     "name": "Mordegal Bourbon",
     "category": "food",
     "subcategory": "uncommon",
@@ -6684,7 +5927,7 @@
     "value": 9
   },
   {
-    "id": "common-maharan-red",
+    "id": "rare-maharan-red",
     "name": "Maharan Red",
     "category": "food",
     "subcategory": "rare",
@@ -6693,7 +5936,7 @@
     "value": 23
   },
   {
-    "id": "common-gressian-mead",
+    "id": "uncommon-gressian-mead",
     "name": "Gressian Mead",
     "category": "food",
     "subcategory": "uncommon",
@@ -6711,7 +5954,7 @@
     "value": 3
   },
   {
-    "id": "common-goldcork",
+    "id": "legendary-goldcork",
     "name": "Goldcork",
     "category": "food",
     "subcategory": "legendary",
@@ -6720,7 +5963,7 @@
     "value": 77
   },
   {
-    "id": "common-djunka",
+    "id": "rare-djunka",
     "name": "Djunka",
     "category": "food",
     "subcategory": "rare",
@@ -6738,56 +5981,7 @@
     "value": 3
   },
   {
-    "id": "common-the-general-names-for-items-used-to-repair-damaged-gear-multiple-items-may-be-applicable-for-a",
-    "name": "The general names for items used to repair damaged gear; Multiple items may be applicable for a",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-material-requirement-e-g-if-an-item-requires-hide-animal-hide-and-monster-hide-are-both-usable",
-    "name": "material requirement (e.g. if an item requires 'Hide', Animal Hide and Monster Hide are both usable)",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-other-items-in-family",
-    "name": "Other Items in Family:",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-iron-ore-scrap-metal-situationally",
-    "name": "Iron Ore, Scrap Metal (situationally)",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-animal-hide-monster-hide-scale-hide-etc",
-    "name": "Animal Hide, Monster Hide, Scale Hide, etc.",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-scale-hide",
-    "name": "Scale Hide",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "common-iron-can-be-crafted-in-to-from-3-scrap-metal",
-    "name": "Iron (can be crafted in to from 3 Scrap Metal)",
-    "category": "food",
-    "subcategory": "common",
-    "rarity": "common"
-  },
-  {
-    "id": "n-a-light-blade",
+    "id": "common-light-blade",
     "name": "Light Blade",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6795,7 +5989,7 @@
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
   {
-    "id": "n-a-knife",
+    "id": "common-knife",
     "name": "Knife",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6803,7 +5997,7 @@
     "material": "Hide/Linen + Iron"
   },
   {
-    "id": "n-a-heavy-blade",
+    "id": "common-heavy-blade",
     "name": "Heavy Blade",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6811,7 +6005,7 @@
     "material": "Hide/Linen (x2) + Iron (x3)"
   },
   {
-    "id": "n-a-sidesword",
+    "id": "common-sidesword",
     "name": "Sidesword",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6819,7 +6013,7 @@
     "material": "Hide/Linen + Iron (x2)"
   },
   {
-    "id": "n-a-light-maul",
+    "id": "common-light-maul",
     "name": "Light Maul",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6827,7 +6021,7 @@
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
   {
-    "id": "n-a-heavy-maul",
+    "id": "common-heavy-maul",
     "name": "Heavy Maul",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6835,7 +6029,7 @@
     "material": "Hide/Linen (x2) + Iron (x3)"
   },
   {
-    "id": "n-a-axe",
+    "id": "common-axe",
     "name": "Axe",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6843,7 +6037,7 @@
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
   {
-    "id": "n-a-polearm",
+    "id": "common-polearm",
     "name": "Polearm",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6851,7 +6045,7 @@
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
   {
-    "id": "n-a-fist",
+    "id": "common-fist",
     "name": "Fist",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6859,7 +6053,7 @@
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
   {
-    "id": "n-a-bow",
+    "id": "common-bow",
     "name": "Bow",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6867,7 +6061,7 @@
     "material": "Fiber (x2) + Wood (x2)"
   },
   {
-    "id": "n-a-throwing-weapon",
+    "id": "common-throwing-weapon",
     "name": "Throwing Weapon",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6875,7 +6069,7 @@
     "material": "Hide + Iron"
   },
   {
-    "id": "n-a-bowshot-engineer-req",
+    "id": "common-bowshot-engineer-req",
     "name": "Bowshot (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6883,7 +6077,7 @@
     "material": "Iron (x3) + Metal Sprocket (x3)"
   },
   {
-    "id": "n-a-mortar-engineer-req",
+    "id": "common-mortar-engineer-req",
     "name": "Mortar (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6891,7 +6085,7 @@
     "material": "Iron (x3) + Metal Sprocket (x3)"
   },
   {
-    "id": "n-a-energy-engineer-req",
+    "id": "rare-energy-engineer-req",
     "name": "Energy (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6899,7 +6093,7 @@
     "material": "Zozimite (x3) + Arcane Battery"
   },
   {
-    "id": "n-a-bone-weapon-melee-1h",
+    "id": "crafted-bone-weapon-melee-1h",
     "name": "Bone Weapon (melee 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6907,7 +6101,7 @@
     "material": "Hide/Linen (x2) + Sturdy Bone (x2)"
   },
   {
-    "id": "n-a-bone-weapon-melee-2h",
+    "id": "crafted-bone-weapon-melee-2h",
     "name": "Bone Weapon (melee 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6915,7 +6109,7 @@
     "material": "Hide/Linen (x2) + Sturdy Bone (x4)"
   },
   {
-    "id": "n-a-bone-weapon-bow",
+    "id": "crafted-bone-weapon-bow",
     "name": "Bone Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6923,7 +6117,7 @@
     "material": "Fiber (x2) + Sturdy Bone (x2)"
   },
   {
-    "id": "n-a-bone-weapon-throwing",
+    "id": "crafted-bone-weapon-throwing",
     "name": "Bone Weapon (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6931,7 +6125,7 @@
     "material": "Sturdy Bone (x2)"
   },
   {
-    "id": "n-a-chitin-weapon-mel-1h",
+    "id": "crafted-chitin-weapon-mel-1h",
     "name": "Chitin Weapon (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6939,7 +6133,7 @@
     "material": "Hide/Linen (x2) + Hard Chitin (x2)"
   },
   {
-    "id": "n-a-chitin-weapon-mel-2h",
+    "id": "crafted-chitin-weapon-mel-2h",
     "name": "Chitin Weapon (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6947,7 +6141,7 @@
     "material": "Hide/Linen (x2) + Hard Chitin (x4)"
   },
   {
-    "id": "n-a-chitin-weapon-bow",
+    "id": "crafted-chitin-weapon-bow",
     "name": "Chitin Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6955,7 +6149,7 @@
     "material": "Fiber (x2) + Hard Chitin (x2)"
   },
   {
-    "id": "n-a-chitin-weapon-throwing",
+    "id": "crafted-chitin-weapon-throwing",
     "name": "Chitin Weapon (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6963,7 +6157,7 @@
     "material": "Hard Chitin (x2)"
   },
   {
-    "id": "n-a-golem-weapon-mel-1h",
+    "id": "crafted-golem-weapon-mel-1h",
     "name": "Golem Weapon (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6971,7 +6165,7 @@
     "material": "Hide/Linen (x2) + Const. Part (x2)"
   },
   {
-    "id": "n-a-golem-weapon-mel-2h",
+    "id": "crafted-golem-weapon-mel-2h",
     "name": "Golem Weapon (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6979,7 +6173,7 @@
     "material": "Hide/Linen (x2) + Const. Part (x4)"
   },
   {
-    "id": "n-a-golem-weapon-bow",
+    "id": "crafted-golem-weapon-bow",
     "name": "Golem Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6987,7 +6181,7 @@
     "material": "Fiber (x2) + Const. Part (x2)"
   },
   {
-    "id": "n-a-golem-wpn-throwing",
+    "id": "crafted-golem-wpn-throwing",
     "name": "Golem Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -6995,7 +6189,7 @@
     "material": "Const. Part (x2)"
   },
   {
-    "id": "n-a-dragon-wpn-mel-1h",
+    "id": "crafted-dragon-wpn-mel-1h",
     "name": "Dragon Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7003,7 +6197,7 @@
     "material": "Hide/Linen (x2) + Drgn. Scale (x2)"
   },
   {
-    "id": "n-a-dragon-wpn-mel-2h",
+    "id": "crafted-dragon-wpn-mel-2h",
     "name": "Dragon Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7011,7 +6205,7 @@
     "material": "Hide/Linen (x2) + Drgn. Scale (x4)"
   },
   {
-    "id": "n-a-dragon-weapon-bow",
+    "id": "crafted-dragon-weapon-bow",
     "name": "Dragon Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7019,7 +6213,7 @@
     "material": "Fiber (x2) + Drgn. Scale (x2)"
   },
   {
-    "id": "n-a-dragon-wpn-throwing",
+    "id": "crafted-dragon-wpn-throwing",
     "name": "Dragon Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7027,7 +6221,7 @@
     "material": "Drgn. Scale (x2)"
   },
   {
-    "id": "n-a-fairy-wpn-mel-1h",
+    "id": "crafted-fairy-wpn-mel-1h",
     "name": "Fairy Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7035,7 +6229,7 @@
     "material": "Hide/Linen (x2) + Sylvan Stn. (x2)"
   },
   {
-    "id": "n-a-fairy-wpn-mel-2h",
+    "id": "crafted-fairy-wpn-mel-2h",
     "name": "Fairy Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7043,7 +6237,7 @@
     "material": "Hide/Linen (x2) + Sylvan Stn. (x4)"
   },
   {
-    "id": "n-a-fairy-weapon-bow",
+    "id": "crafted-fairy-weapon-bow",
     "name": "Fairy Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7051,7 +6245,7 @@
     "material": "Fiber (x2) + Sylvan Stn. (x2)"
   },
   {
-    "id": "n-a-fairy-wpn-throwing",
+    "id": "crafted-fairy-wpn-throwing",
     "name": "Fairy Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7059,7 +6253,7 @@
     "material": "Sylvan Stn. (x2)"
   },
   {
-    "id": "n-a-meteorite-wpn-mel-1h",
+    "id": "crafted-meteorite-wpn-mel-1h",
     "name": "Meteorite Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7067,7 +6261,7 @@
     "material": "Hide/Linen (x2) + Meteorite (x2)"
   },
   {
-    "id": "n-a-meteorite-wpn-mel-2h",
+    "id": "crafted-meteorite-wpn-mel-2h",
     "name": "Meteorite Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7075,7 +6269,7 @@
     "material": "Hide/Linen (x2) + Meteorite (x4)"
   },
   {
-    "id": "n-a-meteorite-weapon-bow",
+    "id": "crafted-meteorite-weapon-bow",
     "name": "Meteorite Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7083,7 +6277,7 @@
     "material": "Fiber (x2) + Meteorite (x2)"
   },
   {
-    "id": "n-a-meteorite-wpn-throwing",
+    "id": "crafted-meteorite-wpn-throwing",
     "name": "Meteorite Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7091,7 +6285,7 @@
     "material": "Meteorite (x2)"
   },
   {
-    "id": "n-a-any-light-armor-main",
+    "id": "common-any-light-armor-main",
     "name": "Any Light Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7099,7 +6293,7 @@
     "material": "(Main Material)(x2) + Feather (x2)"
   },
   {
-    "id": "n-a-any-light-armor-helm",
+    "id": "common-any-light-armor-helm",
     "name": "Any Light Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7107,7 +6301,7 @@
     "material": "(Main Material) + Fiber"
   },
   {
-    "id": "n-a-any-light-armor-gloves",
+    "id": "common-any-light-armor-gloves",
     "name": "Any Light Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7115,7 +6309,7 @@
     "material": "(Main Material) + Fiber"
   },
   {
-    "id": "n-a-any-light-armor-footwear",
+    "id": "common-any-light-armor-footwear",
     "name": "Any Light Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7123,7 +6317,7 @@
     "material": "(Main Material)(x2) + Fiber"
   },
   {
-    "id": "n-a-any-medium-armor-main",
+    "id": "common-any-medium-armor-main",
     "name": "Any Medium Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7131,7 +6325,7 @@
     "material": "(Main Material)(x2) + Scale Hide"
   },
   {
-    "id": "n-a-any-medium-armor-helm",
+    "id": "common-any-medium-armor-helm",
     "name": "Any Medium Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7139,7 +6333,7 @@
     "material": "(Main Material) + Hide/Linen"
   },
   {
-    "id": "n-a-any-medium-armor-gloves",
+    "id": "common-any-medium-armor-gloves",
     "name": "Any Medium Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7147,7 +6341,7 @@
     "material": "(Main Material) + Hide/Linen"
   },
   {
-    "id": "n-a-any-medium-armor-footwear",
+    "id": "common-any-medium-armor-footwear",
     "name": "Any Medium Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7155,7 +6349,7 @@
     "material": "(Main Material)(x2) + Hide/Linen"
   },
   {
-    "id": "n-a-any-heavy-armor-main",
+    "id": "common-any-heavy-armor-main",
     "name": "Any Heavy Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7163,7 +6357,7 @@
     "material": "(Main Material)(x2) + Scale Hide (x2)"
   },
   {
-    "id": "n-a-any-heavy-armor-helm",
+    "id": "common-any-heavy-armor-helm",
     "name": "Any Heavy Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7171,7 +6365,7 @@
     "material": "(Main Material) + Hide/Linen"
   },
   {
-    "id": "n-a-any-heavy-armor-gloves",
+    "id": "common-any-heavy-armor-gloves",
     "name": "Any Heavy Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7179,7 +6373,7 @@
     "material": "(Main Material) + Hide/Linen (x2)"
   },
   {
-    "id": "n-a-any-heavy-armor-footwear",
+    "id": "common-any-heavy-armor-footwear",
     "name": "Any Heavy Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7187,15 +6381,7 @@
     "material": "(Main Material)(x2) + Scale Hide"
   },
   {
-    "id": "n-a-weaving-sewing-tailor-talent-required",
-    "name": "WEAVING & SEWING (Tailor Talent Required)",
-    "category": "crafting",
-    "subcategory": "recipe",
-    "rarity": "weaving & sewing (tailor talent required)",
-    "material": "WEAVING & SEWING (Tailor Talent Required) + WEAVING & SEWING (Tailor Talent Required)"
-  },
-  {
-    "id": "n-a-any-clothing-item-main",
+    "id": "common-any-clothing-item-main",
     "name": "Any Clothing Item (main)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7203,7 +6389,7 @@
     "material": "(Main Material)(x2) + Hide/Linen"
   },
   {
-    "id": "n-a-any-clothing-item-helm",
+    "id": "common-any-clothing-item-helm",
     "name": "Any Clothing Item (helm)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7211,7 +6397,7 @@
     "material": "(Main Material) + Fiber"
   },
   {
-    "id": "n-a-any-clothing-item-gloves",
+    "id": "common-any-clothing-item-gloves",
     "name": "Any Clothing Item (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7219,7 +6405,7 @@
     "material": "(Main Material) + Fiber"
   },
   {
-    "id": "n-a-any-clothing-item-footwear",
+    "id": "common-any-clothing-item-footwear",
     "name": "Any Clothing Item (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7227,7 +6413,7 @@
     "material": "(Main Material)(x2) + Fiber"
   },
   {
-    "id": "n-a-arthosium-thread-any",
+    "id": "rare-arthosium-thread-any",
     "name": "Arthosium Thread (any)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7235,23 +6421,7 @@
     "material": "Arthosium"
   },
   {
-    "id": "n-a-iron",
-    "name": "Iron",
-    "category": "crafting",
-    "subcategory": "recipe",
-    "rarity": "raw mat",
-    "material": "Scrap Metal (x3)"
-  },
-  {
-    "id": "n-a-metal-sprocket",
-    "name": "Metal Sprocket",
-    "category": "crafting",
-    "subcategory": "recipe",
-    "rarity": "craft mat",
-    "material": "Iron"
-  },
-  {
-    "id": "n-a-disruption-bomb",
+    "id": "rare-disruption-bomb",
     "name": "Disruption Bomb",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7259,7 +6429,7 @@
     "material": "Magnetic Fluid + Glass Crystal"
   },
   {
-    "id": "n-a-disruption-arrow-x3",
+    "id": "rare-disruption-arrow-x3",
     "name": "Disruption Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7267,7 +6437,7 @@
     "material": "Magnetic Fluid + Feather"
   },
   {
-    "id": "n-a-shredwire-trap",
+    "id": "rare-shredwire-trap",
     "name": "Shredwire Trap",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7275,7 +6445,7 @@
     "material": "Construct Parts + Iron"
   },
   {
-    "id": "n-a-shredwire-arrow-x3",
+    "id": "rare-shredwire-arrow-x3",
     "name": "Shredwire Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7283,7 +6453,7 @@
     "material": "Construct Parts + Feather"
   },
   {
-    "id": "n-a-shredwire-mortar",
+    "id": "rare-shredwire-mortar",
     "name": "Shredwire Mortar",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7291,7 +6461,7 @@
     "material": "Construct Parts + Energy Shard"
   },
   {
-    "id": "n-a-trap-any-common",
+    "id": "common-trap-any-common",
     "name": "Trap (any common)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7299,7 +6469,7 @@
     "material": "Metal Sprocket (x2) + Fiber (x2)"
   },
   {
-    "id": "n-a-sonic-bomb",
+    "id": "rare-sonic-bomb",
     "name": "Sonic Bomb",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7307,7 +6477,7 @@
     "material": "Scrap Metal + Glass Crystal"
   },
   {
-    "id": "n-a-shrapnel-bomb",
+    "id": "rare-shrapnel-bomb",
     "name": "Shrapnel Bomb",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7315,7 +6485,7 @@
     "material": "Scrap Metal + Glass Crystal"
   },
   {
-    "id": "n-a-silver-arrow-x3",
+    "id": "rare-silver-arrow-x3",
     "name": "Silver Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7323,7 +6493,7 @@
     "material": "Silver + Feather"
   },
   {
-    "id": "n-a-storm-arrow-x3",
+    "id": "rare-storm-arrow-x3",
     "name": "Storm Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7331,7 +6501,7 @@
     "material": "Splitting Stone + Feather"
   },
   {
-    "id": "n-a-spirit-arrow-x3",
+    "id": "rare-spirit-arrow-x3",
     "name": "Spirit Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7339,7 +6509,7 @@
     "material": "Moon Shard + Feather"
   },
   {
-    "id": "n-a-fire-arrow-x3",
+    "id": "common-fire-arrow-x3",
     "name": "Fire Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7347,7 +6517,7 @@
     "material": "Energy Shard + Feather"
   },
   {
-    "id": "n-a-water-arrow-x3",
+    "id": "common-water-arrow-x3",
     "name": "Water Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7355,7 +6525,7 @@
     "material": "Energy Shard + Feather"
   },
   {
-    "id": "n-a-electric-arrow-x3",
+    "id": "common-electric-arrow-x3",
     "name": "Electric Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7363,7 +6533,7 @@
     "material": "Energy Shard + Feather"
   },
   {
-    "id": "n-a-sleep-arrow-x3",
+    "id": "rare-sleep-arrow-x3",
     "name": "Sleep Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7371,7 +6541,7 @@
     "material": "Corrupted Shard + Feather"
   },
   {
-    "id": "n-a-winged-arrow-x3",
+    "id": "common-winged-arrow-x3",
     "name": "Winged Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7379,7 +6549,7 @@
     "material": "Avian Bone + Feather"
   },
   {
-    "id": "n-a-spiral-arrow-x3",
+    "id": "common-spiral-arrow-x3",
     "name": "Spiral Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7387,7 +6557,7 @@
     "material": "Spiral Shell + Feather"
   },
   {
-    "id": "n-a-freeze-mortar",
+    "id": "rare-freeze-mortar",
     "name": "Freeze Mortar",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7395,7 +6565,7 @@
     "material": "Construct Parts + Energy Shard"
   },
   {
-    "id": "n-a-tempest-mortar",
+    "id": "rare-tempest-mortar",
     "name": "Tempest Mortar",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7403,7 +6573,7 @@
     "material": "Copper (x2) + Energy Shard"
   },
   {
-    "id": "n-a-high-yield-mortar",
+    "id": "rare-high-yield-mortar",
     "name": "High-Yield Mortar",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7411,7 +6581,7 @@
     "material": "Magnetic Fluid + Energy Shard"
   },
   {
-    "id": "n-a-pickaxe",
+    "id": "common-pickaxe-2",
     "name": "Pickaxe",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7419,7 +6589,7 @@
     "material": "Iron + Wood"
   },
   {
-    "id": "n-a-shovel",
+    "id": "common-shovel-2",
     "name": "Shovel",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7427,7 +6597,7 @@
     "material": "Iron + Wood"
   },
   {
-    "id": "n-a-lantern",
+    "id": "common-lantern-2",
     "name": "Lantern",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7435,7 +6605,7 @@
     "material": "Iron + Fiber"
   },
   {
-    "id": "n-a-grapple-hook",
+    "id": "common-grapple-hook-2",
     "name": "Grapple Hook",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7443,7 +6613,7 @@
     "material": "Iron + Fiber (x2)"
   },
   {
-    "id": "n-a-hunting-trap",
+    "id": "common-hunting-trap-2",
     "name": "Hunting Trap",
     "category": "crafting",
     "subcategory": "recipe",
@@ -7451,7 +6621,7 @@
     "material": "Fiber (x2) + Wood"
   },
   {
-    "id": "n-a-wood",
+    "id": "common-wood",
     "name": "Wood",
     "category": "crafting",
     "subcategory": "material",
@@ -7459,7 +6629,7 @@
     "value": 2
   },
   {
-    "id": "n-a-fiber",
+    "id": "common-fiber",
     "name": "Fiber",
     "category": "crafting",
     "subcategory": "material",
@@ -7467,7 +6637,7 @@
     "value": 1
   },
   {
-    "id": "n-a-iron-2",
+    "id": "uncommon-iron",
     "name": "Iron",
     "category": "crafting",
     "subcategory": "material",
@@ -7475,7 +6645,7 @@
     "value": 12
   },
   {
-    "id": "n-a-zozimite",
+    "id": "rare-zozimite",
     "name": "Zozimite",
     "category": "crafting",
     "subcategory": "material",
@@ -7483,7 +6653,7 @@
     "value": 34
   },
   {
-    "id": "n-a-corrupted-shard",
+    "id": "uncommon-corrupted-shard",
     "name": "Corrupted Shard",
     "category": "crafting",
     "subcategory": "material",
@@ -7491,7 +6661,7 @@
     "value": 15
   },
   {
-    "id": "n-a-metal-sprocket-2",
+    "id": "uncommon-metal-sprocket",
     "name": "Metal Sprocket",
     "category": "crafting",
     "subcategory": "material",
@@ -7499,7 +6669,7 @@
     "value": 12
   },
   {
-    "id": "n-a-hard-chitin",
+    "id": "uncommon-hard-chitin",
     "name": "Hard Chitin",
     "category": "crafting",
     "subcategory": "material",
@@ -7507,7 +6677,7 @@
     "value": 13
   },
   {
-    "id": "n-a-feather",
+    "id": "common-feather",
     "name": "Feather",
     "category": "crafting",
     "subcategory": "material",
@@ -7515,7 +6685,7 @@
     "value": 2
   },
   {
-    "id": "n-a-construct-parts",
+    "id": "rare-construct-parts",
     "name": "Construct Parts",
     "category": "crafting",
     "subcategory": "material",
@@ -7523,7 +6693,7 @@
     "value": 30
   },
   {
-    "id": "n-a-dragon-scale",
+    "id": "rare-dragon-scale",
     "name": "Dragon Scale",
     "category": "crafting",
     "subcategory": "material",
@@ -7531,7 +6701,7 @@
     "value": 33
   },
   {
-    "id": "n-a-sylvan-stone",
+    "id": "rare-sylvan-stone",
     "name": "Sylvan Stone",
     "category": "crafting",
     "subcategory": "material",
@@ -7539,7 +6709,7 @@
     "value": 35
   },
   {
-    "id": "n-a-scrap-metal",
+    "id": "common-scrap-metal",
     "name": "Scrap Metal",
     "category": "crafting",
     "subcategory": "material",
@@ -7547,15 +6717,15 @@
     "value": 2
   },
   {
-    "id": "n-a-arcane-battery",
+    "id": "legendary-arcane-battery",
     "name": "Arcane Battery",
     "category": "crafting",
     "subcategory": "material",
-    "rarity": "legendry",
+    "rarity": "legendary",
     "value": 120
   },
   {
-    "id": "n-a-magnetic-fluid",
+    "id": "rare-magnetic-fluid",
     "name": "Magnetic Fluid",
     "category": "crafting",
     "subcategory": "material",
@@ -7563,7 +6733,7 @@
     "value": 40
   },
   {
-    "id": "n-a-glass-crystal",
+    "id": "uncommon-glass-crystal",
     "name": "Glass Crystal",
     "category": "crafting",
     "subcategory": "material",
@@ -7571,7 +6741,7 @@
     "value": 17
   },
   {
-    "id": "n-a-scale-hide",
+    "id": "uncommon-scale-hide",
     "name": "Scale Hide",
     "category": "crafting",
     "subcategory": "material",
@@ -7579,7 +6749,7 @@
     "value": 18
   },
   {
-    "id": "n-a-linen",
+    "id": "uncommon-linen",
     "name": "Linen",
     "category": "crafting",
     "subcategory": "material",
@@ -7587,15 +6757,15 @@
     "value": 14
   },
   {
-    "id": "n-a-meteorite",
+    "id": "legendary-meteorite",
     "name": "Meteorite",
     "category": "crafting",
     "subcategory": "material",
-    "rarity": "legendry",
+    "rarity": "legendary",
     "value": 150
   },
   {
-    "id": "n-a-copper",
+    "id": "common-copper",
     "name": "Copper",
     "category": "crafting",
     "subcategory": "material",
@@ -7603,15 +6773,15 @@
     "value": 6
   },
   {
-    "id": "n-a-arthosium-2",
+    "id": "legendary-arthosium",
     "name": "Arthosium",
     "category": "crafting",
     "subcategory": "material",
-    "rarity": "legendry",
+    "rarity": "legendary",
     "value": 100
   },
   {
-    "id": "n-a-silver-2",
+    "id": "uncommon-silver",
     "name": "Silver",
     "category": "crafting",
     "subcategory": "material",
@@ -7619,7 +6789,7 @@
     "value": 20
   },
   {
-    "id": "n-a-energy-shard",
+    "id": "uncommon-energy-shard",
     "name": "Energy Shard",
     "category": "crafting",
     "subcategory": "material",
@@ -7627,7 +6797,7 @@
     "value": 15
   },
   {
-    "id": "n-a-avian-bone",
+    "id": "common-avian-bone",
     "name": "Avian Bone",
     "category": "crafting",
     "subcategory": "material",
@@ -7635,7 +6805,7 @@
     "value": 5
   },
   {
-    "id": "n-a-spiral-shell",
+    "id": "common-spiral-shell",
     "name": "Spiral Shell",
     "category": "crafting",
     "subcategory": "material",
@@ -7643,7 +6813,7 @@
     "value": 3
   },
   {
-    "id": "n-a-splitting-stone",
+    "id": "uncommon-splitting-stone",
     "name": "Splitting Stone",
     "category": "crafting",
     "subcategory": "material",
@@ -7651,7 +6821,7 @@
     "value": 12
   },
   {
-    "id": "n-a-moon-shard",
+    "id": "rare-moon-shard",
     "name": "Moon Shard",
     "category": "crafting",
     "subcategory": "material",
@@ -7659,126 +6829,7 @@
     "value": 60
   },
   {
-    "id": "n-a-weapon-subtype",
-    "name": "Weapon Subtype",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "changes / description"
-  },
-  {
-    "id": "n-a-bone",
-    "name": "Bone",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "this weapon's base dmg is lowered by 1 dt"
-  },
-  {
-    "id": "n-a-chitin",
-    "name": "Chitin",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "this weapon is unbreakable"
-  },
-  {
-    "id": "n-a-golem",
-    "name": "Golem",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "increase weight by 1 pt. / increase dmg by 1 dt"
-  },
-  {
-    "id": "n-a-dragon",
-    "name": "Dragon",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "this weapon ignores all slash, pierce or crush resistances"
-  },
-  {
-    "id": "n-a-fairy",
-    "name": "Fairy",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "disrupts sylvan aura; this weapon can be used to channel spells"
-  },
-  {
-    "id": "n-a-meteorite-2",
-    "name": "Meteorite",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "increase dt by 1 / atk rolls that equal 20 (nat / otherwise) are critical hits"
-  },
-  {
-    "id": "n-a-shield-subtype",
-    "name": "Shield Subtype",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "changes / description"
-  },
-  {
-    "id": "n-a-bone-2",
-    "name": "Bone",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "this shield suffers -1 durability / gains a block bonus to dark (1)"
-  },
-  {
-    "id": "n-a-chitin-2",
-    "name": "Chitin",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "this shield is unbreakable / successful block roll is increased to 20"
-  },
-  {
-    "id": "n-a-golem-2",
-    "name": "Golem",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "increase weight by 1 pt. / increase durability by 3 pts"
-  },
-  {
-    "id": "n-a-dragon-2",
-    "name": "Dragon",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "lower this shield's block roll threshold by 3 pts"
-  },
-  {
-    "id": "n-a-fairy-2",
-    "name": "Fairy",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "disrupts sylvan aura if used to block sylvan creature atk / can be used to channel spells"
-  },
-  {
-    "id": "n-a-meteorite-3",
-    "name": "Meteorite",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "all block rolls are made with advantage"
-  },
-  {
-    "id": "n-a-weapon-status",
-    "name": "Weapon Status",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "changes / description"
-  },
-  {
-    "id": "n-a-broken-weapon",
-    "name": "Broken Weapon",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "weapon's base dmg is lowered by 1 dt"
-  },
-  {
-    "id": "n-a-broken-shield-tool",
-    "name": "Broken Shield / Tool",
-    "category": "crafting",
-    "subcategory": "material",
-    "rarity": "item can not be used until repaired"
-  },
-  {
-    "id": "n-a-pale-mushroom",
+    "id": "common-pale-mushroom",
     "name": "Pale Mushroom",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7787,7 +6838,7 @@
     "description": "Forests"
   },
   {
-    "id": "n-a-tree-sap",
+    "id": "common-tree-sap",
     "name": "Tree Sap",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7796,7 +6847,7 @@
     "description": "Forests"
   },
   {
-    "id": "n-a-bone-ash",
+    "id": "common-bone-ash",
     "name": "Bone Ash",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7805,7 +6856,7 @@
     "description": "Burial Sites"
   },
   {
-    "id": "n-a-minty-leaf",
+    "id": "common-minty-leaf",
     "name": "Minty Leaf",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7814,7 +6865,7 @@
     "description": "Forests"
   },
   {
-    "id": "n-a-herba",
+    "id": "common-herba",
     "name": "Herba",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7823,7 +6874,7 @@
     "description": "Plains"
   },
   {
-    "id": "n-a-honey",
+    "id": "uncommon-honey-2",
     "name": "Honey",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7832,7 +6883,7 @@
     "description": "Forests"
   },
   {
-    "id": "n-a-cave-mushroom",
+    "id": "uncommon-cave-mushroom",
     "name": "Cave Mushroom",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7841,7 +6892,7 @@
     "description": "Caves"
   },
   {
-    "id": "n-a-cave-moss",
+    "id": "uncommon-cave-moss",
     "name": "Cave Moss",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7850,7 +6901,7 @@
     "description": "Caves"
   },
   {
-    "id": "n-a-seaweed",
+    "id": "uncommon-seaweed",
     "name": "Seaweed",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7859,7 +6910,7 @@
     "description": "Oceans"
   },
   {
-    "id": "n-a-river-lily",
+    "id": "uncommon-river-lily",
     "name": "River Lily",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7868,7 +6919,7 @@
     "description": "Rivers"
   },
   {
-    "id": "n-a-dry-root",
+    "id": "uncommon-dry-root",
     "name": "Dry Root",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7877,7 +6928,7 @@
     "description": "Arid"
   },
   {
-    "id": "n-a-monster-oil",
+    "id": "uncommon-monster-oil",
     "name": "Monster Oil",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7886,7 +6937,7 @@
     "description": "Monster Nest"
   },
   {
-    "id": "n-a-cactus-bloom",
+    "id": "rare-cactus-bloom",
     "name": "Cactus Bloom",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7895,7 +6946,7 @@
     "description": "Arid"
   },
   {
-    "id": "n-a-mountain-moss",
+    "id": "rare-mountain-moss",
     "name": "Mountain Moss",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7904,7 +6955,7 @@
     "description": "Mountains"
   },
   {
-    "id": "n-a-sand-reed",
+    "id": "rare-sand-reed",
     "name": "Sand Reed",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7913,7 +6964,7 @@
     "description": "Oceans"
   },
   {
-    "id": "n-a-insect-powder",
+    "id": "rare-insect-powder",
     "name": "Insect Powder",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7922,7 +6973,7 @@
     "description": "Insectoids"
   },
   {
-    "id": "n-a-spiritual-residue",
+    "id": "rare-spiritual-residue",
     "name": "Spiritual Residue",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7931,7 +6982,7 @@
     "description": "Undead"
   },
   {
-    "id": "n-a-protoplasm-jelly",
+    "id": "rare-protoplasm-jelly",
     "name": "Protoplasm Jelly",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7940,14 +6991,14 @@
     "description": "Slimes"
   },
   {
-    "id": "n-a-material-used",
+    "id": "common-material-used",
     "name": "Material Used",
     "category": "crafting",
     "subcategory": "ingredient",
     "rarity": "common"
   },
   {
-    "id": "n-a-sturdy-bone",
+    "id": "common-sturdy-bone",
     "name": "Sturdy Bone",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7955,7 +7006,7 @@
     "value": -10
   },
   {
-    "id": "n-a-hard-chitin-2",
+    "id": "common-hard-chitin",
     "name": "Hard Chitin",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7963,7 +7014,7 @@
     "value": 10
   },
   {
-    "id": "n-a-construct-parts-2",
+    "id": "common-construct-parts",
     "name": "Construct Parts",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7971,7 +7022,7 @@
     "value": 25
   },
   {
-    "id": "n-a-dragon-scale-2",
+    "id": "common-dragon-scale",
     "name": "Dragon Scale",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7979,7 +7030,7 @@
     "value": 50
   },
   {
-    "id": "n-a-sylvan-stone-2",
+    "id": "common-sylvan-stone",
     "name": "Sylvan Stone",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7987,7 +7038,7 @@
     "value": 30
   },
   {
-    "id": "n-a-meteorite-4",
+    "id": "common-meteorite",
     "name": "Meteorite",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -7995,14 +7046,14 @@
     "value": 75
   },
   {
-    "id": "n-a-material-used-2",
+    "id": "common-material-used-2",
     "name": "Material Used",
     "category": "crafting",
     "subcategory": "ingredient",
     "rarity": "common"
   },
   {
-    "id": "n-a-sturdy-bone-2",
+    "id": "common-sturdy-bone-2",
     "name": "Sturdy Bone",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8010,7 +7061,7 @@
     "value": -10
   },
   {
-    "id": "n-a-hard-chitin-3",
+    "id": "common-hard-chitin-2",
     "name": "Hard Chitin",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8018,7 +7069,7 @@
     "value": 10
   },
   {
-    "id": "n-a-construct-parts-3",
+    "id": "common-construct-parts-2",
     "name": "Construct Parts",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8026,7 +7077,7 @@
     "value": 25
   },
   {
-    "id": "n-a-dragon-scale-3",
+    "id": "common-dragon-scale-2",
     "name": "Dragon Scale",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8034,7 +7085,7 @@
     "value": 50
   },
   {
-    "id": "n-a-sylvan-stone-3",
+    "id": "common-sylvan-stone-2",
     "name": "Sylvan Stone",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8042,7 +7093,7 @@
     "value": 30
   },
   {
-    "id": "n-a-meteorite-5",
+    "id": "common-meteorite-2",
     "name": "Meteorite",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8050,14 +7101,14 @@
     "value": 75
   },
   {
-    "id": "n-a-repair-material",
+    "id": "common-repair-material",
     "name": "Repair Material",
     "category": "crafting",
     "subcategory": "ingredient",
     "rarity": "common"
   },
   {
-    "id": "n-a-based-on-weapon",
+    "id": "common-based-on-weapon",
     "name": "based on weapon",
     "category": "crafting",
     "subcategory": "ingredient",
@@ -8065,7 +7116,7 @@
     "value": 1
   },
   {
-    "id": "n-a-based-on-armor-tool",
+    "id": "common-based-on-armor-tool",
     "name": "based on armor / tool",
     "category": "crafting",
     "subcategory": "ingredient",

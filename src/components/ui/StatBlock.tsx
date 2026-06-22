@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { HintTooltip } from "./HintTooltip";
 import {
   ATTRIBUTE_ABBR,
-  ATTRIBUTE_DESCRIPTIONS,
+  ATTRIBUTE_TOOLTIPS,
   ATTRIBUTE_MIN,
   ATTRIBUTE_MAX,
 } from "@/lib/constants";
@@ -44,16 +44,16 @@ export function StatBlock({ attrKey, value, onChange }: StatBlockProps) {
     : value < 0 ? "text-danger"
     : "text-text-muted";
 
-  const description = ATTRIBUTE_DESCRIPTIONS[attrKey];
+  const description = ATTRIBUTE_TOOLTIPS[attrKey];
 
   return (
     <div className="flex flex-col items-center gap-0.5 p-2 rounded-lg bg-surface border border-border-light">
       <HintTooltip
+        panel
         content={description}
-        tooltipClassName="max-w-56 whitespace-normal"
         ariaLabel={`${ATTRIBUTE_ABBR[attrKey]}: ${description}`}
       >
-        <span className="text-[10px] font-bold uppercase tracking-wider text-text-secondary">
+        <span className="text-sm font-bold uppercase tracking-wider text-text-secondary">
           {ATTRIBUTE_ABBR[attrKey]}
         </span>
       </HintTooltip>
@@ -78,7 +78,7 @@ export function StatBlock({ attrKey, value, onChange }: StatBlockProps) {
       : <button
           type="button"
           onClick={() => setIsEditing(true)}
-          className={`text-xl font-bold cursor-text hover:underline decoration-accent ${valueColor}`}
+          className={`text-lg font-bold cursor-text hover:underline decoration-accent ${valueColor}`}
         >
           {value > 0 ? `+${value}` : value}
         </button>

@@ -27,6 +27,11 @@ export function IdentityStep({
     onSetName(name);
   }, [state.tribeId, onSetName]);
 
+  const handleRandomZodiac = useCallback(() => {
+    const z = zodiac[Math.floor(Math.random() * zodiac.length)];
+    onSetZodiac(z.id);
+  }, [zodiac, onSetZodiac]);
+
   return (
     <div className="space-y-4">
       <div>
@@ -73,7 +78,29 @@ export function IdentityStep({
       </div>
 
       <div>
-        <h3 className="text-sm font-bold text-text">Zodiac</h3>
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="text-sm font-bold text-text">Zodiac</h3>
+          <button
+            type="button"
+            onClick={handleRandomZodiac}
+            title="Random zodiac"
+            className="px-2.5 py-1.5 rounded-lg border border-border-light bg-surface hover:bg-surface-raised text-text-muted hover:text-text transition-colors shrink-0"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
+              />
+            </svg>
+          </button>
+        </div>
         <p className="text-[11px] text-text-muted mt-0.5 italic">
           &ldquo;This choice should not be overthought as it is very likely to
           mean nothing / never even come up during gameplay.&rdquo;

@@ -84,19 +84,15 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
           label="Crit"
           hint="20−FNS"
         />
-        <EditableField
-          value={cs.meleeDmgBonus}
-          onChange={(v) => updateStat("meleeDmgBonus", v as number)}
-          type="number"
-          showSign
+        <DerivedField
+          value={`${cs.meleeDmgBonus}+`}
           label="Melee+"
+          hint="STR"
         />
-        <EditableField
-          value={cs.rangedDmgBonus}
-          onChange={(v) => updateStat("rangedDmgBonus", v as number)}
-          type="number"
-          showSign
+        <DerivedField
+          value={`${cs.rangedDmgBonus}+`}
           label="Ranged+"
+          hint="ACC"
         />
         <EditableField
           value={cs.spellDmgBonus}

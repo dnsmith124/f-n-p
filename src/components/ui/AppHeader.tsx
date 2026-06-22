@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 import { THEME_IDS, THEME_LABELS, type ThemeId } from "@/lib/types/theme";
 
@@ -44,6 +45,7 @@ function ThemeSelect() {
 }
 
 export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppHeaderProps) {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -57,6 +59,11 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [menuOpen]);
+
+  const itemsHref =
+    pathname !== "/" && pathname !== "/items"
+      ? `/items?from=${encodeURIComponent(pathname)}`
+      : "/items";
 
   return (
     <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b border-border-light">
@@ -79,6 +86,29 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
 
         <div className="flex items-center gap-1.5">
           {actions}
+
+          {pathname !== "/character/new" && (
+            <Link
+              href="/character/new"
+              className="h-8 px-3 flex items-center gap-1 rounded-lg bg-primary text-white text-xs font-medium hover:opacity-90 transition-opacity"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+              New Char
+            </Link>
+          )}
+
+          <Link
+            href={itemsHref}
+            className={`h-8 px-2.5 flex items-center rounded-lg text-xs font-medium transition-colors ${
+              pathname === "/items"
+                ? "text-primary bg-primary/10"
+                : "text-text-muted hover:text-text hover:bg-surface-raised"
+            }`}
+          >
+            Items
+          </Link>
 
           <div ref={menuRef} className="relative">
             <button

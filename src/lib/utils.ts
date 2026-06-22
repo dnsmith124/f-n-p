@@ -145,6 +145,8 @@ export function applyDerivedStats(character: Character): Character {
   const normalized = normalizeCharacter(character);
   const level = levelFromMerit(normalized.merit);
   const critRate = derivedCritRate(normalized.attributes.fns);
+  const meleeDmgBonus = normalized.attributes.str;
+  const rangedDmgBonus = normalized.attributes.acc;
   const tribe = findTribe(normalized.tribe);
 
   const evasion = tribe
@@ -158,6 +160,8 @@ export function applyDerivedStats(character: Character): Character {
   if (
     level === normalized.level &&
     critRate === normalized.combatStats.critRate &&
+    meleeDmgBonus === normalized.combatStats.meleeDmgBonus &&
+    rangedDmgBonus === normalized.combatStats.rangedDmgBonus &&
     evasion === normalized.combatStats.evasion &&
     movement === normalized.combatStats.movement &&
     spellMemoryCurrent === normalized.magic.spellMemoryCurrent
@@ -168,7 +172,14 @@ export function applyDerivedStats(character: Character): Character {
   return {
     ...normalized,
     level,
-    combatStats: { ...normalized.combatStats, critRate, evasion, movement },
+    combatStats: {
+      ...normalized.combatStats,
+      critRate,
+      meleeDmgBonus,
+      rangedDmgBonus,
+      evasion,
+      movement,
+    },
     magic: { ...normalized.magic, spellMemoryCurrent },
   };
 }

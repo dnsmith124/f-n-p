@@ -65,7 +65,7 @@ export function CharacterSheetTabs({
     <div className="flex flex-col md:flex-row flex-1">
       <TabBar tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className="flex-1 p-3 pb-20 md:pb-3">
+      <div className="flex-1 p-3 pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-3">
         {activeTab === "stats" && (
           <div className="space-y-4">
             <AttributesPanel character={character} onUpdate={onUpdate} />

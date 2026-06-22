@@ -1,10 +1,13 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import type { Character, InventoryItem, InventoryState } from "@/lib/types/character";
+import type { ItemData } from "@/lib/types/game-data";
 import { EditableField } from "@/components/ui/EditableField";
 import { ResourceTracker } from "@/components/ui/ResourceTracker";
+import { ItemPickerModal } from "@/components/items/ItemPickerModal";
 import { generateId } from "@/lib/utils";
+import { buildInventoryNotes } from "@/lib/item-utils";
 
 interface InventoryPanelProps {
   character: Character;
@@ -13,6 +16,24 @@ interface InventoryPanelProps {
 
 export function InventoryPanel({ character, onUpdate }: InventoryPanelProps) {
   const inv = character.inventory;
+  const [showCatalog, setShowCatalog] = useState(false);
+
+  const addFromCatalog = useCallback(
+    (itemData: ItemData) => {
+      const item: InventoryItem = {
+        id: generateId(),
+        name: itemData.name,
+        quantity: 1,
+        weight: itemData.weight ?? 0,
+        notes: buildInventoryNotes(itemData),
+      };
+      onUpdate((prev) => ({
+        ...prev,
+        inventory: { ...prev.inventory, items: [...prev.inventory.items, item] },
+      }));
+    },
+    [onUpdate]
+  );
 
   const updateInv = useCallback(
     <K extends keyof InventoryState>(field: K, value: InventoryState[K]) => {
@@ -148,13 +169,28 @@ export function InventoryPanel({ character, onUpdate }: InventoryPanelProps) {
             ))}
           </div>
         )}
-        <button
-          onClick={addItem}
-          className="w-full mt-2 py-1.5 rounded-lg border border-dashed border-border text-text-muted hover:border-accent hover:text-accent transition-colors text-xs"
-        >
-          + Add Item
-        </button>
+        <div className="flex gap-2 mt-2">
+          <button
+            onClick={addItem}
+            className="flex-1 py-1.5 rounded-lg border border-dashed border-border text-text-muted hover:border-accent hover:text-accent transition-colors text-xs"
+          >
+            + Add Item
+          </button>
+          <button
+            onClick={() => setShowCatalog(true)}
+            className="flex-1 py-1.5 rounded-lg border border-dashed border-border text-text-muted hover:border-accent hover:text-accent transition-colors text-xs"
+          >
+            + From Catalog
+          </button>
+        </div>
       </div>
+
+      <ItemPickerModal
+        isOpen={showCatalog}
+        onClose={() => setShowCatalog(false)}
+        onSelect={addFromCatalog}
+        title="Add from Catalog"
+      />
     </div>
   );
 }

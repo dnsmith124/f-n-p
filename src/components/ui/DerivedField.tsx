@@ -17,25 +17,21 @@ export function DerivedField({
 }: DerivedFieldProps) {
   return (
     <div className={className}>
-      {label && (
-        <label className="block text-[10px] uppercase tracking-wider text-text-muted mb-0.5">
-          {label}
-        </label>
-      )}
-      <HintTooltip
-        content={hint}
-        className="w-full"
-        ariaLabel={hint ? `${label ?? "Value"}: ${value}. ${hint}` : undefined}
-      >
-        <button
-          type="button"
-          className={`w-full px-2 py-1 text-left text-text ${
-            hint ? "" : "cursor-default"
-          }`}
-        >
-          {String(value)}
-        </button>
-      </HintTooltip>
+      {label &&
+        (hint ? (
+          <HintTooltip
+            content={hint}
+            ariaLabel={`${label}: ${hint}`}
+            className="block text-[10px] uppercase tracking-wider text-text-muted mb-0.5"
+          >
+            {label}
+          </HintTooltip>
+        ) : (
+          <label className="block text-[10px] uppercase tracking-wider text-text-muted mb-0.5">
+            {label}
+          </label>
+        ))}
+      <div className="w-full px-2 py-1 text-left text-text">{String(value)}</div>
     </div>
   );
 }

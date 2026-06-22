@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { Character } from "@/lib/types/character";
 import { EditableField } from "@/components/ui/EditableField";
-import { EditableSelect } from "@/components/ui/EditableSelect";
 import { DerivedField } from "@/components/ui/DerivedField";
 import { useGameData } from "@/hooks/useGameData";
 import meritThresholds from "../../../data/merit-thresholds.json";
@@ -18,11 +17,7 @@ export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
   const [collapsed, setCollapsed] = useState(false);
 
   const selectedClass = classes.find((c) => c.id === character.class);
-
-  const zodiacOptions = zodiac.map((z) => ({
-    value: z.id,
-    label: z.name,
-  }));
+  const selectedZodiac = zodiac.find((z) => z.id === character.zodiac);
 
   const selectedTribe = tribes.find((t) => t.id === character.tribe);
 
@@ -93,12 +88,9 @@ export function CharacterHeader({ character, onUpdate }: CharacterHeaderProps) {
             />
           </div>
 
-          <EditableSelect
-            value={character.zodiac}
-            onChange={(v) => onUpdate((p) => ({ ...p, zodiac: v }))}
-            options={zodiacOptions}
+          <DerivedField
+            value={selectedZodiac?.name ?? "—"}
             label="Zodiac"
-            placeholder="Select Zodiac"
           />
         </div>
       )}

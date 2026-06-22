@@ -47,6 +47,18 @@ export const ATTRIBUTE_DESCRIPTIONS: Record<AttributeKey, string> = {
   srv: "Required for lengthy adventures",
 };
 
+export const ATTRIBUTE_TOOLTIPS: Record<AttributeKey, string> = {
+  str: "STRENGTH (STR)\nThe physical power that one can call upon through rigorous training\n• Increases melee DMG (damage) and encumbrance\n• Required for 4 Talents",
+  acc: "ACCURACY (ACC)\nThe acuity of one's sight and body coordinating as one\n• Increases all ATK (attack) rolls and ranged weapon DMG\n• Required for 6 Talents",
+  fns: "FINESSE (FNS)\nThe deftness of one's reflexive actions and fine movements\n• Increases EVA (evasion)\n• Each investment raises Critical Hit rate by 1\n• Required for 5 Talents",
+  spd: "SPEED (SPD)\nThe power behind one's movements both ambulatory and regarding combat actions\n• Increases movement range, blocking, and Martial Maneuver rolls\n• Required for 2 Talents",
+  int: "INTELLIGENCE (INT)\nThe sharpness of one's mind for magical, observational, and academic purposes\n• Increases Spellcast rolls\n• Required for 3 Talents",
+  mem: "MEMORY (MEM)\nThe capacity of one's mind for memorization, recollection, and articulation\n• Increases Spell Memory\n• Required for 4 Talents",
+  vit: "VITALITY (VIT)\nEndurance and willpower; the strain one's physical form can withstand\n• Increases Maximum HP & Stamina\n• Required for 2 Talents",
+  cha: "CHARISMA (CHA)\nThe arts of speechcraft, bartering, and the quality of silver coating one's tongue\n• Increases all NPC speech-related rolls\n• Increases Luck\n• Required for 2 Talents",
+  srv: "SURVIVAL (SRV)\nThe art of honing one's instincts to razor-sharp precision\n• Increases no stat values but is all but required for lengthy adventures\n• Required for 4 Talents",
+};
+
 export const ATTRIBUTE_MIN = -7;
 export const ATTRIBUTE_MAX = 7;
 
@@ -150,3 +162,56 @@ export const DAMAGE_MODIFIER_LEVELS: {
 ];
 
 export const CHARACTER_VERSION = 2;
+
+export interface ItemCategoryDef {
+  value: string;
+  label: string;
+  category: string;
+  subcategory?: string;
+}
+
+export const ITEM_CATEGORIES: ItemCategoryDef[] = [
+  { value: "weapon", label: "Weapons", category: "weapon" },
+  { value: "armor", label: "Armor", category: "armor" },
+  { value: "shield", label: "Shields", category: "shield" },
+  { value: "legendary-weapon", label: "Legendary Weapons", category: "legendary-weapon" },
+  { value: "ring", label: "Rings", category: "ring" },
+  { value: "artifact", label: "Artifacts", category: "artifact" },
+  { value: "mod", label: "Mods", category: "mod" },
+  { value: "enchantment", label: "Enchantments", category: "enchantment" },
+  { value: "supply", label: "Supplies", category: "supply" },
+  { value: "food", label: "Food", category: "food" },
+  { value: "recipe", label: "Recipes", category: "crafting", subcategory: "recipe" },
+  { value: "ingredient", label: "Ingredients", category: "crafting", subcategory: "ingredient" },
+  { value: "material", label: "Materials", category: "crafting", subcategory: "material" },
+];
+
+export const ITEM_RARITIES: { value: string; label: string }[] = [
+  { value: "common", label: "Common" },
+  { value: "uncommon", label: "Uncommon" },
+  { value: "rare", label: "Rare" },
+  { value: "legendary", label: "Legendary" },
+  { value: "parallel", label: "Parallel" },
+  { value: "crafted", label: "Crafted" },
+];
+
+export const ITEM_RARITY_CSS: Record<string, string> = {
+  common: "rarity-common",
+  uncommon: "rarity-uncommon",
+  rare: "rarity-rare",
+  legendary: "rarity-legendary",
+  parallel: "rarity-parallel",
+  crafted: "rarity-crafted",
+};
+
+export const EQUIPMENT_SLOT_FILTERS: Record<string, { categories: string[]; subcategories?: string[] }> = {
+  armamentSlots: { categories: ["weapon", "legendary-weapon", "shield"] },
+  holdoutWeapon: { categories: ["weapon"], subcategories: ["melee"] },
+  torsoArmor: { categories: ["armor"], subcategories: ["body-armor"] },
+  helmet: { categories: ["armor"], subcategories: ["helmet"] },
+  gloves: { categories: ["armor"], subcategories: ["gloves"] },
+  footwear: { categories: ["armor"], subcategories: ["footwear"] },
+  ring: { categories: ["ring"] },
+  artifact: { categories: ["artifact"] },
+  toolbelt: { categories: ["supply"] },
+};

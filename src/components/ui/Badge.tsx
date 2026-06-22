@@ -1,6 +1,10 @@
+export type BadgeVariant =
+  | "default" | "accent" | "danger" | "arcane"
+  | "uncommon" | "rare-item" | "legendary" | "parallel" | "crafted";
+
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: "default" | "accent" | "danger" | "arcane";
+  variant?: BadgeVariant;
   onRemove?: () => void;
 }
 
@@ -9,6 +13,11 @@ const variantStyles: Record<string, string> = {
   accent: "bg-accent/15 text-accent border-accent/30",
   danger: "bg-danger/15 text-danger border-danger/30",
   arcane: "bg-arcane/15 text-arcane border-arcane/30",
+  uncommon: "bg-rarity-uncommon/15 text-rarity-uncommon border-rarity-uncommon/30",
+  "rare-item": "bg-rarity-rare/15 text-rarity-rare border-rarity-rare/30",
+  legendary: "bg-rarity-legendary/15 text-rarity-legendary border-rarity-legendary/30",
+  parallel: "bg-rarity-parallel/15 text-rarity-parallel border-rarity-parallel/30",
+  crafted: "bg-rarity-crafted/15 text-rarity-crafted border-rarity-crafted/30",
 };
 
 export function Badge({ children, variant = "default", onRemove }: BadgeProps) {

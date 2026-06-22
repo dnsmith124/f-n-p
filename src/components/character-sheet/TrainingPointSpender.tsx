@@ -18,14 +18,28 @@ export function TrainingPointSpender({
   const { trainings: trainingData } = useGameData();
   const [showTrainingPicker, setShowTrainingPicker] = useState(false);
   const [pickerMode, setPickerMode] = useState<"basic" | "advanced">("basic");
+  const [history, setHistory] = useState<Character[]>([]);
 
   const available = character.trainingPointsUnspent;
   const knownNames = new Set(character.trainings.map((t) => t.name.toLowerCase()));
+
+  const pushHistory = useCallback(() => {
+    setHistory((prev) => [...prev, character]);
+  }, [character]);
+
+  const handleUndo = useCallback(() => {
+    setHistory((prev) => {
+      if (prev.length === 0) return prev;
+      onUpdate(prev[prev.length - 1]);
+      return prev.slice(0, -1);
+    });
+  }, [onUpdate]);
 
   const spendAttribute = useCallback(
     (key: AttributeKey) => {
       if (available < 1) return;
       if (character.attributes[key] >= ATTRIBUTE_MAX) return;
+      pushHistory();
       onUpdate({
         ...character,
         trainingPointsUnspent: available - 1,
@@ -35,13 +49,14 @@ export function TrainingPointSpender({
         },
       });
     },
-    [character, available, onUpdate]
+    [character, available, onUpdate, pushHistory]
   );
 
   const spendTraining = useCallback(
     (name: string, isAdvanced: boolean, cost: number) => {
       if (available < cost) return;
       if (knownNames.has(name.toLowerCase())) return;
+      pushHistory();
       const entry: TrainingEntry = {
         id: generateId(),
         name,
@@ -55,7 +70,7 @@ export function TrainingPointSpender({
       });
       setShowTrainingPicker(false);
     },
-    [character, available, knownNames, onUpdate]
+    [character, available, knownNames, onUpdate, pushHistory]
   );
 
   const openPicker = (mode: "basic" | "advanced") => {
@@ -84,9 +99,19 @@ export function TrainingPointSpender({
       </p>
 
       <div>
-        <p className="text-[10px] uppercase tracking-wider text-text-muted mb-1">
-          Attributes (+1 each)
-        </p>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-[10px] uppercase tracking-wider text-text-muted">
+            Attributes (+1 each)
+          </p>
+          <button
+            type="button"
+            onClick={handleUndo}
+            disabled={history.length === 0}
+            className="text-[10px] uppercase tracking-wider font-bold text-text-muted hover:text-text transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Undo
+          </button>
+        </div>
         <div className="grid grid-cols-3 gap-1">
           {ATTRIBUTE_KEYS.map((key) => {
             const atMax = character.attributes[key] >= ATTRIBUTE_MAX;
