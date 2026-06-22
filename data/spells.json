@@ -52,7 +52,7 @@
     "dmgType": "(FIRE)",
     "range": "SELF/ALLY (3 TILES)",
     "area": "1 TARGET",
-    "additionalEffects": "Buffed unit deals 1D4 fire DMG back to any attackers in melee range for 3 rounds. Buffed unit makes a VIT save (10+) upon recieving buff or they suffer 1D6 fire DMG.",
+    "additionalEffects": "Buffed unit deals 1D4 fire DMG back to any attackers in melee range for 3 rounds. Buffed unit makes a VIT save (10+) upon receiving buff or they suffer 1D6 fire DMG.",
     "description": "Summon a swirling barrier of fire that protects your chosen target and burns those who get too close"
   },
   {
@@ -120,7 +120,7 @@
     "spellMemoryCost": 1,
     "effect": "DEBUFF",
     "dmgType": "-",
-    "range": "2 TILES",
+    "range": "6 TILES",
     "area": "3X3 AREA",
     "additionalEffects": "Lower your targets BAR by 1D4 unless they succeed a VIT save (14+). Lasts 1+SRV rounds.",
     "description": "Send a pulse of superheated air towards your enemies disrupting their magic defenses"
@@ -655,7 +655,7 @@
     "range": "MELEE",
     "area": "5 TILES (WIDTH)",
     "additionalEffects": "Damages all within the area (spell is always centered on the caster).",
-    "description": "Summon a great wave that crushes all within its bredth"
+    "description": "Summon a great wave that crushes all within its breadth"
   },
   {
     "id": "oceans-call-adv-shard-storm",
@@ -1705,7 +1705,7 @@
     "range": "3+VIT TILES",
     "area": "1 TARGET",
     "additionalEffects": "Inflicts the staggered status if the target is an Undead enemy type.",
-    "description": "An offesive spell crafted by Orthodoxy Tomb guardians; Disrupts the threads that connect the undead to our plane"
+    "description": "An offensive spell crafted by Orthodoxy Tomb guardians; Disrupts the threads that connect the undead to our plane"
   },
   {
     "id": "twin-moon-nov-hands-of-shadow",
@@ -2083,7 +2083,7 @@
     "range": "SELF/ALLY (MELEE)",
     "area": "1 TARGET",
     "additionalEffects": "Grant target advantage on all CHA checks made towards NPC's (except for \"menace\" checks). Lasts 1 conversation, transaction, or 1+CHA rounds if in combat.",
-    "description": "Magically enchance ones charms, greasing the wheels of diplomacy."
+    "description": "Magically enhance one's charms, greasing the wheels of diplomacy."
   },
   {
     "id": "phantasm-nov-spectral-knives",
@@ -2352,8 +2352,8 @@
     "description": "An ancient and terrible art; Conjure a wave of blood-red fluid that burns like umbral acid"
   },
   {
-    "id": "phantasm-mas-doppleganger",
-    "name": "DOPPLEGANGER",
+    "id": "phantasm-mas-doppelganger",
+    "name": "DOPPELGANGER",
     "school": "phantasm",
     "tier": "master",
     "castCost": 20,
@@ -2460,7 +2460,7 @@
     "dmgType": "(DIRECT)",
     "range": "SELF/ALLY (10 TILES)",
     "area": "SELF+1 TARGET",
-    "additionalEffects": "Deals 1D6 direct DMG to yourself and restore HP equal to triple the rolled value to an annlied unit within range.",
+    "additionalEffects": "Deals 1D6 direct DMG to yourself and restore HP equal to triple the rolled value to an allied unit within range.",
     "description": "-"
   },
   {

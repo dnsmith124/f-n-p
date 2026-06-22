@@ -27,7 +27,7 @@
       "SPD"
     ],
     "statBonuses": "Gain +1 HP per Level (including Lv.1)",
-    "classBonus": "Choose one of your starting weapon trainings and gain a +1 to ATK with that type permenantly",
+    "classBonus": "Choose one of your starting weapon trainings and gain a +1 to ATK with that type permanently",
     "progression": [
       {
         "level": 1,
@@ -48,7 +48,7 @@
         "ability": "Opening Shot",
         "description": "If your first strike in a battle is made with a ranged weapon gain advantage on the ATK roll.",
         "type": "passive",
-        "path": "Path of Versitility"
+        "path": "Path of Versatility"
       },
       {
         "level": 2,
@@ -67,14 +67,14 @@
       {
         "level": 2,
         "ability": "Backup Weapon",
-        "description": "Select a second weapon type to gain a permenant +1 ATK with as if you are selecting your Class Bonus again.",
+        "description": "Select a second weapon type to gain a permanent +1 ATK with as if you are selecting your Class Bonus again.",
         "type": "passive",
-        "path": "Path of Versitility"
+        "path": "Path of Versatility"
       },
       {
         "level": 3,
         "ability": "Blitz",
-        "description": "Dash towards a target within your MOVE range (even if you have already taken a Movement Action this turn) running them down with your weapon poised. Deals your equipped melee weapon's DMG and knocks target back 1 tile.",
+        "description": "Dash towards a target within your MOVE range (even if you have already taken a Movement Action this turn) running them down with your weapon poised. Deals your equipped melee weapons DMG and knocks target back 1 tile.",
         "type": "ability",
         "path": "Path of Close Combat"
       },
@@ -90,7 +90,7 @@
         "ability": "Pivoting Technique",
         "description": "If you have successfully used both a melee and ranged weapon during a single battle gain +1 EVA and MOVE for the remainder of said encounter.",
         "type": "passive",
-        "path": "Path of Versitility"
+        "path": "Path of Versatility"
       },
       {
         "level": 4,
@@ -111,12 +111,12 @@
         "ability": "Dual Wielding",
         "description": "Gain the ability to dual-wield any pair of one-handed weapons without penalty (one ATK roll is made which takes only your Main Action dealing both weapon's DMG rolls if the strike hits).",
         "type": "passive",
-        "path": "Path of Versitility"
+        "path": "Path of Versatility"
       },
       {
         "level": 5,
         "ability": "Rend",
-        "description": "Strike a target with your melee weapon ignoring their ARM and resistances entierly.",
+        "description": "Strike a target with your melee weapon ignoring their ARM and resistances entirely.",
         "type": "ability",
         "path": "Path of Close Combat"
       },
@@ -132,7 +132,7 @@
         "ability": "Armsbearer",
         "description": "Gain an additional Armament Slot.",
         "type": "passive",
-        "path": "Path of Versitility"
+        "path": "Path of Versatility"
       }
     ]
   },
@@ -201,7 +201,7 @@
       {
         "level": 3,
         "ability": "Displace",
-        "description": "(must choose to activate only after being missed by an attack) Teleport yourself within 3 tiles of your original poisiton after evading or blocking at attack.",
+        "description": "(must choose to activate only after being missed by an attack) Teleport yourself within 3 tiles of your original position after evading or blocking at attack.",
         "type": "ability",
         "path": "Path of Fundamentals"
       },
@@ -222,7 +222,7 @@
       {
         "level": 4,
         "ability": "Magic Shield",
-        "description": "Cast a protective incantation that mitigates 3 DMG regardless of type/element the next time you are hit by an attack.",
+        "description": "Cast a protective incantation that flatly mitigates 6 DMG regardless of type/element the next time you are hit by an attack.",
         "type": "spell [7]",
         "path": "Path of Fundamentals"
       },
@@ -267,7 +267,7 @@
     "id": "pilgrim",
     "name": "Pilgrim",
     "type": "base",
-    "description": "",
+    "description": "The given name for one that travels the world in search of divine knowledge and abominations to pit their strength against. Typical pilgrim-warriors excel using blunt weaponry, an array of armor, and both offensive and support magics.",
     "parentClasses": [],
     "startingTrainings": [
       "Light Maul",
@@ -295,7 +295,7 @@
       {
         "level": 1,
         "ability": "Accept Suffering",
-        "description": "Use your main action to clenase an allied unit of a status effect or debuff and inflict them upon yourself (including their duration, additional effects, etc.). Can be used from any range.",
+        "description": "Use your main action to cleanse an allied unit of a status effect or debuff and inflict them upon yourself (including their duration, additional effects, etc.). Can be used from any range.",
         "type": "ability",
         "path": "Path of the Healer"
       },
@@ -431,7 +431,7 @@
       {
         "level": 1,
         "ability": "Haggle",
-        "description": "Add +1D4 on all Barter checks.",
+        "description": "Add +2D4 on all Barter checks.",
         "type": "passive",
         "path": "Path of Mercantilism"
       },
@@ -466,7 +466,7 @@
       {
         "level": 3,
         "ability": "Gathering Expert",
-        "description": "When gathering materials via surveying the overworld, mining, foraging, scavenging, or looting defeated enemies and a Critical 20 is rolled gain an additonal material/item from the relevant gathering pool.",
+        "description": "When gathering materials via surveying the overworld, mining, foraging, scavenging, or looting defeated enemies and a Critical 20 is rolled gain an additional material/item from the relevant gathering pool.",
         "type": "passive",
         "path": "Path of Maintenance"
       },
@@ -525,7 +525,7 @@
     "id": "scout",
     "name": "Scout",
     "type": "base",
-    "description": "Information gathering and reconaissance is the backbone to any well-planned operation-- this holds even truer in uncharted territory. Good scouts and spies provide such a backbone in times like these.",
+    "description": "Information gathering and reconnaissance is the backbone to any well-planned operation-- this holds even truer in uncharted territory. Good scouts and spies provide such a backbone in times like these.",
     "parentClasses": [],
     "startingTrainings": [
       "Knife",
@@ -560,7 +560,7 @@
       },
       {
         "level": 1,
-        "ability": "Camoflauge",
+        "ability": "Camouflage",
         "description": "Become hidden to all nearby units / units on the battlefield. Can only be used if out of enemy sight lines, on a tile that provides cover, or if other units are blinded/distracted in some way. Using a Main Action ends this effect; If an ATK is made to end this effect it gains advantage.",
         "type": "ability",
         "path": "Path of the Hunter"
@@ -582,7 +582,7 @@
       {
         "level": 2,
         "ability": "Readiness",
-        "description": "Add a permenant +2 to all of your Initiative rolls. If your teams Initiative is ever rolled with disadvantage you roll normally.",
+        "description": "Add a permanent +2 to all of your Initiative rolls. If your teams Initiative is ever rolled with disadvantage you roll normally.",
         "type": "passive",
         "path": "Path of the Hunter"
       },
@@ -602,9 +602,9 @@
       },
       {
         "level": 3,
-        "ability": "Trap Sweeper",
-        "description": "Gain advantage on all rolls made to detect / reveal traps in your immediate area.",
-        "type": "passive",
+        "ability": "Choose Mark",
+        "description": "Select an enemy unit that is in sight (not obscured by smoke, invisible, etc.): You and all allied units gain +1 ATK and DMG against this target. This effect lasts 2+CHA rounds.",
+        "type": "ability",
         "path": "Path of the Hunter"
       },
       {
@@ -631,7 +631,7 @@
       {
         "level": 5,
         "ability": "High Ground Expert",
-        "description": "Suffer 1 less MOVE penalty when moving to a higher elevation (even if this reduces the penatly to 0) and gain a bonus +1 to ranged DMG rolls when striking from an elevated place.",
+        "description": "Suffer 1 less MOVE penalty when moving to a higher elevation (even if this reduces the penalty to 0) and gain a bonus +1 to ranged DMG rolls when striking from an elevated place.",
         "type": "passive",
         "path": "Path of Infiltration"
       },
@@ -645,7 +645,7 @@
       {
         "level": 5,
         "ability": "The Opportune Moment",
-        "description": "Grant yourself advantage on one weapon ATK once per battle.",
+        "description": "Grant yourself one ATK that has a guaranteed hit chance once per battle (1D20 may still be rolled to see if you critically strike your target).",
         "type": "passive",
         "path": "Path of the Hunter"
       }
@@ -807,7 +807,7 @@
       {
         "level": 6,
         "ability": "Defender's Vigilance",
-        "description": "",
+        "description": "You may perform a block action with an equipped shield as a reaction to an allied unit being targeted. Ally must be within 3 tiles; You receive any DMG / effects inflicted instead of your ally.",
         "type": "ability",
         "path": "Path of the Defender"
       },
@@ -924,7 +924,7 @@
       },
       {
         "level": 6,
-        "ability": "Whats Yours is Mine",
+        "ability": "What's Yours is Mine",
         "description": "Gain the Pilferer Talent regardless of your current Attribute levels.",
         "type": "passive",
         "path": "Path of the Thief"
@@ -1145,7 +1145,7 @@
     "startingSkills": [],
     "favoredAttributes": [],
     "statBonuses": "",
-    "classBonus": "Learn the Trovan Rune language if you do not laready know it. If your base spellcasting die is less than 1D8, make it so.",
+    "classBonus": "Learn the Trovan Rune language if you do not already know it. If your base spellcasting die is less than 1D8, make it so.",
     "progression": [
       {
         "level": 6,
@@ -1185,7 +1185,7 @@
       {
         "level": 7,
         "ability": "Enchantment Research",
-        "description": "Gain access to the Enchanter talent regarless of your current attribute levels. Additionally, gain access to advanced level enchantment options.",
+        "description": "Gain access to the Enchanter talent regardless of your current attribute levels. Additionally, gain access to advanced level enchantment options.",
         "type": "passive",
         "path": "Path of the Researchmaster"
       },
@@ -1241,7 +1241,7 @@
       {
         "level": 10,
         "ability": "Teleportation",
-        "description": "Instantly transport you and your allies back to the overworld or to the last visited settlement that has an active Conveyance Circle for magical travel (DM will provide this information if possible). This spell costs 5 STAM to perform and can not be cast during combat.",
+        "description": "Instantly transport you and your allies back to the overworld or to the last visited settlement that has an active Conveyance Circle for magical travel (DM will provide this information if possible). This spell costs 5 STAM to perform and cannot be cast during combat.",
         "type": "spell[n/a]",
         "path": "Path of the Defensive Arts"
       },

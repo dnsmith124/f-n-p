@@ -82,8 +82,8 @@
         "description": "(Spell) [6] Blast a wave of frost outward (3 Tile Width / Melee range) dealing 1D8+SRV Ice DMG to all in range."
       },
       {
-        "name": "MILITANT BLOODLINE",
-        "description": ""
+        "name": "MAGEHUNTER BLOODLINE",
+        "description": "Gain a permenant Lv.1 fire, water, electric, ice, wind, dark, or light resistance."
       }
     ],
     "gameplayNotes": []
@@ -181,7 +181,7 @@
     "id": "mazmeri",
     "name": "Mazmeri",
     "description": "An illusive faction of gnomish descendants whos ancestors built technological marvels centuries beyond the capabilities of the other tribes of the Mortal Races. When faced with the possibility of being invaded by their Lamiiran neighbors to the south they pooled together their advanced machinery to build five \"Flying Cities\" unified by Zyzimar, a sentient construct that could coordinate the hulking stations in battle if the need arose. The Mazmeri survived the horrors of the Ruination via these Flying Cities, fleeing to Inuva on their last vessel, B'taam. In this new age, Zyzimar is seen as a god by the Mazmeri and the ancestral technology is misunderstood as mystical and divine.",
-    "physicalDescription": "Short in stature and typically hairy. They retain many of the physiological features inherent to their gnomish ancestry, however Mazmeri are more stocky and thick in the chest, face, and arms. They are a long lived and storied people and therefore have a diverse array of modern styles of dress and outward presentations. It is common to see Mazmeri dressed in full-coverage drab robes and head wraps alongsize others with bright, gold-adorned suits.",
+    "physicalDescription": "Short in stature and typically hairy. They retain many of the physiological features inherent to their gnomish ancestry, however Mazmeri are more stocky and thick in the chest, face, and arms. They are a long lived and storied people and therefore have a diverse array of modern styles of dress and outward presentations. It is common to see Mazmeri dressed in full-coverage drab robes and head wraps alongside others with bright, gold-adorned suits.",
     "attributeBonuses": {
       "str": -1,
       "fns": 1,
@@ -423,7 +423,7 @@
       },
       {
         "name": "HORN FENCER",
-        "description": "Gain ability to perform an unarmed melee ATK with your horn: deals 1D6+STR slash / pierce DMG (type chosen is permenant)"
+        "description": "Gain ability to perform an unarmed melee ATK with your horn: deals 1D6+STR slash / pierce DMG (type chosen is permanent)"
       },
       {
         "name": "WINGED RISE",
