@@ -95,41 +95,6 @@ export function buildEquipmentProperties(item: ItemData): string {
   return parts.join(", ");
 }
 
-const WEAPON_RECIPE_IDS = new Set([
-  "n-a-light-blade", "n-a-knife", "n-a-heavy-blade", "n-a-sidesword",
-  "n-a-light-maul", "n-a-heavy-maul", "n-a-axe", "n-a-polearm", "n-a-fist",
-  "n-a-bow", "n-a-throwing-weapon",
-  "n-a-bowshot-engineer-req", "n-a-mortar-engineer-req", "n-a-energy-engineer-req",
-]);
-
-const WEAPON_RECIPE_PATTERNS = [
-  "bone weapon", "chitin weapon", "golem weapon", "golem wpn",
-  "dragon weapon", "dragon wpn", "fairy weapon", "fairy wpn",
-  "meteorite weapon", "meteorite wpn",
-];
-
-const ARMOR_RECIPE_PATTERNS = [
-  "armor", "clothing", "weaving", "sewing", "arthosium thread",
-];
-
-const ALCHEMICAL_RECIPE_PATTERNS = [
-  "bomb", "arrow", "mortar", "shredwire", "disruption",
-];
-
-const ALCHEMICAL_RECIPE_IDS = new Set([
-  "n-a-iron", "n-a-metal-sprocket", "n-a-trap-any-common",
-]);
-
-export function getRecipeGroup(item: ItemData): string {
-  if (WEAPON_RECIPE_IDS.has(item.id)) return "Weapon Recipes";
-  if (ALCHEMICAL_RECIPE_IDS.has(item.id)) return "Alchemical Recipes";
-  const name = item.name.toLowerCase();
-  if (WEAPON_RECIPE_PATTERNS.some((p) => name.includes(p))) return "Weapon Recipes";
-  if (ARMOR_RECIPE_PATTERNS.some((p) => name.includes(p))) return "Armor & Clothing Recipes";
-  if (ALCHEMICAL_RECIPE_PATTERNS.some((p) => name.includes(p))) return "Alchemical Recipes";
-  return "Other Recipes";
-}
-
 export function buildInventoryNotes(item: ItemData): string {
   const parts: string[] = [];
   if (item.value) parts.push(`${item.value} SV`);

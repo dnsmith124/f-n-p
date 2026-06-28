@@ -52,6 +52,10 @@ interface ItemData {
   blockBonus?: string;
   description?: string;
   curseEffects?: string;
+  recipeType?: "armorer";
+  ingLevelRequired?: number;
+  ingLevel?: number;
+  recipeGroup?: string;
 }
 
 const RARITY_MAP: Record<string, string> = {
@@ -1024,14 +1028,29 @@ function parseFoodSection(grid: CellValue[][]): ItemData[] {
   return items;
 }
 
+function mapCraftSectionToGroup(sectionHeader: string): string {
+  const s = sectionHeader.toUpperCase();
+  if (s.includes("COMBAT")) return "Combat Tools";
+  if (s.includes("WEAPON")) return "Weapon Recipes";
+  if (s.includes("ARMOR") || s.includes("CLOTHING") || s.includes("WEAV")) {
+    return "Armor & Clothing Recipes";
+  }
+  if (s === "TOOLS" || (s.includes("TOOL") && !s.includes("COMBAT"))) return "Tools";
+  return "Other Recipes";
+}
+
 function parseCraftingSection(grid: CellValue[][]): ItemData[] {
   const items: ItemData[] = [];
+  let recipeGroup = "Other Recipes";
 
   for (let r = 3; r < grid.length; r++) {
     const name = str(grid[r]?.[0]);
     if (!name) continue;
     if (CRAFT_RECIPE_SKIP.test(name)) continue;
-    if (name === name.toUpperCase() && !name.match(/\d/)) continue;
+    if (name === name.toUpperCase() && !name.match(/\d/)) {
+      recipeGroup = mapCraftSectionToGroup(name);
+      continue;
+    }
 
     const rarityVal = str(grid[r]?.[1]);
     if (!isValidCraftRarity(rarityVal)) continue;
@@ -1042,6 +1061,8 @@ function parseCraftingSection(grid: CellValue[][]): ItemData[] {
       name: normalizeWhitespace(name),
       category: "crafting",
       subcategory: "recipe",
+      recipeType: "armorer",
+      recipeGroup,
       rarity: normalizeRarity(rarityVal),
       material: [str(grid[r]?.[2]), str(grid[r]?.[3])].filter(Boolean).join(" + ") || undefined,
     });
@@ -1074,6 +1095,7 @@ function parseCraftingSection(grid: CellValue[][]): ItemData[] {
     const rarityVal = str(grid[r]?.[15]);
     if (rarityVal && !isValidCraftRarity(rarityVal)) continue;
 
+    const ingLevel = num(grid[r]?.[16]);
     items.push({
       id: "",
       name: normalizeWhitespace(name),
@@ -1082,10 +1104,70 @@ function parseCraftingSection(grid: CellValue[][]): ItemData[] {
       rarity: normalizeRarity(str(grid[r]?.[15])),
       value: num(grid[r]?.[14]),
       description: str(grid[r]?.[17]) || undefined,
+      ingLevel: ingLevel != null && ingLevel > 0 ? ingLevel : undefined,
     });
   }
 
   return items;
+}
+
+function normalizeAlchemyName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/pwdr/g, "powder")
+    .replace(/ptn\.?\s*of/g, "potion of")
+    .replace(/elixer/g, "elixir")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function findSupplyItemByAlchemyName(items: ItemData[], sheetName: string): ItemData | undefined {
+  const target = normalizeAlchemyName(sheetName);
+  return items.find(
+    (item) =>
+      item.category === "supply" &&
+      normalizeAlchemyName(item.name) === target
+  );
+}
+
+function alchemySupplySubcategory(name: string): string {
+  return /\bbomb\b/i.test(name) ? "grenade" : "consumable";
+}
+
+function mergeAlchemyCraftingData(
+  items: ItemData[],
+  grid: CellValue[][],
+  existingIds: Set<string>
+): void {
+  for (let r = 3; r < grid.length; r++) {
+    const name = str(grid[r]?.[9]);
+    const rarityVal = str(grid[r]?.[10]);
+    const ingLevelRequired = num(grid[r]?.[11]);
+    if (!name || !rarityVal || ingLevelRequired == null || ingLevelRequired <= 0) continue;
+
+    const existing = findSupplyItemByAlchemyName(items, name);
+    if (existing) {
+      existing.ingLevelRequired = ingLevelRequired;
+      continue;
+    }
+
+    const normalizedName = normalizeWhitespace(name);
+    const rarity = normalizeRarity(rarityVal);
+    const subcategory = alchemySupplySubcategory(normalizedName);
+    const baseId = toKebabId(`${rarity}-${normalizedName}`);
+    const id = deduplicateId(baseId, existingIds);
+    existingIds.add(id);
+
+    items.push({
+      id,
+      name: toTitleCase(normalizedName),
+      category: "supply",
+      subcategory,
+      rarity,
+      ingLevelRequired,
+      type: subcategory === "grenade" ? "Grenade" : "Consumable",
+    });
+  }
 }
 
 function parseGearSheet(
@@ -1219,6 +1301,7 @@ export async function parseItems(): Promise<ParseSummary> {
 
   const allItems: ItemData[] = [];
   const existingIds = new Set<string>();
+  let craftingGrid: CellValue[][] | null = null;
 
   for (const sheetName of wb.SheetNames) {
     log.info("items-v2", `Parsing sheet: ${sheetName}`);
@@ -1244,6 +1327,7 @@ export async function parseItems(): Promise<ParseSummary> {
       } else if (lowerName.includes("food") || lowerName.includes("material")) {
         sheetItems = parseFoodSection(grid);
       } else if (lowerName.includes("craft")) {
+        craftingGrid = grid;
         sheetItems = parseCraftingSection(grid);
       } else {
         log.warn("items-v2", `Sheet "${sheetName}": unknown layout, skipping`, summary, sheetName);
@@ -1261,6 +1345,11 @@ export async function parseItems(): Promise<ParseSummary> {
       summary.skipped++;
       summary.skippedSheets.push(sheetName);
     }
+  }
+
+  if (craftingGrid) {
+    mergeAlchemyCraftingData(allItems, craftingGrid, existingIds);
+    log.info("items-v2", "Merged alchemy crafting data onto supply items");
   }
 
   const cleaned = allItems.map(stripEmpty);

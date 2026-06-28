@@ -1,16 +1,25 @@
 "use client";
 
-import { Suspense, useState, useMemo } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useGameData } from "@/hooks/useGameData";
 import { AppHeader } from "@/components/ui/AppHeader";
-import { ItemCard } from "@/components/items/ItemCard";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
-import { ITEM_CATEGORIES, ITEM_RARITIES } from "@/lib/constants";
-import { itemMatchesSearch, normalizeRarity } from "@/lib/item-utils";
+import { RecipeCard } from "@/components/crafting/RecipeCard";
+import { AlchemyItemCard } from "@/components/crafting/AlchemyItemCard";
+import { ITEM_RARITIES } from "@/lib/constants";
 import { loadCharacter } from "@/lib/storage";
+import {
+  ARMORER_RECIPE_GROUP_ORDER,
+  filterCraftingItems,
+  groupArmorerRecipes,
+  isAlchemyCraftable,
+  isForagedIngredient,
+} from "@/lib/crafting-utils";
 
-function getItemsBackNav(from: string | null): { backHref: string; backLabel: string } {
+type CraftingType = "armorer" | "alchemy";
+
+function getCraftingBackNav(from: string | null): { backHref: string; backLabel: string } {
   const safeFrom =
     from?.startsWith("/") && !from.startsWith("//") ? from : null;
 
@@ -31,22 +40,22 @@ function getItemsBackNav(from: string | null): { backHref: string; backLabel: st
   return { backHref: safeFrom, backLabel: "Back" };
 }
 
-export default function ItemsPage() {
+export default function CraftingPage() {
   return (
-    <Suspense fallback={<ItemsPageFallback />}>
-      <ItemsPageContent />
+    <Suspense fallback={<CraftingPageFallback />}>
+      <CraftingPageContent />
     </Suspense>
   );
 }
 
-function ItemsPageFallback() {
+function CraftingPageFallback() {
   return (
     <div className="flex flex-1 flex-col">
       <AppHeader backHref="/" backLabel="Home" />
       <div className="max-w-2xl mx-auto w-full p-4 pb-8">
         <div className="text-center py-4 mb-2">
           <h1 className="text-lg font-bold tracking-wide text-primary uppercase">
-            Item Reference
+            Crafting Reference
           </h1>
         </div>
       </div>
@@ -54,70 +63,34 @@ function ItemsPageFallback() {
   );
 }
 
-function ItemsPageContent() {
+function CraftingPageContent() {
   const searchParams = useSearchParams();
   const from = searchParams.get("from");
-  const { backHref, backLabel } = useMemo(() => getItemsBackNav(from), [from]);
+  const { backHref, backLabel } = useMemo(() => getCraftingBackNav(from), [from]);
   const { items } = useGameData();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedType, setSelectedType] = useState<CraftingType>("armorer");
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null);
 
-  const selectedCatDef = useMemo(
-    () => ITEM_CATEGORIES.find((c) => c.value === selectedCategory) ?? null,
-    [selectedCategory]
+  const filteredItems = useMemo(
+    () => filterCraftingItems(items, selectedType, searchQuery, selectedRarity),
+    [items, selectedType, searchQuery, selectedRarity]
   );
 
-  const filteredItems = useMemo(() => {
-    return items.filter((item) => {
-      if (item.subcategory === "recipe") return false;
-      if (selectedCatDef) {
-        if (item.category !== selectedCatDef.category) return false;
-        if (selectedCatDef.subcategory && item.subcategory !== selectedCatDef.subcategory) return false;
-      }
-      if (selectedRarity && normalizeRarity(item.rarity) !== selectedRarity) return false;
-      if (!itemMatchesSearch(item, searchQuery)) return false;
-      return true;
-    });
-  }, [items, selectedCatDef, selectedRarity, searchQuery]);
+  const armorerGroups = useMemo(() => {
+    if (selectedType !== "armorer") return null;
+    return groupArmorerRecipes(filteredItems);
+  }, [selectedType, filteredItems]);
 
-  const itemToCatValue = (item: { category: string; subcategory: string }): string => {
-    const match = ITEM_CATEGORIES.find(
-      (c) => c.category === item.category && (!c.subcategory || c.subcategory === item.subcategory)
-    );
-    return match?.value ?? item.category;
-  };
+  const alchemyCraftables = useMemo(
+    () => filteredItems.filter(isAlchemyCraftable),
+    [filteredItems]
+  );
 
-  const groupedItems = useMemo(() => {
-    const groups = new Map<string, typeof filteredItems>();
-
-    for (const item of filteredItems) {
-      let key: string;
-      if (!selectedCatDef) {
-        key = itemToCatValue(item);
-      } else {
-        key = item.subcategory;
-      }
-      const group = groups.get(key);
-      if (group) group.push(item);
-      else groups.set(key, [item]);
-    }
-    return groups;
-  }, [filteredItems, selectedCatDef]);
-
-  const getGroupLabel = (key: string): string => {
-    if (selectedCatDef) return key;
-    const cat = ITEM_CATEGORIES.find((c) => c.value === key);
-    return cat?.label ?? key;
-  };
-
-  const handleCategoryClick = (value: string | null) => {
-    setSelectedCategory(value);
-  };
-
-  const handleRarityClick = (value: string | null) => {
-    setSelectedRarity(value);
-  };
+  const alchemyIngredients = useMemo(
+    () => filteredItems.filter(isForagedIngredient),
+    [filteredItems]
+  );
 
   return (
     <div className="flex flex-1 flex-col">
@@ -126,16 +99,16 @@ function ItemsPageContent() {
       <div className="max-w-2xl mx-auto w-full p-4 pb-8">
         <div className="text-center py-4 mb-2">
           <h1 className="text-lg font-bold tracking-wide text-primary uppercase">
-            Item Reference
+            Crafting Reference
           </h1>
           <p className="text-[10px] text-text-muted mt-0.5">
-            {filteredItems.length} item{filteredItems.length !== 1 ? "s" : ""}
+            {filteredItems.length} entr{filteredItems.length !== 1 ? "ies" : "y"}
           </p>
         </div>
 
         <input
           type="text"
-          placeholder="Search items..."
+          placeholder="Search crafting..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-surface border border-border rounded-lg px-3 py-2 text-sm mb-3 outline-none focus:ring-1 focus:ring-accent"
@@ -143,27 +116,22 @@ function ItemsPageContent() {
 
         <div className="flex gap-1.5 overflow-x-auto pb-2 mb-1 -mx-1 px-1">
           <ChipButton
-            label="All"
-            active={selectedCategory === null}
-            onClick={() => handleCategoryClick(null)}
+            label="Armorer"
+            active={selectedType === "armorer"}
+            onClick={() => setSelectedType("armorer")}
           />
-          {ITEM_CATEGORIES.map((cat) => (
-            <ChipButton
-              key={cat.value}
-              label={cat.label}
-              active={selectedCategory === cat.value}
-              onClick={() =>
-                handleCategoryClick(selectedCategory === cat.value ? null : cat.value)
-              }
-            />
-          ))}
+          <ChipButton
+            label="Alchemy"
+            active={selectedType === "alchemy"}
+            onClick={() => setSelectedType("alchemy")}
+          />
         </div>
 
         <div className="flex gap-1.5 overflow-x-auto pb-3 mb-3 -mx-1 px-1">
           <ChipButton
             label="Any Rarity"
             active={selectedRarity === null}
-            onClick={() => handleRarityClick(null)}
+            onClick={() => setSelectedRarity(null)}
           />
           {ITEM_RARITIES.map((r) => (
             <ChipButton
@@ -171,7 +139,7 @@ function ItemsPageContent() {
               label={r.label}
               active={selectedRarity === r.value}
               onClick={() =>
-                handleRarityClick(selectedRarity === r.value ? null : r.value)
+                setSelectedRarity(selectedRarity === r.value ? null : r.value)
               }
             />
           ))}
@@ -179,28 +147,55 @@ function ItemsPageContent() {
 
         {filteredItems.length === 0 ? (
           <p className="text-sm text-text-muted italic py-8 text-center">
-            No items match your filters
+            No entries match your filters
           </p>
-        ) : (
+        ) : selectedType === "armorer" && armorerGroups ? (
           <div className="space-y-4">
-            {Array.from(groupedItems.entries()).map(([group, groupItems]) => (
+            {ARMORER_RECIPE_GROUP_ORDER.filter((g) => armorerGroups.has(g)).map((group) => (
               <CollapsibleSection
                 key={group}
-                title={getGroupLabel(group)}
-                badge={groupItems.length}
+                title={group}
+                badge={armorerGroups.get(group)!.length}
                 defaultOpen={false}
               >
                 <div className="space-y-1.5">
-                  {groupItems.map((item) => (
-                    <ItemCard key={item.id} item={item} />
+                  {armorerGroups.get(group)!.map((item) => (
+                    <RecipeCard key={item.id} item={item} />
                   ))}
                 </div>
               </CollapsibleSection>
             ))}
           </div>
+        ) : (
+          <div className="space-y-4">
+            {alchemyCraftables.length > 0 && (
+              <CollapsibleSection
+                title="Craftable Items"
+                badge={alchemyCraftables.length}
+                defaultOpen={false}
+              >
+                <div className="space-y-1.5">
+                  {alchemyCraftables.map((item) => (
+                    <AlchemyItemCard key={item.id} item={item} mode="craftable" />
+                  ))}
+                </div>
+              </CollapsibleSection>
+            )}
+            {alchemyIngredients.length > 0 && (
+              <CollapsibleSection
+                title="Ingredients"
+                badge={alchemyIngredients.length}
+                defaultOpen={false}
+              >
+                <div className="space-y-1.5">
+                  {alchemyIngredients.map((item) => (
+                    <AlchemyItemCard key={item.id} item={item} mode="ingredient" />
+                  ))}
+                </div>
+              </CollapsibleSection>
+            )}
+          </div>
         )}
-
-
       </div>
     </div>
   );

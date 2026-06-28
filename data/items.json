@@ -1455,7 +1455,8 @@
     "rarity": "common",
     "effect": "restores 1D6 HP when applied to a wound",
     "type": "Consumable",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-antidote",
@@ -1465,7 +1466,8 @@
     "rarity": "common",
     "effect": "cures the consumer of the poison status effect",
     "type": "Consumable",
-    "value": 12
+    "value": 12,
+    "ingLevelRequired": 2
   },
   {
     "id": "common-sedative",
@@ -1475,7 +1477,8 @@
     "rarity": "common",
     "effect": "cures the consumer of the stupefied status effect",
     "type": "Consumable",
-    "value": 12
+    "value": 12,
+    "ingLevelRequired": 2
   },
   {
     "id": "common-dried-fruit",
@@ -1505,7 +1508,8 @@
     "rarity": "common",
     "effect": "cures the consumer of the blinded status",
     "type": "Consumable",
-    "value": 7
+    "value": 7,
+    "ingLevelRequired": 2
   },
   {
     "id": "common-absorbent-rag",
@@ -1525,7 +1529,8 @@
     "rarity": "common",
     "effect": "cures the consumer of the burned status effect",
     "type": "Consumable",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-warming-salve",
@@ -1535,7 +1540,8 @@
     "rarity": "common",
     "effect": "cures the consumer of the frozen status effect as well as any pts. of freeze buildup",
     "type": "Consumable",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-white-flame",
@@ -1792,7 +1798,8 @@
     "rarity": "common",
     "effect": "Explosive that deals 2D6 direct DMG in a 3x3 tile radius; can be thrown 4+STR tiles",
     "type": "Grenade",
-    "value": 20
+    "value": 20,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-smoke-bomb",
@@ -1802,7 +1809,8 @@
     "rarity": "common",
     "effect": "Creates Smoke Tiles (see Effect Tiles; Combat Doc. for details) in 3x3 area (thrown 4+STR tiles)",
     "type": "Grenade",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-sharpness-oil",
@@ -1812,7 +1820,8 @@
     "rarity": "common",
     "effect": "(Slash / Pierce weapons) grants next 3 +1D4 DMG of weapon's type to unarmored foes",
     "type": "Consumable",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-venom-oil",
@@ -1822,7 +1831,8 @@
     "rarity": "common",
     "effect": "(Slash / Pierce weapons) grants next 3 strikes the chance to cause poison (resisted with VIT 12+)",
     "type": "Consumable",
-    "value": 10
+    "value": 10,
+    "ingLevelRequired": 3
   },
   {
     "id": "common-smoke-mortar",
@@ -5985,6 +5995,8 @@
     "name": "Light Blade",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
@@ -5993,6 +6005,8 @@
     "name": "Knife",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen + Iron"
   },
@@ -6001,6 +6015,8 @@
     "name": "Heavy Blade",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x3)"
   },
@@ -6009,6 +6025,8 @@
     "name": "Sidesword",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen + Iron (x2)"
   },
@@ -6017,6 +6035,8 @@
     "name": "Light Maul",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
@@ -6025,6 +6045,8 @@
     "name": "Heavy Maul",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x3)"
   },
@@ -6033,6 +6055,8 @@
     "name": "Axe",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
@@ -6041,6 +6065,8 @@
     "name": "Polearm",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
@@ -6049,6 +6075,8 @@
     "name": "Fist",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide/Linen (x2) + Iron (x2)"
   },
@@ -6057,6 +6085,8 @@
     "name": "Bow",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Fiber (x2) + Wood (x2)"
   },
@@ -6065,6 +6095,8 @@
     "name": "Throwing Weapon",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Hide + Iron"
   },
@@ -6073,6 +6105,8 @@
     "name": "Bowshot (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Iron (x3) + Metal Sprocket (x3)"
   },
@@ -6081,6 +6115,8 @@
     "name": "Mortar (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "common",
     "material": "Iron (x3) + Metal Sprocket (x3)"
   },
@@ -6089,6 +6125,8 @@
     "name": "Energy (Engineer req.)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "rare",
     "material": "Zozimite (x3) + Arcane Battery"
   },
@@ -6097,6 +6135,8 @@
     "name": "Bone Weapon (melee 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Sturdy Bone (x2)"
   },
@@ -6105,6 +6145,8 @@
     "name": "Bone Weapon (melee 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Sturdy Bone (x4)"
   },
@@ -6113,6 +6155,8 @@
     "name": "Bone Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Sturdy Bone (x2)"
   },
@@ -6121,6 +6165,8 @@
     "name": "Bone Weapon (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Sturdy Bone (x2)"
   },
@@ -6129,6 +6175,8 @@
     "name": "Chitin Weapon (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Hard Chitin (x2)"
   },
@@ -6137,6 +6185,8 @@
     "name": "Chitin Weapon (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Hard Chitin (x4)"
   },
@@ -6145,6 +6195,8 @@
     "name": "Chitin Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Hard Chitin (x2)"
   },
@@ -6153,6 +6205,8 @@
     "name": "Chitin Weapon (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hard Chitin (x2)"
   },
@@ -6161,6 +6215,8 @@
     "name": "Golem Weapon (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Const. Part (x2)"
   },
@@ -6169,6 +6225,8 @@
     "name": "Golem Weapon (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Const. Part (x4)"
   },
@@ -6177,6 +6235,8 @@
     "name": "Golem Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Const. Part (x2)"
   },
@@ -6185,6 +6245,8 @@
     "name": "Golem Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Const. Part (x2)"
   },
@@ -6193,6 +6255,8 @@
     "name": "Dragon Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Drgn. Scale (x2)"
   },
@@ -6201,6 +6265,8 @@
     "name": "Dragon Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Drgn. Scale (x4)"
   },
@@ -6209,6 +6275,8 @@
     "name": "Dragon Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Drgn. Scale (x2)"
   },
@@ -6217,6 +6285,8 @@
     "name": "Dragon Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Drgn. Scale (x2)"
   },
@@ -6225,6 +6295,8 @@
     "name": "Fairy Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Sylvan Stn. (x2)"
   },
@@ -6233,6 +6305,8 @@
     "name": "Fairy Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Sylvan Stn. (x4)"
   },
@@ -6241,6 +6315,8 @@
     "name": "Fairy Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Sylvan Stn. (x2)"
   },
@@ -6249,6 +6325,8 @@
     "name": "Fairy Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Sylvan Stn. (x2)"
   },
@@ -6257,6 +6335,8 @@
     "name": "Meteorite Wpn. (mel. 1H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Meteorite (x2)"
   },
@@ -6265,6 +6345,8 @@
     "name": "Meteorite Wpn. (mel. 2H)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Hide/Linen (x2) + Meteorite (x4)"
   },
@@ -6273,6 +6355,8 @@
     "name": "Meteorite Weapon (bow)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Fiber (x2) + Meteorite (x2)"
   },
@@ -6281,6 +6365,8 @@
     "name": "Meteorite Wpn. (throwing)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Weapon Recipes",
     "rarity": "crafted",
     "material": "Meteorite (x2)"
   },
@@ -6289,6 +6375,8 @@
     "name": "Any Light Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Feather (x2)"
   },
@@ -6297,6 +6385,8 @@
     "name": "Any Light Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Fiber"
   },
@@ -6305,6 +6395,8 @@
     "name": "Any Light Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Fiber"
   },
@@ -6313,6 +6405,8 @@
     "name": "Any Light Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Fiber"
   },
@@ -6321,6 +6415,8 @@
     "name": "Any Medium Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Scale Hide"
   },
@@ -6329,6 +6425,8 @@
     "name": "Any Medium Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Hide/Linen"
   },
@@ -6337,6 +6435,8 @@
     "name": "Any Medium Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Hide/Linen"
   },
@@ -6345,6 +6445,8 @@
     "name": "Any Medium Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Hide/Linen"
   },
@@ -6353,6 +6455,8 @@
     "name": "Any Heavy Armor (main)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Scale Hide (x2)"
   },
@@ -6361,6 +6465,8 @@
     "name": "Any Heavy Armor (helm)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Hide/Linen"
   },
@@ -6369,6 +6475,8 @@
     "name": "Any Heavy Armor (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Hide/Linen (x2)"
   },
@@ -6377,6 +6485,8 @@
     "name": "Any Heavy Armor (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Scale Hide"
   },
@@ -6385,6 +6495,8 @@
     "name": "Any Clothing Item (main)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Hide/Linen"
   },
@@ -6393,6 +6505,8 @@
     "name": "Any Clothing Item (helm)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Fiber"
   },
@@ -6401,6 +6515,8 @@
     "name": "Any Clothing Item (gloves)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material) + Fiber"
   },
@@ -6409,6 +6525,8 @@
     "name": "Any Clothing Item (footwear)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "common",
     "material": "(Main Material)(x2) + Fiber"
   },
@@ -6417,6 +6535,8 @@
     "name": "Arthosium Thread (any)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Armor & Clothing Recipes",
     "rarity": "rare",
     "material": "Arthosium"
   },
@@ -6425,6 +6545,8 @@
     "name": "Disruption Bomb",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Magnetic Fluid + Glass Crystal"
   },
@@ -6433,6 +6555,8 @@
     "name": "Disruption Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Magnetic Fluid + Feather"
   },
@@ -6441,6 +6565,8 @@
     "name": "Shredwire Trap",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Construct Parts + Iron"
   },
@@ -6449,6 +6575,8 @@
     "name": "Shredwire Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Construct Parts + Feather"
   },
@@ -6457,6 +6585,8 @@
     "name": "Shredwire Mortar",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Construct Parts + Energy Shard"
   },
@@ -6465,6 +6595,8 @@
     "name": "Trap (any common)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Metal Sprocket (x2) + Fiber (x2)"
   },
@@ -6473,6 +6605,8 @@
     "name": "Sonic Bomb",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Scrap Metal + Glass Crystal"
   },
@@ -6481,6 +6615,8 @@
     "name": "Shrapnel Bomb",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Scrap Metal + Glass Crystal"
   },
@@ -6489,6 +6625,8 @@
     "name": "Silver Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Silver + Feather"
   },
@@ -6497,6 +6635,8 @@
     "name": "Storm Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Splitting Stone + Feather"
   },
@@ -6505,6 +6645,8 @@
     "name": "Spirit Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Moon Shard + Feather"
   },
@@ -6513,6 +6655,8 @@
     "name": "Fire Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Energy Shard + Feather"
   },
@@ -6521,6 +6665,8 @@
     "name": "Water Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Energy Shard + Feather"
   },
@@ -6529,6 +6675,8 @@
     "name": "Electric Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Energy Shard + Feather"
   },
@@ -6537,6 +6685,8 @@
     "name": "Sleep Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Corrupted Shard + Feather"
   },
@@ -6545,6 +6695,8 @@
     "name": "Winged Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Avian Bone + Feather"
   },
@@ -6553,6 +6705,8 @@
     "name": "Spiral Arrow (x3)",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "common",
     "material": "Spiral Shell + Feather"
   },
@@ -6561,6 +6715,8 @@
     "name": "Freeze Mortar",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Construct Parts + Energy Shard"
   },
@@ -6569,6 +6725,8 @@
     "name": "Tempest Mortar",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Copper (x2) + Energy Shard"
   },
@@ -6577,6 +6735,8 @@
     "name": "High-Yield Mortar",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Combat Tools",
     "rarity": "rare",
     "material": "Magnetic Fluid + Energy Shard"
   },
@@ -6585,6 +6745,8 @@
     "name": "Pickaxe",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Tools",
     "rarity": "common",
     "material": "Iron + Wood"
   },
@@ -6593,6 +6755,8 @@
     "name": "Shovel",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Tools",
     "rarity": "common",
     "material": "Iron + Wood"
   },
@@ -6601,6 +6765,8 @@
     "name": "Lantern",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Tools",
     "rarity": "common",
     "material": "Iron + Fiber"
   },
@@ -6609,6 +6775,8 @@
     "name": "Grapple Hook",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Tools",
     "rarity": "common",
     "material": "Iron + Fiber (x2)"
   },
@@ -6617,6 +6785,8 @@
     "name": "Hunting Trap",
     "category": "crafting",
     "subcategory": "recipe",
+    "recipeType": "armorer",
+    "recipeGroup": "Tools",
     "rarity": "common",
     "material": "Fiber (x2) + Wood"
   },
@@ -6835,7 +7005,8 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 3,
-    "description": "Forests"
+    "description": "Forests",
+    "ingLevel": 1
   },
   {
     "id": "common-tree-sap",
@@ -6844,7 +7015,8 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 2,
-    "description": "Forests"
+    "description": "Forests",
+    "ingLevel": 1
   },
   {
     "id": "common-bone-ash",
@@ -6853,7 +7025,8 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 2,
-    "description": "Burial Sites"
+    "description": "Burial Sites",
+    "ingLevel": 1
   },
   {
     "id": "common-minty-leaf",
@@ -6862,7 +7035,8 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 2,
-    "description": "Forests"
+    "description": "Forests",
+    "ingLevel": 1
   },
   {
     "id": "common-herba",
@@ -6871,7 +7045,8 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 6,
-    "description": "Plains"
+    "description": "Plains",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-honey-2",
@@ -6880,7 +7055,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 10,
-    "description": "Forests"
+    "description": "Forests",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-cave-mushroom",
@@ -6889,7 +7065,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 10,
-    "description": "Caves"
+    "description": "Caves",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-cave-moss",
@@ -6898,7 +7075,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 10,
-    "description": "Caves"
+    "description": "Caves",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-seaweed",
@@ -6907,7 +7085,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 12,
-    "description": "Oceans"
+    "description": "Oceans",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-river-lily",
@@ -6916,7 +7095,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 12,
-    "description": "Rivers"
+    "description": "Rivers",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-dry-root",
@@ -6925,7 +7105,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 10,
-    "description": "Arid"
+    "description": "Arid",
+    "ingLevel": 2
   },
   {
     "id": "uncommon-monster-oil",
@@ -6934,7 +7115,8 @@
     "subcategory": "ingredient",
     "rarity": "uncommon",
     "value": 15,
-    "description": "Monster Nest"
+    "description": "Monster Nest",
+    "ingLevel": 2
   },
   {
     "id": "rare-cactus-bloom",
@@ -6943,7 +7125,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 25,
-    "description": "Arid"
+    "description": "Arid",
+    "ingLevel": 3
   },
   {
     "id": "rare-mountain-moss",
@@ -6952,7 +7135,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 30,
-    "description": "Mountains"
+    "description": "Mountains",
+    "ingLevel": 3
   },
   {
     "id": "rare-sand-reed",
@@ -6961,7 +7145,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 24,
-    "description": "Oceans"
+    "description": "Oceans",
+    "ingLevel": 3
   },
   {
     "id": "rare-insect-powder",
@@ -6970,7 +7155,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 20,
-    "description": "Insectoids"
+    "description": "Insectoids",
+    "ingLevel": 3
   },
   {
     "id": "rare-spiritual-residue",
@@ -6979,7 +7165,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 30,
-    "description": "Undead"
+    "description": "Undead",
+    "ingLevel": 3
   },
   {
     "id": "rare-protoplasm-jelly",
@@ -6988,7 +7175,8 @@
     "subcategory": "ingredient",
     "rarity": "rare",
     "value": 25,
-    "description": "Slimes"
+    "description": "Slimes",
+    "ingLevel": 3
   },
   {
     "id": "common-material-used",
@@ -7122,5 +7310,149 @@
     "subcategory": "ingredient",
     "rarity": "common",
     "value": 1
+  },
+  {
+    "id": "rare-enhanced-healpwdr",
+    "name": "Enhanced Healpwdr.",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-ptn-of-element-resist",
+    "name": "Ptn. Of Element Resist",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-dragon-elixer",
+    "name": "Dragon Elixer",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-vigor-potion",
+    "name": "Vigor Potion",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-blessed-elixer",
+    "name": "Blessed Elixer",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-fire-bomb",
+    "name": "Fire Bomb",
+    "category": "supply",
+    "subcategory": "grenade",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Grenade"
+  },
+  {
+    "id": "rare-shock-bomb",
+    "name": "Shock Bomb",
+    "category": "supply",
+    "subcategory": "grenade",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Grenade"
+  },
+  {
+    "id": "rare-freeze-bomb",
+    "name": "Freeze Bomb",
+    "category": "supply",
+    "subcategory": "grenade",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Grenade"
+  },
+  {
+    "id": "rare-toxin-bomb",
+    "name": "Toxin Bomb",
+    "category": "supply",
+    "subcategory": "grenade",
+    "rarity": "rare",
+    "ingLevelRequired": 4,
+    "type": "Grenade"
+  },
+  {
+    "id": "rare-potion-of-power",
+    "name": "Potion Of Power",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-potion-of-mind",
+    "name": "Potion Of Mind",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-potion-of-reflex",
+    "name": "Potion Of Reflex",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-potion-of-perception",
+    "name": "Potion Of Perception",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-potion-of-steel",
+    "name": "Potion Of Steel",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-potion-of-warding",
+    "name": "Potion Of Warding",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
+  },
+  {
+    "id": "rare-malady-potion",
+    "name": "Malady Potion",
+    "category": "supply",
+    "subcategory": "consumable",
+    "rarity": "rare",
+    "ingLevelRequired": 5,
+    "type": "Consumable"
   }
 ]

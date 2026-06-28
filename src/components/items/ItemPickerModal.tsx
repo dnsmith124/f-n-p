@@ -48,6 +48,7 @@ export function ItemPickerModal({
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
+      if (item.subcategory === "recipe") return false;
       if (categoryFilter && !categoryFilter.includes(item.category)) return false;
       if (subcategoryFilter && !subcategoryFilter.includes(item.subcategory)) return false;
       if (selectedCatDef) {

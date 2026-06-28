@@ -65,6 +65,11 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
       ? `/items?from=${encodeURIComponent(pathname)}`
       : "/items";
 
+  const craftingHref =
+    pathname !== "/" && pathname !== "/crafting"
+      ? `/crafting?from=${encodeURIComponent(pathname)}`
+      : "/crafting";
+
   return (
     <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b border-border-light">
       <div className="flex items-center justify-between h-11 px-3 max-w-2xl mx-auto">
@@ -98,6 +103,17 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
               New Char
             </Link>
           )}
+
+          <Link
+            href={craftingHref}
+            className={`h-8 px-2.5 flex items-center rounded-lg text-xs font-medium transition-colors ${
+              pathname === "/crafting"
+                ? "text-primary bg-primary/10"
+                : "text-text-muted hover:text-text hover:bg-surface-raised"
+            }`}
+          >
+            Crafting
+          </Link>
 
           <Link
             href={itemsHref}

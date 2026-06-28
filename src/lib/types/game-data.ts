@@ -131,6 +131,10 @@ export interface ItemData {
   blockBonus?: string;
   description?: string;
   curseEffects?: string;
+  recipeType?: "armorer";
+  ingLevelRequired?: number;
+  ingLevel?: number;
+  recipeGroup?: string;
 }
 
 export interface ZodiacData {

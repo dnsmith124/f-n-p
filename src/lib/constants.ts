@@ -181,7 +181,6 @@ export const ITEM_CATEGORIES: ItemCategoryDef[] = [
   { value: "enchantment", label: "Enchantments", category: "enchantment" },
   { value: "supply", label: "Supplies", category: "supply" },
   { value: "food", label: "Food", category: "food" },
-  { value: "recipe", label: "Recipes", category: "crafting", subcategory: "recipe" },
   { value: "ingredient", label: "Ingredients", category: "crafting", subcategory: "ingredient" },
   { value: "material", label: "Materials", category: "crafting", subcategory: "material" },
 ];

@@ -2,6 +2,7 @@
 
 import type { ItemData } from "@/lib/types/game-data";
 import { normalizeRarity } from "@/lib/item-utils";
+import { IngLevelStars } from "@/components/crafting/IngLevelStars";
 
 interface ItemDetailContentProps {
   item: ItemData;
@@ -116,6 +117,20 @@ export function ItemDetailContent({ item }: ItemDetailContentProps) {
 
       {cat === "crafting" && item.material && (
         <StatRow label="Materials" value={item.material} />
+      )}
+
+      {item.subcategory === "ingredient" && item.ingLevel != null && (
+        <div className="flex justify-between items-center text-xs py-0.5">
+          <span className="text-text-muted">ING Lv.</span>
+          <IngLevelStars level={item.ingLevel} />
+        </div>
+      )}
+
+      {cat === "supply" && item.ingLevelRequired != null && (
+        <div className="flex justify-between items-center text-xs py-0.5">
+          <span className="text-text-muted">ING Lv. Required</span>
+          <IngLevelStars level={item.ingLevelRequired} />
+        </div>
       )}
 
       <div className="flex gap-4 pt-1 border-t border-border-light mt-1.5">
