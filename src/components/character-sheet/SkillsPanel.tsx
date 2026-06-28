@@ -69,7 +69,7 @@ export function SkillsPanel({ character, onUpdate }: SkillsPanelProps) {
                   displayClassName="font-medium text-sm"
                 />
                 {(skill.classLevel || skill.abilityType) && (
-                  <div className="flex gap-1 mt-0.5">
+                  <div className="flex gap-1 mt-0.5 px-2 items-baseline">
                     {skill.classLevel && (
                       <span className="text-[9px] uppercase text-text-muted font-mono">
                         Lv{skill.classLevel}

@@ -6,8 +6,9 @@ import type { ItemData } from "@/lib/types/game-data";
 import { EditableField } from "@/components/ui/EditableField";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 import { ItemPickerModal } from "@/components/items/ItemPickerModal";
-import { buildEquipmentProperties } from "@/lib/item-utils";
+import { buildEquipmentProperties, parseItemModifiers } from "@/lib/item-utils";
 import { EQUIPMENT_SLOT_FILTERS } from "@/lib/constants";
+import { emptySlot } from "@/lib/utils";
 
 interface EquipmentPanelProps {
   character: Character;
@@ -19,9 +20,22 @@ interface SlotEditorProps {
   slot: EquipmentSlot;
   onChange: (slot: EquipmentSlot) => void;
   onBrowse?: () => void;
+  onClear?: () => void;
 }
 
-function SlotEditor({ label, slot, onChange, onBrowse }: SlotEditorProps) {
+function isSlotEmpty(slot: EquipmentSlot): boolean {
+  return (
+    !slot.name &&
+    !slot.properties &&
+    !slot.description &&
+    slot.weight === 0 &&
+    !slot.isBroken &&
+    (slot.modifiers?.length ?? 0) === 0 &&
+    (slot.situationalEffects?.length ?? 0) === 0
+  );
+}
+
+function SlotEditor({ label, slot, onChange, onBrowse, onClear }: SlotEditorProps) {
   const update = (field: keyof EquipmentSlot, value: unknown) => {
     onChange({ ...slot, [field]: value });
   };
@@ -52,6 +66,19 @@ function SlotEditor({ label, slot, onChange, onBrowse }: SlotEditorProps) {
               </svg>
             </button>
           )}
+          {onClear && (
+            <button
+              onClick={onClear}
+              disabled={isSlotEmpty(slot)}
+              className="shrink-0 mb-0.5 p-1.5 rounded text-text-muted hover:text-danger hover:bg-surface-raised transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              title="Clear slot"
+              aria-label="Clear slot"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
         </div>
         <div className="grid grid-cols-2 gap-2">
           <EditableField
@@ -77,7 +104,7 @@ function SlotEditor({ label, slot, onChange, onBrowse }: SlotEditorProps) {
           value={slot.properties}
           onChange={(v) => update("properties", String(v))}
           label="Properties"
-          placeholder="Attributes, enchants, etc."
+          placeholder="e.g. EVA +2, ARM +1"
         />
         <EditableField
           value={slot.description}
@@ -117,12 +144,15 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
 
   const handleItemSelect = (item: ItemData) => {
     if (!pickerSlot) return;
+    const { modifiers, situationalEffects } = parseItemModifiers(item);
     const slot: EquipmentSlot = {
       name: item.name,
       weight: item.weight ?? 0,
       properties: buildEquipmentProperties(item),
       description: item.description ?? "",
       isBroken: false,
+      modifiers,
+      situationalEffects,
     };
     updateSlot(
       pickerSlot.key as keyof CharacterEquipment,
@@ -147,6 +177,7 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
           slot={slot}
           onChange={(s) => updateSlot("armamentSlots", i, s)}
           onBrowse={() => setPickerSlot({ key: "armamentSlots", index: i })}
+          onClear={() => updateSlot("armamentSlots", i, emptySlot())}
         />
       ))}
 
@@ -155,6 +186,7 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
         slot={eq.holdoutWeapon}
         onChange={(s) => updateSlot("holdoutWeapon", null, s)}
         onBrowse={() => setPickerSlot({ key: "holdoutWeapon", index: null })}
+        onClear={() => updateSlot("holdoutWeapon", null, emptySlot())}
       />
 
       <h4 className="text-[10px] uppercase tracking-wider text-text-muted mt-3">
@@ -165,24 +197,28 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
         slot={eq.torsoArmor}
         onChange={(s) => updateSlot("torsoArmor", null, s)}
         onBrowse={() => setPickerSlot({ key: "torsoArmor", index: null })}
+        onClear={() => updateSlot("torsoArmor", null, emptySlot())}
       />
       <SlotEditor
         label="Helmet"
         slot={eq.helmet}
         onChange={(s) => updateSlot("helmet", null, s)}
         onBrowse={() => setPickerSlot({ key: "helmet", index: null })}
+        onClear={() => updateSlot("helmet", null, emptySlot())}
       />
       <SlotEditor
         label="Gloves"
         slot={eq.gloves}
         onChange={(s) => updateSlot("gloves", null, s)}
         onBrowse={() => setPickerSlot({ key: "gloves", index: null })}
+        onClear={() => updateSlot("gloves", null, emptySlot())}
       />
       <SlotEditor
         label="Footwear"
         slot={eq.footwear}
         onChange={(s) => updateSlot("footwear", null, s)}
         onBrowse={() => setPickerSlot({ key: "footwear", index: null })}
+        onClear={() => updateSlot("footwear", null, emptySlot())}
       />
 
       <h4 className="text-[10px] uppercase tracking-wider text-text-muted mt-3">
@@ -193,12 +229,14 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
         slot={eq.ring}
         onChange={(s) => updateSlot("ring", null, s)}
         onBrowse={() => setPickerSlot({ key: "ring", index: null })}
+        onClear={() => updateSlot("ring", null, emptySlot())}
       />
       <SlotEditor
         label="Artifact"
         slot={eq.artifact}
         onChange={(s) => updateSlot("artifact", null, s)}
         onBrowse={() => setPickerSlot({ key: "artifact", index: null })}
+        onClear={() => updateSlot("artifact", null, emptySlot())}
       />
 
       <h4 className="text-[10px] uppercase tracking-wider text-text-muted mt-3">
@@ -211,6 +249,7 @@ export function EquipmentPanel({ character, onUpdate }: EquipmentPanelProps) {
           slot={slot}
           onChange={(s) => updateSlot("toolbelt", i, s)}
           onBrowse={() => setPickerSlot({ key: "toolbelt", index: i })}
+          onClear={() => updateSlot("toolbelt", i, emptySlot())}
         />
       ))}
 

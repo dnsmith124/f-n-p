@@ -108,12 +108,37 @@ export interface TrainingEntry {
   source?: "class" | "manual";
 }
 
+export type ModifierTarget =
+  | AttributeKey
+  | "armor"
+  | "barrier"
+  | "evasion"
+  | "movement"
+  | "encumbranceMax"
+  | "luckTokensMax";
+
+export interface StatModifier {
+  target: ModifierTarget;
+  value: number;
+  source: string;
+}
+
+export interface GearResistance {
+  damageType: DamageType;
+  level: DamageModifierLevel;
+  source: string;
+}
+
+export type GearWeakness = GearResistance;
+
 export interface EquipmentSlot {
   name: string;
   description: string;
   weight: number;
   isBroken: boolean;
   properties: string;
+  modifiers: StatModifier[];
+  situationalEffects: string[];
 }
 
 export interface CharacterEquipment {

@@ -59,3 +59,14 @@ export function groupArmorerRecipes(recipes: ItemData[]): Map<string, ItemData[]
   }
   return groups;
 }
+
+const ARMORER_RECIPE_GROUP_ORDER_SET = new Set<string>(ARMORER_RECIPE_GROUP_ORDER);
+
+/** Known groups first (in display order), then any unlisted groups alphabetically. */
+export function getArmorerRecipeGroupOrder(groups: Map<string, ItemData[]>): string[] {
+  const ordered = ARMORER_RECIPE_GROUP_ORDER.filter((g) => groups.has(g));
+  const unknown = [...groups.keys()]
+    .filter((g) => !ARMORER_RECIPE_GROUP_ORDER_SET.has(g))
+    .sort((a, b) => a.localeCompare(b));
+  return [...ordered, ...unknown];
+}

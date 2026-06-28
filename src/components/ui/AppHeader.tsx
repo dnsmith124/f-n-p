@@ -77,12 +77,13 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
           {backHref ? (
             <Link
               href={backHref}
+              aria-label={backLabel || "Back"}
               className="flex items-center gap-1 text-text-muted hover:text-text transition-colors text-sm"
             >
               <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="truncate">{backLabel || "Back"}</span>
+              <span className="hidden sm:inline truncate">{backLabel || "Back"}</span>
             </Link>
           ) : (
             <span className="font-bold text-sm text-primary truncate">F&P</span>
@@ -100,7 +101,7 @@ export function AppHeader({ backHref, backLabel, actions, menuItems = [] }: AppH
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
               </svg>
-              New Char
+              New
             </Link>
           )}
 

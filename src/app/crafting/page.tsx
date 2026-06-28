@@ -10,8 +10,8 @@ import { AlchemyItemCard } from "@/components/crafting/AlchemyItemCard";
 import { ITEM_RARITIES } from "@/lib/constants";
 import { loadCharacter } from "@/lib/storage";
 import {
-  ARMORER_RECIPE_GROUP_ORDER,
   filterCraftingItems,
+  getArmorerRecipeGroupOrder,
   groupArmorerRecipes,
   isAlchemyCraftable,
   isForagedIngredient,
@@ -151,20 +151,24 @@ function CraftingPageContent() {
           </p>
         ) : selectedType === "armorer" && armorerGroups ? (
           <div className="space-y-4">
-            {ARMORER_RECIPE_GROUP_ORDER.filter((g) => armorerGroups.has(g)).map((group) => (
-              <CollapsibleSection
-                key={group}
-                title={group}
-                badge={armorerGroups.get(group)!.length}
-                defaultOpen={false}
-              >
-                <div className="space-y-1.5">
-                  {armorerGroups.get(group)!.map((item) => (
-                    <RecipeCard key={item.id} item={item} />
-                  ))}
-                </div>
-              </CollapsibleSection>
-            ))}
+            {getArmorerRecipeGroupOrder(armorerGroups).map((group) => {
+              const groupItems = armorerGroups.get(group);
+              if (!groupItems) return null;
+              return (
+                <CollapsibleSection
+                  key={group}
+                  title={group}
+                  badge={groupItems.length}
+                  defaultOpen={false}
+                >
+                  <div className="space-y-1.5">
+                    {groupItems.map((item) => (
+                      <RecipeCard key={item.id} item={item} />
+                    ))}
+                  </div>
+                </CollapsibleSection>
+              );
+            })}
           </div>
         ) : (
           <div className="space-y-4">

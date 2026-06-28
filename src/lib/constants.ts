@@ -3,6 +3,7 @@ import type {
   DamageModifierLevel,
   DamageType,
   MagicSchool,
+  ModifierTarget,
 } from "./types/character";
 
 export const ATTRIBUTE_KEYS: AttributeKey[] = [
@@ -161,7 +162,52 @@ export const DAMAGE_MODIFIER_LEVELS: {
   { value: "absorb", label: "(Ab)", hint: "DMG dealt is converted into HP recovery" },
 ];
 
-export const CHARACTER_VERSION = 2;
+export const CHARACTER_VERSION = 3;
+
+/** Maps item bonus abbreviations to stat targets for inline token parsing. */
+export const STAT_BONUS_TARGETS: Record<string, ModifierTarget> = {
+  STR: "str",
+  ACC: "acc",
+  FNS: "fns",
+  SPD: "spd",
+  INT: "int",
+  MEM: "mem",
+  VIT: "vit",
+  CHA: "cha",
+  SRV: "srv",
+  ARM: "armor",
+  BAR: "barrier",
+  EVA: "evasion",
+  MOVE: "movement",
+};
+
+/** Maps resistance abbreviations in item data to DamageType values. */
+export const DAMAGE_ABBR: Record<string, DamageType> = {
+  Slash: "slashing",
+  Slashing: "slashing",
+  Crush: "crushing",
+  Crushing: "crushing",
+  Pierce: "piercing",
+  Piercing: "piercing",
+  Fire: "fire",
+  Ice: "ice",
+  Elec: "electric",
+  Electric: "electric",
+  Water: "water",
+  Wind: "wind",
+  Dark: "dark",
+  Light: "light",
+  Toxic: "toxic",
+  Mind: "mind",
+  Sound: "sound",
+};
+
+export const STAT_TOKEN_REGEX =
+  /(EVA|BAR|ARM|MOVE|STR|ACC|FNS|SPD|INT|MEM|VIT|CHA|SRV)\s*([+-]\s*\d+)/gi;
+
+/** Value-before-stat form: +1 STR, -2 EVA */
+export const STAT_TOKEN_REVERSED_REGEX =
+  /([+-]\s*\d+)\s+(EVA|BAR|ARM|MOVE|STR|ACC|FNS|SPD|INT|MEM|VIT|CHA|SRV)\b/gi;
 
 export interface ItemCategoryDef {
   value: string;

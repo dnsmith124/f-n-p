@@ -1,15 +1,17 @@
 "use client";
 
 import type { Character, AttributeKey } from "@/lib/types/character";
+import type { CharacterStatBreakdowns } from "@/lib/stat-breakdown";
 import { StatBlock } from "@/components/ui/StatBlock";
 import { ATTRIBUTE_KEYS } from "@/lib/constants";
 
 interface AttributesPanelProps {
   character: Character;
+  breakdowns: CharacterStatBreakdowns;
   onUpdate: (updater: (prev: Character) => Character) => void;
 }
 
-export function AttributesPanel({ character, onUpdate }: AttributesPanelProps) {
+export function AttributesPanel({ character, breakdowns, onUpdate }: AttributesPanelProps) {
   const handleChange = (key: AttributeKey, value: number) => {
     onUpdate((prev) => ({
       ...prev,
@@ -26,6 +28,7 @@ export function AttributesPanel({ character, onUpdate }: AttributesPanelProps) {
           key={key}
           attrKey={key}
           value={character.attributes[key]}
+          breakdown={breakdowns.attributes[key]}
           onChange={(v) => handleChange(key, v)}
         />
       ))}

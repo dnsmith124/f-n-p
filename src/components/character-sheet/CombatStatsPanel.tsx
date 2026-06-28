@@ -1,18 +1,20 @@
 "use client";
 
 import type { Character, CombatStats } from "@/lib/types/character";
-import { EditableField } from "@/components/ui/EditableField";
-import { DerivedField } from "@/components/ui/DerivedField";
+import type { CharacterStatBreakdowns } from "@/lib/stat-breakdown";
+import { GearStatField } from "@/components/ui/GearStatField";
 import { ResourceTracker } from "@/components/ui/ResourceTracker";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 import { WeakResistEditor } from "@/components/character-sheet/WeakResistEditor";
+import { SituationalEffectsPanel } from "@/components/character-sheet/SituationalEffectsPanel";
 
 interface CombatStatsPanelProps {
   character: Character;
+  breakdowns: CharacterStatBreakdowns;
   onUpdate: (updater: (prev: Character) => Character) => void;
 }
 
-export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps) {
+export function CombatStatsPanel({ character, breakdowns, onUpdate }: CombatStatsPanelProps) {
   const cs = character.combatStats;
 
   const updateStat = <K extends keyof CombatStats>(field: K, value: CombatStats[K]) => {
@@ -27,6 +29,7 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
       <div className="space-y-2">
         <ResourceTracker
           label="HP"
+          labelText="HP"
           current={cs.hpCurrent}
           max={cs.hpMax}
           onCurrentChange={(v) => updateStat("hpCurrent", v)}
@@ -35,6 +38,7 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
         />
         <ResourceTracker
           label="Stamina"
+          labelText="Stamina"
           current={cs.staminaCurrent}
           max={cs.staminaMax}
           onCurrentChange={(v) => updateStat("staminaCurrent", v)}
@@ -44,69 +48,70 @@ export function CombatStatsPanel({ character, onUpdate }: CombatStatsPanelProps)
       </div>
 
       <div className="grid grid-cols-4 gap-2">
-        {character.tribe ? (
-          <DerivedField value={cs.evasion} label="EVA" hint="base+FNS" />
-        ) : (
-          <EditableField
-            value={cs.evasion}
-            onChange={(v) => updateStat("evasion", v as number)}
-            type="number"
-            label="EVA"
-          />
-        )}
-        <EditableField
-          value={cs.armor}
-          onChange={(v) => updateStat("armor", v as number)}
-          type="number"
+        <GearStatField
+          label="EVA"
+          breakdown={breakdowns.evasion}
+          onBaseChange={character.tribe ? undefined : (v) => updateStat("evasion", v)}
+          hintTitle="Evasion"
+        />
+        <GearStatField
           label="ARM"
+          breakdown={breakdowns.armor}
+          onBaseChange={(v) => updateStat("armor", v)}
+          hintTitle="Armor"
         />
-        <EditableField
-          value={cs.barrier}
-          onChange={(v) => updateStat("barrier", v as number)}
-          type="number"
+        <GearStatField
           label="BAR"
+          breakdown={breakdowns.barrier}
+          onBaseChange={(v) => updateStat("barrier", v)}
+          hintTitle="Barrier"
         />
-        {character.tribe ? (
-          <DerivedField value={cs.movement} label="MOVE" hint="base+SPD" />
-        ) : (
-          <EditableField
-            value={cs.movement}
-            onChange={(v) => updateStat("movement", v as number)}
-            type="number"
-            label="MOVE"
-          />
-        )}
+        <GearStatField
+          label="MOVE"
+          breakdown={breakdowns.movement}
+          onBaseChange={character.tribe ? undefined : (v) => updateStat("movement", v)}
+          hintTitle="Movement"
+        />
       </div>
 
       <div className="grid grid-cols-4 gap-2">
-        <DerivedField
-          value={`${cs.critRate}+`}
+        <GearStatField
           label="Crit"
-          hint="20−FNS"
-        />
-        <DerivedField
-          value={`${cs.meleeDmgBonus}+`}
-          label="Melee+"
-          hint="STR"
-        />
-        <DerivedField
-          value={`${cs.rangedDmgBonus}+`}
-          label="Ranged+"
-          hint="ACC"
-        />
-        <EditableField
-          value={cs.spellDmgBonus}
-          onChange={(v) => updateStat("spellDmgBonus", v as number)}
-          type="number"
+          breakdown={breakdowns.critRate}
+          hintTitle="Critical Hit Rate (20 − FNS)"
           showSign
+        />
+        <GearStatField
+          label="Melee+"
+          breakdown={breakdowns.meleeDmgBonus}
+          hintTitle="Melee Damage Bonus (STR)"
+          showSign
+        />
+        <GearStatField
+          label="Ranged+"
+          breakdown={breakdowns.rangedDmgBonus}
+          hintTitle="Ranged Damage Bonus (ACC)"
+          showSign
+        />
+        <GearStatField
           label="Spell+"
+          breakdown={breakdowns.spellDmgBonus}
+          onBaseChange={(v) => updateStat("spellDmgBonus", v)}
+          hintTitle="Spell Damage Bonus"
+          showSign
         />
       </div>
+
+      <CollapsibleSection title="Situational Effects" defaultOpen={false}>
+        <SituationalEffectsPanel effects={breakdowns.situationalEffects} />
+      </CollapsibleSection>
 
       <CollapsibleSection title="Weak / Resist" defaultOpen={false}>
         <WeakResistEditor
           weaknesses={cs.weaknesses}
           resistances={cs.resistances}
+          gearWeaknesses={breakdowns.gearWeaknesses}
+          gearResistances={breakdowns.gearResistances}
           onWeaknessesChange={(entries) => updateStat("weaknesses", entries)}
           onResistancesChange={(entries) => updateStat("resistances", entries)}
         />

@@ -38,6 +38,30 @@ export function emptySlot(): EquipmentSlot {
     weight: 0,
     isBroken: false,
     properties: "",
+    modifiers: [],
+    situationalEffects: [],
+  };
+}
+
+function normalizeEquipmentSlot(slot: EquipmentSlot): EquipmentSlot {
+  return {
+    ...slot,
+    modifiers: slot.modifiers ?? [],
+    situationalEffects: slot.situationalEffects ?? [],
+  };
+}
+
+function normalizeEquipment(equipment: Character["equipment"]): Character["equipment"] {
+  return {
+    armamentSlots: equipment.armamentSlots.map(normalizeEquipmentSlot) as Character["equipment"]["armamentSlots"],
+    holdoutWeapon: normalizeEquipmentSlot(equipment.holdoutWeapon),
+    torsoArmor: normalizeEquipmentSlot(equipment.torsoArmor),
+    helmet: normalizeEquipmentSlot(equipment.helmet),
+    gloves: normalizeEquipmentSlot(equipment.gloves),
+    footwear: normalizeEquipmentSlot(equipment.footwear),
+    ring: normalizeEquipmentSlot(equipment.ring),
+    artifact: normalizeEquipmentSlot(equipment.artifact),
+    toolbelt: equipment.toolbelt.map(normalizeEquipmentSlot) as Character["equipment"]["toolbelt"],
   };
 }
 
@@ -119,6 +143,7 @@ export function normalizeCharacter(character: Character): Character {
       ...s,
       source: s.source ?? "other",
     })),
+    equipment: normalizeEquipment(character.equipment),
     combatStats: {
       ...character.combatStats,
       weaknesses,
@@ -141,7 +166,7 @@ export function spellMatchesKnownSchools(
   return school !== null && knownSchools.includes(school);
 }
 
-export function applyDerivedStats(character: Character): Character {
+export function applyDerivedStats(character: Character, previous?: Character): Character {
   const normalized = normalizeCharacter(character);
   const level = levelFromMerit(normalized.merit);
   const critRate = derivedCritRate(normalized.attributes.fns);
@@ -155,6 +180,25 @@ export function applyDerivedStats(character: Character): Character {
   const movement = tribe
     ? tribe.movementBase + normalized.attributes.spd
     : normalized.combatStats.movement;
+
+  let encumbranceMax = normalized.inventory.encumbranceMax;
+  if (tribe) {
+    const prevStr =
+      previous?.tribe === normalized.tribe ?
+        previous.attributes.str
+      : normalized.attributes.str;
+    const flatExtra =
+      previous?.tribe === normalized.tribe ?
+        previous.inventory.encumbranceMax - tribe.encumbranceBase - prevStr
+      : Math.max(
+          0,
+          normalized.inventory.encumbranceMax -
+            tribe.encumbranceBase -
+            normalized.attributes.str
+        );
+    encumbranceMax = tribe.encumbranceBase + normalized.attributes.str + flatExtra;
+  }
+
   const spellMemoryCurrent = spellMemoryUsed(normalized);
 
   if (
@@ -164,6 +208,7 @@ export function applyDerivedStats(character: Character): Character {
     rangedDmgBonus === normalized.combatStats.rangedDmgBonus &&
     evasion === normalized.combatStats.evasion &&
     movement === normalized.combatStats.movement &&
+    encumbranceMax === normalized.inventory.encumbranceMax &&
     spellMemoryCurrent === normalized.magic.spellMemoryCurrent
   ) {
     return normalized;
@@ -179,6 +224,10 @@ export function applyDerivedStats(character: Character): Character {
       rangedDmgBonus,
       evasion,
       movement,
+    },
+    inventory: {
+      ...normalized.inventory,
+      encumbranceMax,
     },
     magic: { ...normalized.magic, spellMemoryCurrent },
   };

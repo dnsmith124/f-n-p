@@ -3,20 +3,25 @@
 import { useCallback, useState } from "react";
 import type { Character, InventoryItem, InventoryState } from "@/lib/types/character";
 import type { ItemData } from "@/lib/types/game-data";
+import type { CharacterStatBreakdowns } from "@/lib/stat-breakdown";
 import { EditableField } from "@/components/ui/EditableField";
+import { HintTooltip } from "@/components/ui/HintTooltip";
 import { ResourceTracker } from "@/components/ui/ResourceTracker";
 import { ItemPickerModal } from "@/components/items/ItemPickerModal";
 import { generateId } from "@/lib/utils";
 import { buildInventoryNotes } from "@/lib/item-utils";
+import { formatEncumbranceTooltip } from "@/lib/stat-breakdown";
 
 interface InventoryPanelProps {
   character: Character;
+  breakdowns: CharacterStatBreakdowns;
   onUpdate: (updater: (prev: Character) => Character) => void;
 }
 
-export function InventoryPanel({ character, onUpdate }: InventoryPanelProps) {
+export function InventoryPanel({ character, breakdowns, onUpdate }: InventoryPanelProps) {
   const inv = character.inventory;
   const [showCatalog, setShowCatalog] = useState(false);
+  const encumbranceTooltip = formatEncumbranceTooltip(breakdowns);
 
   const addFromCatalog = useCallback(
     (itemData: ItemData) => {
@@ -100,8 +105,10 @@ export function InventoryPanel({ character, onUpdate }: InventoryPanelProps) {
         <div>
           <ResourceTracker
             label="Luck"
+            labelText="Luck"
             current={inv.luckTokens}
-            max={inv.luckTokensMax}
+            max={breakdowns.luckTokensMax.total}
+            maxBase={inv.luckTokensMax}
             onCurrentChange={(v) => updateInv("luckTokens", v)}
             onMaxChange={(v) => updateInv("luckTokensMax", v)}
             color="bg-accent"
@@ -110,11 +117,15 @@ export function InventoryPanel({ character, onUpdate }: InventoryPanelProps) {
       </div>
 
       <ResourceTracker
-        label="Weight"
-        current={inv.encumbranceCurrent}
-        max={inv.encumbranceMax}
-        onCurrentChange={(v) => updateInv("encumbranceCurrent", v)}
-        onMaxChange={(v) => updateInv("encumbranceMax", v)}
+        label={
+          <HintTooltip content={encumbranceTooltip} panel ariaLabel="Encumbrance breakdown">
+            <span>Weight</span>
+          </HintTooltip>
+        }
+        labelText="Weight"
+        current={breakdowns.encumbrance.current}
+        max={breakdowns.encumbrance.max.total}
+        readOnlyCurrent
         color="bg-secondary"
       />
 

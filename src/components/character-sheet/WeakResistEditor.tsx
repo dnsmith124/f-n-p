@@ -5,16 +5,21 @@ import type {
   DamageModifierEntry,
   DamageModifierLevel,
   DamageType,
+  GearResistance,
 } from "@/lib/types/character";
 import { Badge } from "@/components/ui/Badge";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 import { EditableSelect } from "@/components/ui/EditableSelect";
+import { HintTooltip } from "@/components/ui/HintTooltip";
 import { DAMAGE_MODIFIER_LEVELS, DAMAGE_TYPES } from "@/lib/constants";
+import { formatGearDamageModifiersTooltip } from "@/lib/stat-breakdown";
 import { formatDamageModifierEntry, generateId } from "@/lib/utils";
 
 interface WeakResistEditorProps {
   weaknesses: DamageModifierEntry[];
   resistances: DamageModifierEntry[];
+  gearWeaknesses?: GearResistance[];
+  gearResistances?: GearResistance[];
   onWeaknessesChange: (entries: DamageModifierEntry[]) => void;
   onResistancesChange: (entries: DamageModifierEntry[]) => void;
 }
@@ -34,6 +39,54 @@ const KIND_OPTIONS = [
   { value: "resistance", label: "Resistance" },
 ];
 
+function GearEntries({
+  label,
+  entries,
+  variant,
+  tooltipKind,
+}: {
+  label: string;
+  entries: GearResistance[];
+  variant: "danger" | "accent";
+  tooltipKind: "weaknesses" | "resistances";
+}) {
+  if (entries.length === 0) return null;
+
+  const tooltip = formatGearDamageModifiersTooltip(tooltipKind, entries);
+
+  return (
+    <div className="space-y-1 mt-1">
+      <HintTooltip
+        content={tooltip}
+        panel
+        ariaLabel={`${label}: ${tooltipKind} from equipment`}
+        className="text-[9px] uppercase tracking-wider text-text-muted cursor-help underline decoration-dotted underline-offset-2"
+      >
+        {label}
+      </HintTooltip>
+      <div className="flex flex-wrap gap-1">
+        {entries.map((entry, i) => {
+          const entryLabel = formatDamageModifierEntry({
+            id: "",
+            damageType: entry.damageType,
+            level: entry.level,
+          });
+          const badgeTooltip = `${entryLabel}\n\nSource: ${entry.source}`;
+          return (
+            <HintTooltip
+              key={`${entry.source}-${entry.damageType}-${entry.level}-${i}`}
+              content={badgeTooltip}
+              panel
+              ariaLabel={`${entryLabel} from ${entry.source}`}
+            >
+              <Badge variant={variant}>{entryLabel}</Badge>
+            </HintTooltip>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 function ActiveEntries({
   label,
   entries,
@@ -67,6 +120,8 @@ function ActiveEntries({
 export function WeakResistEditor({
   weaknesses,
   resistances,
+  gearWeaknesses = [],
+  gearResistances = [],
   onWeaknessesChange,
   onResistancesChange,
 }: WeakResistEditorProps) {
@@ -121,20 +176,36 @@ export function WeakResistEditor({
   return (
     <div className="space-y-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <ActiveEntries
-          label="Weaknesses"
-          entries={weaknesses}
-          emptyLabel="None"
-          variant="danger"
-          onRemove={removeWeakness}
-        />
-        <ActiveEntries
-          label="Resistances"
-          entries={resistances}
-          emptyLabel="None"
-          variant="accent"
-          onRemove={removeResistance}
-        />
+        <div>
+          <ActiveEntries
+            label="Weaknesses"
+            entries={weaknesses}
+            emptyLabel="None"
+            variant="danger"
+            onRemove={removeWeakness}
+          />
+          <GearEntries
+            label="From gear"
+            entries={gearWeaknesses}
+            variant="danger"
+            tooltipKind="weaknesses"
+          />
+        </div>
+        <div>
+          <ActiveEntries
+            label="Resistances"
+            entries={resistances}
+            emptyLabel="None"
+            variant="accent"
+            onRemove={removeResistance}
+          />
+          <GearEntries
+            label="From gear"
+            entries={gearResistances}
+            variant="accent"
+            tooltipKind="resistances"
+          />
+        </div>
       </div>
 
       <CollapsibleSection title="Explanation" defaultOpen={false}>

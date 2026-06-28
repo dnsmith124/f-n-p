@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
 import { HintTooltip } from "./HintTooltip";
+import { GearModifiedIndicator } from "./GearModifiedIndicator";
+import { useInlineNumberEdit } from "@/hooks/useInlineNumberEdit";
 import {
   ATTRIBUTE_ABBR,
   ATTRIBUTE_TOOLTIPS,
@@ -9,52 +10,58 @@ import {
   ATTRIBUTE_MAX,
 } from "@/lib/constants";
 import type { AttributeKey } from "@/lib/types/character";
+import type { StatBreakdown } from "@/lib/stat-breakdown";
+import { formatStatBreakdownBody } from "@/lib/stat-breakdown";
 
 interface StatBlockProps {
   attrKey: AttributeKey;
   value: number;
+  breakdown?: StatBreakdown;
   onChange: (value: number) => void;
 }
 
-export function StatBlock({ attrKey, value, onChange }: StatBlockProps) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState(String(value));
-  const inputRef = useRef<HTMLInputElement>(null);
+export function StatBlock({ attrKey, value, breakdown, onChange }: StatBlockProps) {
+  const effectiveValue = breakdown?.total ?? value;
+  const hasGear = (breakdown?.contributions.length ?? 0) > 0;
 
-  useEffect(() => setEditValue(String(value)), [value]);
-
-  useEffect(() => {
-    if (isEditing && inputRef.current) {
-      inputRef.current.focus();
-      inputRef.current.select();
-    }
-  }, [isEditing]);
-
-  const commit = useCallback(() => {
-    setIsEditing(false);
-    let num = parseInt(editValue) || 0;
-    num = Math.max(ATTRIBUTE_MIN, Math.min(ATTRIBUTE_MAX, num));
-    if (num !== value) onChange(num);
-    setEditValue(String(num));
-  }, [editValue, onChange, value]);
+  const { isEditing, editValue, setEditValue, inputRef, startEditing, commit, cancel } =
+    useInlineNumberEdit({
+      value,
+      onCommit: onChange,
+      min: ATTRIBUTE_MIN,
+      max: ATTRIBUTE_MAX,
+    });
 
   const valueColor =
-    value > 0 ?
+    effectiveValue > 0 ?
       "text-green-700 [data-theme=bioluminescent-dark]_&:text-green-400"
-    : value < 0 ? "text-danger"
+    : effectiveValue < 0 ? "text-danger"
     : "text-text-muted";
 
   const description = ATTRIBUTE_TOOLTIPS[attrKey];
+  const breakdownText =
+    breakdown && hasGear ?
+      "\n\n" + formatStatBreakdownBody(breakdown, {
+        formatValue: (v) => (v > 0 ? `+${v}` : String(v)),
+      })
+    : breakdown && breakdown.total !== breakdown.base ?
+      `\n\nEffective: ${effectiveValue > 0 ? `+${effectiveValue}` : effectiveValue}\nBase: ${value > 0 ? `+${value}` : value}`
+    : "";
+
+  const tooltipContent = description + breakdownText;
 
   return (
     <div className="flex flex-col items-center gap-0.5 p-2 rounded-lg bg-surface border border-border-light">
       <HintTooltip
         panel
-        content={description}
+        content={tooltipContent}
         ariaLabel={`${ATTRIBUTE_ABBR[attrKey]}: ${description}`}
       >
         <span className="text-sm font-bold uppercase tracking-wider text-text-secondary">
           {ATTRIBUTE_ABBR[attrKey]}
+          {hasGear && (
+            <GearModifiedIndicator className="ml-1 text-[8px] text-accent normal-case tracking-normal" />
+          )}
         </span>
       </HintTooltip>
       {isEditing ?
@@ -66,10 +73,7 @@ export function StatBlock({ attrKey, value, onChange }: StatBlockProps) {
           onBlur={commit}
           onKeyDown={(e) => {
             if (e.key === "Enter") commit();
-            if (e.key === "Escape") {
-              setEditValue(String(value));
-              setIsEditing(false);
-            }
+            if (e.key === "Escape") cancel();
           }}
           min={ATTRIBUTE_MIN}
           max={ATTRIBUTE_MAX}
@@ -77,10 +81,11 @@ export function StatBlock({ attrKey, value, onChange }: StatBlockProps) {
         />
       : <button
           type="button"
-          onClick={() => setIsEditing(true)}
+          onClick={startEditing}
           className={`text-lg font-bold cursor-text hover:underline decoration-accent ${valueColor}`}
+          title={hasGear ? `Base ${value > 0 ? `+${value}` : value}, effective ${effectiveValue > 0 ? `+${effectiveValue}` : effectiveValue}` : undefined}
         >
-          {value > 0 ? `+${value}` : value}
+          {effectiveValue > 0 ? `+${effectiveValue}` : effectiveValue}
         </button>
       }
     </div>

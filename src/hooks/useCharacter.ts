@@ -53,7 +53,7 @@ export function useCharacter(id: string) {
       redoStack.current = [];
       setCanUndo(true);
       setCanRedo(false);
-      const updated = applyDerivedStats(updater(prev));
+      const updated = applyDerivedStats(updater(prev), prev);
       characterRef.current = updated;
       setCharacterState(updated);
       persistCharacter(updated);

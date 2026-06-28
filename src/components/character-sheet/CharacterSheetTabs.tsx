@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Character } from "@/lib/types/character";
+import { getStatBreakdowns } from "@/lib/stat-breakdown";
 import { TabBar, type Tab } from "@/components/ui/TabBar";
 import { AttributesPanel } from "./AttributesPanel";
 import { CombatStatsPanel } from "./CombatStatsPanel";
@@ -60,6 +61,7 @@ export function CharacterSheetTabs({
   onUpdate,
 }: CharacterSheetTabsProps) {
   const [activeTab, setActiveTab] = useState("stats");
+  const breakdowns = useMemo(() => getStatBreakdowns(character), [character]);
 
   return (
     <div className="flex flex-col md:flex-row flex-1">
@@ -68,8 +70,8 @@ export function CharacterSheetTabs({
       <div className="flex-1 p-3 pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-3">
         {activeTab === "stats" && (
           <div className="space-y-4">
-            <AttributesPanel character={character} onUpdate={onUpdate} />
-            <CombatStatsPanel character={character} onUpdate={onUpdate} />
+            <AttributesPanel character={character} breakdowns={breakdowns} onUpdate={onUpdate} />
+            <CombatStatsPanel character={character} breakdowns={breakdowns} onUpdate={onUpdate} />
           </div>
         )}
         {activeTab === "magic" && (
@@ -108,7 +110,7 @@ export function CharacterSheetTabs({
         )}
         {activeTab === "bag" && (
           <div className="space-y-4">
-            <InventoryPanel character={character} onUpdate={onUpdate} />
+            <InventoryPanel character={character} breakdowns={breakdowns} onUpdate={onUpdate} />
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-primary mb-2">
                 Notes
