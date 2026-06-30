@@ -11,6 +11,8 @@ import {
 } from "@/lib/wizard-utils";
 
 type WizardAction =
+  | { type: "SET_CREATION_MODE"; mode: "scratch" | "random" }
+  | { type: "RANDOMIZE_ALL"; state: WizardState }
   | { type: "SET_TRIBE"; tribeId: string; startingBonus: { name: string; description: string } | null }
   | { type: "SET_STARTING_BONUS"; startingBonus: { name: string; description: string } }
   | { type: "SET_CLASS"; classId: string }
@@ -27,6 +29,12 @@ type WizardAction =
 
 function wizardReducer(state: WizardState, action: WizardAction): WizardState {
   switch (action.type) {
+    case "SET_CREATION_MODE":
+      return { ...state, creationMode: action.mode };
+
+    case "RANDOMIZE_ALL":
+      return action.state;
+
     case "SET_TRIBE":
       return {
         ...state,
@@ -102,6 +110,7 @@ export function useWizardState() {
   const currentStepValid = isStepValid(state, state.currentStep);
 
   const hasAnyChoices =
+    state.creationMode !== null ||
     state.tribeId !== "" ||
     state.classId !== "" ||
     state.characterName !== "";
@@ -111,10 +120,10 @@ export function useWizardState() {
   const isLastStep = state.currentStep === WIZARD_STEPS.length - 1;
 
   const canCreate =
-    isStepValid(state, 0) &&
     isStepValid(state, 1) &&
     isStepValid(state, 2) &&
-    isStepValid(state, 3);
+    isStepValid(state, 3) &&
+    isStepValid(state, 4);
 
   const goNext = useCallback(() => dispatch({ type: "NEXT_STEP" }), []);
   const goBack = useCallback(() => dispatch({ type: "PREV_STEP" }), []);

@@ -3,17 +3,21 @@
 import { useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useWizardState } from "@/hooks/useWizardState";
-import { finalizeWizardCharacter } from "@/lib/wizard-utils";
+import {
+  finalizeWizardCharacter,
+  generateRandomWizardState,
+  isStepValid,
+} from "@/lib/wizard-utils";
 import { saveCharacter } from "@/lib/storage";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { WizardStepIndicator } from "@/components/character-creation/WizardStepIndicator";
 import { CharacterPreview } from "@/components/character-creation/CharacterPreview";
+import { CreationModeStep } from "@/components/character-creation/CreationModeStep";
 import { TribeStep } from "@/components/character-creation/TribeStep";
 import { ClassStep } from "@/components/character-creation/ClassStep";
 import { AttributeStep } from "@/components/character-creation/AttributeStep";
 import { IdentityStep } from "@/components/character-creation/IdentityStep";
 import { ReviewStep } from "@/components/character-creation/ReviewStep";
-import { isStepValid } from "@/lib/wizard-utils";
 
 export default function NewCharacterPage() {
   const router = useRouter();
@@ -45,6 +49,14 @@ export default function NewCharacterPage() {
     saveCharacter(character);
     router.push(`/character/${character.id}`);
   }, [canCreate, state, router]);
+
+  const handleNext = useCallback(() => {
+    if (state.currentStep === 0 && state.creationMode === "random") {
+      dispatch({ type: "RANDOMIZE_ALL", state: generateRandomWizardState() });
+    } else {
+      goNext();
+    }
+  }, [state.currentStep, state.creationMode, dispatch, goNext]);
 
   const handleStepClick = useCallback(
     (step: number) => {
@@ -110,11 +122,20 @@ export default function NewCharacterPage() {
           />
         </div>
 
-        {state.currentStep !== 4 && (
+        {state.currentStep > 0 && state.currentStep !== 5 && (
           <CharacterPreview state={state} preview={preview} />
         )}
 
         {state.currentStep === 0 && (
+          <CreationModeStep
+            selected={state.creationMode}
+            onSelect={(mode) =>
+              dispatch({ type: "SET_CREATION_MODE", mode })
+            }
+          />
+        )}
+
+        {state.currentStep === 1 && (
           <TribeStep
             state={state}
             onSelectTribe={(tribeId, bonus) =>
@@ -126,7 +147,7 @@ export default function NewCharacterPage() {
           />
         )}
 
-        {state.currentStep === 1 && (
+        {state.currentStep === 2 && (
           <ClassStep
             state={state}
             onSelectClass={(classId) =>
@@ -144,7 +165,7 @@ export default function NewCharacterPage() {
           />
         )}
 
-        {state.currentStep === 2 && (
+        {state.currentStep === 3 && (
           <AttributeStep
             state={state}
             preview={preview}
@@ -153,7 +174,7 @@ export default function NewCharacterPage() {
           />
         )}
 
-        {state.currentStep === 3 && (
+        {state.currentStep === 4 && (
           <IdentityStep
             state={state}
             onSetName={(name) => dispatch({ type: "SET_NAME", name })}
@@ -163,7 +184,7 @@ export default function NewCharacterPage() {
           />
         )}
 
-        {state.currentStep === 4 && (
+        {state.currentStep === 5 && (
           <ReviewStep state={state} preview={preview} />
         )}
       </div>
@@ -194,7 +215,7 @@ export default function NewCharacterPage() {
           ) : (
             <button
               type="button"
-              onClick={goNext}
+              onClick={handleNext}
               disabled={!canGoNext}
               className="px-6 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
             >

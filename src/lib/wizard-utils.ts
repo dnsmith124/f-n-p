@@ -1,4 +1,5 @@
 import type { Character, AttributeKey, MagicSchool } from "./types/character";
+import type { ClassData, TribeData } from "./types/game-data";
 import {
   createDefaultCharacter,
   applyTribeStats,
@@ -10,12 +11,19 @@ import {
   findTribe,
 } from "./utils";
 import {
+  getAbilitiesAtLevel,
   findProgressionEntryByAbility,
   applyProgressionAbility,
 } from "./class-progression";
+import { ATTRIBUTE_KEYS, ATTRIBUTE_MAX, MAGIC_SCHOOLS } from "./constants";
+import tribesData from "../../data/tribes.json";
+import classesData from "../../data/classes.json";
+import zodiacData from "../../data/zodiac.json";
+import tribeNamesData from "../../data/tribe-names.json";
 
 export interface WizardState {
   currentStep: number;
+  creationMode: "scratch" | "random" | null;
   tribeId: string;
   startingBonus: { name: string; description: string } | null;
   classId: string;
@@ -30,6 +38,7 @@ export interface WizardState {
 
 export const INITIAL_WIZARD_STATE: WizardState = {
   currentStep: 0,
+  creationMode: null,
   tribeId: "",
   startingBonus: null,
   classId: "",
@@ -43,6 +52,7 @@ export const INITIAL_WIZARD_STATE: WizardState = {
 };
 
 export const WIZARD_STEPS = [
+  { label: "Creation Mode", shortLabel: "Mode" },
   { label: "Tribe", shortLabel: "Tribe" },
   { label: "Class", shortLabel: "Class" },
   { label: "Attributes", shortLabel: "Attrs" },
@@ -53,23 +63,25 @@ export const WIZARD_STEPS = [
 export function isStepValid(state: WizardState, step: number): boolean {
   switch (step) {
     case 0:
-      return state.tribeId !== "";
+      return state.creationMode !== null;
     case 1:
+      return state.tribeId !== "";
+    case 2:
       if (state.classId === "") return false;
       if (state.classId === "mage" && !state.magicSchool) return false;
       if (state.classId === "fighter" && !state.fighterFavoredTraining)
         return false;
       if (!state.selectedClassAbility) return false;
       return true;
-    case 2:
+    case 3:
       return (
         state.attrPlus !== null &&
         state.attrMinus !== null &&
         state.attrPlus !== state.attrMinus
       );
-    case 3:
-      return state.characterName.trim() !== "";
     case 4:
+      return state.characterName.trim() !== "";
+    case 5:
       return true;
     default:
       return false;
@@ -233,6 +245,71 @@ function applyStartingLanguages(
   }
 
   return { ...character, languages: [...langs] };
+}
+
+function pickRandom<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+const isSelectableBonus = (b: { name: string }) =>
+  !b.name.match(/^\d+['']\s*\d+/) && b.name !== "ADVANCEMENT BONUSES";
+
+export function generateRandomWizardState(): WizardState {
+  const tribes = tribesData as TribeData[];
+  const tribe = pickRandom(tribes);
+
+  const selectableBonuses = tribe.startingBonuses.filter(isSelectableBonus);
+  const bonus = selectableBonuses.length > 0 ? pickRandom(selectableBonuses) : null;
+
+  const baseClasses = (classesData as ClassData[]).filter((c) => c.type === "base");
+  const cls = pickRandom(baseClasses);
+
+  let magicSchool: MagicSchool | null = null;
+  let fighterFavoredTraining = "";
+
+  if (cls.id === "mage") {
+    magicSchool = pickRandom(MAGIC_SCHOOLS);
+  } else if (cls.id === "fighter") {
+    const weaponTrainings = cls.startingTrainings.filter(
+      (t) => !["Light Armor", "Medium Armor", "Shield"].includes(t)
+    );
+    fighterFavoredTraining = pickRandom(weaponTrainings);
+  }
+
+  const lvl1Abilities = getAbilitiesAtLevel(cls.id, 1);
+  const selectedClassAbility = lvl1Abilities.length > 0
+    ? pickRandom(lvl1Abilities).ability
+    : "";
+
+  const tribeAttrs = tribe.attributeBonuses as Partial<Record<AttributeKey, number>>;
+  const eligiblePlus = ATTRIBUTE_KEYS.filter(
+    (k) => (tribeAttrs[k] ?? 0) + 1 <= ATTRIBUTE_MAX
+  );
+  const attrPlus = pickRandom(eligiblePlus);
+  const eligibleMinus = ATTRIBUTE_KEYS.filter((k) => k !== attrPlus);
+  const attrMinus = pickRandom(eligibleMinus);
+
+  const zodiac = pickRandom(zodiacData as { id: string }[]);
+
+  const namePool =
+    (tribeNamesData as Record<string, string[]>)[tribe.id] ??
+    Object.values(tribeNamesData as Record<string, string[]>).flat();
+  const characterName = pickRandom(namePool);
+
+  return {
+    currentStep: 5,
+    creationMode: "random",
+    tribeId: tribe.id,
+    startingBonus: bonus ? { name: bonus.name, description: bonus.description } : null,
+    classId: cls.id,
+    selectedClassAbility,
+    magicSchool,
+    fighterFavoredTraining,
+    attrPlus,
+    attrMinus,
+    zodiacId: zodiac.id,
+    characterName,
+  };
 }
 
 export function computePreviewCharacter(state: WizardState): Character {
