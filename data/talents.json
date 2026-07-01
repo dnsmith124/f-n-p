@@ -57,7 +57,7 @@
     "id": "medic",
     "name": "Medic",
     "requirements": { "vit": 2, "srv": 2 },
-    "description": "Can determine nature of injuries, cause of death, identify diseases, and parse approximate HP of enemies. Can use 1 Stamina to heal 1D6 HP to self/ally within melee range."
+    "description": "Can determine the nature of injuries, cause of death, identify diseases, and parse the approximate HP remaining of enemies in combat (DM tells player if target is above or below ½ HP) Can use 1 Stamina to heal 1D6 HP to self / an ally within melee range, reduce the healing time of a fracture when using a brace by 1D4 intervals, cure hemorrhages with a tailor’s kit, redo a coin flip once made when using unclean items to heal hemorrhages, and can make all the party’s unclean bandages clean as a camp action"
   },
   {
     "id": "pilferer",

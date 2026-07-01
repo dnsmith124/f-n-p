@@ -876,9 +876,9 @@
       },
       {
         "level": 10,
-        "ability": "SKILL NAME",
-        "description": "",
-        "type": "type",
+        "ability": "Titan Slayer",
+        "description": "Strike a target with your equipped weapon. If the target is a large or giant-class enemy this strike deals an additional 1D6+5 direct DMG. If you have mounted the target deal 1D10+5 direct DMG instead.",
+        "type": "ability",
         "path": "Path of the Slayer"
       },
       {
@@ -890,9 +890,9 @@
       },
       {
         "level": 10,
-        "ability": "SKILL NAME",
-        "description": "",
-        "type": "type",
+        "ability": "Defensive Instruction",
+        "description": "Grant an allied unit level 1 resistance to any DMG type of your choice. This can be performed as an instant action. Effect ends if you wish to choose to buff a different unit or until the end of a battle.",
+        "type": "ability",
         "path": "Path of the Defender"
       }
     ]
@@ -1518,7 +1518,7 @@
         "ability": "SKILL NAME",
         "description": "",
         "type": "type",
-        "path": "Path of the Seige Breaker"
+        "path": "Path of the Siege Breaker"
       },
       {
         "level": 6,
@@ -1539,7 +1539,7 @@
         "ability": "SKILL NAME",
         "description": "",
         "type": "type",
-        "path": "Path of the Seige Breaker"
+        "path": "Path of the Siege Breaker"
       },
       {
         "level": 7,
@@ -1560,7 +1560,7 @@
         "ability": "SKILL NAME",
         "description": "",
         "type": "type",
-        "path": "Path of the Seige Breaker"
+        "path": "Path of the Siege Breaker"
       },
       {
         "level": 8,
@@ -1581,7 +1581,7 @@
         "ability": "SKILL NAME",
         "description": "",
         "type": "type",
-        "path": "Path of the Seige Breaker"
+        "path": "Path of the Siege Breaker"
       },
       {
         "level": 9,
@@ -1602,7 +1602,7 @@
         "ability": "SKILL NAME",
         "description": "",
         "type": "type",
-        "path": "Path of the Seige Breaker"
+        "path": "Path of the Siege Breaker"
       },
       {
         "level": 10,
@@ -2029,7 +2029,7 @@
       {
         "level": 6,
         "ability": "Elemental Charge I",
-        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This decision is permanent and is selected upon taking this skill. (Element: ______________)",
         "type": "spell [8]",
         "path": "Path of the Offensive Charge"
       },
@@ -2050,7 +2050,7 @@
       {
         "level": 7,
         "ability": "Elemental Charge II",
-        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This decision is permanent and is selected upon taking this skill. (Element: ______________)",
         "type": "spell [8]",
         "path": "Path of the Offensive Charge"
       },
@@ -2071,7 +2071,7 @@
       {
         "level": 8,
         "ability": "Elemental Charge III",
-        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This decision is permanent and is selected upon taking this skill. (Element: ______________)",
         "type": "spell [8]",
         "path": "Path of the Offensive Charge"
       },
@@ -2092,7 +2092,7 @@
       {
         "level": 9,
         "ability": "Elemental Charge IV",
-        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This decision is permanent and is selected upon taking this skill. (Element: ______________)",
         "type": "spell [8]",
         "path": "Path of the Offensive Charge"
       },
@@ -2113,7 +2113,7 @@
       {
         "level": 10,
         "ability": "Elemental Charge V",
-        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This desicion is permenant and is celected upon taking this skill. (Element: ______________)",
+        "description": "Wreathe your equipped weapon / an ally's equipped weapon within 3 tiles in a charge of energy that adds 1D4 DMG for 1+INT rounds. The DMG type can be the fire, ice, water, electric, wind, or toxic element; This decision is permanent and is selected upon taking this skill. (Element: ______________)",
         "type": "spell [8]",
         "path": "Path of the Offensive Charge"
       },
@@ -2435,7 +2435,7 @@
       {
         "level": 7,
         "ability": "Elemental Arrows",
-        "description": "Gain +1 to your energy arrow quiver's maximum capacity. Permenantly change your energy arrow's DMG type from pierce to fire, water, electric, toxic, or wind.",
+        "description": "Gain +1 to your energy arrow quiver's maximum capacity. Permanently change your energy arrow's DMG type from pierce to fire, water, electric, toxic, or wind.",
         "type": "passive",
         "path": "Path of the Marksmage"
       },

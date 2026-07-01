@@ -268,7 +268,7 @@
   },
   {
     "id": "solar-elf",
-    "name": "Solar Elf",
+    "name": "Solar elf",
     "description": "After thousands of generations of adaptation, experimentation and environmental changes the ancient race known as the elves splintered off into multiple subspecies that grew into their own separate and powerful nations. Elves as a species are extremely magic-sensitive, their physical forms absorb and embody the raw elemental energies of the universe in ways that other Mortal Races do not seem to. Solar elves were born from elemental fire, viewing Pyromancy and flame as the energy of creation; Some clans going so far as to call it divine. They survived the Ruination though sheer force of will and have explored the farthest south into the volcanic mountains of Inuva which they now call home.",
     "physicalDescription": "Extremely tall and slender with skin colors ranging from hot pink to blood red. Their hair and facial hair typically grow upwards and in tendril-like clumps, although these are combed out or tied together when one wishes to appear formal or refined. They sport the pointed ears and longer limbs that their elven ancestry entails but unlike them, the Solar Elves have thicker hair and brows and eyes that glow like fire that appear in every shade of yellow and red.",
     "attributeBonuses": {
@@ -564,7 +564,7 @@
       },
       {
         "name": "ELEMENTAL BOND",
-        "description": "Select any non-physical DMG type; grant +1D4 DMG (weapon) / Lv.1 resistance (armor)"
+        "description": "Select any non-physical DMG type; grant +1D4 DMG (weapon) / Lv.2 resistance (armor)"
       },
       {
         "name": "PUPPETEER'S AMBUSH",
